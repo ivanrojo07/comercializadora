@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBeneficiariosTable extends Migration
+class CreateDireccionFisicaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateBeneficiariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('beneficiarios', function (Blueprint $table) {
+        Schema::create('direccion_fisica', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('personal_id')->unsigned();
             $table->foreign('personal_id')->references('id')->on('personals');
-            $table->string('nombreben');
-            $table->string('apepatben');
-            $table->string('apematben');
-            $table->integer('edadben');
-            $table->string('parentescoben');
-            $table->string('telefonoben');
+            $table->string('calle');
+            $table->string('numext');
+            $table->string('numint');
+            $table->string('colonia');
+            $table->string('municipio');
+            $table->string('ciudad');
+            $table->string('estado');
+            $table->string('referencia');
+            $table->string('calle1');
+            $table->string('calle2');
             $table->timestamps();
         });
     }
@@ -34,6 +38,6 @@ class CreateBeneficiariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beneficiarios');
+        Schema::dropIfExists('direccion_fisica');
     }
 }

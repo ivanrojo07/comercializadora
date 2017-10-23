@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVentafrioTable extends Migration
+class CreateGiroTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateVentafrioTable extends Migration
      */
     public function up()
     {
-        Schema::create('ventafrio', function (Blueprint $table) {
+        Schema::create('giro', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('prospecto_id')->unsigned();
-            $table->foreign('prospecto_id')->references('id')->on('prospectos');
-            $table->string('ventafrio');
-            $table->string('seguimiento');
+            $table->string('nombre');
+            $table->string('etiqueta')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateVentafrioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ventafrio');
+        Schema::dropIfExists('giro');
     }
 }

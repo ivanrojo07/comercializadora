@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRefpersonalTable extends Migration
+class CreateContactoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,24 @@ class CreateRefpersonalTable extends Migration
      */
     public function up()
     {
-        Schema::create('refpersonal', function (Blueprint $table) {
+        Schema::create('contacto', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('personal_id')->unsigned();
             $table->foreign('personal_id')->references('id')->on('personals');
             $table->string('nombre');
-            $table->string('apepat');
-            $table->string('apemat');
+            $table->string('apater');
+            $table->string('amater');
+            $table->string('area');
+            $table->string('puesto');
             $table->string('telefono1');
+            $table->string('ext1')->nullable();
             $table->string('telefono2')->nullable();
-            $table->string('telefono3')->nullable();
-            $table->string('parentesco');
+            $table->string('ext2')->nullable();
+            $table->string('telefonodir');
+            $table->string('celular1');
+            $table->string('celular2')->nullable();
+            $table->string('email1');
+            $table->string('email2')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +42,6 @@ class CreateRefpersonalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('refpersonal');
+        Schema::dropIfExists('contacto');
     }
 }

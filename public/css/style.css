@@ -8,6 +8,15 @@
 	-ms-background-size:cover;*/
 	min-height: 170px;
 }
+.navbar>.container .navbar-brand{
+    margin-top: 60px;
+    margin-left: -120px;
+    width: 100px;
+    height: 70px;
+}
+.navbar-nav>li>a{
+	padding: 15px;
+}
 .navbar-default .navbar-collapse, .navbar-default .navbar-form{
 	padding-top: 120px;
 	padding-right: 20px;

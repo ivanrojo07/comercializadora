@@ -1,4 +1,4 @@
-.navbar.navbar-default{
+.navbar.navbar-default, .navbar.navbar-default.navbar-static-top{
 	background: url('../images/header.jpg') no-repeat 0px 0px;
 	background-size: 100% 100%;
 	/*background-size: 170px, 50px;
@@ -10,7 +10,7 @@
 }
 .navbar>.container .navbar-brand{
     margin-top: 60px;
-    margin-left: -120px;
+    margin-left: -80px;
     width: 100px;
     height: 70px;
 }
@@ -23,4 +23,14 @@
 }
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-text{
 	color: #ffffff;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    margin-top: 0;
+    right: 0;
+    left: auto;
 }

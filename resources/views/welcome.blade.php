@@ -25,17 +25,6 @@
      <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-<style>
-.dropdown-submenu {
-    position: relative;
-}
-
-.dropdown-submenu .dropdown-menu {
-    margin-top: 0;
-    right: 0;
-    left: auto;
-}
-</style>
     </head>
     <body>
 
@@ -52,7 +41,7 @@
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
                         {{-- <img src="{{ asset('img/logo.jpeg') }}" height="32" width="70"> --}}
-                        {{-- {{ config('app.name', 'Arbys') }} --}}
+                        {{-- {{ config('app.name', 'Laravel') }} --}}
                     </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

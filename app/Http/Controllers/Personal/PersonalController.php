@@ -16,6 +16,8 @@ class PersonalController extends Controller
     public function index()
     {
         //
+        $personals = Personal::sortable()->paginate(10);
+        return view('clientes.index', ['personals'=>$personals]);
     }
 
     /**
@@ -26,6 +28,7 @@ class PersonalController extends Controller
     public function create()
     {
         //
+        return view('clientes.create');
     }
 
     /**

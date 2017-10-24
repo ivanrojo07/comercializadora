@@ -6,7 +6,7 @@ use App\Personal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PersonalController extends Controller
+class PersonalDireccionFisicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,6 @@ class PersonalController extends Controller
     public function index()
     {
         //
-        $personals = Personal::sortable()->paginate(10);
-        return view('clientes.index', ['personals'=>$personals]);
     }
 
     /**
@@ -25,10 +23,10 @@ class PersonalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Personal $cliente)
     {
         //
-        return view('clientes.create');
+        return view('direccion.create',['personal'=>$cliente]);
     }
 
     /**
@@ -40,8 +38,6 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         //
-        Personal::create($request->all());
-        return redirect('clientes');
     }
 
     /**
@@ -50,9 +46,9 @@ class PersonalController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Personal $cliente)
+    public function show(Personal $personal)
     {
-        return view('clientes.view',['personal'=>$cliente]);
+        //
     }
 
     /**

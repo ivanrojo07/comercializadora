@@ -14,4 +14,8 @@ class DireccionFisica extends Model
     protected $table='direccion_fisica';
     protected $fillable=['id','personal_id','calle','numext','numint', 'colonia','municipio','ciudad','estado', 'referencia', 'calle1', 'calle2'];
     protected $hidden=[ 'created_at', 'updated_at'];
+
+    public function clientes(){
+    	return $this->belongsTo(Personal::class, 'personal_id');
+    }
 }

@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('/clientes','Personal\PersonalController');
+Route::resource('clientes','Personal\PersonalController');
+Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');

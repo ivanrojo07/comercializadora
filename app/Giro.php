@@ -9,7 +9,7 @@ use Laravel\Scout\Searchable;
 class Giro extends Model
 {
     //
-    use Searchable, Sortable;
+    use Sortable;
     protected $table = 'giro';
     protected $fillable=['id','nombre','etiqueta'];
     protected $hidden=[ 'created_at', 'updated_at'];

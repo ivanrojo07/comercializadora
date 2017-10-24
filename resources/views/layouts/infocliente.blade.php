@@ -52,3 +52,4 @@
 						</div>
 					</div>
 				@yield('cliente')
+			@endsection

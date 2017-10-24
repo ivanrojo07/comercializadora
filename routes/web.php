@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
+Route::resource('clientes.contacto','Personal\PersonalContactoController');
+Route::resource('cliente.datosgenerales','Personal\PersonalDatosGeneralesController');

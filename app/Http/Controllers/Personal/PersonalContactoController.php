@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers\Personal;
 
-use App\DireccionFisica;
+use App\Contacto;
 use App\Http\Controllers\Controller;
 use App\Personal;
 use Illuminate\Http\Request;
 
-class PersonalDireccionFisicaController extends Controller
+class PersonalContactoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Personal $cliente)
     {
         //
+        $contactos = $cliente->contactos;
+        // dd($contactos);
+        return view('contacto.index', ['personal'=>$cliente, 'contactos'=>$contactos]);
+
     }
 
     /**
@@ -27,7 +31,7 @@ class PersonalDireccionFisicaController extends Controller
     public function create(Personal $cliente)
     {
         //
-        return view('direccion.create',['personal'=>$cliente]);
+        return view('contacto.create',['personal'=>$cliente]);
     }
 
     /**
@@ -39,10 +43,9 @@ class PersonalDireccionFisicaController extends Controller
     public function store(Request $request, Personal $cliente)
     {
         //
-        // dd($request->all());
-        $direccion = DireccionFisica::create($request->all());
-        return view('direccion.show',['direccion'=>$direccion,'personal'=>$cliente]);
+        $contacto = Contacto::create($request->all());
 
+        return redirect()->route('clientes.contacto.index', ['personal'=>$cliente]);
     }
 
     /**
@@ -51,12 +54,9 @@ class PersonalDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Personal $cliente)
+    public function show(Personal $personal)
     {
         //
-        $direccion = $cliente->direccionFisica;
-        return view('direccion.show',['direccion'=>$direccion,'personal'=>$cliente]);
-
     }
 
     /**

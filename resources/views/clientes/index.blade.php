@@ -13,10 +13,6 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-lg-6">
-			<a class="btn btn-success" href="/clientes"><i class="fa fa-user" aria-hidden="true"></i> Clientes</a>
-			<a class="btn btn-success" href="/prospectos"><i class="fa fa-user" aria-hidden="true"></i> Prospectos</a>
-		</div>
 	</div>
 	<div class="jumbotron">
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
@@ -44,8 +40,8 @@
 					<td>{{ strtoupper($personal->rfc) }}</td>
 					<td>{{$personal->mail}}</td>
 					<td>
-						<a class="btn btn-success btn-sm" href="{{ route('personals.show',$personal) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
-						<a class="btn btn-info btn-sm" href="{{ route('personals.edit', $personal) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+						<a class="btn btn-success btn-sm" href="#"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+						<a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 				</tr>
 					</td>
 				</tbody>

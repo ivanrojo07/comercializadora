@@ -86,7 +86,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/personals/create')}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+                                <a href="{{ url('/clientes/create')}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
                                 <a href="{{ url('/personals') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                                 <a href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Seguimiento</a>    
                             </li>                     

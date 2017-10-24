@@ -72,8 +72,8 @@
 			    					<input type="text" class="form-control" id="numext" name="numext">
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="numint">Numero interior:</label>
-			    					<input type="text" class="form-control" id="numint" name="numint">
+			    					<label class="control-label" for="numinter">Numero interior:</label>
+			    					<input type="text" class="form-control" id="numinter" name="numinter">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="cp">Código postal:</label>

@@ -9,7 +9,7 @@ use Laravel\Scout\Searchable;
 class Personal extends Model
 {
     //
-    use Searchable, Sortable;
+    use Sortable;
 
     protected $table='personals';
     protected $fillable=['id','tipopersona','nombre','apellidopaterno','apellidomaterno', 'razonsocial','alias','rfc','vendedor', 'calle', 'numext', 'numinter','cp','colonia','municipio','ciudad','estado', 'calle1','calle2','referencia'];

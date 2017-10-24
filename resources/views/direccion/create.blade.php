@@ -59,11 +59,11 @@
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
 					<div class="panel-default">
-					<form role="form" id="form-cliente" method="POST" action="{{-- {{ route('clientes.direccionfisica.store') }} --}}" name="form">
+					<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{-- {{ route('clientes.direccionfisica.store') }} --}}" name="form">
 					{{ csrf_field() }}
 					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
 					<div class="form-group pull-right clearfix">
-						<button type="button" class="btn btn-primary">Usar datos dirección fiscal</button>
+						<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>
 					</div>
 						<div class="panel-heading">Dirección Fisica:</div>
 						<div class="panel-body">
@@ -119,4 +119,18 @@
   				</div>
 			</form>
 		</div>
+		<script type="text/javascript">
+			function datosFiscal(){
+				document.domicilio.calle.defaultValue = "{{$personal->calle}}";
+				document.domicilio.numext.defaultValue = "{{$personal->numext}}"; 
+				document.domicilio.numint.defaultValue = "{{$personal->numinter}}"; 
+				document.domicilio.colonia.defaultValue = "{{$personal->colonia}}"; 
+				document.domicilio.municipio.defaultValue = "{{$personal->municipio}}"; 
+				document.domicilio.ciudad.defaultValue = "{{$personal->ciudad}}"; 
+				document.domicilio.estado.defaultValue = "{{$personal->estado}}"; 
+				document.domicilio.calle1.defaultValue = "{{$personal->calle1}}"; 
+				document.domicilio.calle2.defaultValue = "{{$personal->calle2}}"; 
+				document.domicilio.referencia.defaultValue = "{{$personal->referencia}}"; 
+			}
+		</script>
 	@endsection

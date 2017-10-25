@@ -1,7 +1,6 @@
 @extends('layouts.infocliente')
 	@section('cliente')
-		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
 						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
 						<li class="active"><a href="#tab2">Dirección Fisica:</a></li>

@@ -39,7 +39,5 @@
 							@endif
 							<a type="button" class="btn btn-sm btn-success" href="{{ route('clientes.contacto.create',['cliente'=>$personal]) }}">Agregar</a>
       	</div>
-		
-	</div>
-					</div>
+
 		@endsection

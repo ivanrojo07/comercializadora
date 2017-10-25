@@ -54,7 +54,7 @@ class GiroController extends Controller
     public function show(Giro $giro)
     {
         //
-        return view('giro.view');
+        // return view('giro.index');
     }
 
     /**
@@ -93,5 +93,10 @@ class GiroController extends Controller
     public function destroy(Giro $giro)
     {
         //
+        // var_dump($giro);
+        // $giro = Giro::findoorFail($giro);
+        // Giro::destroy($giro);
+        $giro->delete();
+        return  redirect('giros');
     }
 }

@@ -16,6 +16,11 @@
 			<a class="btn btn-success" href="#">Nuevo Giro</a>
 		</div>
 	</div>
+	@if (count($giros) == 0)
+		{{-- true expr --}}
+		<label>No hay giros añadidos</label>
+	@else
+		{{-- false expr --}}
 	<div class="jumbotron">
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
@@ -36,7 +41,11 @@
 					<td>
 						<a class="btn btn-success btn-sm" href="#"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
 						<a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
-						<a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Borrar</a>
+						<form role="form" method="POST" action="{{ route('giros.destroy',['giro'=>$giro]) }}">
+							{{ csrf_field() }}
+							<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="btn btn-info btn-sm" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Borrar</button>
+						</form>
 				</tr>
 					</td>
 				</tbody>
@@ -44,5 +53,6 @@
 		</table>
 	</div>
 	{{ $giros->links()}}
+	@endif
 </div>
 @endsection

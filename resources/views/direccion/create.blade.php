@@ -10,10 +10,25 @@
 			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.direccionfisica.store', ['cliente'=>$personal]) }}" name="form">
 			{{ csrf_field() }}
 			 <input type="hidden" name="personal_id" value="{{$personal->id}}">
-			<div class="form-group pull-right clearfix">
+			 <div class="panel-default">
+
+
+
+
+						{{--<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>--}}
+
+					{{-- </div> --}}
+			{{-- <div class="form-group pull-right clearfix">
 				<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>
-			</div>
+			</div> --}}
 				<div class="panel-heading">Dirección Fisica:</div>
+						<div class="boton checkbox-disabled">
+							<label>
+
+								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
+								¿Usar datos de dirección fiscal?.
+							</label>
+						</div>
 				<div class="panel-body">
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -69,16 +84,30 @@
 </div>
 <script type="text/javascript">
 	function datosFiscal(){
-		document.domicilio.calle.defaultValue = "{{$personal->calle}}";
-		document.domicilio.numext.defaultValue = "{{$personal->numext}}"; 
-		document.domicilio.numint.defaultValue = "{{$personal->numinter}}"; 
-		document.domicilio.colonia.defaultValue = "{{$personal->colonia}}"; 
-		document.domicilio.municipio.defaultValue = "{{$personal->municipio}}"; 
-		document.domicilio.ciudad.defaultValue = "{{$personal->ciudad}}"; 
-		document.domicilio.estado.defaultValue = "{{$personal->estado}}"; 
-		document.domicilio.calle1.defaultValue = "{{$personal->calle1}}"; 
-		document.domicilio.calle2.defaultValue = "{{$personal->calle2}}"; 
-		document.domicilio.referencia.defaultValue = "{{$personal->referencia}}"; 
-	}
+                if($('#boton-toggle').prop('checked') == true){
+                	document.domicilio.calle.defaultValue = "{{$personal->calle}}";
+               		document.domicilio.numext.defaultValue = "{{$personal->numext}}";
+                	document.domicilio.numint.defaultValue = "{{$personal->numinter}}";
+                	document.domicilio.colonia.defaultValue = "{{$personal->colonia}}";
+                	document.domicilio.municipio.defaultValue = "{{$personal->municipio}}";
+                	document.domicilio.ciudad.defaultValue = "{{$personal->ciudad}}";
+                	document.domicilio.estado.defaultValue = "{{$personal->estado}}";
+                	document.domicilio.calle1.defaultValue = "{{$personal->calle1}}";
+                	document.domicilio.calle2.defaultValue = "{{$personal->calle2}}";
+                	document.domicilio.referencia.defaultValue = "{{$personal->referencia}}";
+				}
+				else if($('#boton-toggle').prop('checked') == false){
+                    document.domicilio.calle.defaultValue = "";
+                    document.domicilio.numext.defaultValue = "";
+                    document.domicilio.numint.defaultValue = "";
+                    document.domicilio.colonia.defaultValue = "";
+                    document.domicilio.municipio.defaultValue = "";
+                    document.domicilio.ciudad.defaultValue = "";
+                    document.domicilio.estado.defaultValue = "";
+                    document.domicilio.calle1.defaultValue = "";
+                    document.domicilio.calle2.defaultValue = "";
+                    document.domicilio.referencia.defaultValue = "";
+				}
+            }
 </script>
 @endsection

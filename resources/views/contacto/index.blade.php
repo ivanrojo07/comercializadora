@@ -7,11 +7,17 @@
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.datosgenerales.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
 					<div class="panel-default">
-							<h2><span class="label label-default">Datos Contactos:</span></h2>
+							<div class="panel-heading">
+								Contactos:
+							</div>
+							<div class="panel-body">
+								
 							@if (count($contactos) == 0)
-								<p>Aún no tienes contactos</p>
+								<h3>Aún no tienes contactos</h3>
 							@endif
 							@if (count($contactos) !=0)
+							<div class="panel-body">
+								
 							<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 									<thead>
 										<tr class="info">
@@ -36,10 +42,8 @@
 										</tbody>
 									@endforeach
 								</table>
+							</div>
 							@endif
 							<a type="button" class="btn btn-sm btn-success" href="{{ route('clientes.contacto.create',['cliente'=>$personal]) }}">Agregar</a>
-      	</div>
-		
-	</div>
-					</div>
+						</div>
 		@endsection

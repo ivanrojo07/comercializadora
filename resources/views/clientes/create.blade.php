@@ -112,9 +112,9 @@
 			  						<input type="text" class="form-control" id="referencia" name="referencia">
 			  					</div>
 							</div>
+	  				<button type="submit" class="btn btn-default">Guardar</button>
 						</div>
 					</div>
-	  				<button type="submit" class="btn btn-default">Guardar</button>
   				</div>
 			</form>
 		</div>

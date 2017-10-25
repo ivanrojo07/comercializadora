@@ -56,6 +56,7 @@
 			  						<dd>{{$direccion->referencia}}</dd>
 			  					</div>
 							</div>
+						<a class="btn btn-info" href="{{ route('clientes.direccionfisica.edit',['cliente'=>$personal, 'direccionfisica'=>$direccion]) }}">Editar</a>
 						</div>
 					</div>
   				</div>

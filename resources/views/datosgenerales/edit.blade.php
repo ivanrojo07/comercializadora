@@ -7,11 +7,11 @@
 		<li class="active"><a href="{{ route('clientes.datosgenerales.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 	</ul>
 	<div class="panel-default">
+	 	<div class="panel-heading">Datos Generales:</div>
 		<form role="form" id="form-cliente" method="POST" action="{{ route('clientes.datosgenerales.update',['cliente'=>$personal, 'datosgenerale'=>$datos]) }}" name="form">
 	{{ csrf_field() }}
 	<input type="hidden" name="_method" value="PUT">
 	 <input type="hidden" name="personal_id" value="{{$personal->id}}">
-	 	<div class="panel-heading">Datos Generales:</div>
 	 	<div class="panel-body">
 	 		<div class="col-md-12 offset-md-2 mt-3">
 	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

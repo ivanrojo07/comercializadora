@@ -111,6 +111,7 @@
 			  						<dd>{{ $personal->referencia }}</dd>
 			  					</div>
 							</div>
+							<a class="btn btn-info" href="{{ route('clientes.edit',['cliente'=>$personal]) }}">Editar</a>
 						</div>
 					</div>
   				</div>

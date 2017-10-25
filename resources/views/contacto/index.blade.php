@@ -35,8 +35,8 @@
 											<td>{{$contacto->area}}</td>
 											<td>{{$contacto->telefonodir}}</td>
 											<td>
-												<a class="btn btn-success btn-sm" href="">Ver</a>
-												<a class="btn btn-info btn-sm" href="">Editar</a>
+												<a class="btn btn-success btn-sm" href="{{ route('clientes.contacto.show',['cliente'=>$personal,'contacto'=>$contacto]) }}">Ver</a>
+												<a class="btn btn-info btn-sm" href="{{ route('clientes.contacto.edit',['cliente'=>$personal,'contacto'=>$contacto]) }}">Editar</a>
 										</tr>
 											</td>
 										</tbody>

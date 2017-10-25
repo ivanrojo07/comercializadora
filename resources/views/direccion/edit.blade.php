@@ -7,14 +7,18 @@
 		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.datosgenerales.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 	</ul>
 	<div class="panel-default">
+					<div class="panel-heading">Dirección Fisica:</div>
 		<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.direccionfisica.update',['cliente'=>$personal, 'direccion'=>$direccion]) }}" name="form">
 					{{ csrf_field() }}
 					<input type="hidden" name="_method" value="PUT">
 					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
-					<div class="form-group pull-right clearfix">
-						<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>
-					</div>
-						<div class="panel-heading">Dirección Fisica:</div>
+						<div class="boton checkbox-disabled">
+							<label>
+
+								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
+								¿Usar datos de dirección fiscal?.
+							</label>
+						</div>
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -68,6 +72,7 @@
   				</div>
 			</form>
 		</div>
+	</div>
 		<script type="text/javascript">
 			function datosFiscal(){
 				document.domicilio.calle.defaultValue = "{{$personal->calle}}";

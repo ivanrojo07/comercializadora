@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="panel-body">
 		<div class="col-lg-6">
-			<form action="/personal">
+			<form action="#">
 				<div class="input-group">
 					<input type="text" name="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">
@@ -12,41 +12,47 @@
 				</div>
 			</form>
 		</div>
+		<div class="col-lg-6">
+			<a class="btn btn-success" href="#">Nuevo Giro</a>
+		</div>
 	</div>
+	@if (count($giros) == 0)
+		{{-- true expr --}}
+		<label>No hay giros añadidos</label>
+	@else
+		{{-- false expr --}}
 	<div class="jumbotron">
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
-					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
-					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
-					<th>@sortablelink('alias', 'Alias')</th>
-					<th>@sortablelink('rfc', 'RFC')</th>
-					<th>@sortablelink('vendedor', 'Vendedor') </th>
+					<th>@sortablelink('id', '#'){{-- Nombre --}}</th>
+					<th>@sortablelink('nombre', 'Nombre')</th>
+					<th>@sortablelink('etiqueta', 'Etiqueta')</th>
 					<th>Operacion</th>
 				</tr>
 			</thead>
-			@foreach($personals as $personal)
+			@foreach($giros as $giro)
 				<tr class="active">
 					<td>
-						@if ($personal->tipopersona == "Fisica")
-						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
-						@else
-						{{$personal->razonsocial}}
-						@endif
+						{{ $giro->id }}
 					</td>
-					<td>{{ $personal->tipopersona }}</td>
-					<td>{{ $personal->alias }}</td>
-					<td>{{ strtoupper($personal->rfc) }}</td>
-					<td>{{$personal->vendedor}}</td>
+					<td>{{ $giro->nombre }}</td>
+					<td>{{ $giro->etiqueta }}</td>
 					<td>
 						<a class="btn btn-success btn-sm" href="#"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
 						<a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+						<form role="form" method="POST" action="{{ route('giros.destroy',['giro'=>$giro]) }}">
+							{{ csrf_field() }}
+							<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="btn btn-info btn-sm" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Borrar</button>
+						</form>
 				</tr>
 					</td>
 				</tbody>
 			@endforeach
 		</table>
 	</div>
-	{{ $personals->links()}}
+	{{ $giros->links()}}
+	@endif
 </div>
 @endsection

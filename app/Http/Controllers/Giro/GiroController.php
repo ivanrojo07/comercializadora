@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Personal;
+namespace App\Http\Controllers\Giro;
 
-use App\Personal;
+use App\Giro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PersonalController extends Controller
+class GiroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class PersonalController extends Controller
     public function index()
     {
         //
-        $personals = Personal::sortable()->paginate(10);
-        return view('clientes.index', ['personals'=>$personals]);
+        $giros = Giro::sortable()->paginate(10);
+        return view('giro.index',['giros'=>$giros]);
     }
 
     /**
@@ -28,7 +28,7 @@ class PersonalController extends Controller
     public function create()
     {
         //
-        return view('clientes.create');
+        return view('giro.create');
     }
 
     /**
@@ -40,55 +40,63 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         //
-        Personal::create($request->all());
-        return redirect('clientes');
+
+        Giro::create($request->all());
+        return redirect('giros');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Personal  $personal
+     * @param  \App\Giro  $giro
      * @return \Illuminate\Http\Response
      */
-    public function show(Personal $cliente)
+    public function show(Giro $giro)
     {
-        return view('clientes.view',['personal'=>$cliente]);
+        //
+        // return view('giro.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Personal  $personal
+     * @param  \App\Giro  $giro
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personal $cliente)
+    public function edit(Giro $giro)
     {
         //
-        return view('clientes.edit',['personal'=>$cliente]);
+        return view('giro.edit',['giro'=>$giro]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Personal  $personal
+     * @param  \App\Giro  $giro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $cliente)
+    public function update(Request $request, Giro $giro)
     {
         //
-        $cliente->update($request->all());
-        return redirect()->route('clientes.index');
+        $giro->update($request->all());
+        return redirect('giros');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Personal  $personal
+     * @param  \App\Giro  $giro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personal $cliente)
+    public function destroy(Giro $giro)
     {
         //
+        // var_dump($giro);
+        // $giro = Giro::findoorFail($giro);
+        // Giro::destroy($giro);
+        $giro->delete();
+        return  redirect('giros');
     }
 }

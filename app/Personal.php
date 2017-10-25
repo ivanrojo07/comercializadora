@@ -23,4 +23,8 @@ class Personal extends Model
     public function contactos(){
         return $this->hasMany('App\Contacto');
     }
+
+    public function datosGenerales(){
+        return $this->hasOne('App\DatosGenerales');
+    }
 }

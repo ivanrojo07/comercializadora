@@ -89,8 +89,8 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="{{ url('/clientes/create')}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
-                                <a href="{{ url('/personals') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
-                                <a href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Seguimiento</a>    
+                                <a href="{{ url('/clientes') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                                <a href="{{ url('/giros') }}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Giros</a>    
                             </li>                     
                         </ul>
                     </li>

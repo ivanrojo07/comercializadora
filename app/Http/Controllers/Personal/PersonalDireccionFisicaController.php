@@ -18,7 +18,15 @@ class PersonalDireccionFisicaController extends Controller
     {
         //
         $direccion = $cliente->direccionFisica;
-        return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        if ($direccion ==null) {
+            # code...
+            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+        }
+        else{
+            return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        }
+
+
     }
 
     /**

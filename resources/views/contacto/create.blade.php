@@ -1,10 +1,10 @@
 @extends('layouts.infocliente')
 	@section('cliente')
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="#tab1">Dirección Fiscal:</a></li>
-						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="#tab2">Dirección Fisica:</a></li>
-						<li class="active"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
+						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="#">Dirección Fisica:</a></li>
+						<li class="active"><a href="{{ route('clientes.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.contacto.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
 					<div class="panel-default">
 					<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.contacto.store', ['cliente'=>$personal]) }}" name="form">

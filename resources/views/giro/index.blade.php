@@ -39,7 +39,11 @@
 					<td>{{ $giro->nombre }}</td>
 					<td>{{ $giro->etiqueta }}</td>
 					<td>
+						<div class="row">
+							
 						<a class="btn btn-info btn-sm" href="{{ route('giros.edit',['giro'=>$giro]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+						</div>
+						<br>
 						<form role="form" method="POST" action="{{ route('giros.destroy',['giro'=>$giro]) }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">

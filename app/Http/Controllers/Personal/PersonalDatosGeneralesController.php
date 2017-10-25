@@ -19,10 +19,16 @@ class PersonalDatosGeneralesController extends Controller
     {
         //
         $datos = $cliente->datosGenerales;
-        // dd($datos);
-        $giro = Giro::findorFail($datos->giro_id);
-        // dd($giro);
-        return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro]);
+        if ($datos==null) {
+            # code...
+            return redirect()->route('clientes.datosgenerales.create',['personal'=>$cliente]);;
+        }
+        else{
+            $giro = Giro::findorFail($datos->giro_id);
+            // dd($giro);
+            return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro]);
+            
+        }
     }
 
     /**
@@ -79,7 +85,8 @@ class PersonalDatosGeneralesController extends Controller
     {
         //
         $datos = $cliente->datosGenerales;
-        return view('datosgenerales.edit',['personal'=>$cliente, 'datos'=>$datos]);
+        $giros = Giro::get();
+        return view('datosgenerales.edit',['personal'=>$cliente, 'datos'=>$datos, 'giros'=>$giros]);
     }
 
     /**
@@ -89,11 +96,13 @@ class PersonalDatosGeneralesController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $cliente, DatosGenerales $datos)
+    public function update(Request $request, Personal $cliente, DatosGenerales $datosgenerale)
     {
         //
-        $datos->update($request->all());
-        return view('datosgenerales.view',['datos'=>$datos,'personal'=>$personal]);
+        // dd($datosgenerale);
+        $datosgenerale->update($request->all());
+        $giro = Giro::findorFail($datosgenerale->giro_id);
+        return view('datosgenerales.view',['datos'=>$datosgenerale,'personal'=>$cliente, 'giro'=>$giro]);
 
     }
 

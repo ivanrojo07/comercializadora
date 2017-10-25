@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="panel-body">
 		<div class="col-lg-6">
-			<form action="/personal">
+			<form action="/buscar">
 				<div class="input-group">
 					<input type="text" name="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">

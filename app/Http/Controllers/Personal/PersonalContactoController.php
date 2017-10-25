@@ -54,9 +54,11 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Personal $personal)
+    public function show(Personal $cliente,Contacto $contacto)
     {
         //
+        $contacto = Contacto::findOrFail($contacto);
+        return view('contacto.view',['personal'=>$personal, 'contacto'=>$contacto]);
     }
 
     /**
@@ -65,9 +67,11 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personal $personal)
+    public function edit(Personal $cliente, Contacto $contacto)
     {
         //
+        $contacto = Contacto::findOrFail($contacto);
+        return view('contacto.edit',['personal'=>$personal, 'contacto'=>$contacto]);
     }
 
     /**
@@ -77,9 +81,12 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $personal)
+    public function update(Request $request, Personal $cliente, Contacto $contacto)
     {
         //
+        $contacto = Contacto::findOrFail($contacto);
+        $contacto->update($request->all());
+        return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
     }
 
     /**

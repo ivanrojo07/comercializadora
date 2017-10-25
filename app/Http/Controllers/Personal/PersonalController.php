@@ -40,8 +40,8 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         //
-        Personal::create($request->all());
-        return redirect('clientes');
+        $cliente = Personal::create($request->all());
+        return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
     }
 
     /**

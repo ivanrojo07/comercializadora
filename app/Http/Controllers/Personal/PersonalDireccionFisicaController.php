@@ -43,7 +43,8 @@ class PersonalDireccionFisicaController extends Controller
         //
         // dd($request->all());
         $direccion = DireccionFisica::create($request->all());
-        return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
+        // return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
 

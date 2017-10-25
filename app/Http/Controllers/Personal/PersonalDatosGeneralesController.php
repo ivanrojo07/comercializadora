@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Personal;
 
 use App\Personal;
+use App\Giro;
+use App\DatosGenerales;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,9 +15,14 @@ class PersonalDatosGeneralesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Personal $cliente)
     {
         //
+        $datos = $cliente->datosGenerales;
+        // dd($datos);
+        $giro = Giro::findorFail($datos->giro_id);
+        // dd($giro);
+        return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro]);
     }
 
     /**
@@ -26,7 +33,9 @@ class PersonalDatosGeneralesController extends Controller
     public function create(Personal $cliente)
     {
         //
-        return view('datosgenerales.create',['personal'=>$cliente]);
+        $giros = Giro::get();
+        // dd($giros);
+        return view('datosgenerales.create',['personal'=>$cliente, 'giros'=>$giros]);
     }
 
     /**
@@ -35,9 +44,13 @@ class PersonalDatosGeneralesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Personal $cliente)
     {
         //
+        // dd($request->all());
+        $datos = DatosGenerales::create($request->all());
+        return redirect('clientes');
+
     }
 
     /**

@@ -17,11 +17,11 @@
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
-					<th>@sortablelink('nombre', 'Nombre'){{-- Nombre --}}</th>
+					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
 					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
-					<th>@sortablelink('tipo', 'Tipo de cliente')</th>
+					<th>@sortablelink('alias', 'Alias')</th>
 					<th>@sortablelink('rfc', 'RFC')</th>
-					<th>@sortablelink('mail', 'Correo') </th>
+					<th>@sortablelink('vendedor', 'Vendedor') </th>
 					<th>Operacion</th>
 				</tr>
 			</thead>
@@ -35,9 +35,9 @@
 						@endif
 					</td>
 					<td>{{ $personal->tipopersona }}</td>
-					<td>{{ $personal->tipo }}</td>
+					<td>{{ $personal->alias }}</td>
 					<td>{{ strtoupper($personal->rfc) }}</td>
-					<td>{{$personal->mail}}</td>
+					<td>{{$personal->vendedor}}</td>
 					<td>
 						<a class="btn btn-success btn-sm" href="#"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
 						<a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>

@@ -61,9 +61,10 @@ class PersonalController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personal $personal)
+    public function edit(Personal $cliente)
     {
         //
+        return view('clientes.edit',['personal'=>$cliente]);
     }
 
     /**
@@ -73,9 +74,11 @@ class PersonalController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $personal)
+    public function update(Request $request, Personal $cliente)
     {
         //
+        $cliente->update($request->all());
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -84,7 +87,7 @@ class PersonalController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personal $personal)
+    public function destroy(Personal $cliente)
     {
         //
     }

@@ -14,9 +14,11 @@ class PersonalDireccionFisicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Personal $cliente)
     {
         //
+        $direccion = $cliente->direccionFisica;
+        return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
     }
 
     /**
@@ -41,7 +43,7 @@ class PersonalDireccionFisicaController extends Controller
         //
         // dd($request->all());
         $direccion = DireccionFisica::create($request->all());
-        return view('direccion.show',['direccion'=>$direccion,'personal'=>$cliente]);
+        return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
 
@@ -55,7 +57,7 @@ class PersonalDireccionFisicaController extends Controller
     {
         //
         $direccion = $cliente->direccionFisica;
-        return view('direccion.show',['direccion'=>$direccion,'personal'=>$cliente]);
+        return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
 
@@ -65,9 +67,11 @@ class PersonalDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personal $personal)
+    public function edit(Personal $cliente)
     {
         //
+        $direccion = $cliente->direccionFisica;
+        return view('direccion.edit',['personal'=>$cliente, 'direccion'=>$direccion]);
     }
 
     /**
@@ -77,9 +81,12 @@ class PersonalDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $personal)
+    public function update(Request $request, Personal $cliente, DireccionFisica $direccionfisica )
     {
         //
+        // dd($direccionfisica);
+        $direccionfisica->update($request->all());
+       return view('direccion.view',['direccion'=>$direccionfisica,'personal'=>$cliente]);
     }
 
     /**

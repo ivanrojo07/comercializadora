@@ -1,14 +1,15 @@
 @extends('layouts.infocliente')
 	@section('cliente')
-					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="#tab1">Dirección Fiscal:</a></li>
-						<li class="active"><a href="#tab2">Dirección Fisica:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
-					</ul>
-					<div class="panel-default">
-					<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.direccionfisica.store', ['cliente'=>$personal]) }}" name="form">
+	<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
+		<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="#tab1">Dirección Fiscal:</a></li>
+		<li class="active"><a href="#tab2">Dirección Fisica:</a></li>
+		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+	</ul>
+	<div class="panel-default">
+		<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.direccionfisica.update',['cliente'=>$personal, 'direccion'=>$direccion]) }}" name="form">
 					{{ csrf_field() }}
+					<input type="hidden" name="_method" value="PUT">
 					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
 					<div class="form-group pull-right clearfix">
 						<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>
@@ -18,47 +19,47 @@
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="calle">Calle:</label>
-			    					<input type="text" class="form-control" id="calle" name="calle" value="">
+			    					<input type="text" class="form-control" id="calle" name="calle" value="{{ $direccion->calle }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numext">Numero exterior:</label>
-			    					<input type="text" class="form-control" id="numext" name="numext" value="">
+			    					<input type="text" class="form-control" id="numext" name="numext" value="{{ $direccion->numext }}">
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numint">Numero interior:</label>
-			    					<input type="text" class="form-control" id="numint" name="numint" value="">
+			    					<input type="text" class="form-control" id="numint" name="numint" value="{{ $direccion->numint }}">
 			  					</div>		
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="colonia">Colonia:</label>
-			  						<input type="text" class="form-control" id="colonia" name="colonia" value="">
+			  						<input type="text" class="form-control" id="colonia" name="colonia" value="{{ $direccion->colonia }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="municipio">Delegación o Municipio:</label>
-			  						<input type="text" class="form-control" id="municipio" name="municipio" value="">
+			  						<input type="text" class="form-control" id="municipio" name="municipio" value="{{ $direccion->municipio }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="ciudad">Ciudad:</label>
-			  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="">
+			  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ $direccion->ciudad }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="estado">Estado:</label>
-			  						<input type="text" class="form-control" id="estado" name="estado" value="">
+			  						<input type="text" class="form-control" id="estado" name="estado" value="{{ $direccion->estado }}">
 			  					</div>
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle1">Entre calle:</label>
-			  						<input type="text" class="form-control" id="calle1" name="calle1" value="">
+			  						<input type="text" class="form-control" id="calle1" name="calle1" value="{{ $direccion->calle1 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="calle2">Y calle:</label>
-			  						<input type="text" class="form-control" id="calle2" name="calle2" value="">
+			  						<input type="text" class="form-control" id="calle2" name="calle2" value="{{ $direccion->calle2 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="referencia">Referencia:</label>
-			  						<input type="text" class="form-control" id="referencia" name="referencia" value="">
+			  						<input type="text" class="form-control" id="referencia" name="referencia" value="{{ $direccion->referencia }}">
 			  					</div>
 							</div>
 						<button type="submit" class="btn btn-default">Guardar</button>

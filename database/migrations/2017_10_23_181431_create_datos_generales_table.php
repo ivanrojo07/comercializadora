@@ -15,12 +15,14 @@ class CreateDatosGeneralesTable extends Migration
     {
         Schema::create('datos_generales', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('personal_id')->unsigned();
+            $table->foreign('personal_id')->references('id')->on('personals');
             $table->integer('giro_id')->unsigned();
             $table->foreign('giro_id')->references('id')->on('giro');
             $table->enum('tamano',['micro', 'pequeña','mediana', 'grande']);
             $table->string('formacontacto');
             $table->string('web')->nullable();
-            $table->string('comentario')->nullable();
+            $table->text('comentario')->nullable();
             $table->date('fechacontacto')->nullable();
             $table->timestamps();
         });

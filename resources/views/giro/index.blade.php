@@ -13,7 +13,7 @@
 			</form>
 		</div>
 		<div class="col-lg-6">
-			<a class="btn btn-success" href="#">Nuevo Giro</a>
+			<a class="btn btn-success" href="{{ route('giros.create') }}">Nuevo Giro</a>
 		</div>
 	</div>
 	@if (count($giros) == 0)
@@ -39,8 +39,7 @@
 					<td>{{ $giro->nombre }}</td>
 					<td>{{ $giro->etiqueta }}</td>
 					<td>
-						<a class="btn btn-success btn-sm" href="#"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
-						<a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+						<a class="btn btn-info btn-sm" href="{{ route('giros.edit',['giro'=>$giro]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 						<form role="form" method="POST" action="{{ route('giros.destroy',['giro'=>$giro]) }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">

@@ -40,8 +40,8 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         //
-        Personal::create($request->all());
-        return redirect('clientes');
+        $cliente = Personal::create($request->all());
+        return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
     }
 
     /**
@@ -90,5 +90,17 @@ class PersonalController extends Controller
     public function destroy(Personal $cliente)
     {
         //
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $clientes = Personal::sortable()->where('nombre','LIKE',"%$query%")
+        ->orWhere('apellidopaterno','LIKE',"%$query%")
+        ->orWhere('apellidomaterno','LIKE',"%$query%")
+        ->orWhere('razonsocial','LIKE','%$query%')
+        ->orWhere('rfc','LIKE',"%$query%")
+        ->orWhere('alias','LIKE',"%$query%")
+        ->orWhere('tipopersona','LIKE',"%$query%")
+        ->paginate(10);
+        return view('clientes.index',['personals'=>$clientes]);
     }
 }

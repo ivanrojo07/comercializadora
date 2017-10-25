@@ -22,6 +22,10 @@ Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
 Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+<<<<<<< HEAD
 Route::get('datosgenerales',function(){
     return view('datosgenerales.index');
 });
+=======
+Route::get('/buscar','Personal\PersonalController@buscar');
+>>>>>>> 9113a6bc7d5d50b7c60f9eb86bad315f6a222cb5

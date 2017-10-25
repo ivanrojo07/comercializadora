@@ -1,5 +1,7 @@
 @extends('layouts.infocliente')
 	@section('cliente')
+		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
 						<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
 						<li class="active"><a href="#tab2">Dirección Fisica:</a></li>
@@ -11,7 +13,19 @@
 					{{ csrf_field() }}
 					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
 					<div class="form-group pull-right clearfix">
-						<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>
+
+
+
+						<div class="checkbox-disabled">
+							<label>
+
+								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
+								¿Usar datos de dirección fiscal?.
+							</label>
+						</div>
+
+						{{--<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>--}}
+
 					</div>
 						<div class="panel-heading">Dirección Fisica:</div>
 						<div class="panel-body">
@@ -68,17 +82,32 @@
 			</form>
 		</div>
 		<script type="text/javascript">
-			function datosFiscal(){
-				document.domicilio.calle.defaultValue = "{{$personal->calle}}";
-				document.domicilio.numext.defaultValue = "{{$personal->numext}}"; 
-				document.domicilio.numint.defaultValue = "{{$personal->numinter}}"; 
-				document.domicilio.colonia.defaultValue = "{{$personal->colonia}}"; 
-				document.domicilio.municipio.defaultValue = "{{$personal->municipio}}"; 
-				document.domicilio.ciudad.defaultValue = "{{$personal->ciudad}}"; 
-				document.domicilio.estado.defaultValue = "{{$personal->estado}}"; 
-				document.domicilio.calle1.defaultValue = "{{$personal->calle1}}"; 
-				document.domicilio.calle2.defaultValue = "{{$personal->calle2}}"; 
-				document.domicilio.referencia.defaultValue = "{{$personal->referencia}}"; 
-			}
+            function datosFiscal(){
+                if($('#boton-toggle').prop('checked') == true){
+                	document.domicilio.calle.defaultValue = "{{$personal->calle}}";
+               		document.domicilio.numext.defaultValue = "{{$personal->numext}}";
+                	document.domicilio.numint.defaultValue = "{{$personal->numinter}}";
+                	document.domicilio.colonia.defaultValue = "{{$personal->colonia}}";
+                	document.domicilio.municipio.defaultValue = "{{$personal->municipio}}";
+                	document.domicilio.ciudad.defaultValue = "{{$personal->ciudad}}";
+                	document.domicilio.estado.defaultValue = "{{$personal->estado}}";
+                	document.domicilio.calle1.defaultValue = "{{$personal->calle1}}";
+                	document.domicilio.calle2.defaultValue = "{{$personal->calle2}}";
+                	document.domicilio.referencia.defaultValue = "{{$personal->referencia}}";
+				}
+				else if($('#boton-toggle').prop('checked') == false){
+                    document.domicilio.calle.defaultValue = "";
+                    document.domicilio.numext.defaultValue = "";
+                    document.domicilio.numint.defaultValue = "";
+                    document.domicilio.colonia.defaultValue = "";
+                    document.domicilio.municipio.defaultValue = "";
+                    document.domicilio.ciudad.defaultValue = "";
+                    document.domicilio.estado.defaultValue = "";
+                    document.domicilio.calle1.defaultValue = "";
+                    document.domicilio.calle2.defaultValue = "";
+                    document.domicilio.referencia.defaultValue = "";
+				}
+            }
+
 		</script>
 	@endsection

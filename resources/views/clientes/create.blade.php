@@ -16,12 +16,12 @@
 			    					</select>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="alias">Alias:</label>
-			  						<input type="text" class="form-control" id="alias" name="alias">
+			  						<label class="control-label" for="alias">* Alias:</label>
+			  						<input type="text" class="form-control" id="alias" name="alias" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="rfc">RFC:</label>
-			  						<input type="text" class="form-control" id="rfc" name="rfc">
+			  						<label class="control-label" for="rfc">* RFC:</label>
+			  						<input type="text" class="form-control" id="rfc" name="rfc" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="vendedor">Vendedor:</label>
@@ -30,11 +30,11 @@
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="nombre">Nombre(s):</label>
+			  						<label class="control-label" for="nombre">* Nombre(s):</label>
 			  						<input type="text" class="form-control" id="nombre" name="nombre">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="apellidopaterno">Apellido Paterno:</label>
+			  						<label class="control-label" for="apellidopaterno">* Apellido Paterno:</label>
 			  						<input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -47,7 +47,7 @@
 							<div class="col-md-12 offset-md-2 mt-3" id="permoral" style="display:none;">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
-			  						<label class="control-label" for="razonsocial">Razon Social:</label>
+			  						<label class="control-label" for="razonsocial">* Razon Social:</label>
 			  						<input type="text" class="form-control" id="razonsocial" name="razonsocial">
 			  					</div>
 							</div>
@@ -55,21 +55,21 @@
 					</div>
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
 						<li class="active"><a href="#tab1">Dirección Fiscal:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2" role="presentation" tabindex="-1" class="ui-tabs-anchor disabled" id="ui-id-2">Dirección Fisica:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor disabled" id="ui-id-3">Contacto:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor disabled" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
 					<div class="panel-default">
 						<div class="panel-heading">Dirección Fiscal:</div>
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="calle">Calle:</label>
-			    					<input type="text" class="form-control" id="calle" name="calle">
+			    					<label class="control-label" for="calle">* Calle:</label>
+			    					<input type="text" class="form-control" id="calle" name="calle" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="numext">Numero exterior:</label>
-			    					<input type="text" class="form-control" id="numext" name="numext">
+			    					<label class="control-label" for="numext">* Numero exterior:</label>
+			    					<input type="text" class="form-control" id="numext" name="numext" required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numinter">Numero interior:</label>
@@ -82,20 +82,20 @@
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="colonia">Colonia:</label>
-			  						<input type="text" class="form-control" id="colonia" name="colonia">
+			  						<label class="control-label" for="colonia">* Colonia:</label>
+			  						<input type="text" class="form-control" id="colonia" name="colonia" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="municipio">Delegación o Municipio:</label>
-			  						<input type="text" class="form-control" id="municipio" name="municipio">
+			  						<label class="control-label" for="municipio">* Delegación o Municipio:</label>
+			  						<input type="text" class="form-control" id="municipio" name="municipio" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="ciudad">Ciudad:</label>
-			  						<input type="text" class="form-control" id="ciudad" name="ciudad">
+			  						<label class="control-label" for="ciudad">* Ciudad:</label>
+			  						<input type="text" class="form-control" id="ciudad" name="ciudad" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="estado">Estado:</label>
-			  						<input type="text" class="form-control" id="estado" name="estado">
+			  						<label class="control-label" for="estado">* Estado:</label>
+			  						<input type="text" class="form-control" id="estado" name="estado" required>
 			  					</div>
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
@@ -113,6 +113,7 @@
 			  					</div>
 							</div>
 	  				<button type="submit" class="btn btn-default">Guardar</button>
+	  				<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

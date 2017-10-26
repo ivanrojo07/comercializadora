@@ -17,12 +17,12 @@
 			    					</select>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="alias">Alias:</label>
-			  						<input type="text" class="form-control" id="alias" name="alias" value="{{ $personal->alias }}">
+			  						<label class="control-label" for="alias">* Alias:</label>
+			  						<input type="text" class="form-control" id="alias" name="alias" value="{{ $personal->alias }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="rfc">RFC:</label>
-			  						<input type="text" class="form-control" id="rfc" name="rfc" value="{{ $personal->rfc }}">
+			  						<label class="control-label" for="rfc">* RFC:</label>
+			  						<input type="text" class="form-control" id="rfc" name="rfc" value="{{ $personal->rfc }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="vendedor">Vendedor:</label>
@@ -31,11 +31,11 @@
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="nombre">Nombre(s):</label>
+			  						<label class="control-label" for="nombre">* Nombre(s):</label>
 			  						<input type="text" class="form-control" id="nombre" name="nombre" value="{{ $personal->nombre }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="apellidopaterno">Apellido Paterno:</label>
+			  						<label class="control-label" for="apellidopaterno">* Apellido Paterno:</label>
 			  						<input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" value="{{ $personal->apellidomaterno }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -48,7 +48,7 @@
 							<div class="col-md-12 offset-md-2 mt-3" id="permoral" style="display:none;">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
-			  						<label class="control-label" for="razonsocial">Razon Social:</label>
+			  						<label class="control-label" for="razonsocial">* Razon Social:</label>
 			  						<input type="text" class="form-control" id="razonsocial" name="razonsocial" value="{{ $personal->razonsocial }}">
 			  					</div>
 							</div>
@@ -65,12 +65,12 @@
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="calle">Calle:</label>
-			    					<input type="text" class="form-control" id="calle" name="calle" value="{{ $personal->calle }}">
+			    					<label class="control-label" for="calle">* Calle:</label>
+			    					<input type="text" class="form-control" id="calle" name="calle" value="{{ $personal->calle }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="numext">Numero exterior:</label>
-			    					<input type="text" class="form-control" id="numext" name="numext" value="{{ $personal->numext }}">
+			    					<label class="control-label" for="numext">* Numero exterior:</label>
+			    					<input type="text" class="form-control" id="numext" name="numext" value="{{ $personal->numext }}" required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numinter">Numero interior:</label>
@@ -83,20 +83,20 @@
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="colonia">Colonia:</label>
-			  						<input type="text" class="form-control" id="colonia" name="colonia" value="{{ $personal->colonia }}">
+			  						<label class="control-label" for="colonia">* Colonia:</label>
+			  						<input type="text" class="form-control" id="colonia" name="colonia" value="{{ $personal->colonia }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="municipio">Delegación o Municipio:</label>
-			  						<input type="text" class="form-control" id="municipio" name="municipio" value="{{ $personal->municipio }}">
+			  						<label class="control-label" for="municipio">* Delegación o Municipio:</label>
+			  						<input type="text" class="form-control" id="municipio" name="municipio" value="{{ $personal->municipio }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="ciudad">Ciudad:</label>
-			  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ $personal->ciudad }}">
+			  						<label class="control-label" for="ciudad">* Ciudad:</label>
+			  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ $personal->ciudad }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="estado">Estado:</label>
-			  						<input type="text" class="form-control" id="estado" name="estado" value="{{ $personal->estado }}">
+			  						<label class="control-label" for="estado">* Estado:</label>
+			  						<input type="text" class="form-control" id="estado" name="estado" value="{{ $personal->estado }}" required>
 			  					</div>
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
@@ -114,6 +114,7 @@
 			  					</div>
 							</div>
 	  				<button type="submit" class="btn btn-default">Guardar</button>
+	  				<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

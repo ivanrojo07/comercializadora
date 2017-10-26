@@ -20,7 +20,7 @@
 	 			</div>
 	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="formacontacto">Forma de contacto:</label>
-					<dd>{{$datos->formacontacto}}</dd>
+					<dd>{{$formaContacto->nombre}}</dd>
 	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">

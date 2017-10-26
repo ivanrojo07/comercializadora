@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Personal;
 
-use App\Personal;
-use App\Giro;
 use App\DatosGenerales;
-use Illuminate\Http\Request;
+use App\FormaContacto;
+use App\Giro;
 use App\Http\Controllers\Controller;
+use App\Personal;
+use Illuminate\Http\Request;
 
 class PersonalDatosGeneralesController extends Controller
 {
@@ -25,8 +26,9 @@ class PersonalDatosGeneralesController extends Controller
         }
         else{
             $giro = Giro::findorFail($datos->giro_id);
+            $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
             // dd($giro);
-            return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro]);
+            return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
             
         }
     }
@@ -40,8 +42,9 @@ class PersonalDatosGeneralesController extends Controller
     {
         //
         $giros = Giro::get();
+        $formaContactos = FormaContacto::get();
         // dd($giros);
-        return view('datosgenerales.create',['personal'=>$cliente, 'giros'=>$giros]);
+        return view('datosgenerales.create',['personal'=>$cliente, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
     }
 
     /**
@@ -71,8 +74,9 @@ class PersonalDatosGeneralesController extends Controller
         $datos = $cliente->datosGenerales;
         // dd($datos);
         $giro = Giro::findorFail($datos->giro_id);
+        $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
         // dd($giro);
-        return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro]);
+        return view('datosgenerales.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
     }
 
     /**
@@ -86,7 +90,8 @@ class PersonalDatosGeneralesController extends Controller
         //
         $datos = $cliente->datosGenerales;
         $giros = Giro::get();
-        return view('datosgenerales.edit',['personal'=>$cliente, 'datos'=>$datos, 'giros'=>$giros]);
+        $formaContactos = FormaContacto::get();
+        return view('datosgenerales.edit',['personal'=>$cliente, 'datos'=>$datos, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
     }
 
     /**
@@ -102,7 +107,8 @@ class PersonalDatosGeneralesController extends Controller
         // dd($datosgenerale);
         $datosgenerale->update($request->all());
         $giro = Giro::findorFail($datosgenerale->giro_id);
-        return view('datosgenerales.view',['datos'=>$datosgenerale,'personal'=>$cliente, 'giro'=>$giro]);
+        $formaContacto = FormaContacto::findorFail($datosgenerale->forma_contacto_id);
+        return view('datosgenerales.view',['datos'=>$datosgenerale,'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
 
     }
 

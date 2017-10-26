@@ -20,7 +20,8 @@ class CreateDatosGeneralesTable extends Migration
             $table->integer('giro_id')->unsigned();
             $table->foreign('giro_id')->references('id')->on('giro');
             $table->enum('tamano',['micro', 'pequeña','mediana', 'grande']);
-            $table->string('formacontacto');
+            $table->integer('forma_contacto_id')->unsigned();
+            $table->foreign('forma_contacto_id')->references('id')->on('forma_contacto');
             $table->string('web')->nullable();
             $table->text('comentario')->nullable();
             $table->date('fechacontacto')->nullable();

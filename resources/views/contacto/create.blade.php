@@ -9,17 +9,17 @@
 					<div class="panel-default">
 					<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.contacto.store', ['cliente'=>$personal]) }}" name="form">
 					{{ csrf_field() }}
-					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
+					 <input type="hidden" name="personal_id" value="{{$personal->id}}" required>
 						<div class="panel-heading">Contacto:</div>
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="nombre">Nombre:</label>
-			    					<input type="text" class="form-control" id="nombre" name="nombre" value="">
+			    					<label class="control-label" for="nombre">* Nombre(s):</label>
+			    					<input type="text" class="form-control" id="nombre" name="nombre" value="" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="apater">Apellido paterno:</label>
-			    					<input type="text" class="form-control" id="apater" name="apater" value="">
+			    					<label class="control-label" for="apater">* Apellido paterno:</label>
+			    					<input type="text" class="form-control" id="apater" name="apater" value="" required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="amater">Apellido materno:</label>
@@ -54,8 +54,8 @@
 			  						<input type="text" class="form-control" id="ext2" name="ext2" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="telefonodir">Telefono directo:</label>
-			  						<input type="text" class="form-control" id="telefonodir" name="telefonodir" value="">
+			  						<label class="control-label" for="telefonodir">* Telefono directo:</label>
+			  						<input type="text" class="form-control" id="telefonodir" name="telefonodir" value="" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="celular1">Celular:</label>
@@ -66,8 +66,8 @@
 			  						<input type="text" class="form-control" id="celular2" name="celular2" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="email1">Correo electronico:</label>
-			  						<input type="text" class="form-control" id="email1" name="email1" value="">
+			  						<label class="control-label" for="email1">* Correo electronico:</label>
+			  						<input type="text" class="form-control" id="email1" name="email1" value="" required>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -76,6 +76,7 @@
 			  					</div>
 							</div>
 						<button type="submit" class="btn btn-default">Guardar</button>
+						<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

@@ -22,12 +22,12 @@
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="calle">Calle:</label>
-			    					<input type="text" class="form-control" id="calle" name="calle" value="{{ $direccion->calle }}">
+			    					<label class="control-label" for="calle">* Calle:</label>
+			    					<input type="text" class="form-control" id="calle" name="calle" value="{{ $direccion->calle }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="numext">Numero exterior:</label>
-			    					<input type="text" class="form-control" id="numext" name="numext" value="{{ $direccion->numext }}">
+			    					<label class="control-label" for="numext">* Numero exterior:</label>
+			    					<input type="text" class="form-control" id="numext" name="numext" value="{{ $direccion->numext }}" required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numint">Numero interior:</label>
@@ -36,20 +36,20 @@
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="colonia">Colonia:</label>
-			  						<input type="text" class="form-control" id="colonia" name="colonia" value="{{ $direccion->colonia }}">
+			  						<label class="control-label" for="colonia">* Colonia:</label>
+			  						<input type="text" class="form-control" id="colonia" name="colonia" value="{{ $direccion->colonia }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="municipio">Delegación o Municipio:</label>
-			  						<input type="text" class="form-control" id="municipio" name="municipio" value="{{ $direccion->municipio }}">
+			  						<label class="control-label" for="municipio">* Delegación o Municipio:</label>
+			  						<input type="text" class="form-control" id="municipio" name="municipio" value="{{ $direccion->municipio }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="ciudad">Ciudad:</label>
-			  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ $direccion->ciudad }}">
+			  						<label class="control-label" for="ciudad">* Ciudad:</label>
+			  						<input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ $direccion->ciudad }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="estado">Estado:</label>
-			  						<input type="text" class="form-control" id="estado" name="estado" value="{{ $direccion->estado }}">
+			  						<label class="control-label" for="estado">* Estado:</label>
+			  						<input type="text" class="form-control" id="estado" name="estado" value="{{ $direccion->estado }}" required>
 			  					</div>
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
@@ -67,6 +67,7 @@
 			  					</div>
 							</div>
 						<button type="submit" class="btn btn-default">Guardar</button>
+						<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

@@ -93,7 +93,8 @@
                             <li>
                                 <a href="{{ url('/clientes/create')}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
                                 <a href="{{ url('/clientes') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
-                                <a href="{{ url('/giros') }}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Giros</a>    
+                                <a href="{{ url('/giros') }}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Giros</a>
+                                <a href="{{ url('/formacontactos') }}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Forma de contactos</a>
                             </li>                     
                         </ul>
                     </li>

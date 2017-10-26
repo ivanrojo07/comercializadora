@@ -23,12 +23,12 @@
 				</select>
 	 			</div>
 	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
-					<select type="select" name="tamano" class="form-control" id="tamano">
-						<option id="micro" value="micro">Micro</option>
-						<option id="pequeña" value="pequeña">Pequeña</option>
-						<option id="mediana" value="mediana">Mediana</option>
-						<option id="grande" value="grande">Grande</option>
+	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
+					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
+						@foreach ($formaContactos as $formaContacto)
+							{{-- expr --}}
+							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" selected="selected">{{ $formaContacto->nombre }}</option>
+						@endforeach
 					</select>
 	 			</div>
 	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

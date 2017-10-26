@@ -15,12 +15,12 @@
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="nombre">Nombre:</label>
-			    					<input type="text" class="form-control" id="nombre" name="nombre" value="{{ $contacto->nombre }}">
+			    					<label class="control-label" for="nombre">* Nombre:</label>
+			    					<input type="text" class="form-control" id="nombre" name="nombre" value="{{ $contacto->nombre }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="apater">Apellido paterno:</label>
-			    					<input type="text" class="form-control" id="apater" name="apater" value="{{ $contacto->apater }}">
+			    					<label class="control-label" for="apater">* Apellido paterno:</label>
+			    					<input type="text" class="form-control" id="apater" name="apater" value="{{ $contacto->apater }}" required>
 			  					</div>	
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="amater">Apellido materno:</label>
@@ -55,8 +55,8 @@
 			  						<input type="text" class="form-control" id="ext2" name="ext2" value="{{ $contacto->ext2 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="telefonodir">Telefono directo:</label>
-			  						<input type="text" class="form-control" id="telefonodir" name="telefonodir" value="{{ $contacto->telefonodir }}">
+			  						<label class="control-label" for="telefonodir">* Telefono directo:</label>
+			  						<input type="text" class="form-control" id="telefonodir" name="telefonodir" value="{{ $contacto->telefonodir }}" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="celular1">Celular:</label>
@@ -67,8 +67,8 @@
 			  						<input type="text" class="form-control" id="celular2" name="celular2" value="{{ $contacto->celular2 }}">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="email1">Correo electronico:</label>
-			  						<input type="text" class="form-control" id="email1" name="email1" value="{{ $contacto->email1 }}">
+			  						<label class="control-label" for="email1">* Correo electronico:</label>
+			  						<input type="text" class="form-control" id="email1" name="email1" value="{{ $contacto->email1 }}" required>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -77,6 +77,7 @@
 			  					</div>
 							</div>
 						<button type="submit" class="btn btn-default">Guardar</button>
+						<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

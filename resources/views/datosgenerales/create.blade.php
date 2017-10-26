@@ -31,11 +31,12 @@
 					</select>
 	 			</div>
 	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="formacontacto">Forma de contacto:</label>
-					<select type="select" name="formacontacto" class="form-control" id="formacontacto">
-						<option id="telefono" value="telefono">Telefono</option>
-						<option id="celular" value="celular">Celular</option>
-						<option id="correo" value="correo">Correo</option>
+	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
+					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
+						@foreach ($formaContactos as $formaContacto)
+							{{-- expr --}}
+							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" selected="selected">{{ $formaContacto->nombre }}</option>
+						@endforeach
 					</select>
 	 			</div>
 	 		</div>

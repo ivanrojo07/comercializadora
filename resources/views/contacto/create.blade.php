@@ -28,7 +28,7 @@
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="area">Area:</label>
+			  						<label class="control-label" for="area">Área:</label>
 			  						<input type="text" class="form-control" id="area" name="area" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -37,45 +37,45 @@
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="telefono1">Telefono:</label>
-			  						<input type="text" class="form-control" id="telefono1" name="telefono1" value="">
+			  						<input type="number" class="form-control" id="telefono1" name="telefono1" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="ext1">Extensión:</label>
-			  						<input type="text" class="form-control" id="ext1" name="ext1" value="">
+			  						<input type="number" class="form-control" id="ext1" name="ext1" size="6" value="">
 			  					</div>
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="telefono2">Telefono :</label>
-			  						<input type="text" class="form-control" id="telefono2" name="telefono2" value="">
+			  						<input type="number" class="form-control" id="telefono2" name="telefono2" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="ext2">Extensión:</label>
-			  						<input type="text" class="form-control" id="ext2" name="ext2" value="">
+			  						<input type="number" class="form-control" id="ext2" name="ext2" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="telefonodir">* Telefono directo:</label>
-			  						<input type="text" class="form-control" id="telefonodir" name="telefonodir" value="" required>
+			  						<input type="number" class="form-control" id="telefonodir" name="telefonodir" value="" required>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="celular1">Celular:</label>
-			  						<input type="text" class="form-control" id="celular1" name="celular1" value="">
+			  						<input type="number" class="form-control" id="celular1" name="celular1" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="celular2">Celular:</label>
-			  						<input type="text" class="form-control" id="celular2" name="celular2" value="">
+			  						<input type="number" class="form-control" id="celular2" name="celular2" value="">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="email1">* Correo electronico:</label>
-			  						<input type="text" class="form-control" id="email1" name="email1" value="" required>
+			  						<input type="email" class="form-control" id="email1" name="email1" value="" required>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="email2">Correo electronico:</label>
-			  						<input type="text" class="form-control" id="email2" name="email2" value="">
+			  						<input type="email" class="form-control" id="email2" name="email2" value="">
 			  					</div>
 							</div>
-						<button type="submit" class="btn btn-default">Guardar</button>
+						<button type="submit" class="btn btn-sucess">Guardar</button>
 						<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>

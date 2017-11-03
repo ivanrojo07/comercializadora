@@ -37,7 +37,7 @@
 	  					</div>
 	  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	    					<label class="control-label" for="numext">* Numero exterior:</label>
-	    					<input type="text" class="form-control" id="numext" name="numext" value="" required>
+	    					<input type="number" class="form-control" id="numext" name="numext" value="" required>
 	  					</div>	
 	  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	    					<label class="control-label" for="numint">Numero interior:</label>
@@ -76,7 +76,7 @@
 	  						<input type="text" class="form-control" id="referencia" name="referencia" value="">
 	  					</div>
 					</div>
-				<button type="submit" class="btn btn-default">Guardar</button>
+				<button type="submit" class="btn btn-success">Guardar</button>
 				<p><strong>*Campo requerido</strong></p>
 				</div>
 			</div>

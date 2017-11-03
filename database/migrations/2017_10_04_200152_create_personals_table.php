@@ -24,8 +24,8 @@ class CreatePersonalsTable extends Migration
             $table->string('rfc');
             $table->string('vendedor')->nullable();
             $table->string('calle');
-            $table->integer('numext');
-            $table->integer('numinter')->nullable();
+            $table->string('numext');
+            $table->string('numinter')->nullable();
             $table->string('cp')->nullable();
             $table->string('colonia');
             $table->string('municipio');

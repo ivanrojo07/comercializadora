@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 class PersonalController extends Controller
 {
+    // use Alert;
     /**
      * Display a listing of the resource.
      *
@@ -40,8 +41,19 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         //
-        $cliente = Personal::create($request->all());
-        return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+        $personal = Personal::where('rfc',$request->rfc)->get();
+        // dd(count($personal));
+        if (count($personal) != 0) {
+            # code...
+            // alert()->error('Error Message', 'Optional Title');
+            // return redirect()->route('clientes.create');
+            return redirect()->back()->with('errors', 'El RFC ya existe');
+        } else {
+            # code...
+            $cliente = Personal::create($request->all());
+            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+        }
+        
     }
 
     /**

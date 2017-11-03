@@ -21,7 +21,7 @@
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="rfc">* RFC:</label>
-			  						<input type="text" class="form-control" id="varrfc" name="rfc" required minlength="13" maxlength="16">
+			  						<input type="text" class="form-control" id="varrfc" name="rfc" required minlength="12" maxlength="13" pattern="^[A-Za-z]{4}[0-9]{6}[A-Za-z0-9]{3}" placeholder="Ingrese 13 caracteres" title="Siga el formato 4 letras seguidas por 6 digitos y 3 caracteres">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="vendedor">Vendedor:</label>
@@ -75,8 +75,13 @@
 			    					<input type="text" class="form-control" id="numinter" name="numinter">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<<<<<<< HEAD
 			    					<label class="control-label" for="cp">* Código postal:</label>
 			    					<input type="text" class="form-control" id="cp" name="cp"  minlength="5" maxlength="5" minlength="5">
+=======
+			    					<label class="control-label" for="cp">Código postal:</label>
+			    					<input type="text" class="form-control" id="cp" name="cp"  minlength="5" maxlength="5">
+>>>>>>> 077d49a98e628878d0d60db301bfde88204f7715
 			  					</div>		
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">

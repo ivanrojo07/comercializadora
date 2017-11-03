@@ -41,9 +41,7 @@
 			  						<label class="control-label" for="apellidomaterno">Apellido Materno:</label>
 			  						<input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno">
 			  					</div>
-			
 							</div>
-
 							<div class="col-md-12 offset-md-2 mt-3" id="permoral" style="display:none;">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
@@ -51,6 +49,7 @@
 			  						<input type="text" class="form-control" id="razonsocial" name="razonsocial">
 			  					</div>
 							</div>
+
 						</div>
 					</div>
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">

@@ -76,7 +76,7 @@
 	  						<input type="text" class="form-control" id="referencia" name="referencia" value="">
 	  					</div>
 					</div>
-				<button type="submit" class="btn btn-default">Guardar</button>
+				<button type="submit" class="btn btn-success">Guardar</button>
 				<p><strong>*Campo requerido</strong></p>
 				</div>
 			</div>

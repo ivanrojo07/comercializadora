@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.22.0",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "627e43858977dfa7b3ceeb5aac9d683e89f2eea7"
+                "reference": "4abaf869af55107b2bd61e75ad3ac06ffcd456a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/627e43858977dfa7b3ceeb5aac9d683e89f2eea7",
-                "reference": "627e43858977dfa7b3ceeb5aac9d683e89f2eea7",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/4abaf869af55107b2bd61e75ad3ac06ffcd456a6",
+                "reference": "4abaf869af55107b2bd61e75ad3ac06ffcd456a6",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-10-17T07:08:44+00:00"
+            "time": "2017-10-26T14:10:58+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -455,16 +455,16 @@
         },
         {
             "name": "kyslik/column-sortable",
-            "version": "5.5.1",
+            "version": "5.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kyslik/column-sortable.git",
-                "reference": "0eec9141d7bcd375cc31310e349e0bb1749932fa"
+                "reference": "f929a42934c697d155f2a0b5d95332054e362cae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kyslik/column-sortable/zipball/0eec9141d7bcd375cc31310e349e0bb1749932fa",
-                "reference": "0eec9141d7bcd375cc31310e349e0bb1749932fa",
+                "url": "https://api.github.com/repos/Kyslik/column-sortable/zipball/f929a42934c697d155f2a0b5d95332054e362cae",
+                "reference": "f929a42934c697d155f2a0b5d95332054e362cae",
                 "shasum": ""
             },
             "require": {
@@ -508,20 +508,20 @@
                 "sortable",
                 "sorting"
             ],
-            "time": "2017-08-31T12:54:09+00:00"
+            "time": "2017-10-27T19:58:59+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.18",
+            "version": "v5.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21"
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1cc21baac11551377734b8c17ead17db4c34fe21",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +639,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-19T12:50:26+00:00"
+            "time": "2017-10-25T19:10:45+00:00"
         },
         {
             "name": "laravel/scout",
@@ -932,7 +932,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",

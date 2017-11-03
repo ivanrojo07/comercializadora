@@ -77,7 +77,7 @@
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="cp">Código postal:</label>
-			    					<input type="text" class="form-control" id="cp" name="cp">
+			    					<input type="number" class="form-control" id="cp" name="cp">
 			  					</div>		
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">

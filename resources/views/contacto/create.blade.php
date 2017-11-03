@@ -41,7 +41,7 @@
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="ext1">Extensión:</label>
-			  						<input type="text" class="form-control" id="ext1" name="ext1" value="">
+			  						<input type="number" class="form-control" id="ext1" name="ext1" value="">
 			  					</div>
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
@@ -67,12 +67,12 @@
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="email1">* Correo electronico:</label>
-			  						<input type="text" class="form-control" id="email1" name="email1" value="" required>
+			  						<input type="email" class="form-control" id="email1" name="email1" value="" required>
 			  					</div>
 
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="email2">Correo electronico:</label>
-			  						<input type="text" class="form-control" id="email2" name="email2" value="">
+			  						<input type="email" class="form-control" id="email2" name="email2" value="">
 			  					</div>
 							</div>
 						<button type="submit" class="btn btn-default">Guardar</button>

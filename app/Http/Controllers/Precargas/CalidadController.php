@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Tipo;
+namespace App\Http\Controllers\Precargas;
 
-use App\Tipo;
+use App\Calidad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TipoController extends Controller
+class CalidadController extends Controller
 {
     public function __construct(){
-        $this->titulo = 'tipo';
-        $this->agregar = 'tipos.create';
-        $this->guardar = 'tipos.store';
-        $this->editar ='tipos.edit';
-        $this->actualizar = 'tipos.update';
-        $this->borrar ='tipos.destroy';
+        $this->titulo = 'calidad';
+        $this->agregar = 'calidads.create';
+        $this->guardar = 'calidads.store';
+        $this->editar ='calidads.edit';
+        $this->actualizar = 'calidads.update';
+        $this->borrar ='calidads.destroy';
     }
     /**
      * Display a listing of the resource.
@@ -24,8 +24,8 @@ class TipoController extends Controller
     public function index()
     {
         //
-        $tipos = Tipo::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$tipos,'agregar'=>$this->agregar,'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        $calidads = Calidad::sortable()->paginate(10);
+        return view('precargas.index',['precargas'=>$calidads, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
     }
 
     /**
@@ -48,17 +48,17 @@ class TipoController extends Controller
     public function store(Request $request)
     {
         //
-        Tipo::create($request->all());
-        return redirect()->route('tipos.index');
+        Calidad::create($request->all());
+        return redirect()->route('calidads.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Calidad  $calidad
      * @return \Illuminate\Http\Response
      */
-    public function show(Tipo $tipo)
+    public function show(Calidad $calidad)
     {
         //
     }
@@ -66,39 +66,39 @@ class TipoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Calidad  $calidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipo $tipo)
+    public function edit(Calidad $calidad)
     {
         //
-        return view('precargas.edit',['precarga'=>$tipo, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
+        return view('precargas.edit',['precarga'=>$calidad, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Calidad  $calidad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipo $tipo)
+    public function update(Request $request, Calidad $calidad)
     {
         //
-        $tipo->update($request->all());
-        return redirect()->route('tipos.index');
+        $calidad->update($request->all());
+        return redirect()->route('calidads.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Calidad  $calidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipo $tipo)
+    public function destroy(Calidad $calidad)
     {
         //
-        $tipo->delete();
-        return redirect()->route('tipos.index');
+        $calidad->delete();
+        return redirect()->route('calidads.index');
     }
 }

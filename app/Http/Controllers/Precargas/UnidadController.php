@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Familia;
+namespace App\Http\Controllers\Precargas;
 
-use App\Familia;
+use App\Unidad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FamiliaController extends Controller
+class UnidadController extends Controller
 {
     public function __construct(){
-        $this->titulo = 'familia';
-        $this->agregar = 'familias.create';
-        $this->guardar = 'familias.store';
-        $this->editar ='familias.edit';
-        $this->actualizar = 'familias.update';
-        $this->borrar ='familias.destroy';
+        $this->titulo = 'unidad';
+        $this->agregar = 'unidads.create';
+        $this->guardar = 'unidads.store';
+        $this->editar ='unidads.edit';
+        $this->actualizar = 'unidads.update';
+        $this->borrar ='unidads.destroy';
     }
     /**
      * Display a listing of the resource.
@@ -24,8 +24,8 @@ class FamiliaController extends Controller
     public function index()
     {
         //
-        $familias = Familia::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$familias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        $unidades = Unidad::sortable()->paginate(10);
+        return view('precargas.index',['precargas'=>$unidades, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
     }
 
     /**
@@ -48,17 +48,17 @@ class FamiliaController extends Controller
     public function store(Request $request)
     {
         //
-        Familia::create($request->all());
-        return redirect()->route('familias.index');
+        Unidad::create($request->all());
+        return redirect()->route('unidads.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function show(Familia $familia)
+    public function show(Unidad $unidad)
     {
         //
     }
@@ -66,40 +66,39 @@ class FamiliaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Familia $familia)
+    public function edit(Unidad $unidad)
     {
         //
-        // $familia=$precarga;
-        return view('precargas.edit',['precarga'=>$familia, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
+        return view('precargas.edit',['precarga'=>$unidad, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Familia  $familia
+     * @param  \App\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Familia $familia)
+    public function update(Request $request, Unidad $unidad)
     {
         //
-        $familia->update($request->all());
-        return redirect()->route('familias.index');
+        $unidad->update($request->all());
+        return redirect()->route('unidads.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Familia $familia)
+    public function destroy(Unidad $unidad)
     {
         //
-        $familia->delete();
-        return redirect()->route('familias.index');
+        $unidad->delete();
+        return redirect()->route('unidads.index');
     }
 }

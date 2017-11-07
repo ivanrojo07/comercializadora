@@ -98,13 +98,13 @@
                                 <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#">Familia</a>
-                                        <a href="">Tipo</a>
-                                        <a href="">Subtipo</a>
-                                        <a href="">Unidad</a>
-                                        <a href="">Presentación</a>
-                                        <a href="">Calidad</a>
-                                        <a href="">Acabado</a>
+                                        <a href="{{ url('/familias') }}">Familia</a>
+                                        <a href="{{ url('/tipos') }}">Tipo</a>
+                                        <a href="{{ url('/subtipos') }}">Subtipo</a>
+                                        <a href="{{ url('/unidads') }}">Unidad</a>
+                                        <a href="{{ url('/presentacions') }}">Presentación</a>
+                                        <a href="{{ url('/calidads') }}">Calidad</a>
+                                        <a href="{{ url('acabados') }}">Acabado</a>
                                     </li>
                                 </ul>
                             </li>

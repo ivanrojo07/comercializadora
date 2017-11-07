@@ -49,8 +49,7 @@ $(function() {
    });
 });
 
-$('li a').click(function(){
-    $(this.getAttribute('class')).addClass("active");
-    $('.pestana').hide();
-    $(this.getAttribute('href')).show();
-});
+// $('li a').click(function(){
+//     $(this.getAttribute('class')).addClass("active");
+//     $(this.getAttribute('href')).show();
+// });

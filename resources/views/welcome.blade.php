@@ -14,13 +14,8 @@
  --}}    <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{ asset('css/forms.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    {{-- Latest compiled and minified JavaScript --}}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
      <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -73,7 +68,7 @@
                         </ul>
                     </li>
                     
-                    <li class="dropdown">
+                    {{-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-building" aria-hidden="true"></i> Oficinas <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -91,30 +86,31 @@
                                 <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>    
                             </li>                     
                         </ul>
-                    </li>
+                    </li> --}}
                     
-                    <li class="dropdown-submenu">
+                     <li class="dropdown" role="menu" aria-labelledby="dLabel">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
-                    <ul class="dropdown-menu">
-                      <li class="dropdown-submenu">
-                        <a class="test" href="#"><i class="fa fa-car" aria-hidden="true"></i> Vehiculos <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a></li>
-                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a></li>
-                        </ul>
-                        <a class="test" href="#"><i class="fa fa-motorcycle" aria-hidden="true"></i> Motocicletas <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a></li>
-                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a></li>
-                        </ul>
-                         <a class="test" href="#"><i class="fa fa-home" aria-hidden="true"></i>Casas <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a></li>
-                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a></li>
-                        </ul>
-                      </li>
-                    </li>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ url('/clientes/create')}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
+                            <a href="{{ url('/clientes') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Familia</a>
+                                        <a href="">Tipo</a>
+                                        <a href="">Subtipo</a>
+                                        <a href="">Unidad</a>
+                                        <a href="">Presentación</a>
+                                        <a href="">Calidad</a>
+                                        <a href="">Acabado</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>                     
                     </ul>
+                    </li>
                 </ul>
             </div>
             @endif

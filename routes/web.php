@@ -30,5 +30,6 @@ Route::resource('unidad','Precargas\UnidadController', ['except'=>'show']);
 Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>'show']);
 Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
+Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
 Route::get('/buscar','Personal\PersonalController@buscar');
 Route::resource('pruebas','PruebasController', ['except'=>'show']);

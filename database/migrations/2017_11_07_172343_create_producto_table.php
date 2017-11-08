@@ -15,6 +15,36 @@ class CreateProductoTable extends Migration
     {
         Schema::create('producto', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('identificador')->unique();
+            $table->integer('marca_id')->unsigned();
+            $table->foreign('marca_id')->references('id')->on('marca');
+            $table->string('clave');
+            $table->integer('familia_id')->unsigned();
+            $table->foreign('familia_id')->references('id')->on('familia');
+            $table->integer('tipo_id')->unsigned();
+            $table->foreign('tipo_id')->references('id')->on('tipo');
+            $table->integer('subtipo_id')->unsigned();
+            $table->foreign('subtipo_id')->references('id')->on('subtipo');
+            $table->string('medida1')->nullable();
+            $table->integer('unidad1_id')->unsigned()->nullable();
+            $table->foreign('unidad1_id')->references('id')->on('unidad');
+            $table->string('medida2')->nullable();
+            $table->integer('unidad2_id')->unsigned()->nullable();
+            $table->foreign('unidad2_id')->references('id')->on('unidad');
+            $table->string('medida3')->nullable();
+            $table->integer('unidad3_id')->unsigned();
+            $table->foreign('unidad3_id')->references('id')->on('unidad');
+            $table->string('modelo')->nullable();
+            $table->integer('presentacion_id')->unsigned();
+            $table->foreign('presentacion_id')->references('id')->on('presentacion');
+            $table->integer('calidad_id')->unsigned();
+            $table->foreign('calidad_id')->references('id')->on('calidad');
+            $table->integer('acabado_id')->unsigned();
+            $table->foreign('acabado_id')->references('id')->on('acabado');
+            $table->string('descripcion_short');
+            $table->string('descripcion_large');
+            $table->string('Sat_id')->nullable();
+            $table->text('Sat_descripcion')->nullable();
             $table->timestamps();
         });
     }

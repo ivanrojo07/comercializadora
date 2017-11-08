@@ -98,23 +98,7 @@
                             </li>                     
                         </ul>
                     </li>
-<!--
-                    
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-briefcase" aria-hidden="true"></i> Recursos Humanos <span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
-                                <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>    
-                            </li>                  
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown-submenu">
-=======
-                    
->>>>>>> 210653a163c2c7eb51aef3c34655cb00ab78f451 -->
                     <li class="dropdown" role="menu" aria-labelledby="dLabel">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
                     <ul class="dropdown-menu" role="menu">
@@ -125,6 +109,7 @@
                                 <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="{{ url('/marcas') }}">Marca</a>
                                         <a href="{{ url('/familias') }}">Familia</a>
                                         <a href="{{ url('/tipos') }}">Tipo</a>
                                         <a href="{{ url('/subtipos') }}">Subtipo</a>

@@ -10,11 +10,11 @@ class CalidadController extends Controller
 {
     public function __construct(){
         $this->titulo = 'calidad';
-        $this->agregar = 'calidads.create';
-        $this->guardar = 'calidads.store';
-        $this->editar ='calidads.edit';
-        $this->actualizar = 'calidads.update';
-        $this->borrar ='calidads.destroy';
+        $this->agregar = 'calidad.create';
+        $this->guardar = 'calidad.store';
+        $this->editar ='calidad.edit';
+        $this->actualizar = 'calidad.update';
+        $this->borrar ='calidad.destroy';
     }
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class CalidadController extends Controller
     {
         //
         Calidad::create($request->all());
-        return redirect()->route('calidads.index');
+        return redirect()->route('calidad.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class CalidadController extends Controller
     {
         //
         $calidad->update($request->all());
-        return redirect()->route('calidads.index');
+        return redirect()->route('calidad.index');
     }
 
     /**
@@ -99,6 +99,6 @@ class CalidadController extends Controller
     {
         //
         $calidad->delete();
-        return redirect()->route('calidads.index');
+        return redirect()->route('calidad.index');
     }
 }

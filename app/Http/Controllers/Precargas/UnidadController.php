@@ -10,11 +10,11 @@ class UnidadController extends Controller
 {
     public function __construct(){
         $this->titulo = 'unidad';
-        $this->agregar = 'unidads.create';
-        $this->guardar = 'unidads.store';
-        $this->editar ='unidads.edit';
-        $this->actualizar = 'unidads.update';
-        $this->borrar ='unidads.destroy';
+        $this->agregar = 'unidad.create';
+        $this->guardar = 'unidad.store';
+        $this->editar ='unidad.edit';
+        $this->actualizar = 'unidad.update';
+        $this->borrar ='unidad.destroy';
     }
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class UnidadController extends Controller
     {
         //
         Unidad::create($request->all());
-        return redirect()->route('unidads.index');
+        return redirect()->route('unidad.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class UnidadController extends Controller
     {
         //
         $unidad->update($request->all());
-        return redirect()->route('unidads.index');
+        return redirect()->route('unidad.index');
     }
 
     /**
@@ -99,6 +99,6 @@ class UnidadController extends Controller
     {
         //
         $unidad->delete();
-        return redirect()->route('unidads.index');
+        return redirect()->route('unidad.index');
     }
 }

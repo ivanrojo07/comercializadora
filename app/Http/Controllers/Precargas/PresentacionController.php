@@ -10,11 +10,11 @@ class PresentacionController extends Controller
 {
     public function __construct(){
         $this->titulo = 'presentación';
-        $this->agregar = 'presentacions.create';
-        $this->guardar = 'presentacions.store';
-        $this->editar ='presentacions.edit';
-        $this->actualizar = 'presentacions.update';
-        $this->borrar ='presentacions.destroy';
+        $this->agregar = 'presentaciones.create';
+        $this->guardar = 'presentaciones.store';
+        $this->editar ='presentaciones.edit';
+        $this->actualizar = 'presentaciones.update';
+        $this->borrar ='presentaciones.destroy';
     }
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class PresentacionController extends Controller
     {
         //
         Presentacion::create($request->all());
-        return redirect()->route('presentacions.index');
+        return redirect()->route('presentaciones.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class PresentacionController extends Controller
     {
         //
         $presentacion->update($request->all());
-        return redirect()->route('presentacions.index');
+        return redirect()->route('presentaciones.index');
     }
 
     /**
@@ -99,6 +99,6 @@ class PresentacionController extends Controller
     {
         //
         $presentacion->delete();
-        return redirect()->route('presentacions.index');
+        return redirect()->route('presentaciones.index');
     }
 }

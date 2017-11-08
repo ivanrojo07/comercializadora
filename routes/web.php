@@ -26,8 +26,9 @@ Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesContro
 Route::resource('familias','Precargas\FamiliaController', ['except'=>'show']);
 Route::resource('tipos','Precargas\TipoController', ['except'=>'show']);
 Route::resource('subtipos','Precargas\SubtipoController', ['except'=>'show']);
-Route::resource('unidads','Precargas\UnidadController', ['except'=>'show']);
-Route::resource('presentacions','Precargas\PresentacionController', ['except'=>'show']);
-Route::resource('calidads','Precargas\CalidadController', ['except'=>'show']);
+Route::resource('unidad','Precargas\UnidadController', ['except'=>'show']);
+Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>'show']);
+Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::get('/buscar','Personal\PersonalController@buscar');
+Route::resource('pruebas','PruebasController', ['except'=>'show']);

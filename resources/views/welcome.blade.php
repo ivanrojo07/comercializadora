@@ -102,9 +102,9 @@
                                         <a href="{{ url('/familias') }}">Familia</a>
                                         <a href="{{ url('/tipos') }}">Tipo</a>
                                         <a href="{{ url('/subtipos') }}">Subtipo</a>
-                                        <a href="{{ url('/unidads') }}">Unidad</a>
-                                        <a href="{{ url('/presentacions') }}">Presentación</a>
-                                        <a href="{{ url('/calidads') }}">Calidad</a>
+                                        <a href="{{ url('/unidad') }}">Unidad</a>
+                                        <a href="{{ url('/presentaciones') }}">Presentación</a>
+                                        <a href="{{ url('/calidad') }}">Calidad</a>
                                         <a href="{{ url('acabados') }}">Acabado</a>
                                     </li>
                                 </ul>

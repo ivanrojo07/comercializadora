@@ -17,6 +17,7 @@
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
+					<th>@sortablelink('id', 'Identificador')</th>
 					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
 					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
 					<th>@sortablelink('alias', 'Alias')</th>

@@ -1,32 +1,22 @@
 @extends('layouts.infocliente')
 	@section('cliente')
 		<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
-			<li class="active"><a href="{{ route('clientes.direccionfisica.index',['cliente'=>$personal]) }}">Dirección Fisica:</a></li>
+			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.show',['cliente'=>$personal]) }}">Dirección Fisica:</a></li>
+			<li class="active"><a href="{{ route('clientes.direccionfiscal.index',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
 			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
 			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.datosgenerales.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 		</ul>
 			<div class="panel-default">
-			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.direccionfisica.store', ['cliente'=>$personal]) }}" name="form">
+			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.direccionfiscal.store', ['cliente'=>$personal]) }}" name="form">
 			{{ csrf_field() }}
 			 <input type="hidden" name="personal_id" value="{{$personal->id}}">
 			 <div class="panel-default">
-
-
-
-
-						{{--<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>--}}
-
-					{{-- </div> --}}
-			{{-- <div class="form-group pull-right clearfix">
-				<button type="button" class="btn btn-primary" onclick="datosFiscal()">Usar datos dirección fiscal</button>
-			</div> --}}
 				<div class="panel-heading">Dirección Fisica:</div>
 						<div class="boton checkbox-disabled">
 							<label>
 
 								<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
-								¿Usar datos de dirección fiscal?.
+								¿Usar datos de dirección fisica?.
 							</label>
 						</div>
 				<div class="panel-body">
@@ -63,6 +53,10 @@
 	  					</div>
 					</div>
 					<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
+						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			    					<label class="control-label" for="cp">Código postal:</label>
+			    					<input type="text" class="form-control" id="cp" name="cp"  minlength="5" maxlength="5">
+			  					</div>		
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	  						<label class="control-label" for="calle1">Entre calle:</label>
 	  						<input type="text" class="form-control" id="calle1" name="calle1" value="">

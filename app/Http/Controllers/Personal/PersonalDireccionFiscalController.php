@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Personal;
 
-use App\DireccionFisica;
+use App\DireccionFiscal;
 use App\Http\Controllers\Controller;
 use App\Personal;
 use Illuminate\Http\Request;
 
-class PersonalDireccionFisicaController extends Controller
+class PersonalDireccionFiscalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class PersonalDireccionFisicaController extends Controller
     public function index(Personal $cliente)
     {
         //
-        $direccion = $cliente->direccionFisica;
+        $direccion = $cliente->direccionFiscal;
         if ($direccion ==null) {
             # code...
-            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+            return redirect()->route('clientes.direccionFiscal.create',['personal'=>$cliente]);
         }
         else{
             return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
@@ -50,9 +50,9 @@ class PersonalDireccionFisicaController extends Controller
     {
         //
         // dd($request->all());
-        $direccion = DireccionFisica::create($request->all());
+        $direccion = DireccionFiscal::create($request->all());
         return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
-        // return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
 
@@ -65,7 +65,7 @@ class PersonalDireccionFisicaController extends Controller
     public function show(Personal $cliente)
     {
         //
-        $direccion = $cliente->direccionFisica;
+        $direccion = $cliente->DireccionFiscal;
         return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
@@ -79,7 +79,7 @@ class PersonalDireccionFisicaController extends Controller
     public function edit(Personal $cliente)
     {
         //
-        $direccion = $cliente->direccionFisica;
+        $direccion = $cliente->DireccionFiscal;
         return view('direccion.edit',['personal'=>$cliente, 'direccion'=>$direccion]);
     }
 
@@ -90,12 +90,12 @@ class PersonalDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $cliente, DireccionFisica $direccionfisica )
+    public function update(Request $request, Personal $cliente, DireccionFiscal $DireccionFiscal )
     {
         //
-        // dd($direccionfisica);
-        $direccionfisica->update($request->all());
-       return view('direccion.view',['direccion'=>$direccionfisica,'personal'=>$cliente]);
+        // dd($DireccionFiscal);
+        $DireccionFiscal->update($request->all());
+       return view('direccion.view',['direccion'=>$DireccionFiscal,'personal'=>$cliente]);
     }
 
     /**

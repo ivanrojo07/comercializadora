@@ -51,7 +51,7 @@ class PersonalController extends Controller
         } else {
             # code...
             $cliente = Personal::create($request->all());
-            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+            return redirect()->route('clientes.direccionfiscal.create',['personal'=>$cliente]);
         }
         
     }

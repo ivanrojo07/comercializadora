@@ -20,7 +20,7 @@ Auth::routes();
 Route::resource('giros','Giro\GiroController');
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 Route::resource('clientes','Personal\PersonalController');
-Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
+Route::resource('clientes.direccionfiscal','Personal\PersonalDireccionFiscalController');
 Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
 Route::get('/buscar','Personal\PersonalController@buscar');

@@ -98,6 +98,7 @@
                                 <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="{{ url('/marcas') }}">Marca</a>
                                         <a href="{{ url('/familias') }}">Familia</a>
                                         <a href="{{ url('/tipos') }}">Tipo</a>
                                         <a href="{{ url('/subtipos') }}">Subtipo</a>

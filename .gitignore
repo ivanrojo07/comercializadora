@@ -6,6 +6,7 @@
 /.idea
 /.vagrant
 /.phpintel
+/public/web.config
 Homestead.json
 Homestead.yaml
 npm-debug.log

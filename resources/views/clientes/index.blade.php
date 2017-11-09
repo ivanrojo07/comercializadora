@@ -28,6 +28,7 @@
 			</thead>
 			@foreach($personals as $personal)
 				<tr class="active">
+					<td>{{$personal->id}}</td>
 					<td>
 						@if ($personal->tipopersona == "Fisica")
 						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}

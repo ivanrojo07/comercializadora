@@ -25,7 +25,10 @@
 						<th>@sortablelink('','Familia')</th>
 						<th>@sortablelink('','Tipo')</th>
 					</tr>
-				</thead>
+				</thead>}
+				@foreach ($productos as $product)
+					{{-- expr --}}
+				@endforeach
 			</table>
 		</div>
 	</div>

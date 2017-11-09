@@ -14,10 +14,10 @@ class Personal extends Model
     protected $table='personals';
     protected $fillable=['id','tipopersona','nombre','apellidopaterno','apellidomaterno', 'razonsocial','alias','rfc','vendedor', 'calle', 'numext', 'numinter','cp','colonia','municipio','ciudad','estado', 'calle1','calle2','referencia'];
     protected $hidden=[ 'created_at', 'updated_at'];
-    public $sortable =['nombre', 'tipopersona', 'apellidomaterno','apellidopaterno', 'alias', 'rfc', 'razonsocial'];
+    public $sortable =['id','nombre', 'tipopersona', 'apellidomaterno','apellidopaterno', 'alias', 'rfc', 'razonsocial'];
 
-    public function direccionFisica(){
-        return $this->hasOne('App\DireccionFisica');
+    public function direccionFiscal(){
+        return $this->hasOne('App\DireccionFiscal');
     }
 
     public function contactos(){

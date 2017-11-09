@@ -17,10 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('giros','Giro\GiroController');
+Route::resource('giros','Giro\GiroController', ['except'=>'show']);
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 Route::resource('clientes','Personal\PersonalController');
-Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
+Route::resource('clientes.direccionfiscal','Personal\PersonalDireccionFiscalController');
 Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+Route::resource('familias','Precargas\FamiliaController', ['except'=>'show']);
+Route::resource('tipos','Precargas\TipoController', ['except'=>'show']);
+Route::resource('subtipos','Precargas\SubtipoController', ['except'=>'show']);
+Route::resource('unidad','Precargas\UnidadController', ['except'=>'show']);
+Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>'show']);
+Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
+Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
+Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
 Route::get('/buscar','Personal\PersonalController@buscar');
+Route::resource('pruebas','PruebasController', ['except'=>'show']);

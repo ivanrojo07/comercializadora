@@ -18,6 +18,7 @@ class PersonalController extends Controller
     {
         //
         $personals = Personal::sortable()->paginate(10);
+        
         return view('clientes.index', ['personals'=>$personals]);
     }
 
@@ -51,7 +52,7 @@ class PersonalController extends Controller
         } else {
             # code...
             $cliente = Personal::create($request->all());
-            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+            return redirect()->route('clientes.direccionfiscal.create',['personal'=>$cliente]);
         }
         
     }

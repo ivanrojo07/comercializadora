@@ -1,7 +1,8 @@
 @extends('layouts.app')
 	@section('content')
 	<div class="container" id="tab">
-		<form role="form" id="form-cliente" method="POST" name="form">
+		<form role="form" id="form-cliente" method="POST" name="form" action="{{ route('productos.store') }}">
+			{{ csrf_field() }}
 		<div role="application" class="panel panel-group">
 					<div class="panel-default">
 						<div class="panel-heading"><h4>Datos del Producto:</h4>
@@ -10,7 +11,7 @@
 							<div class="row">
 								<div class="form-group col-xs-3">
 			  						<label class="control-label" for="id">* ID:</label>
-			  						<input type="text" class="form-control" id="id_auto" name="id" required readonly="" value="">
+			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="">
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="marca">* Marca:</label>
@@ -157,8 +158,12 @@
 
 						</div>
 					</div>
+					<div class="panel-body">
+						<button type="submit" class="btn btn-default">Guardar</button>
+				<p><strong>*Campo requerido</strong></p>
+				</div>	
 		</div>
-
+	</form>
 	</div>
 	<script type="text/javascript">
 		function sub(){

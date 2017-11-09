@@ -57,15 +57,15 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
-        $producto = Producto::where('identificador',$request->identificador);
-        if (count($producto) != 0) {
-            # code...
-            return redirect()->back()->with('errors','El ID del Producto ya existe');
-        } else {
-            # code...
+        // $producto = Producto::where('identificador',$request->identificador);
+        // if (count($producto) != 0) {
+        //     # code...
+        //     return redirect()->back()->with('errors','El ID del Producto ya existe');
+        // } else {
+        //     # code...
             Producto::create($request->all());
             return redirect()->route('productos.index');
-        }
+        // }
     }
 
     /**

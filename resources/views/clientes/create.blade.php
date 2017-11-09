@@ -75,13 +75,8 @@
 			    					<input type="text" class="form-control" id="numinter" name="numinter">
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-<<<<<<< HEAD
-			    					<label class="control-label" for="cp">* Código postal:</label>
-			    					<input type="text" class="form-control" id="cp" name="cp"  minlength="5" maxlength="5" minlength="5">
-=======
 			    					<label class="control-label" for="cp">Código postal:</label>
 			    					<input type="text" class="form-control" id="cp" name="cp"  minlength="5" maxlength="5">
->>>>>>> 077d49a98e628878d0d60db301bfde88204f7715
 			  					</div>		
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">

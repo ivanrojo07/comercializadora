@@ -25,11 +25,15 @@
 						<th>@sortablelink('','Familia')</th>
 						<th>@sortablelink('','Tipo')</th>
 					</tr>
-				</thead>}
+				</thead>
 				@foreach ($productos as $producto)
 					{{-- expr --}}
 					<td>{{$producto->identificador}}</td>
-					<td>{{$marca->nombre}}</td>
+					<td>{{$producto->marca}}</td>
+					<td>{{$producto->clave}}</td>
+					<td>{{$product->descripcion->short}}</td>
+					<td>{{$producto->familia}}</td>
+					<td>{{$producto->tipo}}</td>
 				@endforeach
 			</table>
 		</div>

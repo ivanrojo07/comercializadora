@@ -14,7 +14,13 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="marca">* Marca:</label>
-			  						<input type="text" class="form-control" id="marca" name="marca" required value=""onkeypress="sub()">
+			  						<select type="select" name="marca_id" class="form-control" id="marca_id">
+			  							@foreach ($marcas as $marca)
+			  								{{-- expr --}}
+			  								<option id="{{$marca->id}}" value="{{$marca->id}}" selected="selected">{{$marca->nombre}}</option>
+			  							@endforeach
+			  						</select>
+			  						{{-- <input type="text" class="form-control" id="marca" name="marca" required value=""onkeypress="sub()"> --}}
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
@@ -22,8 +28,12 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
-			    					<select type="select" name="familia" class="form-control" id="familia" required onchange="familia(this)">	
-			    				</select>
+			    					<select type="select" name="familia_id" class="form-control" id="familia_id" required onchange="familia(this)">
+			    						@foreach ($familias as $familia)
+			    							{{-- expr --}}
+			    							<option id="{{$familia->id}}" value="{{$familia->id}}" selected="selected">{{$familia->nombre}}</option>
+			    						@endforeach
+			    					</select>
 			    				</div>
 			    			</div>
 			    			<div class="row">
@@ -33,17 +43,29 @@
 			  					</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="tipo">Tipo:</label>
-			    					<select type="select" name="tipo" class="form-control" id="tipo" onchange="tipo(this)">	
+			    					<select type="select" name="tipo_id" class="form-control" id="tipo_id" onchange="tipo(this)">
+			    						@foreach ($tipos as $tipo)
+			    							{{-- expr --}}
+			    							<option id="{{$tipo->id}}" value="{{$tipo->id}}" selected="selected">{{$tipo->nombre}}</option>
+			    						@endforeach
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="subtipo">Subtipo:</label>
-			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="subptipo(this)">	
+			    					<select type="select" name="subptipo_id" class="form-control" id="subptipo_id" required onchange="subptipo(this)">
+			    					@foreach ($subtipos as $subtipo)
+			    							{{-- expr --}}
+			    							<option id="{{$subtipo->id}}" value="{{$subtipo->id}}" selected="selected">{{$subtipo->nombre}}</option>
+			    						@endforeach	
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="presentacion">* Presentación(empaque):</label>
-			    					<select type="select" name="presentacion" class="form-control" id="presentacion" required onchange="presentacion(this)">	
+			    					<select type="select" name="presentacion_id" class="form-control" id="presentacion_id" required onchange="presentacion(this)">
+			    					@foreach ($presentaciones as $presentacion)
+			    							{{-- expr --}}
+		    							<option id="{{$presentacion->id}}" value="{{$presentacion->id}}" selected="selected">{{$presentacion->nombre}}</option>
+		    						@endforeach	
 			    				</select>
 			    				</div>
 
@@ -53,12 +75,20 @@
 			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
-			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="calidad(this)">	
+			    					<select type="select" name="calidad_id" class="form-control" id="calidad_id" onchange="calidad(this)">
+			    					@foreach ($calidades as $calidad)
+		    							{{-- expr --}}
+		    							<option id="{{$calidad->id}}" value="{{$calidad->id}}" selected="selected">{{$calidad->nombre}}</option>
+		    						@endforeach	
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="acabado">Acabado:</label>
-			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="acabado(this)">	
+			    					<select type="select" name="acabado_id" class="form-control" id="acabado_id" onchange="acabado(this)">
+			    					@foreach ($acabados as $acabado)
+		    							{{-- expr --}}
+		    							<option id="{{$acabado->id}}" value="{{$acabado->id}}" selected="selected">{{$acabado->nombre}}</option>
+		    						@endforeach	
 			    				</select>
 			    				</div>
 			    				
@@ -69,21 +99,35 @@
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required>
 			  					<label class="control-label" for="medida2">Unidades:</label>
 
-			    					<select type="select" name="selmedida1" class="form-control" id="selmedida1" onchange="medida1	(this)">	
-			    				</select>
+			    					<select type="select" name="unidad1_id" class="form-control" id="unidad1_id" onchange="medida1	(this)">
+			    						@foreach ($unidades as $unidad)
+			    							{{-- expr --}}
+			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    						@endforeach
+				    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida2">Medida 2:</label>
 			  					<input type="text" class="form-control" id="medida2" name="medida2">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="selmedida2" class="form-control" id="selmedida2" onchange="medida2(this)">	
+			    					<select type="select" name="unidad2_id" class="form-control" id="unidad2_id" onchange="medida2(this)">
+			    						@foreach ($unidades as $unidad)
+			    							{{-- expr --}}
+			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    						@endforeach
+				    				</select>	
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida3">Medida 3:</label>
 			  					<input type="text" class="form-control" id="medida3" name="medida3">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="selmedida3" class="form-control" id="selmedida3" onchange="medida3(this)">	
+			    					<select type="select" name="unidad3_id" class="form-control" id="unidad3_id" onchange="medida1	(this)">
+			    						@foreach ($unidades as $unidad)
+			    							{{-- expr --}}
+			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    						@endforeach
+				    				</select>	
 			    				</select>
 			    				</div>
 			    				

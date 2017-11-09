@@ -2,9 +2,17 @@
 
 namespace App\Http\Controllers\Producto;
 
-use App\Producto;
-use Illuminate\Http\Request;
+use App\Acabado;
+use App\Calidad;
+use App\Familia;
 use App\Http\Controllers\Controller;
+use App\Marca;
+use App\Presentacion;
+use App\Producto;
+use App\Subtipo;
+use App\Tipo;
+use App\Unidad;
+use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
@@ -18,7 +26,7 @@ class ProductoController extends Controller
         //
         $productos = Producto::sortable()->paginate(10);
 
-        return view('producto.view',['productos'=>$productos]);
+        return view('productos.index',['productos'=>$productos]);
     }
 
     /**
@@ -29,7 +37,15 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        return view('producto.create');
+        $marcas = Marca::get();
+        $familias = Familia::get();
+        $tipos = Tipo::get();
+        $subtipos = Subtipo::get();
+        $unidades = Unidad::get();
+        $presentaciones = Presentacion::get();
+        $calidades = Calidad::get();
+        $acabados = Acabado::get();
+        return view('productos.create',['marcas'=>$marcas,'familias'=>$familias,'tipos'=>$tipos,'subtipos'=>$subtipos,'unidades'=>$unidades,'presentaciones'=>$presentaciones,'calidades'=>$calidades,'acabados'=>$acabados]);
     }
 
     /**
@@ -48,7 +64,7 @@ class ProductoController extends Controller
         } else {
             # code...
             Producto::create($request->all());
-            return redirect()->route('productos.index')
+            return redirect()->route('productos.index');
         }
     }
 

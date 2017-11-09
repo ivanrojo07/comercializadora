@@ -123,13 +123,5 @@
 			document.getElementById("id_auto").value=a+b;
 		}
 	</script>
-	{{-- <script src="http://code.jquery.com/jquery-1.0.4.js"></script>
-	<script>
-		$(document).ready(function(){
-			$("#marca").keyup(function(){
-				var value=$(this).val();
-				$("#id_auto").val(value);
-			});
-		});
-</script> --}}
+	
 	@endsection

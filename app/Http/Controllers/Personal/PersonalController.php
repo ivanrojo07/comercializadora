@@ -18,6 +18,7 @@ class PersonalController extends Controller
     {
         //
         $personals = Personal::sortable()->paginate(10);
+        
         return view('clientes.index', ['personals'=>$personals]);
     }
 

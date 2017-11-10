@@ -29,7 +29,9 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
-			    					<select type="select" name="familia" class="form-control" id="familia" required onchange="corta(this.value)">
+
+			    					<select type="select" name="familia" class="form-control" id="familia" required onchange="f_corta()">
+
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
 			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}}" selected="selected">{{$familia->nombre}}</option>
@@ -40,11 +42,12 @@
 			    			<div class="row">
 			    				<div class="form-group col-xs-3">
 			  						<label class="control-label" for="modelo">Modelo:</label>
-			  						<input type="text" class="form-control" id="modelo" name="modelo">
+			  						<input type="text" class="form-control" id="modelo" name="modelo" onkeyup="f_corta()">
 			  					</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="tipo">Tipo:</label>
-			    					<select type="select" name="tipo" class="form-control" id="tipo" onchange="tipo(this)">
+			    					<select type="select" name="tipo" class="form-control" id="tipo" onchange="f_corta()">
+
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
 			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}}" selected="selected">{{$tipo->nombre}}</option>
@@ -53,7 +56,7 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="subtipo">Subtipo:</label>
-			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="subptipo(this)">
+			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="f_corta()">
 			    					@foreach ($subtipos as $subtipo)
 			    							{{-- expr --}}
 			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}}" selected="selected">{{$subtipo->nombre}}</option>
@@ -62,7 +65,7 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="presentacion">* Presentación(empaque):</label>
-			    					<select type="select" name="presentacion" class="form-control" id="presentacion" required onchange="presentacion(this)">
+			    					<select type="select" name="presentacion" class="form-control" id="presentacion" required onchange="f_corta()">
 			    					@foreach ($presentaciones as $presentacion)
 			    							{{-- expr --}}
 		    							<option id="{{$presentacion->id}}" value="{{$presentacion->abreviatura}}" selected="selected">{{$presentacion->nombre}}</option>
@@ -76,7 +79,8 @@
 			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
-			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="calidad(this)">
+			    					<select type="select" name="calidad_id" class="form-control" id="calidad_id" onchange="f_corta()">
+			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="f_corta()">
 			    					@foreach ($calidades as $calidad)
 		    							{{-- expr --}}
 		    							<option id="{{$calidad->id}}" value="{{$calidad->abreviatura}}" selected="selected">{{$calidad->nombre}}</option>
@@ -85,7 +89,9 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="acabado">Acabado:</label>
-			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="acabado(this)">
+			    					<select type="select" name="acabado_id" class="form-control" id="acabado_id" onchange="f_corta()">
+
+			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="f_corta()">
 			    					@foreach ($acabados as $acabado)
 		    							{{-- expr --}}
 		    							<option id="{{$acabado->id}}" value="{{$acabado->abreviatura}}" selected="selected">{{$acabado->nombre}}</option>
@@ -97,10 +103,9 @@
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida1">Medida 1:</label>
-			  					<input type="text" class="form-control" id="medida1" name="medida1" required>
+			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()">
 			  					<label class="control-label" for="medida2">Unidades:</label>
-
-			    					<select type="select" name="unidad1" class="form-control" id="unidad1" onchange="medida1	(this)">
+			    					<select type="select" name="unidad1" class="form-control" id="unidad1" onchange="f_corta()">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
 			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
@@ -130,17 +135,14 @@
 			    						@endforeach
 				    				</select>	
 			    				</select>
-			    				</div>
-			    				
-			  					
-
+			    				</div>	  					
 			    			</div>
 			    			<div class="row mt-3">
-			    				<div class="form-group col-xs-3">
+			    				<div class="form-group col-xs-4">
 			  						<label class="control-label" for="corta">* Descripción corta:</label>
-			  						<input type="text" class="form-control" id="corta" name="corta" required readonly="">
+			  						<input type="text" class="form-control" id="corta_id" name="corta" required readonly="" value="">
 			  					</div>
-			    			<div class="form-group col-xs-3">
+			    			<div class="form-group col-xs-4">
 			  						<label class="control-label" for="descripcion">* Descripción Larga:</label>
 			  						<textarea class="form-control" id="descripcion" name="descripcion" required readonly="">
 			  							</textarea>
@@ -168,7 +170,6 @@
 	<script>
 		function sub(valor){
 			
-			v=document.getElementById("marca").value;
 			b=document.getElementById("clave").value;
 			b=b.toUpperCase(b);
 			document.getElementById("id_auto").value=valor+b;
@@ -177,10 +178,18 @@
 		function hw(){
 			sub(document.getElementById("marca").value)
 		}
-		function corta(){
-			familia=document.getElementById("marca").value
-			
-
+		function f_corta(){
+			familia=document.getElementById("familia").value;
+			tipo=document.getElementById("tipo").value;
+			subtipo=document.getElementById("subptipo").value;
+			medida=document.getElementById("medida1").value;
+			medida=medida.toUpperCase(medida);
+			modelo=document.getElementById("modelo").value;
+			modelo=modelo.toUpperCase(modelo);
+			presentacion=document.getElementById("presentacion").value;
+			calidad=document.getElementById("calidad").value;
+			acabado=document.getElementById("acabado").value;
+			document.getElementById("corta").value=familia+tipo+subtipo+medida+modelo+presentacion+calidad+acabado;
 
 		}
 	</script>

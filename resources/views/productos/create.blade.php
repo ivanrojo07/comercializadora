@@ -17,7 +17,7 @@
 								{{-- {{dd($marcas)}} --}}
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="marca">* Marca:</label>
-			  						<select type="select" name="marca_id" class="form-control" id="marca_id" onchange="sub(this.value)">
+			  						<select type="select" name="marca" class="form-control" id="marca" onchange="sub(this.value)">
 			  							@foreach ($marcas as $marca)
 			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" selected="selected">{{$marca->nombre}}</option>
 			  							@endforeach
@@ -29,7 +29,9 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
-			    					<select type="select" name="familia_id" class="form-control" id="familia_id" required onchange="f_corta()">
+
+			    					<select type="select" name="familia" class="form-control" id="familia" required onchange="f_corta()">
+
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
 			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}}" selected="selected">{{$familia->nombre}}</option>
@@ -44,7 +46,8 @@
 			  					</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="tipo">Tipo:</label>
-			    					<select type="select" name="tipo_id" class="form-control" id="tipo_id" onchange="f_corta()">
+			    					<select type="select" name="tipo" class="form-control" id="tipo" onchange="f_corta()">
+
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
 			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}}" selected="selected">{{$tipo->nombre}}</option>
@@ -53,7 +56,7 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="subtipo">Subtipo:</label>
-			    					<select type="select" name="subptipo_id" class="form-control" id="subptipo_id" required onchange="f_corta()">
+			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="f_corta()">
 			    					@foreach ($subtipos as $subtipo)
 			    							{{-- expr --}}
 			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}}" selected="selected">{{$subtipo->nombre}}</option>
@@ -62,7 +65,7 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="presentacion">* Presentación(empaque):</label>
-			    					<select type="select" name="presentacion_id" class="form-control" id="presentacion_id" required onchange="f_corta()">
+			    					<select type="select" name="presentacion" class="form-control" id="presentacion" required onchange="f_corta()">
 			    					@foreach ($presentaciones as $presentacion)
 			    							{{-- expr --}}
 		    							<option id="{{$presentacion->id}}" value="{{$presentacion->abreviatura}}" selected="selected">{{$presentacion->nombre}}</option>
@@ -77,6 +80,7 @@
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
 			    					<select type="select" name="calidad_id" class="form-control" id="calidad_id" onchange="f_corta()">
+			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="f_corta()">
 			    					@foreach ($calidades as $calidad)
 		    							{{-- expr --}}
 		    							<option id="{{$calidad->id}}" value="{{$calidad->abreviatura}}" selected="selected">{{$calidad->nombre}}</option>
@@ -86,6 +90,8 @@
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="acabado">Acabado:</label>
 			    					<select type="select" name="acabado_id" class="form-control" id="acabado_id" onchange="f_corta()">
+
+			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="f_corta()">
 			    					@foreach ($acabados as $acabado)
 		    							{{-- expr --}}
 		    							<option id="{{$acabado->id}}" value="{{$acabado->abreviatura}}" selected="selected">{{$acabado->nombre}}</option>
@@ -99,11 +105,10 @@
 			  					<label class="control-label" for="medida1">Medida 1:</label>
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()">
 			  					<label class="control-label" for="medida2">Unidades:</label>
-
-			    					<select type="select" name="unidad1_id" class="form-control" id="unidad1_id" >
+			    					<select type="select" name="unidad1" class="form-control" id="unidad1" onchange="f_corta()">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>
 			    				</div>
@@ -111,10 +116,10 @@
 			  					<label class="control-label" for="medida2">Medida 2:</label>
 			  					<input type="text" class="form-control" id="medida2" name="medida2">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad2_id" class="form-control" id="unidad2_id" onchange="medida2(this)">
+			    					<select type="select" name="unidad2" class="form-control" id="unidad2" onchange="medida2(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>	
 			    				</select>
@@ -123,17 +128,14 @@
 			  					<label class="control-label" for="medida3">Medida 3:</label>
 			  					<input type="text" class="form-control" id="medida3" name="medida3">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad3_id" class="form-control" id="unidad3_id" onchange="medida1	(this)">
+			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1	(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>	
 			    				</select>
-			    				</div>
-			    				
-			  					
-
+			    				</div>	  					
 			    			</div>
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-4">
@@ -168,28 +170,26 @@
 	<script>
 		function sub(valor){
 			
-			
 			b=document.getElementById("clave").value;
 			b=b.toUpperCase(b);
 			document.getElementById("id_auto").value=valor+b;
 			
 		}
 		function hw(){
-			sub(document.getElementById("marca_id").value)
+			sub(document.getElementById("marca").value)
 		}
-
 		function f_corta(){
-			familia=document.getElementById("familia_id").value;
-			tipo=document.getElementById("tipo_id").value;
-			subtipo=document.getElementById("subptipo_id").value;
+			familia=document.getElementById("familia").value;
+			tipo=document.getElementById("tipo").value;
+			subtipo=document.getElementById("subptipo").value;
 			medida=document.getElementById("medida1").value;
 			medida=medida.toUpperCase(medida);
 			modelo=document.getElementById("modelo").value;
 			modelo=modelo.toUpperCase(modelo);
-			presentacion=document.getElementById("presentacion_id").value;
-			calidad=document.getElementById("calidad_id").value;
-			acabado=document.getElementById("acabado_id").value;
-			document.getElementById("corta_id").value=familia+tipo+subtipo+medida+modelo+presentacion+calidad+acabado;
+			presentacion=document.getElementById("presentacion").value;
+			calidad=document.getElementById("calidad").value;
+			acabado=document.getElementById("acabado").value;
+			document.getElementById("corta").value=familia+tipo+subtipo+medida+modelo+presentacion+calidad+acabado;
 
 		}
 	</script>

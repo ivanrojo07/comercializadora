@@ -17,7 +17,7 @@
 								{{-- {{dd($marcas)}} --}}
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="marca">* Marca:</label>
-			  						<select type="select" name="marca_id" class="form-control" id="marca_id" onchange="sub(this.value)">
+			  						<select type="select" name="marca" class="form-control" id="marca" onchange="sub(this.value)">
 			  							@foreach ($marcas as $marca)
 			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" selected="selected">{{$marca->nombre}}</option>
 			  							@endforeach
@@ -29,7 +29,7 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
-			    					<select type="select" name="familia_id" class="form-control" id="familia_id" required onchange="corta(this.value)">
+			    					<select type="select" name="familia" class="form-control" id="familia" required onchange="corta(this.value)">
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
 			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}}" selected="selected">{{$familia->nombre}}</option>
@@ -44,28 +44,28 @@
 			  					</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="tipo">Tipo:</label>
-			    					<select type="select" name="tipo_id" class="form-control" id="tipo_id" onchange="tipo(this)">
+			    					<select type="select" name="tipo" class="form-control" id="tipo" onchange="tipo(this)">
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
-			    							<option id="{{$tipo->id}}" value="{{$tipo->id}}" selected="selected">{{$tipo->nombre}}</option>
+			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}}" selected="selected">{{$tipo->nombre}}</option>
 			    						@endforeach
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="subtipo">Subtipo:</label>
-			    					<select type="select" name="subptipo_id" class="form-control" id="subptipo_id" required onchange="subptipo(this)">
+			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="subptipo(this)">
 			    					@foreach ($subtipos as $subtipo)
 			    							{{-- expr --}}
-			    							<option id="{{$subtipo->id}}" value="{{$subtipo->id}}" selected="selected">{{$subtipo->nombre}}</option>
+			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}}" selected="selected">{{$subtipo->nombre}}</option>
 			    						@endforeach	
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="presentacion">* Presentación(empaque):</label>
-			    					<select type="select" name="presentacion_id" class="form-control" id="presentacion_id" required onchange="presentacion(this)">
+			    					<select type="select" name="presentacion" class="form-control" id="presentacion" required onchange="presentacion(this)">
 			    					@foreach ($presentaciones as $presentacion)
 			    							{{-- expr --}}
-		    							<option id="{{$presentacion->id}}" value="{{$presentacion->id}}" selected="selected">{{$presentacion->nombre}}</option>
+		    							<option id="{{$presentacion->id}}" value="{{$presentacion->abreviatura}}" selected="selected">{{$presentacion->nombre}}</option>
 		    						@endforeach	
 			    				</select>
 			    				</div>
@@ -76,19 +76,19 @@
 			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
-			    					<select type="select" name="calidad_id" class="form-control" id="calidad_id" onchange="calidad(this)">
+			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="calidad(this)">
 			    					@foreach ($calidades as $calidad)
 		    							{{-- expr --}}
-		    							<option id="{{$calidad->id}}" value="{{$calidad->id}}" selected="selected">{{$calidad->nombre}}</option>
+		    							<option id="{{$calidad->id}}" value="{{$calidad->abreviatura}}" selected="selected">{{$calidad->nombre}}</option>
 		    						@endforeach	
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="acabado">Acabado:</label>
-			    					<select type="select" name="acabado_id" class="form-control" id="acabado_id" onchange="acabado(this)">
+			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="acabado(this)">
 			    					@foreach ($acabados as $acabado)
 		    							{{-- expr --}}
-		    							<option id="{{$acabado->id}}" value="{{$acabado->id}}" selected="selected">{{$acabado->nombre}}</option>
+		    							<option id="{{$acabado->id}}" value="{{$acabado->abreviatura}}" selected="selected">{{$acabado->nombre}}</option>
 		    						@endforeach	
 			    				</select>
 			    				</div>
@@ -100,10 +100,10 @@
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required>
 			  					<label class="control-label" for="medida2">Unidades:</label>
 
-			    					<select type="select" name="unidad1_id" class="form-control" id="unidad1_id" onchange="medida1	(this)">
+			    					<select type="select" name="unidad1" class="form-control" id="unidad1" onchange="medida1	(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>
 			    				</div>
@@ -111,10 +111,10 @@
 			  					<label class="control-label" for="medida2">Medida 2:</label>
 			  					<input type="text" class="form-control" id="medida2" name="medida2">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad2_id" class="form-control" id="unidad2_id" onchange="medida2(this)">
+			    					<select type="select" name="unidad2" class="form-control" id="unidad2" onchange="medida2(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>	
 			    				</select>
@@ -123,10 +123,10 @@
 			  					<label class="control-label" for="medida3">Medida 3:</label>
 			  					<input type="text" class="form-control" id="medida3" name="medida3">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad3_id" class="form-control" id="unidad3_id" onchange="medida1	(this)">
+			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1	(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->id}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>	
 			    				</select>
@@ -168,17 +168,17 @@
 	<script>
 		function sub(valor){
 			
-			v=document.getElementById("marca_id").value;
+			v=document.getElementById("marca").value;
 			b=document.getElementById("clave").value;
 			b=b.toUpperCase(b);
 			document.getElementById("id_auto").value=valor+b;
 			
 		}
 		function hw(){
-			sub(document.getElementById("marca_id").value)
+			sub(document.getElementById("marca").value)
 		}
 		function corta(){
-			familia=document.getElementById("marca_id").value
+			familia=document.getElementById("marca").value
 			
 
 

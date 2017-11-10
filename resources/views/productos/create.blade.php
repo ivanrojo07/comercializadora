@@ -9,27 +9,26 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="form-group col-xs-3">
+								{{-- {{dd($marcas)}} --}}
+			  					<div class="form-group col-xs-3">
+			  						<label class="control-label" for="marca">* Marca:</label>
+			  						<select type="select" name="marca_id" class="form-control" id="marca_id" onchange="sub(this.value)">
+			  							@foreach ($marcas as $marca)
+			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" selected="selected">{{$marca->nombre}}</option>
+			  							@endforeach
+			  						</select>
+			  					</div>
+			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="id">* ID:</label>
 			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="">
 			  					</div>
 			  					<div class="form-group col-xs-3">
-			  						<label class="control-label" for="marca">* Marca:</label>
-			  						<select type="select" name="marca_id" class="form-control" id="marca_id">
-			  							@foreach ($marcas as $marca)
-			  								{{-- expr --}}
-			  								<option id="{{$marca->id}}" value="{{$marca->id}}" selected="selected">{{$marca->nombre}}</option>
-			  							@endforeach
-			  						</select>
-			  						{{-- <input type="text" class="form-control" id="marca" name="marca" required value=""onkeypress="sub()"> --}}
-			  					</div>
-			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
-			  						<input type="text" class="form-control" id="clave" name="clave" required  onkeypress="sub()">
+			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="hw()">
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
-			    					<select type="select" name="familia_id" class="form-control" id="familia_id" required onchange="familia(this)">
+			    					<select type="select" name="familia_id" class="form-control" id="familia_id" required onchange="corta(this.value)">
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
 			    							<option id="{{$familia->id}}" value="{{$familia->id}}" selected="selected">{{$familia->nombre}}</option>
@@ -165,11 +164,23 @@
 		</div>
 	</form>
 	</div>
-	<script type="text/javascript">
-		function sub(){
-			a = document.getElementById("marca").value;
+	<script>
+		function sub(valor){
+			
+			v=document.getElementById("marca_id").value;
 			b=document.getElementById("clave").value;
-			document.getElementById("id_auto").value=a+b;
+			b=b.toUpperCase(b);
+			document.getElementById("id_auto").value=valor+b;
+			
+		}
+		function hw(){
+			sub(document.getElementById("marca_id").value)
+		}
+		function corta(){
+			familia=document.getElementById("marca_id").value
+			
+
+
 		}
 	</script>
 	

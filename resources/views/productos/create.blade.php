@@ -9,6 +9,11 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
+
+			  					<div class="form-group col-xs-3">
+			  						<label class="control-label" for="id">* ID:</label>
+			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="" maxlength="20">
+			  					</div>
 								{{-- {{dd($marcas)}} --}}
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="marca">* Marca:</label>
@@ -19,10 +24,6 @@
 			  						</select>
 			  					</div>
 			  					<div class="form-group col-xs-3">
-			  						<label class="control-label" for="id">* ID:</label>
-			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="">
-			  					</div>
-			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
 			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="hw()">
 			  					</div>
@@ -31,7 +32,7 @@
 			    					<select type="select" name="familia_id" class="form-control" id="familia_id" required onchange="corta(this.value)">
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
-			    							<option id="{{$familia->id}}" value="{{$familia->id}}" selected="selected">{{$familia->nombre}}</option>
+			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}}" selected="selected">{{$familia->nombre}}</option>
 			    						@endforeach
 			    					</select>
 			    				</div>

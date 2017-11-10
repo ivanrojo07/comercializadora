@@ -11,14 +11,14 @@
 							<div class="row">
 								<div class="form-group col-xs-3">
 			  						<label class="control-label" for="id">* ID:</label>
-			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="">
+			  						<input type="text" class="form-control" id="id_auto" name="identificador"  required readonly="" value="1">
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="marca">* Marca:</label>
-			  						<select type="select" name="marca_id" class="form-control" id="marca_id">
+			  						<select type="select" name="marca_id" class="form-control" id="marca_id" onchange='document.getElementById("id_auto").value = this.value'>
 			  							@foreach ($marcas as $marca)
 			  								{{-- expr --}}
-			  								<option id="{{$marca->id}}" value="{{$marca->id}}" selected="selected">{{$marca->nombre}}</option>
+			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" selected="selected">{{$marca->nombre}}</option>
 			  							@endforeach
 			  						</select>
 			  						{{-- <input type="text" class="form-control" id="marca" name="marca" required value=""onkeypress="sub()"> --}}

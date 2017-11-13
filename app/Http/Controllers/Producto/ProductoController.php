@@ -63,7 +63,9 @@ class ProductoController extends Controller
         //     return redirect()->back()->with('errors','El ID del Producto ya existe');
         // } else {
         //     # code...
-            Producto::create($request->all());
+        $producto =new Producto();
+        
+            // Producto::create($request->all());
             return redirect()->route('productos.index');
         // }
     }

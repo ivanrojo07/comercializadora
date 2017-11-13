@@ -127,7 +127,7 @@
 			  					<label class="control-label" for="medida3">Medida 3:</label>
 			  					<input type="text" class="form-control" id="medida3" name="medida3">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1	(this)">
+			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
 			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>

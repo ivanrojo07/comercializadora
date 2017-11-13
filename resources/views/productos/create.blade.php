@@ -79,7 +79,7 @@
 			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
-			    					
+
 			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="f_corta()">
 			    					@foreach ($calidades as $calidad)
 		    							{{-- expr --}}

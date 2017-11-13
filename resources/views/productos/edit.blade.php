@@ -2,8 +2,9 @@
 	@section('content')
 	
 	<div class="container" id="tab">
-		<form role="form" id="form-cliente" method="POST" name="form" action="{{ route('productos.store') }}">
+		<form role="form" id="form-cliente" method="POST" name="form" action="{{ route('productos.update',['producto'=>$producto]) }}">
 			{{ csrf_field() }}
+			<input type="hidden" name="_method" value="PUT">
 		<div role="application" class="panel panel-group">
 					<div class="panel-default">
 						<div class="panel-heading"><h4>Datos del Producto:</h4>

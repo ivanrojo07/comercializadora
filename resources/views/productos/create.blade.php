@@ -79,7 +79,7 @@
 			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
-			    					<select type="select" name="calidad_id" class="form-control" id="calidad_id" onchange="f_corta()">
+			    					
 			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="f_corta()">
 			    					@foreach ($calidades as $calidad)
 		    							{{-- expr --}}
@@ -89,7 +89,6 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="acabado">Acabado:</label>
-			    					<select type="select" name="acabado_id" class="form-control" id="acabado_id" onchange="f_corta()">
 
 			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="f_corta()">
 			    					@foreach ($acabados as $acabado)

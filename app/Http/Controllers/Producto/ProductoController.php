@@ -157,4 +157,21 @@ class ProductoController extends Controller
         $producto->delete();
         return redirect()->route('producto.index');
     }
+
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $productos = Producto::where(function($q) use ($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('identificador','LIKE',"%$word%")
+                    ->orWhere('marca','LIKE',"%$word%")
+                    ->orWhere('clave','LIKE',"%$word%")
+                    ->orWhere('descripcion_short','LIKE',"%$word%")
+                    ->orWhere('familia','LIKE',"%$word%")
+                    ->orWhere('tipo','LIKE',"%word%");
+            }
+        })->paginate(10);
+        return view('productos.index',['productos'=>$productos]);
+    }
 }

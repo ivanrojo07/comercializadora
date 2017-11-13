@@ -93,4 +93,16 @@ class FormaContactoController extends Controller
         $formaContacto->delete();
         return redirect('formacontactos');
     }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $formaContactos = FormaContacto::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('etiqueta','LIKE',"%$word%");
+            }
+        })->paginate(10);
+        return view('formacontacto.index',['formaContactos'=>$formaContactos ]);
+    }
 }

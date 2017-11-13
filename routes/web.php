@@ -31,6 +31,9 @@ Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>
 Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
-Route::get('buscar','Personal\PersonalController@buscar');
+Route::get('buscarcliente','Personal\PersonalController@buscar');
 Route::resource('productos','Producto\ProductoController');
+Route::get('buscarproducto','Producto\ProductoController@buscar');
+Route::get('buscargiro','Giro\GiroController@buscar');
+Route::get('buscarformacontacto','FormaContacto\FormaContactoController@buscar');
 Route::resource('pruebas','PruebasController', ['except'=>'show']);

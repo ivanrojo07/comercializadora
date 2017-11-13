@@ -52,7 +52,7 @@ class CreateProductoTable extends Migration
             // $table->integer('acabado_id')->unsigned();
             // $table->foreign('acabado_id')->references('id')->on('acabado');
             $table->string('descripcion_short');
-            $table->string('descripcion_large');
+            $table->text('descripcion_large');
             $table->string('Sat_id')->nullable();
             $table->text('Sat_descripcion')->nullable();
             $table->timestamps();

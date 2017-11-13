@@ -139,11 +139,11 @@
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-4">
 			  						<label class="control-label" for="corta">* Descripción corta:</label>
-			  						<input type="text" class="form-control" id="corta_id" name="corta" required readonly="" value="">
+			  						<input type="text" class="form-control" id="corta_id" name="descripcion_short" required readonly="" value="">
 			  					</div>
 			    			<div class="form-group col-xs-4">
 			  						<label class="control-label" for="descripcion">* Descripción Larga:</label>
-			  						<textarea class="form-control" id="descripcion" name="descripcion" required readonly="">
+			  						<textarea class="form-control" id="descripcion" name="descripcion_large" required readonly="">
 			  							</textarea>
 			  					</div>
 			  					<div class="form-group col-xs-3">

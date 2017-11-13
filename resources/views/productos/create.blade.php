@@ -30,7 +30,7 @@
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
 
-			    					<select type="select" name="familia" class="form-control" id="familia" required onchange="f_corta()">
+			    					<select type="select" name="familia" class="form-control" id="familia_id" required onchange="f_corta()">
 
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
@@ -42,11 +42,11 @@
 			    			<div class="row">
 			    				<div class="form-group col-xs-3">
 			  						<label class="control-label" for="modelo">Modelo:</label>
-			  						<input type="text" class="form-control" id="modelo" name="modelo" onkeyup="f_corta()">
+			  						<input type="text" class="form-control" id="modelo_id" name="modelo" onkeyup="f_corta()">
 			  					</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="tipo">Tipo:</label>
-			    					<select type="select" name="tipo" class="form-control" id="tipo" onchange="f_corta()">
+			    					<select type="select" name="tipo" class="form-control" id="tipo">
 
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
@@ -104,7 +104,7 @@
 			  					<label class="control-label" for="medida1">Medida 1:</label>
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()">
 			  					<label class="control-label" for="medida2">Unidades:</label>
-			    					<select type="select" name="unidad1" class="form-control" id="unidad1" onchange="f_corta()">
+			    					<select type="select" name="unidad1" class="form-control" id="unidad1">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
 			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
@@ -178,17 +178,17 @@
 			sub(document.getElementById("marca").value)
 		}
 		function f_corta(){
-			familia=document.getElementById("familia").value;
+			familia=document.getElementById("familia_id").value;
 			tipo=document.getElementById("tipo").value;
 			subtipo=document.getElementById("subptipo").value;
 			medida=document.getElementById("medida1").value;
 			medida=medida.toUpperCase(medida);
-			modelo=document.getElementById("modelo").value;
+			modelo=document.getElementById("modelo_id").value;
 			modelo=modelo.toUpperCase(modelo);
 			presentacion=document.getElementById("presentacion").value;
 			calidad=document.getElementById("calidad").value;
 			acabado=document.getElementById("acabado").value;
-			document.getElementById("corta").value=familia+tipo+subtipo+medida+modelo+presentacion+calidad+acabado;
+			document.getElementById("corta_id").value=familia+tipo+subtipo+medida+modelo+presentacion+calidad+acabado;
 
 		}
 	</script>

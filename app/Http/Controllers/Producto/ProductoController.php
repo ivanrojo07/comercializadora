@@ -65,9 +65,9 @@ class ProductoController extends Controller
         //     # code...
         
 
-            $producto = new Producto();
-            $producto->identificador = $request->marca+strtoupper($request->clave);
-            dd($product);
+            // $producto = new Producto();
+            // $producto->identificador = $request->marca+strtoupper($request->clave);
+            // dd($product);
             Producto::create($request->all());
             return redirect()->route('productos.index');
         // }

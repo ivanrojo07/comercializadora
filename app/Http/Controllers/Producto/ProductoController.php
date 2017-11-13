@@ -56,21 +56,23 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // $producto = Producto::where('identificador',$request->identificador);
-        // if (count($producto) != 0) {
-        //     # code...
-        //     return redirect()->back()->with('errors','El ID del Producto ya existe');
-        // } else {
+        
+        $producto = Producto::where('identificador',$request->identificador)->get();
+        // dd($producto);
+        if (count($producto) != 0) {
+            # code...
+            return redirect()->back()->with('errors','El ID del Producto ya existe');
+        } else {
         //     # code...
         
 
             // $producto = new Producto();
-            // $producto->identificador = $request->marca+strtoupper($request->clave);
-            // dd($product);
+            // $producto->identificador = ($request->marca.strtoupper($request->clave));
+            // $
+            // dd($producto);
             Producto::create($request->all());
             return redirect()->route('productos.index');
-        // }
+        }
     }
 
     /**

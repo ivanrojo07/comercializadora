@@ -24,7 +24,7 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $productos = Producto::sortable()->paginate(10);
+        $productos = Producto::sortable()->orderBy('created_at')->paginate(10);
 
         return view('productos.index',['productos'=>$productos]);
     }
@@ -66,11 +66,36 @@ class ProductoController extends Controller
         //     # code...
         
 
-            // $producto = new Producto();
-            // $producto->identificador = ($request->marca.strtoupper($request->clave));
-            // $
+            $producto = new Producto();
+            $producto->identificador = ($request->marca.strtoupper($request->clave));
+            $producto->marca = $request->marca;
+            $producto->clave = $request->clave;
+            $familia = explode(',',$request->familia);
+            $producto->familia = $familia[0];
+            $producto->modelo = $request->modelo;
+            $tipo = explode(',',$request->tipo);
+            $producto->tipo = $tipo[0];
+            $subtipo = explode(',',$request->subtipo);
+            $producto->subtipo = $subtipo[0];
+            $presentacion = explode(',',$request->presentacion);
+            $producto->presentacion = $presentacion[0];
+            $calidad = explode(',',$request->calidad);
+            $producto->calidad = $calidad[0];
+            $acabado = explode(',',$request->acabado);
+            $producto->acabado = $acabado[0];
+            $producto->medida1 = $request->medida1;
+            $producto->unidad1 = $request->unidad1;
+            $producto->medida2 = $request->medida2;
+            $producto->unidad2 = $request->unidad2;
+            $producto->medida3 = $request->medida3;
+            $producto->unidad3 = $request->unidad3;
+            $producto->descripcion_short = $request->descripcion_short;
+            $producto->descripcion_large = $request->descripcion_large;
+            $producto->save();
+
+
             // dd($producto);
-            Producto::create($request->all());
+            // Producto::create($request->all());
             return redirect()->route('productos.index');
         }
     }

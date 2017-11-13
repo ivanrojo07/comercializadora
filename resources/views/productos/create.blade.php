@@ -127,7 +127,7 @@
 			  					<label class="control-label" for="medida3">Medida 3:</label>
 			  					<input type="text" class="form-control" id="medida3" name="medida3">
 			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1	(this)">
+			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
 			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
@@ -139,11 +139,11 @@
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-4">
 			  						<label class="control-label" for="corta">* Descripción corta:</label>
-			  						<input type="text" class="form-control" id="corta_id" name="corta" required readonly="" value="">
+			  						<input type="text" class="form-control" id="corta_id" name="descripcion_short" required readonly="" value="">
 			  					</div>
 			    			<div class="form-group col-xs-4">
 			  						<label class="control-label" for="descripcion">* Descripción Larga:</label>
-			  						<textarea class="form-control" id="descripcion" name="descripcion" required readonly="">
+			  						<textarea class="form-control" id="descripcion" name="descripcion_large" required readonly="">
 			  							</textarea>
 			  					</div>
 			  					<div class="form-group col-xs-3">

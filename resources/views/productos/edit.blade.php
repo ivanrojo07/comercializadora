@@ -1,6 +1,6 @@
 @extends('layouts.app')
 	@section('content')
-	@extends('layouts.app')
+	
 	<div class="container" id="tab">
 		<form role="form" id="form-cliente" method="POST" name="form" action="{{ route('productos.store') }}">
 			{{ csrf_field() }}
@@ -20,13 +20,13 @@
 			  						<label class="control-label" for="marca">* Marca:</label>
 			  						<select type="select" name="marca" class="form-control" id="marca" onchange="sub()">	
 			  							@foreach ($marcas as $marca)
-			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" @if($producto->marca == $marca->abreviatura)selected="selected" @endif >{{$marca->nombre}}</option>
+			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" @if($producto->marca == $marca->abreviatura)selected="selected" @endif>{{$marca->nombre}}</option>
 			  							@endforeach
 			  						</select>
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
-			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()">
+			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()" value="{{$producto->clave}}">
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
@@ -35,7 +35,7 @@
 
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
-			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}},{{$familia->nombre}}" selected="selected">{{$familia->nombre}}</option>
+			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}},{{$familia->nombre}}" @if($producto->familia == $familia->abreviatura)selected="selected" @endif>{{$familia->nombre}}</option>
 			    						@endforeach
 			    					</select>
 			    				</div>
@@ -43,7 +43,7 @@
 			    			<div class="row">
 			    				<div class="form-group col-xs-3">
 			  						<label class="control-label" for="modelo">Modelo:</label>
-			  						<input type="text" class="form-control" id="modelo_id" name="modelo" onkeyup="f_corta()">
+			  						<input type="text" class="form-control" id="modelo_id" name="modelo" onkeyup="f_corta()" value="{{$producto->modelo}}">
 			  					</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="tipo">Tipo:</label>
@@ -51,7 +51,7 @@
 
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
-			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}},{{$tipo->nombre}}" selected="selected">{{$tipo->nombre}}</option>
+			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}},{{$tipo->nombre}}" @if($producto->tipo == $tipo->abreviatura)selected="selected" @endif>{{$familia->nombre}}</option>
 			    						@endforeach
 			    				</select>
 			    				</div>
@@ -60,7 +60,7 @@
 			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="f_corta()">
 			    					@foreach ($subtipos as $subtipo)
 			    							{{-- expr --}}
-			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}},{{$subtipo->nombre}}" selected="selected">{{$subtipo->nombre}}</option>
+			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}},{{$subtipo->nombre}}" @if($producto->subptipo == $subtipo->abreviatura)selected="selected" @endif>{{$subtipo->nombre}}</option>
 			    						@endforeach	
 			    				</select>
 			    				</div>
@@ -84,7 +84,7 @@
 			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="f_corta()">
 			    					@foreach ($calidades as $calidad)
 		    							{{-- expr --}}
-		    							<option id="{{$calidad->id}}" value="{{$calidad->abreviatura}},{{$calidad->nombre}}" selected="selected">{{$calidad->nombre}}</option>
+		    							<option id="{{$calidad->id}}" value="{{$calidad->abreviatura}},{{$calidad->nombre}}" @if($producto->calidad == $calidad->abreviatura)selected="selected" @endif>{{$calidad->nombre}}</option>
 		    						@endforeach	
 			    				</select>
 			    				</div>
@@ -94,7 +94,7 @@
 			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="f_corta()">
 			    					@foreach ($acabados as $acabado)
 		    							{{-- expr --}}
-		    							<option id="{{$acabado->id}}" value="{{$acabado->abreviatura}},{{$acabado->nombre}}" selected="selected">{{$acabado->nombre}},</option>
+		    							<option id="{{$acabado->id}}" value="{{$acabado->abreviatura}},{{$acabado->nombre}}" @if($producto->marca == $marca->abreviatura)selected="selected" @endif>{{$acabado->nombre}},</option>
 		    						@endforeach	
 			    				</select>
 			    				</div>
@@ -103,19 +103,19 @@
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida1">Medida 1:</label>
-			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()">
-			  					<label class="control-label" for="medida2">Unidades:</label>
-			    					<select type="select" name="unidad1" class="form-control" id="unidad1">
+			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()" value="{{$producto->medida1}}">
+			  					<label class="control-label" for="unidades">Unidades:</label>
+			    					<select type="select" {{-- value="{{$producto->unidad1}}" --}} name="unidad1" class="form-control" id="unidad1">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
-			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
+			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}"  @if($producto->unidad1 == $unidad->abreviatura)selected="selected" @endif>{{$unidad->nombre}}</option>
 			    						@endforeach
 				    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida2">Medida 2:</label>
-			  					<input type="text" class="form-control" id="medida2" name="medida2">
-			  					<label class="control-label" for="medida2">Unidades</label>
+			  					<input type="text" class="form-control" id="medida2" name="medida2" value="{{$producto->medida2}}">
+			  					<label class="control-label" for="unidades">Unidades</label>
 			    					<select type="select" name="unidad2" class="form-control" id="unidad2" onchange="medida2(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
@@ -126,9 +126,9 @@
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida3">Medida 3:</label>
-			  					<input type="text" class="form-control" id="medida3" name="medida3">
-			  					<label class="control-label" for="medida2">Unidades</label>
-			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1	(this)">
+			  					<input type="text" class="form-control" id="medida3" name="medida3" value="{{$producto->medida3}}">
+			  					<label class="control-label" for="unidades">Unidades</label>
+			    					<select type="select" name="unidad3" class="form-control" id="unidad3" onchange="medida1(this)">
 			    						@foreach ($unidades as $unidad)
 			    							{{-- expr --}}
 			    							<option id="{{$unidad->id}}" value="{{$unidad->abreviatura}}" selected="selected">{{$unidad->nombre}}</option>
@@ -140,11 +140,11 @@
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-4">
 			  						<label class="control-label" for="corta">* Descripción corta:</label>
-			  						<input type="text" class="form-control" id="corta_id" name="corta" required readonly="" value="">
+			  						<input type="text" class="form-control" id="corta_id" name="descripcion_short" required readonly="" value="{{$producto->descripcion_short}}">
 			  					</div>
 			    			<div class="form-group col-xs-4">
 			  						<label class="control-label" for="descripcion">* Descripción Larga:</label>
-			  						<textarea class="form-control" id="descripcion" name="descripcion" required readonly="">
+			  						<textarea class="form-control" id="descripcion" name="descripcion_large" required readonly="">"{{$producto->descripcion_large}}"
 			  							</textarea>
 			  					</div>
 			  					<div class="form-group col-xs-3">
@@ -153,7 +153,7 @@
 			  					</div>
 			    			<div class="form-group col-xs-3">
 			  						<label class="control-label" for="descripcion_sat">Descripción SAT:</label>
-			  						<textarea class="form-control" id="descripcion_sat" name="descripcion_sat">
+			  						<textarea class="form-control" id="descripcion_sat" name="descripcion_sat" >
 			  							</textarea>
 			  					</div>
 			  				</div>
@@ -161,7 +161,7 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<button type="submit" class="btn btn-default">Guardar</button>
+						<button type="submit" class="btn btn-success">Guardar</button>
 				<p><strong>*Campo requerido</strong></p>
 				</div>	
 		</div>
@@ -201,4 +201,3 @@
 	
 	@endsection
 
-	@endsection

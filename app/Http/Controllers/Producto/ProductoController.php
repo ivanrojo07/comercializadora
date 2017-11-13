@@ -88,8 +88,15 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
-        return view('productos.edit',['producto'=>$producto]);
+        $marcas = Marca::get();
+        $familias = Familia::get();
+        $tipos = Tipo::get();
+        $subtipos = Subtipo::get();
+        $unidades = Unidad::get();
+        $presentaciones = Presentacion::get();
+        $calidades = Calidad::get();
+        $acabados = Acabado::get();
+        return view('productos.edit',['producto'=>$producto,'marcas'=>$marcas,'familias'=>$familias,'tipos'=>$tipos,'subtipos'=>$subtipos,'unidades'=>$unidades,'presentaciones'=>$presentaciones,'calidades'=>$calidades,'acabados'=>$acabados]);
     }
 
     /**

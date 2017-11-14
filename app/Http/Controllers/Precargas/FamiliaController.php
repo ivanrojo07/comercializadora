@@ -15,6 +15,7 @@ class FamiliaController extends Controller
         $this->editar ='familias.edit';
         $this->actualizar = 'familias.update';
         $this->borrar ='familias.destroy';
+        $this->buscar = 'buscarfamilia';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class FamiliaController extends Controller
     {
         //
         $familias = Familia::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$familias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$familias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -101,5 +102,17 @@ class FamiliaController extends Controller
         //
         $familia->delete();
         return redirect()->route('familias.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $familias = Familia::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$familias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

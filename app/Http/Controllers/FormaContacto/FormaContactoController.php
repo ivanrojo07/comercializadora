@@ -93,6 +93,7 @@ class FormaContactoController extends Controller
         $formaContacto->delete();
         return redirect('formacontactos');
     }
+    
     public function buscar(Request $request){
         $query = $request->input('query');
         $wordsquery = explode(' ',$query);

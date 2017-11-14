@@ -15,6 +15,7 @@ class SubtipoController extends Controller
         $this->editar ='subtipos.edit';
         $this->actualizar = 'subtipos.update';
         $this->borrar ='subtipos.destroy';
+        $this->buscar = 'buscarsubtipo';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class SubtipoController extends Controller
     {
         //
         $subtipos = Subtipo::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$subtipos, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$subtipos, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -101,5 +102,17 @@ class SubtipoController extends Controller
         //
         $subtipo->delete();
         return redirect()->route('subtipos.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $subtipos = Subtipo::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$subtipos, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

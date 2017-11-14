@@ -15,6 +15,7 @@ class TipoController extends Controller
         $this->editar ='tipos.edit';
         $this->actualizar = 'tipos.update';
         $this->borrar ='tipos.destroy';
+        $this->buscar ='buscartipo';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class TipoController extends Controller
     {
         //
         $tipos = Tipo::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$tipos,'agregar'=>$this->agregar,'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$tipos,'agregar'=>$this->agregar,'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -100,5 +101,17 @@ class TipoController extends Controller
         //
         $tipo->delete();
         return redirect()->route('tipos.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $tipos = Tipo::where(function ($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$tipos,'agregar'=>$this->agregar,'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

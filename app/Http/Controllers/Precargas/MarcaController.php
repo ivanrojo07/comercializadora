@@ -15,6 +15,7 @@ class MarcaController extends Controller
         $this->editar ='marcas.edit';
         $this->actualizar = 'marcas.update';
         $this->borrar ='marcas.destroy';
+        $this->buscar = 'buscarmarca';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class MarcaController extends Controller
     {
         //
         $marcas = Marca::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$marcas, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$marcas, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -100,5 +101,17 @@ class MarcaController extends Controller
         //
         $marca->delete();
         return redirect()->route('marcas.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $marcas = Marca::where(function ($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(10);
+        return view('precargas.index',['precargas'=>$marcas, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

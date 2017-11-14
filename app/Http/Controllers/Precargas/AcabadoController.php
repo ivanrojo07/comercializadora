@@ -15,6 +15,7 @@ class AcabadoController extends Controller
         $this->editar ='acabados.edit';
         $this->actualizar = 'acabados.update';
         $this->borrar ='acabados.destroy';
+        $this->buscar = 'buscaracabado';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class AcabadoController extends Controller
     {
         //
         $acabados = Acabado::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$acabados, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$acabados, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -100,5 +101,17 @@ class AcabadoController extends Controller
         //
         $acabado->delete();
         return redirect()->route('acabados.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $acabados = Acabado::where(function ($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$acabados, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

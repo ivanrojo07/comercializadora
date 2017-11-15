@@ -12,8 +12,14 @@
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="tipopersona">Tipo de Persona:</label>
 			    					<select type="select" name="tipopersona" class="form-control" id="tipopersona" onchange="persona(this)">
-			    						<option id="Fisica" value="Fisica">Fisica</option>
-			    						<option id="Moral" value="Moral">Moral</option>
+			    						<option id="Fisica" value="Fisica" @if ($personal->tipopersona == "Fisica")
+			    							{{-- expr --}}
+			    							selected="selected" 
+			    						@endif>Fisica</option>
+			    						<option id="Moral" value="Moral" @if ($personal->tipopersona == "Moral")
+			    							{{-- expr --}}
+			    							selected="selected" 
+			    						@endif>Moral</option>
 			    					</select>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -55,8 +61,8 @@
 						</div>
 					</div>
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-						<li class="active"><a href="#tab1">Dirección Fisica:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.direccionfiscal.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fiscal:</a></li>
+						<li class="active"><a href="#tab1">Dirección Fiscal:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.direccionfisica.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.datosgenerales.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
@@ -75,11 +81,7 @@
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numinter">Numero interior:</label>
 			    					<input type="text" class="form-control" id="numinter" name="numinter" value="{{ $personal->numinter }}">
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="cp">Código postal:</label>
-			    					<input type="text" class="form-control" id="cp" name="cp" value="{{ $personal->cp }}">
-			  					</div>		
+			  					</div>	
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

@@ -133,6 +133,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
 
     {{-- <script type="text/javascript">
         function formulario(elemento){
@@ -158,7 +159,7 @@
             }
         }
     </script> --}}
-    <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+    
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

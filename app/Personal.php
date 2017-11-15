@@ -16,8 +16,8 @@ class Personal extends Model
     protected $hidden=[ 'created_at', 'updated_at'];
     public $sortable =['id','nombre', 'tipopersona', 'apellidomaterno','apellidopaterno', 'alias', 'rfc', 'razonsocial'];
 
-    public function direccionFiscal(){
-        return $this->hasOne('App\DireccionFiscal');
+    public function direccionFisica(){
+        return $this->hasOne('App\DireccionFisica');
     }
 
     public function contactos(){

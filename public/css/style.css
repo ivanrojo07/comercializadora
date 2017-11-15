@@ -9,6 +9,12 @@
 	min-height: 170px;
 }
 
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
 .navbar>.container .navbar-brand{
     margin-top: 60px;
     margin-left: -80px;

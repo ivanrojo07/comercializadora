@@ -19,14 +19,15 @@ class CreateDireccionFisicaTable extends Migration
             $table->foreign('personal_id')->references('id')->on('personals');
             $table->string('calle');
             $table->string('numext');
-            $table->string('numint');
+            $table->string('numint')->nullable();
+            $table->string('cp')->nullable();
             $table->string('colonia');
             $table->string('municipio');
             $table->string('ciudad');
             $table->string('estado');
-            $table->string('referencia');
-            $table->string('calle1');
-            $table->string('calle2');
+            $table->string('referencia')->nullable();
+            $table->string('calle1')->nullable();
+            $table->string('calle2')->nullable();
             $table->timestamps();
         });
     }

@@ -52,7 +52,7 @@ $(function(){
             });
 
 $(function() {
-   $("ul li").click(function() {
+   $("div.panel div ul li").click(function() {
       // remove classes from all
       $("li").removeClass("active");
       // add class to the one we clicked

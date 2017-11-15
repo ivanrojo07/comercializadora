@@ -52,13 +52,13 @@
 
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
-			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}},{{$tipo->nombre}}" @if($producto->tipo == $tipo->abreviatura)selected="selected" @endif>{{$familia->nombre}}</option>
+			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}},{{$tipo->nombre}}" @if($producto->tipo == $tipo->abreviatura)selected="selected" @endif>{{$tipo->nombre}}</option>
 			    						@endforeach
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="subtipo">Subtipo:</label>
-			    					<select type="select" name="subptipo" class="form-control" id="subptipo" required onchange="f_corta()">
+			    					<select type="select" name="subtipo" class="form-control" id="subptipo" required onchange="f_corta()">
 			    					@foreach ($subtipos as $subtipo)
 			    							{{-- expr --}}
 			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}},{{$subtipo->nombre}}" @if($producto->subptipo == $subtipo->abreviatura)selected="selected" @endif>{{$subtipo->nombre}}</option>

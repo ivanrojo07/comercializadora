@@ -24,6 +24,7 @@
 						<th>@sortablelink('descripcion_short','Descripción corta')</th>
 						<th>@sortablelink('familia','Familia')</th>
 						<th>@sortablelink('tipo','Tipo')</th>
+						<th width="200px">Operaciones</th>
 					</tr>
 				</thead>
 				@foreach ($productos as $producto)
@@ -35,7 +36,12 @@
 						<td>{{$producto->descripcion_short}}</td>
 						<td>{{$producto->familia}}</td>
 						<td>{{$producto->tipo}}</td>
-						
+						<td>
+							
+							<a class="btn btn-success btn-sm" href="{{ route('productos.show',['producto'=>$producto]) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+							<a class="btn btn-info btn-sm" href="{{ route('productos.edit',['producto'=>$producto]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							
+						</td>
 					</tr>
 				@endforeach
 			</table>

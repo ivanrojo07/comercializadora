@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="panel-body">
 		<div class="col-lg-6">
-			<form action="/buscar">
+			<form action="buscarcliente">
 				<div class="input-group">
 					<input type="text" name="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">
@@ -17,6 +17,7 @@
 		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
+					<th>@sortablelink('id', 'Identificador')</th>
 					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
 					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
 					<th>@sortablelink('alias', 'Alias')</th>
@@ -27,6 +28,7 @@
 			</thead>
 			@foreach($personals as $personal)
 				<tr class="active">
+					<td>{{$personal->id}}</td>
 					<td>
 						@if ($personal->tipopersona == "Fisica")
 						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}

@@ -52,7 +52,7 @@ class PersonalDireccionFisicaController extends Controller
         // dd($request->all());
         $direccion = DireccionFisica::create($request->all());
         return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
-        // return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
 
@@ -90,12 +90,12 @@ class PersonalDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $cliente, DireccionFisica $direccionfisica )
+    public function update(Request $request, Personal $cliente, DireccionFisica $direccionFisica )
     {
         //
-        // dd($direccionfisica);
-        $direccionfisica->update($request->all());
-       return view('direccion.view',['direccion'=>$direccionfisica,'personal'=>$cliente]);
+        // dd($DireccionFiscal);
+        $cliente->direccionFisica->update($request->all());
+        return redirect()->route('clientes.direccionfisica.index',['personal'=>$cliente]);
     }
 
     /**

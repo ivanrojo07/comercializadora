@@ -10,11 +10,12 @@ class CalidadController extends Controller
 {
     public function __construct(){
         $this->titulo = 'calidad';
-        $this->agregar = 'calidads.create';
-        $this->guardar = 'calidads.store';
-        $this->editar ='calidads.edit';
-        $this->actualizar = 'calidads.update';
-        $this->borrar ='calidads.destroy';
+        $this->agregar = 'calidad.create';
+        $this->guardar = 'calidad.store';
+        $this->editar ='calidad.edit';
+        $this->actualizar = 'calidad.update';
+        $this->borrar ='calidad.destroy';
+        $this->buscar ='buscarcalidad';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class CalidadController extends Controller
     {
         //
         $calidads = Calidad::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$calidads, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$calidads, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -49,7 +50,7 @@ class CalidadController extends Controller
     {
         //
         Calidad::create($request->all());
-        return redirect()->route('calidads.index');
+        return redirect()->route('calidad.index');
     }
 
     /**
@@ -86,7 +87,7 @@ class CalidadController extends Controller
     {
         //
         $calidad->update($request->all());
-        return redirect()->route('calidads.index');
+        return redirect()->route('calidad.index');
     }
 
     /**
@@ -99,6 +100,18 @@ class CalidadController extends Controller
     {
         //
         $calidad->delete();
-        return redirect()->route('calidads.index');
+        return redirect()->route('calidad.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $calidads = Calidad::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$calidads, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

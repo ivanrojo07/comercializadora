@@ -14,6 +14,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
         {{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
         <!-- Optional theme -->
@@ -98,22 +99,24 @@
                             </li>                     
                         </ul>
                     </li>
+
                     <li class="dropdown" role="menu" aria-labelledby="dLabel">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="{{ url('/clientes/create')}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
-                            <a href="{{ url('/clientes') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                            <a href="{{ url('/productos/create')}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
+                            <a href="{{ url('/productos') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                             <li class="dropdown-submenu">
                                 <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="{{ url('/marcas') }}">Marca</a>
                                         <a href="{{ url('/familias') }}">Familia</a>
                                         <a href="{{ url('/tipos') }}">Tipo</a>
                                         <a href="{{ url('/subtipos') }}">Subtipo</a>
-                                        <a href="{{ url('/unidads') }}">Unidad</a>
-                                        <a href="{{ url('/presentacions') }}">Presentación</a>
-                                        <a href="{{ url('/calidads') }}">Calidad</a>
+                                        <a href="{{ url('/unidad') }}">Unidad</a>
+                                        <a href="{{ url('/presentaciones') }}">Presentación</a>
+                                        <a href="{{ url('/calidad') }}">Calidad</a>
                                         <a href="{{ url('acabados') }}">Acabado</a>
                                     </li>
                                 </ul>
@@ -130,6 +133,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
 
     {{-- <script type="text/javascript">
         function formulario(elemento){
@@ -155,8 +159,15 @@
             }
         }
     </script> --}}
-    <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+    
     <script src="{{ asset('js/sweetalert.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#myTable').DataTable();
+        });
+    </script>
     {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 {{-- 
     Include this after the sweet alert js file --}}

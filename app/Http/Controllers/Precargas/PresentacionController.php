@@ -10,11 +10,12 @@ class PresentacionController extends Controller
 {
     public function __construct(){
         $this->titulo = 'presentación';
-        $this->agregar = 'presentacions.create';
-        $this->guardar = 'presentacions.store';
-        $this->editar ='presentacions.edit';
-        $this->actualizar = 'presentacions.update';
-        $this->borrar ='presentacions.destroy';
+        $this->agregar = 'presentaciones.create';
+        $this->guardar = 'presentaciones.store';
+        $this->editar ='presentaciones.edit';
+        $this->actualizar = 'presentaciones.update';
+        $this->borrar ='presentaciones.destroy';
+        $this->buscar ='buscarpresentacion';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class PresentacionController extends Controller
     {
         //
         $presentaciones = Presentacion::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$presentaciones, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$presentaciones, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -49,7 +50,7 @@ class PresentacionController extends Controller
     {
         //
         Presentacion::create($request->all());
-        return redirect()->route('presentacions.index');
+        return redirect()->route('presentaciones.index');
     }
 
     /**
@@ -86,7 +87,7 @@ class PresentacionController extends Controller
     {
         //
         $presentacion->update($request->all());
-        return redirect()->route('presentacions.index');
+        return redirect()->route('presentaciones.index');
     }
 
     /**
@@ -99,6 +100,18 @@ class PresentacionController extends Controller
     {
         //
         $presentacion->delete();
-        return redirect()->route('presentacions.index');
+        return redirect()->route('presentaciones.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $presentaciones = Presentacion::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$presentaciones, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

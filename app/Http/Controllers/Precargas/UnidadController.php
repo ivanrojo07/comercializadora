@@ -10,11 +10,12 @@ class UnidadController extends Controller
 {
     public function __construct(){
         $this->titulo = 'unidad';
-        $this->agregar = 'unidads.create';
-        $this->guardar = 'unidads.store';
-        $this->editar ='unidads.edit';
-        $this->actualizar = 'unidads.update';
-        $this->borrar ='unidads.destroy';
+        $this->agregar = 'unidad.create';
+        $this->guardar = 'unidad.store';
+        $this->editar ='unidad.edit';
+        $this->actualizar = 'unidad.update';
+        $this->borrar ='unidad.destroy';
+        $this->buscar = 'buscarunidad';
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class UnidadController extends Controller
     {
         //
         $unidades = Unidad::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$unidades, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo]);
+        return view('precargas.index',['precargas'=>$unidades, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo, 'buscar'=>$this->buscar]);
     }
 
     /**
@@ -49,7 +50,7 @@ class UnidadController extends Controller
     {
         //
         Unidad::create($request->all());
-        return redirect()->route('unidads.index');
+        return redirect()->route('unidad.index');
     }
 
     /**
@@ -86,7 +87,7 @@ class UnidadController extends Controller
     {
         //
         $unidad->update($request->all());
-        return redirect()->route('unidads.index');
+        return redirect()->route('unidad.index');
     }
 
     /**
@@ -99,6 +100,18 @@ class UnidadController extends Controller
     {
         //
         $unidad->delete();
-        return redirect()->route('unidads.index');
+        return redirect()->route('unidad.index');
+    }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $unidades = Unidad::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('abreviatura','LIKE',"%$word%");
+            }
+        })->paginate(50);
+        return view('precargas.index',['precargas'=>$unidades, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo, 'buscar'=>$this->buscar]);
     }
 }

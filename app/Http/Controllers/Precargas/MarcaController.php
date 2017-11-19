@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Precargas;
 
-use App\Familia;
+use App\Marca;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FamiliaController extends Controller
+class MarcaController extends Controller
 {
     public function __construct(){
-        $this->titulo = 'familia';
-        $this->agregar = 'familias.create';
-        $this->guardar = 'familias.store';
-        $this->editar ='familias.edit';
-        $this->actualizar = 'familias.update';
-        $this->borrar ='familias.destroy';
-        $this->buscar = 'buscarfamilia';
+        $this->titulo = 'marca';
+        $this->agregar = 'marcas.create';
+        $this->guardar = 'marcas.store';
+        $this->editar ='marcas.edit';
+        $this->actualizar = 'marcas.update';
+        $this->borrar ='marcas.destroy';
+        $this->buscar = 'buscarmarca';
     }
     /**
      * Display a listing of the resource.
@@ -25,8 +25,8 @@ class FamiliaController extends Controller
     public function index()
     {
         //
-        $familias = Familia::sortable()->paginate(10);
-        return view('precargas.index',['precargas'=>$familias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
+        $marcas = Marca::sortable()->paginate(10);
+        return view('precargas.index',['precargas'=>$marcas, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -49,17 +49,17 @@ class FamiliaController extends Controller
     public function store(Request $request)
     {
         //
-        Familia::create($request->all());
-        return redirect()->route('familias.index');
+        Marca::create($request->all());
+        return redirect()->route('marcas.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function show(Familia $familia)
+    public function show(Marca $marca)
     {
         //
     }
@@ -67,52 +67,51 @@ class FamiliaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Marca  $Marca
      * @return \Illuminate\Http\Response
      */
-    public function edit(Familia $familia)
+    public function edit(Marca $marca)
     {
         //
-        // $familia=$precarga;
-        return view('precargas.edit',['precarga'=>$familia, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
+        return view('precargas.edit',['precarga'=>$marca, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Familia  $familia
+     * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Familia $familia)
+    public function update(Request $request, Marca $marca)
     {
         //
-        $familia->update($request->all());
-        return redirect()->route('familias.index');
+        $marca->update($request->all());
+        return redirect()->route('marcas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Marca  $Marca
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Familia $familia)
+    public function destroy(Marca $marca)
     {
         //
-        $familia->delete();
-        return redirect()->route('familias.index');
+        $marca->delete();
+        return redirect()->route('marcas.index');
     }
     public function buscar(Request $request){
         $query = $request->input('query');
         $wordsquery = explode(' ',$query);
-        $familias = Familia::where(function($q) use($wordsquery){
+        $marcas = Marca::where(function ($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
                 $q->orWhere('nombre','LIKE',"%$word%")
                     ->orWhere('abreviatura','LIKE',"%$word%");
             }
-        })->paginate(50);
-        return view('precargas.index',['precargas'=>$familias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
+        })->paginate(10);
+        return view('precargas.index',['precargas'=>$marcas, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 }

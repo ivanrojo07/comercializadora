@@ -68,6 +68,7 @@
                         </ul>
                     </li>
                     
+
                     {{-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-building" aria-hidden="true"></i> Oficinas <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
@@ -92,18 +93,19 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="{{ url('/clientes/create')}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
-                            <a href="{{ url('/clientes') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                            <a href="{{ url('/productos/create')}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
+                            <a href="{{ url('/productos') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                             <li class="dropdown-submenu">
                                 <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="{{ url('/marcas') }}">Marca</a>
                                         <a href="{{ url('/familias') }}">Familia</a>
                                         <a href="{{ url('/tipos') }}">Tipo</a>
                                         <a href="{{ url('/subtipos') }}">Subtipo</a>
-                                        <a href="{{ url('/unidads') }}">Unidad</a>
-                                        <a href="{{ url('/presentacions') }}">Presentación</a>
-                                        <a href="{{ url('/calidads') }}">Calidad</a>
+                                        <a href="{{ url('/unidad') }}">Unidad</a>
+                                        <a href="{{ url('/presentaciones') }}">Presentación</a>
+                                        <a href="{{ url('/calidad') }}">Calidad</a>
                                         <a href="{{ url('acabados') }}">Acabado</a>
                                     </li>
                                 </ul>

@@ -99,4 +99,16 @@ class GiroController extends Controller
         $giro->delete();
         return  redirect('giros');
     }
+    public function buscar(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $giros = Giro::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('etiqueta','LIKE',"%$word%");
+            }
+        })->paginate(10);
+        return view('giro.index',['giros'=>$giros]);
+    }
 }

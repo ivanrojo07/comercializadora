@@ -128,8 +128,10 @@
                 </div>
             </div>
         </nav>
+        {{-- <example id="app"></example> --}}
         @yield('content')
     </div>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

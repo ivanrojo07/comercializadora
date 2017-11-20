@@ -116,5 +116,6 @@
 					</div>
   				</div>
 			</form>
+		<example id="app" :personal="{{  json_encode($personal) }}"></example>
 		</div>
 	@endsection

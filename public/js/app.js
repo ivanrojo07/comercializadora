@@ -42054,6 +42054,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['personal', 'direccion'],
@@ -42083,6 +42084,8 @@ var render = function() {
             _vm._v(
               "\n                    " +
                 _vm._s(_vm.personal) +
+                "\n                    " +
+                _vm._s(_vm.direccion) +
                 "\n                "
             )
           ])

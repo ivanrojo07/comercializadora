@@ -7,6 +7,7 @@
 
                     <div class="panel-body">
                         {{personal}}
+                        {{direccion}}
                     </div>
                 </div>
             </div>

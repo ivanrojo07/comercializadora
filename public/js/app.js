@@ -42056,9 +42056,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['personal'],
+    props: ['personal', 'direccion'],
     mounted: function mounted() {
         console.log(this.personal);
+        console.log(this.direccion);
     }
 });
 
@@ -42081,7 +42082,7 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _vm._v(
               "\n                    " +
-                _vm._s(_vm.personal.razonsocial) +
+                _vm._s(_vm.personal) +
                 "\n                "
             )
           ])

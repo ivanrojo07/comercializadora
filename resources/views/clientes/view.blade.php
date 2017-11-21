@@ -116,6 +116,6 @@
 					</div>
   				</div>
 			</form>
-		<example id="app" :personal="{{  json_encode($personal) }}"></example>
+		<example id="app" :personal="{{  json_encode($personal) }}" :direccion="{{json_encode($personal->direccionFisica)}}"></example>
 		</div>
 	@endsection

@@ -6,7 +6,7 @@
                     <div class="panel-heading">example component!</div>
 
                     <div class="panel-body">
-                        {{personal.razonsocial}}
+                        {{personal}}
                     </div>
                 </div>
             </div>
@@ -16,9 +16,10 @@
 
 <script>
     export default {
-        props: ['personal'],
+        props: ['personal', 'direccion'],
         mounted() {
-            console.log(this.personal)
+            console.log(this.personal);
+            console.log(this.direccion);
         }
     }
 </script>

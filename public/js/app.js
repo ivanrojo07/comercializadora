@@ -801,7 +801,7 @@ Vue.component('example', __webpack_require__(36));
 
 var app = new Vue({
   el: '#app',
-  props: ['personal']
+  props: ['personal', 'direccion']
 });
 
 /***/ }),

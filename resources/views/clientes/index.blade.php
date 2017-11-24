@@ -4,6 +4,7 @@
 	<div class="panel-body">
 		<div class="col-lg-6">
 			<form action="buscarcliente">
+				{{ csrf_field() }}
 				<div class="input-group">
 					<input type="text" name="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">
@@ -41,14 +42,15 @@
 					<td>{{ strtoupper($personal->rfc) }}</td>
 					<td>{{$personal->vendedor}}</td>
 					<td>
-						<a class="btn btn-success btn-sm" href="{{ route('clientes.show',['cliente'=>$personal]) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
-						<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['cliente'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 				</tr>
-					</td>
-				</tbody>
+				</td>
+			</tbody>
 			@endforeach
 		</table>
 	</div>
 	{{ $personals->links()}}
 </div>
+
 @endsection

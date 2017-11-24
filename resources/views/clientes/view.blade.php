@@ -51,7 +51,6 @@
 						@endif
 						</div>
 					</div>
-				@yield('cliente')
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
 						<li class="active"><a href="#tab1">Dirección Fiscal:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.direccionfisica.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
@@ -116,6 +115,6 @@
 					</div>
   				</div>
 			</form>
-		<example id="app" :personal="{{  json_encode($personal) }}" :direccion="{{json_encode($personal->direccionFisica)}}"></example>
+{{-- 		<example id="app" :personal="{{  json_encode($personal) }}" :direccion="{{json_encode($personal->direccionFisica)}}"></example> --}}
 		</div>
 	@endsection

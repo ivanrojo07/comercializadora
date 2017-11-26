@@ -800,8 +800,7 @@ window.Vue = __webpack_require__(35);
 Vue.component('example', __webpack_require__(36));
 
 var app = new Vue({
-  el: '#app',
-  props: ['personal', 'direccion']
+  el: '#app'
 });
 
 /***/ }),
@@ -42054,13 +42053,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['personal', 'direccion'],
     mounted: function mounted() {
-        console.log(this.personal);
-        console.log(this.direccion);
+        console.log();
     }
 });
 
@@ -42083,9 +42079,7 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _vm._v(
               "\n                    " +
-                _vm._s(_vm.personal) +
-                "\n                    " +
-                _vm._s(_vm.direccion) +
+                _vm._s(_vm.$personal) +
                 "\n                "
             )
           ])

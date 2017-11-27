@@ -26,6 +26,15 @@ function formulario(elemento){
                 document.getElementById('varrfc').title="Siga el formato 3 letras seguidas por 6 digitos y 3 caracteres";
             }
         }
+// $('div#tab').remove();
+$("tr").click(function(){
+  $('div.persona').hide();
+  console.log(this.getAttribute('href'));
+  var index = $(this.getAttribute('href'));
+  // $(index).removeClass("pestana");
+  $(this.getAttribute('href')).show();
+
+});
 $(function() {
   $("li").click(function() {
   // remove classes from all

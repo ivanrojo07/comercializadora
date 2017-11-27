@@ -26,7 +26,6 @@ function formulario(elemento){
                 document.getElementById('varrfc').title="Siga el formato 3 letras seguidas por 6 digitos y 3 caracteres";
             }
         }
-
 $(function() {
   $("li").click(function() {
   // remove classes from all

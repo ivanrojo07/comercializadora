@@ -28,8 +28,8 @@
 				</tr>
 			</thead>
 			@foreach($personals as $personal)
-				<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}} href="#{{$personal->id}}">
-					<td><a rel="#{{$personal->id}}"> {{$personal->id}}</a></td>
+				<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}} href="#{{$personal->id}}" data-toggle="modal" data-target="#myModal{{$personal->id}}">
+					<td>{{$personal->id}}</a></td>
 					<td>
 						@if ($personal->tipopersona == "Fisica")
 						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
@@ -42,7 +42,7 @@
 					<td>{{ strtoupper($personal->rfc) }}</td>
 					<td>{{$personal->vendedor}}</td>
 					<td>
-							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['cliente'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-success btn-sm" href="{{ route('clientes.show',['cliente'=>$personal]) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
 							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 				</tr>
 				</td>
@@ -55,7 +55,19 @@
 </div>
 @foreach ($personals as $personal)
 	{{-- expr --}}
-	<div class="persona" id="{{$personal->id}}">
+	<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal{{$personal->id}}" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Información del Cliente</h4>
+        </div>
+        <div class="modal-body">
+          <div class="persona" id="{{$personal->id}}">
 	<div class="container" id="tab">
 				<div role="application" class="panel panel-group" >
 					<div class="panel-default">
@@ -302,14 +314,14 @@
   		</div>
 	</div>	
 	</div>
-@endforeach
-<script type="text/javascript">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 	
-	// function vistarapida(index){
-	// 	document.getElementById(index).style.display='block';
-	// 	console.log(index);
-
-	// }
-</script>
+@endforeach
 
 @endsection

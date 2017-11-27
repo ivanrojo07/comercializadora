@@ -32,6 +32,7 @@ $("tr").click(function(){
   console.log(this.getAttribute('href'));
   var index = $(this.getAttribute('href'));
   // $(index).removeClass("pestana");
+  // $('#tab').dialog('open');
   $(this.getAttribute('href')).show();
 
 });

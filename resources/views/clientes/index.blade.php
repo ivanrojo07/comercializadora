@@ -264,13 +264,4 @@
 	</div>	
 	</div>
 @endforeach
-<script type="text/javascript">
-	
-	// function vistarapida(index){
-	// 	document.getElementById(index).style.display='block';
-	// 	console.log(index);
-
-	// }
-</script>
-
 @endsection

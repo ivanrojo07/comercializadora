@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
 
 class Presentacion extends Model
 {
     //
-    use Sortable;
+    use Sortable, SoftDeletes;
     protected $table='presentacion';
     protected $fillable=['id', 'nombre','abreviatura'];
     protected $hidden=['created_at','updated_at'];

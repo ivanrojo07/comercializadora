@@ -17,6 +17,7 @@ class CreateTipoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('abreviatura')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

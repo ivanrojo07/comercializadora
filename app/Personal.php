@@ -27,4 +27,7 @@ class Personal extends Model
     public function datosGenerales(){
         return $this->hasOne('App\DatosGenerales');
     }
+    public function cotizacion(){
+        return $this->hasMany('App\Cotizacion');
+    }
 }

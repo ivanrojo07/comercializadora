@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use = /^([^.]*)(?:\.(.+)|)/\Alert;
 use App\Acabado;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class AcabadoController extends Controller
 {
+    // use Alert;
     public function __construct(){
         $this->titulo = 'acabado';
         $this->agregar = 'acabados.create';

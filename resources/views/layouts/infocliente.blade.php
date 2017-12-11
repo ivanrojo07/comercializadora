@@ -51,5 +51,8 @@
 						@endif
 						</div>
 					</div>
-				@yield('cliente')
-			@endsection
+
+					@yield('cliente')
+				</div>
+		</div>
+	@endsection

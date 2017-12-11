@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Marca;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class MarcaController extends Controller
 {
+        use Alert;
+
     public function __construct(){
         $this->titulo = 'marca';
         $this->agregar = 'marcas.create';
@@ -50,6 +53,7 @@ class MarcaController extends Controller
     {
         //
         Marca::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('marcas.index');
     }
 
@@ -87,6 +91,7 @@ class MarcaController extends Controller
     {
         //
         $marca->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('marcas.index');
     }
 

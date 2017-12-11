@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Precargas;
 
-use = /^([^.]*)(?:\.(.+)|)/\Alert;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Acabado;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AcabadoController extends Controller
 {
-    // use Alert;
+    use Alert;
     public function __construct(){
         $this->titulo = 'acabado';
         $this->agregar = 'acabados.create';
@@ -52,6 +52,7 @@ class AcabadoController extends Controller
     {
         //
         Acabado::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('acabados.index');
     }
 
@@ -89,6 +90,7 @@ class AcabadoController extends Controller
     {
         //
         $acabado->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('acabados.index');
     }
 

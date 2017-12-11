@@ -54,8 +54,8 @@ class PersonalController extends Controller
         } else {
             # code...
             $cliente = Personal::create($request->all());
-            Alert::success("Cliente creado con exito, sigue agregando información");
-            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente])->with('success', 'Cliente creado con exito, sigue agregando información');
+            Alert::success("Cliente creado con exito, sigue agregando información")->persistent("Cerrar");
+            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
         }
         
     }
@@ -94,7 +94,7 @@ class PersonalController extends Controller
     {
         //
         $cliente->update($request->all());
-        Alert::success('HOLA');
+        Alert::success('Cliente actualizado')->persistent("Cerrar");
         return redirect()->route('clientes.index');
     }
 

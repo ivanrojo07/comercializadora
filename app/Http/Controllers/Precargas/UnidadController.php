@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Unidad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class UnidadController extends Controller
 {
+        use Alert;
+
     public function __construct(){
         $this->titulo = 'unidad';
         $this->agregar = 'unidad.create';
@@ -50,6 +53,7 @@ class UnidadController extends Controller
     {
         //
         Unidad::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('unidad.index');
     }
 
@@ -87,6 +91,7 @@ class UnidadController extends Controller
     {
         //
         $unidad->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('unidad.index');
     }
 

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Presentacion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PresentacionController extends Controller
 {
+        use Alert;
+
     public function __construct(){
         $this->titulo = 'presentación';
         $this->agregar = 'presentaciones.create';
@@ -50,6 +53,7 @@ class PresentacionController extends Controller
     {
         //
         Presentacion::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('presentaciones.index');
     }
 
@@ -87,6 +91,7 @@ class PresentacionController extends Controller
     {
         //
         $presentacion->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('presentaciones.index');
     }
 

@@ -72,11 +72,7 @@
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="numinter">Numero interior:</label>
 			    					<dd>{{ $personal->numinter }}</dd>
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="cp">Código postal:</label>
-			    					<dd>{{ $personal->cp }}</dd>
-			  					</div>		
+			  					</div>	
 							</div>
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

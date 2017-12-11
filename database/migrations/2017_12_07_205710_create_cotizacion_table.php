@@ -21,7 +21,7 @@ class CreateCotizacionTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('cotizacion')->nullable();
             $table->date('fecha')->nullable();
-            $table->integer('producto_id')nullable()->unsigend();
+            $table->integer('producto_id')->nullable()->unsigned();
             $table->foreign('producto_id')->references('id')->on('producto');
             $table->decimal('descuento',2,2)->nullable();
             $table->integer('cantidad')->nullable();

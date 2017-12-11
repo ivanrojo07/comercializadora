@@ -33,6 +33,7 @@ Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
 Route::get('buscarcliente','Personal\PersonalController@buscar');
 Route::resource('productos','Producto\ProductoController');
+Route::resource('cotizaciones','Cotizacion\CotizacionController');
 Route::get('buscarproducto','Producto\ProductoController@buscar');
 Route::get('buscargiro','Giro\GiroController@buscar');
 Route::get('buscarformacontacto','FormaContacto\FormaContactoController@buscar');

@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class FamiliaController extends Controller
 {
-        use Alert;
+        // use Alert;
 
     public function __construct(){
         $this->titulo = 'familia';

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class AcabadoController extends Controller
 {
-    use Alert;
+    // use Alert;
     public function __construct(){
         $this->titulo = 'acabado';
         $this->agregar = 'acabados.create';

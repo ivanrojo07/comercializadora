@@ -110,7 +110,7 @@
 			  					</div>
 							</div>
 	  				<button type="submit" class="btn btn-success">Guardar</button>
-	  				<p><strong>*Campo requerido</strong></p>
+	  				<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

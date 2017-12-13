@@ -13,7 +13,7 @@ class Cotizacion extends Model
 
     protected $table='cotizacion';
 
-    protected $fillable=['id','personal_id','user_id','cotizacion','fecha','producto_id','descuento','cantidad'];
+    protected $fillable=['id','personal_id','user_id','cotizacion','fecha','validez','producto_id','descuento','cantidad'];
 
     protected $hidden=['created_at','updated_at','deleted_at'];
     public function cliente(){

@@ -13,6 +13,6 @@ class FormaContacto extends Model
 
     protected $table = 'forma_contacto';
     protected $fillable = ['id','nombre', 'etiqueta'];
-    protected $hidden =['created_at', 'updated_at'];
+    protected $hidden =['created_at', 'updated_at','deleted_at'];
     public $sortable = ['id', 'nombre', 'etiqueta'];
 }

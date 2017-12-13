@@ -10,27 +10,35 @@
 	 	<div class="panel-heading">Datos Generales:</div>
 	 	<div class="panel-body">
 	 		<div class="col-md-12 offset-md-2 mt-3">
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+	 				<label class="control-label" for="nombre">Tamaño de la empresa:</label>
 					<dd>{{$datos->tamano}}</dd>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+	 				<label class="control-label" for="nombre">Giro de la empresa:</label>
+					<dd>{{$giro->nombre}}</dd>
+	 			</div>
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+	 				<label class="control-label" for="nombre">Forma de contacto:</label>
+	 				<dd>{{$formaContacto->nombre}}</dd>
+	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="web">Sitio web:</label>
-	 				<dd>{{$datos->web}}</dd>
+	 				<dd><a href="{{$datos->web}}" target="_blank">{{$datos->web}}</a></dd>
 	 			</div>
 
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="comentario">Comentarios:</label>
 	 				<dd>{{$datos->comentario}}</dd>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
 	 				<dd>{{$datos->fechacontacto}}</dd>
 	 			</div>
 	 		</div>
+ 		<a class="btn btn-info" href="{{ route('clientes.datosgenerales.edit',['cliente'=>$personal,'datosgenerale'=>$datos]) }}">Editar</a>
 	 	</div>
 	</div>
 	@endsection

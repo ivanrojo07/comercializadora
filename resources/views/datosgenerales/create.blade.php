@@ -9,11 +9,11 @@
 	<div class="panel panel-default">
 	 	<div class="panel-heading">Datos Generales:</div>
 		<form role="form" id="form-cliente" method="POST" action="{{ route('clientes.datosgenerales.store',['cliente'=>$personal]) }}" name="form">
-	{{ csrf_field() }}
-	 <input type="hidden" name="personal_id" value="{{$personal->id}}">
+			{{ csrf_field() }}
+	 		<input type="hidden" name="personal_id" value="{{$personal->id}}">
 	 	<div class="panel-body">
 	 		<div class="col-md-12 offset-md-2 mt-3">
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Giro:</label>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
 						@foreach ($giros as $giro)
@@ -21,7 +21,7 @@
 						@endforeach
 				</select>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
 					<select type="select" name="tamano" class="form-control" id="tamano">
 						<option id="micro" value="micro">Micro</option>
@@ -30,7 +30,7 @@
 						<option id="grande" value="grande">Grande</option>
 					</select>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
 						@foreach ($formaContactos as $formaContacto)
@@ -41,21 +41,34 @@
 	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="web">Sitio web:</label>
-	 				<input type="url" class="form-control" id="web" name="web" value="">
+	 				<input type="url" class="form-control" id="web" name="web" onblur="checkURL(this)" value="">
 	 			</div>
 
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="comentario">Comentarios:</label>
 	 				<textarea  class="form-control" rows="5" id="comentario" name="comentario"></textarea>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
 	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" value="">
 	 			</div>
 	 		</div>
 	 		<button type="submit" class="btn btn-success">Guardar</button>
 	 	</div>
+	 	</form>
+	 	</div>
 	</div>
 	@endsection
+	<script type="text/javascript">
+		// input type url agree http:// in automatic
+		function checkURL (abc) {
+  			var string = abc.value;
+  			if (!~string.indexOf("http")) {
+    			string = "http://" + string;
+  			}
+  			abc.value = string;
+  			return abc
+		}
+	</script>

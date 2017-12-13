@@ -12,6 +12,6 @@ class Tipo extends Model
     use Sortable, SoftDeletes;
     protected $table='tipo';
     protected $fillable=['id', 'nombre','abreviatura'];
-    protected $hidden=['created_at','updated_at'];
+    protected $hidden=['created_at','updated_at','deleted_at'];
     public $sortable=['id','nombre','abreviatura'];
 }

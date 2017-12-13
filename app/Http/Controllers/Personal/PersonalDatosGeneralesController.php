@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Personal;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\DatosGenerales;
 use App\FormaContacto;
 use App\Giro;
@@ -43,7 +44,7 @@ class PersonalDatosGeneralesController extends Controller
         //
         $giros = Giro::get();
         $formaContactos = FormaContacto::get();
-        // dd($giros);
+        // dd($giros);}
         return view('datosgenerales.create',['personal'=>$cliente, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
     }
 
@@ -58,6 +59,7 @@ class PersonalDatosGeneralesController extends Controller
         //
         // dd($request->all());
         $datos = DatosGenerales::create($request->all());
+        Alert::success('Datos generales creados con éxito');
         return redirect()->route('clientes.datosgenerales.index',['personal'=>$cliente]);;
 
     }
@@ -108,6 +110,7 @@ class PersonalDatosGeneralesController extends Controller
         $datosgenerale->update($request->all());
         $giro = Giro::findorFail($datosgenerale->giro_id);
         $formaContacto = FormaContacto::findorFail($datosgenerale->forma_contacto_id);
+        Alert::success('Datos generales actualizados con éxito');
         return view('datosgenerales.view',['datos'=>$datosgenerale,'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
 
     }

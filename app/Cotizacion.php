@@ -15,7 +15,7 @@ class Cotizacion extends Model
 
     protected $fillable=['id','personal_id','user_id','cotizacion','fecha','validez','producto_id','descuento','cantidad'];
 
-    protected $hidden=['created_at','updated_at','deleted_at'];
+    protected $hidden=['created_at','updated_at','deleted_at','deleted_at'];
     public function cliente(){
     	return $this->belongsTo('App\Personal','personal_id');
     }

@@ -13,23 +13,24 @@ echo"
 					<th>Operacion</th>
 				</tr>
 			</thead>
-			@foreach($personals as $personal)
-				<tr class='active'>
-					<td>{{$personal->id}}</td>
-					<td>
+			";
+		.@foreach($personals as $personal)
+				echo"<tr class='active'>
+					<td>".{{$personal->id}}."</td>
+					<td>".
 						@if ($personal->tipopersona == 'Fisica')
 						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
 						@else
 						{{$personal->razonsocial}}
-						@endif
+						@endif."
 					</td>
-					<td>{{ $personal->tipopersona }}</td>
-					<td>{{ $personal->alias }}</td>
-					<td>{{ strtoupper($personal->rfc) }}</td>
-					<td>{{$personal->vendedor}}</td>
+					<td>".{{ $personal->tipopersona }}."</td>
+					<td>".{{ $personal->alias }}."</td>
+					<td>".{{ strtoupper($personal->rfc) }}."</td>
+					<td>".{{$personal->vendedor}}."</td>
 					<td>
-							<a class='btn btn-success btn-sm'{{-- href='{{ route('clientes.show',['cliente'=>$personal]) }}' --}}><i class='fa fa-eye' aria-hidden='true'></i> Ver</a>
-							<a class='btn btn-info btn-sm' href='{{ route('clientes.edit',['cliente'=>$personal]) }}'><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar</a>
+							<a class='btn btn-success btn-sm'".{{-- href='{{ route('clientes.show',['cliente'=>$personal]) }}' --}}."><i class='fa fa-eye' aria-hidden='true'></i> Ver</a>
+							<a class='btn btn-info btn-sm' href='".{{ route('clientes.edit',['cliente'=>$personal]) }}."'><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar</a>
 				</tr>
 				</td>
 			</tbody>
@@ -37,6 +38,6 @@ echo"
 			@endforeach
 		</table>
 
-";
+
 
 		?>

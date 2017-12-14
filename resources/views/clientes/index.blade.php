@@ -14,7 +14,6 @@
 			</form>
 		</div>
 	</div>
-<<<<<<< HEAD
 	<div id="datos" class="jumbotron">
 
 

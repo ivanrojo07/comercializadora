@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Producto;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Acabado;
 use App\Calidad;
 use App\Familia;
@@ -96,6 +97,7 @@ class ProductoController extends Controller
 
             // dd($producto);
             // Producto::create($request->all());
+            Alert::success('Producto creado');
             return redirect()->route('productos.index');
         }
     }
@@ -167,6 +169,7 @@ class ProductoController extends Controller
         $producto->save();
         // dd($producto);
         // $producto->update($request->all());
+        Alert::success('Producto actualizado');
         return redirect()->route('productos.index');
 
     }

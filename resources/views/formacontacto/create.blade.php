@@ -10,7 +10,7 @@
 				<div class="panel-body">
 					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<label class="control-label" for="nombre">* Nombre:</label>
-	  					<input type="text" class="form-control" id="nombre" name="nombre" required>
+	  					<input type="text" class="form-control" id="nombre" name="nombre" required autofocus>
 					</div>
 					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<label class="control-label" for="etiqueta">Etiqueta:</label>
@@ -18,8 +18,8 @@
 					</div>
 				</div>
 				<div class="panel-body">
-						<button type="submit" class="btn btn-default">Guardar</button>
-						<p><strong>*Campo requerido</strong></p>
+					<button type="submit" class="btn btn-success">Guardar</button>
+					<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 				</div>	
 			</div>
 		</form>

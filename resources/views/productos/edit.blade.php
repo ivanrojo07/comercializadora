@@ -10,8 +10,10 @@
 						<div class="panel-heading"><h4>Datos del Producto:</h4>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-
+								<div class="form-group col-xs-2 col-xs-offset-10">
+										<button type="submit" class="btn btn-success">Guardar</button>
+										<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+								</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="id">* ID:</label>
 			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="{{$producto->identificador}}" maxlength="20">
@@ -21,13 +23,13 @@
 			  						<label class="control-label" for="marca">* Marca:</label>
 			  						<select type="select" name="marca" class="form-control" id="marca" onchange="sub()">	
 			  							@foreach ($marcas as $marca)
-			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" @if($producto->marca == $marca->abreviatura)selected="selected" @endif>{{$marca->nombre}}</option>
+			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" @if($producto->marca == $marca->abreviatura) selected="selected" @endif>{{$marca->nombre}}</option>
 			  							@endforeach
 			  						</select>
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
-			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()" value="{{$producto->clave}}">
+			  						<input autofocus type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()" value="{{$producto->clave}}">
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
@@ -36,12 +38,10 @@
 
 			    						@foreach ($familias as $familia)
 			    							{{-- expr --}}
-			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}},{{$familia->nombre}}" @if($producto->familia == $familia->abreviatura)selected="selected" @endif>{{$familia->nombre}}</option>
+			    							<option id="{{$familia->id}}" value="{{$familia->abreviatura}},{{$familia->nombre}}" @if($producto->familia == $familia->abreviatura) selected="selected" @endif>{{$familia->nombre}}</option>
 			    						@endforeach
 			    					</select>
 			    				</div>
-			    			</div>
-			    			<div class="row">
 			    				<div class="form-group col-xs-3">
 			  						<label class="control-label" for="modelo">Modelo:</label>
 			  						<input type="text" class="form-control" id="modelo_id" name="modelo" onkeyup="f_corta()" value="{{$producto->modelo}}">
@@ -52,7 +52,7 @@
 
 			    						@foreach ($tipos as $tipo)
 			    							{{-- expr --}}
-			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}},{{$tipo->nombre}}" @if($producto->tipo == $tipo->abreviatura)selected="selected" @endif>{{$tipo->nombre}}</option>
+			    							<option id="{{$tipo->id}}" value="{{$tipo->abreviatura}},{{$tipo->nombre}}" @if($producto->tipo == $tipo->abreviatura) selected="selected" @endif>{{$tipo->nombre}}</option>
 			    						@endforeach
 			    				</select>
 			    				</div>
@@ -61,7 +61,7 @@
 			    					<select type="select" name="subtipo" class="form-control" id="subptipo" required onchange="f_corta()">
 			    					@foreach ($subtipos as $subtipo)
 			    							{{-- expr --}}
-			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}},{{$subtipo->nombre}}" @if($producto->subptipo == $subtipo->abreviatura)selected="selected" @endif>{{$subtipo->nombre}}</option>
+			    							<option id="{{$subtipo->id}}" value="{{$subtipo->abreviatura}},{{$subtipo->nombre}}" @if($producto->subptipo == $subtipo->abreviatura) selected="selected" @endif>{{$subtipo->nombre}}</option>
 			    						@endforeach	
 			    				</select>
 			    				</div>
@@ -74,10 +74,6 @@
 		    						@endforeach	
 			    				</select>
 			    				</div>
-
-			    				
-			    			</div>
-			    			<div class="row">
 			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
@@ -99,8 +95,6 @@
 		    						@endforeach	
 			    				</select>
 			    				</div>
-			    				
-			    			</div>
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida1">Medida 1:</label>
@@ -161,10 +155,6 @@
 
 						</div>
 					</div>
-					<div class="panel-body">
-						<button type="submit" class="btn btn-success">Guardar</button>
-				<p><strong>*Campo requerido</strong></p>
-				</div>	
 		</div>
 	</form>
 	</div>

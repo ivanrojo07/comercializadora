@@ -8,7 +8,6 @@
 						<div class="panel-heading"><h4>Datos del Producto:</h4>
 						</div>
 						<div class="panel-body">
-							<div class="row">
 								<div class="form-group col-xs-2 col-xs-offset-10">
 										<button type="submit" class="btn btn-success">Guardar</button>
 										<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
@@ -28,7 +27,7 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
-			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()">
+			  						<input type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()" autofocus>
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>
@@ -41,8 +40,6 @@
 			    						@endforeach
 			    					</select>
 			    				</div>
-			    			</div>
-			    			<div class="row">
 			    				<div class="form-group col-xs-3">
 			  						<label class="control-label" for="modelo">Modelo:</label>
 			  						<input type="text" class="form-control" id="modelo_id" name="modelo" onkeyup="f_corta()">
@@ -75,11 +72,6 @@
 		    						@endforeach	
 			    				</select>
 			    				</div>
-
-			    				
-			    			</div>
-			    			<div class="row">
-			    				
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="calidad">Calidad:</label>
 

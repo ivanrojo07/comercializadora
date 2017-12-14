@@ -283,11 +283,3 @@
 @endforeach
 
 @endsection
-
-  				</div>
-  			</div>
-  		</div>
-	</div>	
-	</div>
-@endforeach
-@endsection

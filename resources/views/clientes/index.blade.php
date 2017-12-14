@@ -275,11 +275,6 @@
 				 	</div>
 				 	@endif
 				</div>
-<<<<<<< HEAD
-{{-- <<<<<<< HEAD --}}
-=======
-<<<<<<< HEAD
->>>>>>> 9668322ab16cb3b809ccad91fdd11ebb57f021d4
   				</div></div>
   				<div id="datos">hola</div>
   				<script type="https://unpkg.com/sweetalert/dist/main.js"></script>
@@ -288,8 +283,8 @@
 @endforeach
 
 @endsection
-<<<<<<< HEAD
-{{-- =======
+{{-- <<<<<<< HEAD
+=======
 =======
 =======
 >>>>>>> 9668322ab16cb3b809ccad91fdd11ebb57f021d4
@@ -302,6 +297,7 @@
 @endsection
 >>>>>>> 5b9001f21210c45d15e2ff8cc256114c82610b53
 <<<<<<< HEAD
- --}}
+
 =======
 >>>>>>> 9668322ab16cb3b809ccad91fdd11ebb57f021d4
+ --}}

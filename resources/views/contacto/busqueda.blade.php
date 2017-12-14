@@ -4,17 +4,19 @@ echo"
 <table class='table table-striped table-bordered table-hover' style='color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px'>
 			<thead>
 				<tr class='info'>
-					<th>@sortablelink('id', 'Identificador')</th>
-					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
-					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
-					<th>@sortablelink('alias', 'Alias')</th>
-					<th>@sortablelink('rfc', 'RFC')</th>
-					<th>@sortablelink('vendedor', 'Vendedor') </th>
+					<th>".@sortablelink('id', 'Identificador')."</th>
+					<th>".@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}."</th>
+					<th>".@sortablelink('tipopersona', 'Tipo de persona')."</th>
+					<th>".@sortablelink('alias', 'Alias')."</th>
+					<th>".@sortablelink('rfc', 'RFC')."</th>
+					<th>".@sortablelink('vendedor', 'Vendedor')." </th>
 					<th>Operacion</th>
 				</tr>
 			</thead>
 			";
+
 		.@foreach($personals as $personal)
+		
 				echo"<tr class='active'>
 					<td>".{{$personal->id}}."</td>
 					<td>".
@@ -34,9 +36,11 @@ echo"
 				</tr>
 				</td>
 			</tbody>
-		</div>
+		</div>";
+
 			@endforeach
-		</table>
+
+		echo"</table>";
 
 
 

@@ -8,11 +8,15 @@
 		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.datosgenerales.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 	</ul>
 	<div class="panel panel-default">
-		<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.contacto.store', ['cliente'=>$personal]) }}" name="form">
-			{{ csrf_field() }}
-			<input type="hidden" name="personal_id" value="{{$personal->id}}" required>
-			<div class="panel-heading">Contacto:</div>
-				<div class="panel-body">
+		<div class="panel-heading">Contacto:</div>
+			<div class="panel-body">
+				<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.contacto.store', ['cliente'=>$personal]) }}" name="form">
+					{{ csrf_field() }}
+					<input type="hidden" name="personal_id" value="{{$personal->id}}" required>
+					<div class="col-xs-offset-10">
+						<button type="submit" class="btn btn-success">Guardar</button>
+						<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+					</div>	
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	    					<label class="control-label" for="nombre">* Nombre(s):</label>
@@ -76,10 +80,8 @@
 	  						<input type="email" class="form-control" id="email2" name="email2" value="">
 	  					</div>
 					</div>
-					<button type="submit" class="btn btn-sucess">Guardar</button>
-					<p><strong>*Campo requerido</strong></p>
-				</div>
-		</form>
+					
+				</form>
+			</div>
 	</div>
-</div>
 @endsection

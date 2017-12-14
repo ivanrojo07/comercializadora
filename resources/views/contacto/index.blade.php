@@ -11,7 +11,9 @@
 			Contactos:
 		</div>
 		<div class="panel-body">
-			
+			<div class="form-group col-lg-offset-11">
+				<a type="button" class="btn btn-success" href="{{ route('clientes.contacto.create',['cliente'=>$personal]) }}">Agregar</a>
+			</div>
 		@if (count($contactos) == 0)
 			<h3>Aún no tienes contactos</h3>
 		@endif
@@ -42,7 +44,7 @@
 				@endforeach
 			</table>
 		@endif
-		<a type="button" class="btn btn-sm btn-default" href="{{ route('clientes.contacto.create',['cliente'=>$personal]) }}">Agregar</a>
+		
 		</div>
 	</div>
 		@endsection

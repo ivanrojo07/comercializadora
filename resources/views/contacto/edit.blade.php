@@ -8,11 +8,15 @@
 					</ul>
 					<div class="panel panel-default">
 						<div class="panel-heading">Contacto:</div>
-					<form role="form" method="POST" action="{{ route('clientes.contacto.update', ['cliente'=>$personal,'contacto'=>$contacto]) }}" name="form">
-					{{ csrf_field() }}
-					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
-					 <input type="hidden" name="_method" value="PUT">
+							<form role="form" method="POST" action="{{ route('clientes.contacto.update', ['cliente'=>$personal,'contacto'=>$contacto]) }}" name="form">
+								{{ csrf_field() }}
+							 	<input type="hidden" name="personal_id" value="{{$personal->id}}">
+							 	<input type="hidden" name="_method" value="PUT">
 						<div class="panel-body">
+							<div class="col-xs-offset-10">
+								<button type="submit" class="btn btn-success">Guardar</button>
+								<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+							</div>	
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="nombre">* Nombre:</label>
@@ -76,8 +80,6 @@
 			  						<input type="text" class="form-control" id="email2" name="email2" value="{{$contacto->email2}}">
 			  					</div>
 							</div>
-						<button type="submit" class="btn btn-default">Guardar</button>
-						<p><strong>*Campo requerido</strong></p>
 						</div>
 					</div>
   				</div>

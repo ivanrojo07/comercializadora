@@ -9,7 +9,10 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
-
+								<div class="form-group col-xs-2 col-xs-offset-10">
+										<button type="submit" class="btn btn-success">Guardar</button>
+										<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+								</div>	
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="id">* ID:</label>
 			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="" maxlength="20">

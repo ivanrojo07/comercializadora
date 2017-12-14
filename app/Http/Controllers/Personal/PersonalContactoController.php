@@ -24,6 +24,12 @@ class PersonalContactoController extends Controller
 
     }
 
+    public function busqueda(){
+        $contactos = $cliente->contactos;
+        // dd($contactos);
+        return view('contacto.busqueda', ['personal'=>$cliente, 'contactos'=>$contactos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -13,16 +13,22 @@
 	<input type="hidden" name="_method" value="PUT">
 	 <input type="hidden" name="personal_id" value="{{$personal->id}}">
 	 	<div class="panel-body">
+	 		<div class="col-xs-offset-10">
+				<button type="submit" class="btn btn-success">Guardar</button>
+				<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+			</div>	
 	 		<div class="col-md-12 offset-md-2 mt-3">
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Giro:</label>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
 						@foreach ($giros as $giro)
-							<option id="'{{$giro->id}}'" value="{{$giro->id}}" selected="selected">{{$giro->nombre}}</option>
+							<option id="'{{$giro->id}}'" value="{{$giro->id}}" @if ($)
+								{{-- expr --}}
+							@endif selected="selected">{{$giro->nombre}}</option>
 						@endforeach
 				</select>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
 						@foreach ($formaContactos as $formaContacto)
@@ -31,31 +37,31 @@
 						@endforeach
 					</select>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="formacontacto">Forma de contacto:</label>
-					<select type="select" name="formacontacto" class="form-control" id="formacontacto">
-						<option id="telefono" value="telefono">Telefono</option>
-						<option id="celular" value="celular">Celular</option>
-						<option id="correo" value="correo">Correo</option>
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
+					<select type="select" name="tamano" class="form-control" id="tamano">
+						<option id="micro" value="micro">Micro</option>
+						<option id="pequeña" value="pequeña">Pequeña</option>
+						<option id="mediana" value="mediana">Mediana</option>
+						<option id="grande" value="grande">Grande</option>
 					</select>
 	 			</div>
 	 		</div>
 	 		<div class="col-md-12 offset-md-2 mt-3">
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="web">Sitio web:</label>
 	 				<input type="text" class="form-control" id="web" name="web" value="{{ $datos->web }}">
 	 			</div>
 
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="comentario">Comentarios:</label>
 	 				<textarea  class="form-control" rows="5" id="comentario" name="comentario">{{ $datos->comentario }}</textarea>
 	 			</div>
-	 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
 	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" value="{{ $datos->fechacontacto }}">
 	 			</div>
 	 		</div>
-	 		<button type="submit" class="btn btn-default">Guardar</button>
 	 	</div>
 	</div>
 	@endsection

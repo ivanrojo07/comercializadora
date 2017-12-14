@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Tipo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TipoController extends Controller
 {
+        // use Alert;
+
     public function __construct(){
         $this->titulo = 'tipo';
         $this->agregar = 'tipos.create';
@@ -50,6 +53,7 @@ class TipoController extends Controller
     {
         //
         Tipo::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('tipos.index');
     }
 
@@ -87,6 +91,7 @@ class TipoController extends Controller
     {
         //
         $tipo->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('tipos.index');
     }
 

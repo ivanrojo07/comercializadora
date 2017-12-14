@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Familia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class FamiliaController extends Controller
 {
+        // use Alert;
+
     public function __construct(){
         $this->titulo = 'familia';
         $this->agregar = 'familias.create';
@@ -50,6 +53,7 @@ class FamiliaController extends Controller
     {
         //
         Familia::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('familias.index');
     }
 
@@ -88,6 +92,7 @@ class FamiliaController extends Controller
     {
         //
         $familia->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('familias.index');
     }
 

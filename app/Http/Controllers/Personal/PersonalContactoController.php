@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Personal;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Contacto;
 use App\Http\Controllers\Controller;
 use App\Personal;
@@ -50,6 +51,7 @@ class PersonalContactoController extends Controller
     {
         //
         $contacto = Contacto::create($request->all());
+        Alert::success('Contacto creado con éxito');
 
         return redirect()->route('clientes.contacto.index', ['personal'=>$cliente]);
     }
@@ -92,6 +94,7 @@ class PersonalContactoController extends Controller
         //
         $contacto = Contacto::findOrFail($contacto);
         $contacto->update($request->all());
+        Alert::success('Contacto actualizado con éxito');
         return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
     }
 

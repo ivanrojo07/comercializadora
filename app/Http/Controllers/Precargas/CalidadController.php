@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Precargas;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Calidad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CalidadController extends Controller
 {
-    public function __construct(){
+        // use Alert;
+        
+        public function __construct(){
         $this->titulo = 'calidad';
         $this->agregar = 'calidad.create';
         $this->guardar = 'calidad.store';
@@ -50,6 +53,7 @@ class CalidadController extends Controller
     {
         //
         Calidad::create($request->all());
+        Alert::success('Precarga creada.')->persistent("Cerrar");
         return redirect()->route('calidad.index');
     }
 
@@ -87,6 +91,7 @@ class CalidadController extends Controller
     {
         //
         $calidad->update($request->all());
+        Alert::success('Precarga actualizada.')->persistent("Cerrar");
         return redirect()->route('calidad.index');
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAcabadoTable extends Migration
+class AddValidezColumnToCotizacionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateAcabadoTable extends Migration
      */
     public function up()
     {
-        Schema::create('acabado', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre');
-            $table->string('abreviatura')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('cotizacion', function (Blueprint $table) {
+            //
+            $table->string('validez')->nullable();
         });
     }
 
@@ -29,6 +26,8 @@ class CreateAcabadoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acabado');
+        Schema::table('cotizacion', function (Blueprint $table) {
+            //
+        });
     }
 }

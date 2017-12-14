@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Personal;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\DireccionFisica;
 use App\Http\Controllers\Controller;
 use App\Personal;
@@ -19,10 +20,12 @@ class PersonalDireccionFisicaController extends Controller
         //
         $direccion = $cliente->direccionFisica;
         if ($direccion ==null) {
-            # code...
+            # code...           
+            
             return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
         }
         else{
+
             return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
         }
 
@@ -51,6 +54,7 @@ class PersonalDireccionFisicaController extends Controller
         //
         // dd($request->all());
         $direccion = DireccionFisica::create($request->all());
+        Alert::success('Dirección creada con éxito');
         return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
         // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
@@ -95,6 +99,7 @@ class PersonalDireccionFisicaController extends Controller
         //
         // dd($DireccionFiscal);
         $cliente->direccionFisica->update($request->all());
+        Alert::success('Dirección actualizada con éxito');
         return redirect()->route('clientes.direccionfisica.index',['personal'=>$cliente]);
     }
 

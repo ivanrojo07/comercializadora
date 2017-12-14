@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Personal;
 
+// use UxWeb\SweetAlert\Alert;
+use UxWeb\SweetAlert\SweetAlert as Alert;
+use App\Http\Controllers\Controller;
 use App\Personal;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class PersonalController extends Controller
 {
@@ -18,7 +20,7 @@ class PersonalController extends Controller
     {
         //
         $personals = Personal::sortable()->paginate(10);
-        
+        // Alert::message('Robots are working!');
         return view('clientes.index', ['personals'=>$personals]);
     }
 
@@ -52,6 +54,7 @@ class PersonalController extends Controller
         } else {
             # code...
             $cliente = Personal::create($request->all());
+            Alert::success("Cliente creado con exito, sigue agregando información")->persistent("Cerrar");
             return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
         }
         
@@ -65,6 +68,7 @@ class PersonalController extends Controller
      */
     public function show(Personal $cliente)
     {
+        // dd($cliente->contactos);
         return view('clientes.view',['personal'=>$cliente]);
     }
 
@@ -91,6 +95,7 @@ class PersonalController extends Controller
     {
         //
         $cliente->update($request->all());
+        Alert::success('Cliente actualizado')->persistent("Cerrar");
         return redirect()->route('clientes.index');
     }
 

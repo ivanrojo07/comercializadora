@@ -14,6 +14,7 @@
 			</form>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<div id="datos" class="jumbotron">
 
 
@@ -30,69 +31,67 @@
 
 
 
+<!-- 	<div class="jumbotron">
+		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+			<thead>
+				<tr class="info">
+					<th>@sortablelink('id', 'Identificador')</th>
+					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
+					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
+					<th>@sortablelink('alias', 'Alias')</th>
+					<th>@sortablelink('rfc', 'RFC')</th>
+					<th>@sortablelink('vendedor', 'Vendedor') </th>
+					<th>Operacion</th>
+				</tr>
+			</thead>
+			@foreach($personals as $personal)
+				<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}} href="#{{$personal->id}}">
+					<td><a rel="#{{$personal->id}}"> {{$personal->id}}</a></td>
+					<td>
+						@if ($personal->tipopersona == "Fisica")
+						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
+						@else
+						{{$personal->razonsocial}}
+						@endif
+					</td>
+					<td>{{ $personal->tipopersona }}</td>
+					<td>{{ $personal->alias }}</td>
+					<td>{{ strtoupper($personal->rfc) }}</td>
+					<td>{{$personal->vendedor}}</td>
+					<td>
+							<a class="btn btn-success btn-sm" href="{{ route('clientes.show',['cliente'=>$personal]) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+				</tr>
+				</td>
+			</tbody>
+		</div>
+			@endforeach
+		</table> -->
 	</div>
 	{{ $personals->links()}}
 </div>
 @foreach ($personals as $personal)
 	{{-- expr --}}
+	<div class="persona" id="{{$personal->id}}">
 	<div class="container" id="tab">
 				<div role="application" class="panel panel-group" >
 					<div class="panel-default">
-						<div class="panel-heading"><h4>Datos del cliente:</h4></div>
-						<div class="panel-body">
-							<div class="col-md-12 offset-md-2 mt-3">
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="tipopersona">Tipo de Persona:</label>
-			    					<dd>{{ $personal->tipopersona }}</dd>
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="alias">Alias:</label>
-			  						<dd>{{ $personal->alias }}</dd>
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="rfc">RFC:</label>
-			  						<dd>{{ $personal->rfc }}</dd>
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="vendedor">Vendedor:</label>
-			  						<dd>{{ $personal->vendedor }}</dd>
-			  					</div>
-							</div>
-						@if ($personal->tipopersona == "Fisica")
-								{{-- true expr --}}
-							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
-								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="nombre">Nombre(s):</label>
-			  						<dd>{{ $personal->nombre }}</dd>
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="apellidopaterno">Apellido Paterno:</label>
-			  						<dd>{{ $personal->apellidopaterno }}</dd>
-			  					</div>
-			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			  						<label class="control-label" for="apellidomaterno">Apellido Materno:</label>
-			  						<dd>{{ $personal->apellidomaterno }}</dd>
-			  					</div>
-							</div>
+						<div class="panel-heading"><h4>@if ($personal->tipopersona == "Fisica")
+							{{-- true expr --}}
+							{{ucwords($personal->nombre)." ".ucwords($personal->apellidopaterno)." ".ucwords($personal->apellidomaterno)}}
 						@else
-								{{-- false expr --}}
-							<div class="col-md-12 offset-md-2 mt-3" id="permoral">
-								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-
-			  						<label class="control-label" for="razonsocial">Razon Social:</label>
-			  						<dd>{{ $personal->razonsocial }}</dd>
-			  					</div>
-							</div>
-						@endif
-						</div>
+							{{-- false expr --}}
+							{{ucwords($personal->razonsocial)}}
+						@endif:</h4></div>
+						
 					</div>
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-						<li role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active active"><a href="#tab1" tabindex="-1">Dirección Fiscal:</a></li>
-						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
-						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab4" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+						<li role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active active"><a href="#tab1{{$personal->id}}" tabindex="-1">Dirección Fiscal:</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2{{$personal->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3{{$personal->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab4{{$personal->id}}" role="tab" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
-					<div class="panel-default pestana" aria-hidden="false" id="tab1" style="display: block;">
+					<div class="panel-default pestana" aria-hidden="false" id="tab1{{$personal->id}}" style="display: block;">
 						<div class="panel-heading">Dirección Fiscal:</div>
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
@@ -147,7 +146,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel-default pestana" id="tab2">
+					<div class="panel-default pestana" id="tab2{{$personal->id}}">
 
 						<div class="panel-heading">Dirección Fisica:</div>
 						<div class="panel-body">
@@ -206,7 +205,7 @@
 							@endif
 						</div>
 					</div>
-					<div class="panel-default pestana" id="tab3">
+					<div class="panel-default pestana" id="tab3{{$personal->id}}">
 						<div class="panel-heading">
 							Contactos:
 						</div>
@@ -244,7 +243,7 @@
 					</div>
 					
 								
-					<div class="panel-default pestana" id="tab4">
+					<div class="panel-default pestana" id="tab4{{$personal->id}}">
 				 	<div class="panel-heading">Datos Generales:</div>
 				 	@if (count($personal->datosGenerales) == 0)
 						<div class="panel-body">
@@ -277,6 +276,7 @@
 				 	</div>
 				 	@endif
 				</div>
+<<<<<<< HEAD
   				</div></div>
   				<div id="datos">hola</div>
   				<script type="https://unpkg.com/sweetalert/dist/main.js"></script>
@@ -285,3 +285,12 @@
 @endforeach
 
 @endsection
+=======
+  				</div>
+  			</div>
+  		</div>
+	</div>	
+	</div>
+@endforeach
+@endsection
+>>>>>>> 5b9001f21210c45d15e2ff8cc256114c82610b53

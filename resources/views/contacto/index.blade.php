@@ -23,18 +23,18 @@
 				<thead>
 					<tr class="info">
 						<th>Nombre del contacto</th>
-						<th>Puesto</th>
-						<th>Area</th>
-						<th>telefono:</th>
+						<th>Telefono Directo</th>
+						<th>Celular</th>
+						<th>Correo Electronico</th>
 						<th>Operaciones</th>
 					</tr>
 				</thead>
 				@foreach ($contactos as $contacto)
 					<tr class="active">
 						<td>{{ $contacto->nombre }} {{$contacto->apater}} {{$contacto->amater}}</td>
-						<td>{{$contacto->puesto}}</td>
-						<td>{{$contacto->area}}</td>
 						<td>{{$contacto->telefonodir}}</td>
+						<td>{{$contacto->celular1}}</td>
+						<td>{{$contacto->email1}}</td>
 						<td>
 							<a class="btn btn-success btn-sm" href="{{ route('clientes.contacto.show',['cliente'=>$personal,'contacto'=>$contacto]) }}">Ver</a>
 							<a class="btn btn-info btn-sm" href="{{ route('clientes.contacto.edit',['cliente'=>$personal,'contacto'=>$contacto]) }}">Editar</a>

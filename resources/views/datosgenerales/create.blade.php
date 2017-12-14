@@ -12,6 +12,10 @@
 			{{ csrf_field() }}
 	 		<input type="hidden" name="personal_id" value="{{$personal->id}}">
 	 	<div class="panel-body">
+	 		<div class="col-xs-offset-10">
+				<button type="submit" class="btn btn-success">Guardar</button>
+				<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+			</div>	
 	 		<div class="col-md-12 offset-md-2 mt-3">
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Giro:</label>
@@ -55,7 +59,6 @@
 	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" value="">
 	 			</div>
 	 		</div>
-	 		<button type="submit" class="btn btn-success">Guardar</button>
 	 	</div>
 	 	</form>
 	 	</div>

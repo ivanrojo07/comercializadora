@@ -3,7 +3,7 @@ $(buscar_datos());
 
 function buscar_datos(consulta){
 	$.ajax({
-		url:'contacto.busqueda'
+		url:'\resources\views\contacto'
 		type:'POST',
 		dataType:'html',
 		data:{ consulta:consulta},

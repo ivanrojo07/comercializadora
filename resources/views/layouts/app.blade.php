@@ -34,25 +34,9 @@
         <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
          <link rel="stylesheet" href="{{ asset('css/main.js') }}">
-       <script type="text/javascript">
-        $(document).ready(function () {
-
-            (function ($) {
-
-                $('#filtrar').keyup(function () {
-
-                    var rex = new RegExp($(this).val(), 'i');
-                    $('.buscar tr').hide();
-                    $('.buscar tr').filter(function () {
-                        return rex.test($(this).text());
-                    }).show();
-
-                })
-
-            }(jQuery));
-
-        });
-      </script> 
+         <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+         <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+      
 
     </head>
 <body>

@@ -45,3 +45,6 @@ Route::get('buscarsubtipo','Precargas\SubtipoController@buscar');
 Route::get('buscartipo','Precargas\TipoController@buscar');
 Route::get('buscarunidad','Precargas\UnidadController@buscar');
 // Route::resource('pruebas','PruebasController', ['except'=>'show']);
+//-----------------------------------------------------
+Route::resource('provedores','Provedor\ProvedorController');
+Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');

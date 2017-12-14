@@ -53,14 +53,12 @@
 
 						</div>
 					</div>
-
 					<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
 						<li class="active"><a href="#tab1">Dirección Fisica:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tab2" role="presentation" tabindex="-1" class="ui-tabs-anchor disabled" id="ui-id-2">Dirección Fiscal:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor disabled" id="ui-id-3">Contacto:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab disabled" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="#tab3" role="presentation" tabindex="-1" class="ui-tabs-anchor disabled" id="ui-id-3">Datos Generales:</a></li>
 					</ul>
-					
 					<div class="panel-default">
 						<div class="panel-heading">Dirección Fisica:</div>
 						<div class="panel-body">

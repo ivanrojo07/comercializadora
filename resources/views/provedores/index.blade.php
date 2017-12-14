@@ -6,7 +6,7 @@
 			<form action="buscarcliente">
 				{{ csrf_field() }}
 				<div class="input-group">
-					<input type="text" name="query" id="query" class="form-control" placeholder="Buscar...">
+					<input type="text" name="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>
 					</span>
@@ -14,26 +14,48 @@
 			</form>
 		</div>
 	</div>
-	<div id="datos" class="jumbotron">
+	<div class="jumbotron">
+		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+			<thead>
+				<tr class="info">
+					<th>@sortablelink('id', 'Identificador')</th>
+					<th>@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}</th>
+					<th>@sortablelink('tipopersona', 'Tipo de persona')</th>
+					<th>@sortablelink('alias', 'Alias')</th>
+					<th>@sortablelink('rfc', 'RFC')</th>
+					<th>@sortablelink('vendedor', 'Vendedor') </th>
+					<th>Operacion</th>
+				</tr>
+			</thead>
 
-
-<!-- POR CUALQUIER COSA, AQUÌ IRÌA LA TABLA DE LA BUSQUEDA QUE ESTA EN CONTACTO.BUSQUEDA.BLADE.PHP-->
-
-		
-
-
-<!-- POR CUALQUIER COSA, AQUÌ IRÌA LA TABLA DE LA BUSQUEDA QUE ESTA EN CONTACTO.BUSQUEDA.BLADE.PHP-->
-
-
-
-
-
-
-
+			@foreach($provedores as $personal)
+				<tr class="active">
+					<td>{{$personal->id}}</td>
+					<td>
+						@if ($personal->tipopersona == "Fisica")
+						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
+						@else
+						{{$personal->razonsocial}}
+						@endif
+					</td>
+					<td>{{ $personal->tipopersona }}</td>
+					<td>{{ $personal->alias }}</td>
+					<td>{{ strtoupper($personal->rfc) }}</td>
+					<td>{{$personal->vendedor}}</td>
+					<td>
+							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['cliente'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+				</tr>
+				</td>
+			</tbody>
+		</div>
+			@endforeach
+		</table>
 	</div>
-	{{ $personals->links()}}
+	{{ $provedores->links()}}
 </div>
-@foreach ($personals as $personal)
+@foreach ($provedores as $personal)
+
 	{{-- expr --}}
 	<div class="container" id="tab">
 				<div role="application" class="panel panel-group" >
@@ -222,18 +244,17 @@
 								<thead>
 									<tr class="info">
 										<th>Nombre del contacto</th>
-										<th>Telèfono Directo</th>
-										
-										<th>Telèfono celular</th>
+										<th>Puesto</th>
+										<th>Area</th>
+										<th>telefono:</th>
 									</tr>
 								</thead>
 								@foreach ($personal->contactos as $contacto)
 									<tr class="active">
 										<td>{{ $contacto->nombre }} {{$contacto->apater}} {{$contacto->amater}}</td>
-
-										<td>{{$contacto->telefono1}}</td>
-										
-										<td>{{$contacto->celular1}}</td>
+										<td>{{$contacto->puesto}}</td>
+										<td>{{$contacto->area}}</td>
+										<td>{{$contacto->telefonodir}}</td>
 										
 									</tr>
 									</tbody>
@@ -278,10 +299,6 @@
 				 	@endif
 				</div>
   				</div></div>
-  				<div id="datos">hola</div>
-  				<script type="https://unpkg.com/sweetalert/dist/main.js"></script>
-  				<script type="https://unpkg.com/sweetalert/dist/jquery-3.2.1.min"></script>
-
 @endforeach
 
 @endsection

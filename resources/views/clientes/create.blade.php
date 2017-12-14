@@ -53,12 +53,14 @@
 
 						</div>
 					</div>
+
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="">Dirección Fisica:</a></li>
 						<li role="presentation" class="disabled"><a>Dirección Fiscal:</a></li>
 						<li role="presentation" class="disabled"><a>Contacto:</a></li>
 						<li role="presentation" class="disabled"><a>Datos Generales:</a></li>
 					</ul>
+
 					<div class="panel panel-default">
 						<div class="panel-heading">Dirección Fisica:</div>
 						<div class="panel-body">

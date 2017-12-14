@@ -22,28 +22,44 @@
 	 			<label class="control-label" for="nombre">Giro:</label>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
 						@foreach ($giros as $giro)
-							<option id="'{{$giro->id}}'" value="{{$giro->id}}" @if ($)
+							<option id="'{{$giro->id}}'" value="{{$giro->id}}" @if ($datos->giro_id == $giro->id)
 								{{-- expr --}}
-							@endif selected="selected">{{$giro->nombre}}</option>
+								selected="selected"
+							@endif >{{$giro->nombre}}</option>
 						@endforeach
 				</select>
+	 			</div>
+	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
+	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
+					<select type="select" name="tamano" class="form-control" id="tamano">
+						<option id="micro" value="micro" @if ($datos->tamano == "micro")
+							selected="selected" 
+							{{-- expr --}}
+						@endif>Micro</option>
+						<option id="pequeña" value="pequeña" @if ($datos->tamano == "pequeña")
+							selected="selected" 
+							{{-- expr --}}
+						@endif>Pequeña</option>
+						<option id="mediana" value="mediana" @if ($datos->tamano == "mediana")
+							selected="selected" 
+							{{-- expr --}}
+						@endif>Mediana</option>
+						<option id="grande" value="grande" @if ($datos->tamano == "grande")
+							selected="selected" 
+							{{-- expr --}}
+						@endif>Grande</option>
+					</select>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
 						@foreach ($formaContactos as $formaContacto)
 							{{-- expr --}}
-							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" selected="selected">{{ $formaContacto->nombre }}</option>
+							<option id="{{$formaContacto->id}}" value="{{ $formaContacto->id }}" @if ($datos->forma_contacto_id == $formaContacto->id)
+								{{-- expr --}}
+								selected="selected"
+							@endif>{{ $formaContacto->nombre }}</option>
 						@endforeach
-					</select>
-	 			</div>
-	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
-					<select type="select" name="tamano" class="form-control" id="tamano">
-						<option id="micro" value="micro">Micro</option>
-						<option id="pequeña" value="pequeña">Pequeña</option>
-						<option id="mediana" value="mediana">Mediana</option>
-						<option id="grande" value="grande">Grande</option>
 					</select>
 	 			</div>
 	 		</div>

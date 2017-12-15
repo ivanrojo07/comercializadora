@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
 	<div class="panel-body">
 		<div class="col-lg-6">
@@ -8,13 +9,15 @@
 				<div class="input-group">
 					<input type="text" name="query" id="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+
+						<!-- <button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>-->
+
 					</span>
 				</div>
 			</form>
 		</div>
 	</div>
-	<div id="datos" class="jumbotron">
+	<div id="datos" name="datos" class="jumbotron">
 
 
 <!-- POR CUALQUIER COSA, AQUÌ IRÌA LA TABLA DE LA BUSQUEDA QUE ESTA EN CONTACTO.BUSQUEDA.BLADE.PHP-->

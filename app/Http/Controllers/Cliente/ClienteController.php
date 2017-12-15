@@ -82,4 +82,19 @@ class ClienteController extends Controller
     {
         //
     }
+
+
+public function result(Request $request){
+        $query = $request->input('query');
+        $wordsquery = explode(' ',$query);
+        $formaContactos = FormaCliente::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('nombre','LIKE',"%$word%")
+                    ->orWhere('etiqueta','LIKE',"%$word%");
+            }
+        })->paginate(10);
+        return view('formacontacto.index',['formaContactos'=>$formaContactos ]);
+    }
+
 }

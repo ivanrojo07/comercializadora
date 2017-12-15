@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cliente;
 
 use Illuminate\Http\Request;
+use App\Personal;
 use App\Http\Controllers\Controller;
 
 class ClienteController extends Controller
@@ -97,7 +98,8 @@ public function busqueda(Request $request){
         return view('formacontacto.index',['formaContactos'=>$formaContactos ]);*/
         //return view('clientes.busqueda');
 
-        $clientes = 'CienteController::sortable()->paginate(100)';
+        $clientes = Personal::sortable()->paginate(100);
+        dd($clientes);
         // Alert::message('Robots are working!');
         return view('clientes.busqueda', ['clientes'=>$clientes]);
     }

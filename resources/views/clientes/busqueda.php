@@ -17,6 +17,11 @@ foreach ($_GET as $key ) {
 
 //echo"-->".$text;
 
+foreach ($clientes as $key ) {
+
+	echo "-->".$key->id;
+}
+
 /*
 <table class='table table-striped table-bordered table-hover' style='color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px'>
 			<thead>

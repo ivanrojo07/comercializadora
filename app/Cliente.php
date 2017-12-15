@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Personal
 {
     //
-
+use Sortable;
    public function datosLab(){
         return $this->hasOne(DatosLab::class);
     }

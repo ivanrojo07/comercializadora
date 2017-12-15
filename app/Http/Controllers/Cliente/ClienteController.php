@@ -84,8 +84,8 @@ class ClienteController extends Controller
     }
 
 
-public function result(Request $request){
-        $query = $request->input('query');
+public function busqueda(Request $request){
+       /* $query = $request->input('query');
         $wordsquery = explode(' ',$query);
         $formaContactos = FormaCliente::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
@@ -94,7 +94,12 @@ public function result(Request $request){
                     ->orWhere('etiqueta','LIKE',"%$word%");
             }
         })->paginate(10);
-        return view('formacontacto.index',['formaContactos'=>$formaContactos ]);
+        return view('formacontacto.index',['formaContactos'=>$formaContactos ]);*/
+        //return view('clientes.busqueda');
+
+        $clientes = 'CienteController::sortable()->paginate(100)';
+        // Alert::message('Robots are working!');
+        return view('clientes.busqueda', ['clientes'=>$clientes]);
     }
 
 }

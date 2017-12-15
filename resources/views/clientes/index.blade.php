@@ -5,7 +5,7 @@
 	<div class="panel-body">
 		<div class="col-lg-6">
 			<form action="buscarcliente">
-				{{ csrf_field() }}
+				<!-- {{ csrf_field() }} -->
 				<div class="input-group">
 					<input type="text" name="query" id="query" class="form-control" placeholder="Buscar...">
 					<span class="input-group-btn">
@@ -17,24 +17,11 @@
 			</form>
 		</div>
 	</div>
+
+
 	<div id="datos" name="datos" class="jumbotron">
 
-
-<!-- POR CUALQUIER COSA, AQUÌ IRÌA LA TABLA DE LA BUSQUEDA QUE ESTA EN CONTACTO.BUSQUEDA.BLADE.PHP-->
-
-		
-
-
-<!-- POR CUALQUIER COSA, AQUÌ IRÌA LA TABLA DE LA BUSQUEDA QUE ESTA EN CONTACTO.BUSQUEDA.BLADE.PHP-->
-
-
-
-
-
-
-
-<!-- 	<div class="jumbotron">
-		<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+				<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
 					<th>@sortablelink('id', 'Identificador')</th>
@@ -46,9 +33,10 @@
 					<th>Operacion</th>
 				</tr>
 			</thead>
+			<tbody>
 			@foreach($personals as $personal)
-				<tr class="active"{{--  onclick="vistarapida({{$personal->id}})" --}} href="#{{$personal->id}}">
-					<td><a rel="#{{$personal->id}}"> {{$personal->id}}</a></td>
+				<tr class="active">
+					<td>{{$personal->id}}</td>
 					<td>
 						@if ($personal->tipopersona == "Fisica")
 						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
@@ -61,14 +49,19 @@
 					<td>{{ strtoupper($personal->rfc) }}</td>
 					<td>{{$personal->vendedor}}</td>
 					<td>
-							<a class="btn btn-success btn-sm" href="{{ route('clientes.show',['cliente'=>$personal]) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['cliente'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
 							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+							</td>
 				</tr>
-				</td>
+				
 			</tbody>
 		</div>
 			@endforeach
-		</table> -->
+		</table>
+
+
+
+</div>
 	</div>
 	{{ $personals->links()}}
 </div>
@@ -286,3 +279,5 @@
 @endforeach
 
 @endsection
+
+

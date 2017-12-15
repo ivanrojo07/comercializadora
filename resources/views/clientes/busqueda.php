@@ -1,6 +1,23 @@
-<?php
 
-echo"
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script>
+	console.log(valor);
+</script>
+
+<?php
+//dd($_GET);
+
+$text='';
+foreach ($_GET as $key ) {
+	
+	
+	$text=$key;
+}
+
+//echo"-->".$text;
+
+/*
 <table class='table table-striped table-bordered table-hover' style='color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px'>
 			<thead>
 				<tr class='info'>
@@ -15,7 +32,7 @@ echo"
 			</thead>
 			";
 
-		.@foreach($personals as $personal)
+		@foreach($personals as $personal):
 		
 				echo"<tr class='active'>
 					<td>".{{$personal->id}}."</td>
@@ -41,7 +58,9 @@ echo"
 			@endforeach
 
 		echo"</table>";
-
+*/
 
 
 		?>
+
+	

@@ -1,25 +1,33 @@
 $(obtener_registros());
-
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 function obtener_registros(busqueda)
 {
+
+
+	
 	
 	$.ajax({
-		url : 'result.php',
-		type : 'POST',
-		dataType : 'html',
-		data : { busqueda: busqueda },
-		})
-
-	.done(function(resultado){
+		url : "http://localhost/busqueda",
+		type : "GET",
+		dataType : "html",
+		data :{busqueda:busqueda},
+		}).done(function(resultado){
 		$("#datos").html(resultado);
-	})
+	});
 }
 
 $(document).on('keyup', '#query', function()
 {
 
 	var valor=$(this).val();
+	console.log(valor);
 	
+
+
 	
 	if (valor!="")
 	{

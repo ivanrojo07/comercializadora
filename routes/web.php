@@ -23,6 +23,7 @@ Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
 Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+Route::resource('clientes.crm','Personal\PersonalCRMController');
 Route::resource('familias','Precargas\FamiliaController', ['except'=>'show']);
 Route::resource('tipos','Precargas\TipoController', ['except'=>'show']);
 Route::resource('subtipos','Precargas\SubtipoController', ['except'=>'show']);

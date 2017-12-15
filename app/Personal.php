@@ -30,4 +30,7 @@ class Personal extends Model
     public function cotizacion(){
         return $this->hasMany('App\Cotizacion');
     }
+    public function crm(){
+        return $this->hasMany('App\CRM');
+    }
 }

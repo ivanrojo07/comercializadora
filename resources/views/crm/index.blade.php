@@ -38,7 +38,7 @@
 							<label class="control-label" for="hora">Hora:</label>
 							<input type="text" class="form-control" id="hora" name="hora" name="hora" value="">
 						</div>
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="tipo_cont">Forma de contacto:</label>
 							<select class="form-control" type="select" name="tipo_cont" id="tipo_cont" >
 								<option id="Mail" value="Mail">Email/Correo Electronico</option>
@@ -48,7 +48,7 @@
 								<option id="Otro" value="Otro" selected="selected">Otro</option>
 							</select>
 						</div>
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-6 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="status">Estado:</label>
 							<select class="form-control" type="select" name="status" id="status" >
 								<option id="Pendiente" value="Pendiente">Pendiente</option>
@@ -64,17 +64,17 @@
 						</div>
 					</div>
 					<div class="col-md-12 offset-md-2 mt-3">
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="acuerdos">Acuerdos: </label>
 							<textarea class="form-control" rows="5" id="acuerdos" name="acuerdos" maxlength="500"></textarea>
 						</div>
 
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="comentarios">Comentarios: </label>
 							<textarea class="form-control" rows="5" id="comentarios" name="comentarios" maxlength="500"></textarea>
 						</div>
 
-						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 							<label class="control-label" for="observaciones">Observaciones: </label>
 							<textarea class="form-control" rows="5" id="observaciones" name="observaciones" maxlength="500"></textarea>
 						</div>

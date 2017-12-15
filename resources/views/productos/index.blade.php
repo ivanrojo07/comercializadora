@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-	<div class="container">
+	<div class="container col-xs-10 col-xs-offset-1">
 		<div class="panel-body">
 			<div class="col-lg-6">
 				<form action="buscarproducto">
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="jumbotron">
-			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px; margin-left: -45px;">
 				<thead>
 					<tr class="info">
 						<th>@sortablelink('identificador','ID')</th>

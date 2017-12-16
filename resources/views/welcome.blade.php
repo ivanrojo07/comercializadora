@@ -130,6 +130,7 @@
             @endif
             <!-- /.navbar-collapse -->
         </div>
+    </nav>
         <!-- /.container -->
         
     <script src="{{ asset('js/app.js') }}"></script>

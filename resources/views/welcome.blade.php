@@ -27,7 +27,7 @@
     <body>
 
 <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -63,10 +63,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/clientes/create')}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
-                                <a href="{{ url('/clientes') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
-                                <a href="{{ url('/giros') }}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Giros</a>
-                                <a href="{{ url('/formacontactos') }}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Forma de contactos</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/clientes/create')}}','Agrega Cliente')"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/clientes') }}','Buscar Cliente')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Giros</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Forma de contactos</a>
                             </li>                     
                         </ul>
                     </li>
@@ -96,20 +96,20 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Productos <span class="caret"></span> </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="{{ url('/productos/create')}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
-                            <a href="{{ url('/productos') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+                            <a href="#" onclick="AgregarNuevoTab('{{ url('/productos/create')}}','Alta Producto')"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
+                        <a href="#" onclick="AgregarNuevoTab('{{ url('/productos') }}','Buscar Producto')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                             <li class="dropdown-submenu">
                                 <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ url('/marcas') }}">Marca</a>
-                                        <a href="{{ url('/familias') }}">Familia</a>
-                                        <a href="{{ url('/tipos') }}">Tipo</a>
-                                        <a href="{{ url('/subtipos') }}">Subtipo</a>
-                                        <a href="{{ url('/unidad') }}">Unidad</a>
-                                        <a href="{{ url('/presentaciones') }}">Presentación</a>
-                                        <a href="{{ url('/calidad') }}">Calidad</a>
-                                        <a href="{{ url('acabados') }}">Acabado</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/marcas') }}','Marca')">Marca</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/familias') }}','Familia')">Familia</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/tipos') }}','Tipo')">Tipo</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/subtipos') }}','Subtipo')">Subtipo</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/unidad') }}','Unidad')">Unidad</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/presentaciones') }}','Presentación')">Presentación</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/calidad') }}','Calidad')">Calidad</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('acabados') }}','Acabado')">Acabado</a>
                                     </li>
                                 </ul>
                             </li>
@@ -120,13 +120,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-briefcase" aria-hidden="true"></i> Recursos Humanos <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{url('empleados/create')}}"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
-                                <a href="{{ url('empleados') }}"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>    
+                                <a href="#" onclick="AgregarNuevoTab('{{url('empleados/create')}}','Nuevo Empleado')"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('empleados') }}','Buscar Empleado')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>    
                                 <li class="dropdown-submenu">
                                 <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
                                     <ul class="dropdown-menu">
-                                      <li><a tabindex="-1" href="{{ url('bajas') }}"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
-                                      <li><a href="{{ url('contratos') }}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('bajas') }}','Bajas')"><i class="fa fa-level-down" aria-hidden="true"></i> Bajas</a></li>
+                                      <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
                                     </ul>
                                   </li>
                             </li>                     
@@ -136,7 +136,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-money" aria-hidden="true"></i> Cotizaciones <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/cotizaciones/create') }}"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización (Blueprint)</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones/create') }}','Nueva Cotización')"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización (Blueprint)</a>
                                 {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
                             </li>                     
                         </ul>
@@ -148,8 +148,13 @@
         </div>
     </nav>
         <!-- /.container -->
-        
+    <div class="container" style="width: 100%; height: 100%;">
+        <ul id="tabsApp" class="nav nav-tabs"></ul>
+        <div id="contenedortab" class="tab-content"></div>
+    </div>
+
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/pestanas.js') }}"></script>
 
     <script>
 $(document).ready(function(){

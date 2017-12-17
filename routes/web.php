@@ -52,6 +52,14 @@ Route::resource('provedores','Provedor\ProvedorController');
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 
 Route::get('busqueda','Cliente\ClienteController@busqueda');
+Route::resource('empleados','Empleado\EmpleadoController');
+Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
+Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');
+Route::resource('empleados.emergencias','Empleado\EmpleadosEmergenciasController');
+Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController');
+Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
+Route::resource('contratos','Precargas\TipoContratoController');
+Route::resource('bajas','Precargas\TipoBajaController');
 
 /*Route::get('/busqueda', function () {
     return view('clientes/busqueda');

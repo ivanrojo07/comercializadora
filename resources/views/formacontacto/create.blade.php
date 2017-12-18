@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.blank')
 	@section('content')
 	<div class="container">
 		<form role="form" method="POST" action="{{ route('formacontactos.store') }}">

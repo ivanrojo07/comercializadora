@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.blank')
 @section('content')
 	<div class="container col-xs-10 col-xs-offset-1">
 		<div class="panel-body">

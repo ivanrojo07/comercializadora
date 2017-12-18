@@ -1,4 +1,4 @@
-@extends('layouts.infopersonal')
+@extends('layouts.infocliente')
 @section('personal')
 	{{-- expr --}}
 	<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">

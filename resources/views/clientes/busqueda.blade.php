@@ -13,8 +13,8 @@
 			</thead>
 			<tbody>
 			@foreach($personals as $personal)
-				<tr class="active">
-					<td>{{$personal->id}}</td>
+				<tr class="active" {{-- onclick="vistarapida({{$personal->id}})" --}} href="#{{$personal->id}}">
+					<td rel="#{{$personal->id}}">{{$personal->id}}</td>
 					<td>
 						@if ($personal->tipopersona == "Fisica")
 						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
@@ -37,3 +37,6 @@
 		</div>
 			@endforeach
 		</table>
+
+		
+

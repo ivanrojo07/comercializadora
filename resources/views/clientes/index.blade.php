@@ -280,8 +280,8 @@
 				 	</div>
 				 	@endif
 				</div>
-  				</div></div>
-  				<div id="datos">hola</div>
+  				</div>
+  			</div>
   				
        
 

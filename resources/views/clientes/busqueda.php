@@ -130,8 +130,9 @@ function compare($size,$personal,$get,$dato){
 
 	
 		$name=strtolower($personal->nombre);		
+        $razon=strtolower($dato);
 
-				if(substr($name,0,$size)==strtolower($get)){	
+				if(substr($name,0,$size)==strtolower($get)||substr($dato,0,$size)==strtolower($get)){	
 
 				echo"<tr class='active'>
 					

@@ -13,8 +13,8 @@
 
 					
 
-				<button class="btn btn-default" type="submit" style="display:none"> 
-					<i class="fa fa-search" aria-hidden="true"></i> </button>
+				 
+					
 
 					
 				</div>

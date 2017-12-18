@@ -110,29 +110,25 @@ class PersonalController extends Controller
         //
     }
     public function buscar(Request $request){
-        $query = $request->input('query');
-        $wordsquery = explode(' ',$query);
-        
-        $clientes = Personal::where(function($q) use($wordsquery){
+    // dd($request);
+    $query = $request->input('busqueda');
+    $wordsquery = explode(' ',$query);
+    $clientes = Personal::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
             $q->orWhere('nombre','LIKE',"%$word%")
                 ->orWhere('apellidopaterno','LIKE',"%$word%")
                 ->orWhere('apellidomaterno','LIKE',"%$word%")
-                ->orWhere('razonsocial','LIKE','%$word%')
-                ->orWhere('rfc','LIKE',"%$word%")
-                ->orWhere('alias','LIKE',"%$word%")
-                ->orWhere('tipopersona','LIKE',"%$word%");
+                ->orWhere('razonsocial','LIKE',"%$word%");
+                // ->orWhere('rfc','LIKE',"%$word%");
+                // ->orWhere('alias','LIKE',"%$word%");
+                // ->orWhere('tipopersona','LIKE',"%$word%")
             }
-        })->paginate(10);
-        // $clientes = Personal::sortable()->where('nombre','LIKE',"%$query%")
-        // ->orWhere('apellidopaterno','LIKE',"%$query%")
-        // ->orWhere('apellidomaterno','LIKE',"%$query%")
-        // ->orWhere('razonsocial','LIKE','%$query%')
-        // ->orWhere('rfc','LIKE',"%$query%")
-        // ->orWhere('alias','LIKE',"%$query%")
-        // ->orWhere('tipopersona','LIKE',"%$query%")
-        // ->paginate(10);
-        return view('clientes.index',['personals'=>$clientes]);
+        })->get();
+    return view('clientes.busqueda', ['personals'=>$clientes]);
+        
+
     }
+
+
 }

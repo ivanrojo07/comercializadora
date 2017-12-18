@@ -23,6 +23,8 @@
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     {{-- <link href="{{asset('font-awesome5.0.1/css/fontawesome.min.css')}}" rel="stylesheet" type="text/css"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{{ asset('js/peticion.js') }}"></script>
     </head>
     <body>
 
@@ -138,6 +140,15 @@
                             <li>
                                 <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones/create') }}','Nueva Cotización')"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización (Blueprint)</a>
                                 {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
+                            </li>                     
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/proveedores/create')}}','Agrega Cliente')"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/proveedores') }}','Buscar Cliente')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                             </li>                     
                         </ul>
                     </li>

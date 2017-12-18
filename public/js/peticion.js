@@ -12,7 +12,7 @@ function obtener_registros(busqueda)
 	
 	$.ajax({
 		//url : "http://localhost/clientes",
-		url : "http://localhost/busqueda",
+		url : "http://localhost/comercializadora/public/buscarcliente",
 		type : "GET",
 		dataType : "html",
 		data :{busqueda:busqueda},

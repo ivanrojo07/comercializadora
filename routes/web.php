@@ -55,7 +55,7 @@ Route::get('buscarunidad','Precargas\UnidadController@buscar');
 Route::resource('provedores','Provedor\ProvedorController');
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 
-Route::get('busqueda','Cliente\ClienteController@busqueda');
+// Route::get('busqueda','Personal\PersonalController@busqueda');
 Route::resource('empleados','Empleado\EmpleadoController');
 Route::resource('empleados.datoslaborales','Empleado\EmpleadosDatosLabController');
 Route::resource('empleados.estudios','Empleado\EmpleadosEstudiosController');

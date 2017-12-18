@@ -101,12 +101,12 @@ public function busqueda(Request $request){
                     ->orWhere('rfc','LIKE',"%word%");
                     
             }
-        })->paginate(20);
+        })->paginate(10);
      
       
         
        
-       return view('clientes.busqueda',['clientes'=>$clientes]);
+       return view('clientes.index',['clientes'=>$clientes]);
        //return view('clientes.index',['variable'=>$_GET]);
         
 

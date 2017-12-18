@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Cliente;
 use Illuminate\Http\Request;
 use App\Personal;
 use App\Http\Controllers\Controller;
-
+use UxWeb\SweetAlert\SweetAlert as Alert;
 class ClienteController extends Controller
 {
     /**
@@ -15,7 +15,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        
+       
     }
 
     /**
@@ -86,22 +87,31 @@ class ClienteController extends Controller
 
 
 public function busqueda(Request $request){
-       /* $query = $request->input('query');
-        $wordsquery = explode(' ',$query);
-        $formaContactos = FormaCliente::where(function($q) use($wordsquery){
+    
+    $query = $request->input('query');
+    $wordsquery = explode(' ',$query);
+    $clientes = Personal::where(function($q) use ($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
-                $q->orWhere('nombre','LIKE',"%$word%")
-                    ->orWhere('etiqueta','LIKE',"%$word%");
+                  $q->orWhere('nombre','LIKE',"%$word%")
+                   // ->orWhere('rfc','LIKE',"%$word%")
+                 
+                   // ->orWhere('tipopersona','LIKE',"%$word%")
+                   // ->orWhere('alias','LIKE',"%$word%")
+                    ->orWhere('rfc','LIKE',"%word%");
+                    
             }
-        })->paginate(10);
-        return view('formacontacto.index',['formaContactos'=>$formaContactos ]);*/
-        //return view('clientes.busqueda');
+        })->paginate(20);
+     
+      
+        
+       
+       return view('clientes.busqueda',['clientes'=>$clientes]);
+       //return view('clientes.index',['variable'=>$_GET]);
+        
 
-        $clientes = Personal::sortable()->paginate(100);
-        dd($clientes);
-        // Alert::message('Robots are working!');
-        return view('clientes.busqueda', ['clientes'=>$clientes]);
     }
+
+
 
 }

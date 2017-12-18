@@ -4,23 +4,29 @@
 <div class="container">
 	<div class="panel-body">
 		<div class="col-lg-6">
-			<form action="buscarcliente">
+			<form action="busqueda">
 				<!-- {{ csrf_field() }} -->
-				<div class="input-group">
-					<input type="text" name="query" id="query" class="form-control" placeholder="Buscar...">
-					<span class="input-group-btn">
+			
+				
+				<div class="input-group" id="datos1">
+					<input list='browsers' name="query" id="query" class="form-control" placeholder="Buscar..." autofocus>
 
-						<!-- <button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>-->
+					
 
-					</span>
+				<button class="btn btn-default" type="submit" style="display:none"> 
+					<i class="fa fa-search" aria-hidden="true"></i> </button>
+
+					
 				</div>
 			</form>
 		</div>
 	</div>
 
 
-	<div id="datos" name="datos" class="jumbotron">
 
+
+	<div id="datos" name="datos" class="jumbotron" name="datos">
+     
 				<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
@@ -49,7 +55,8 @@
 					<td>{{ strtoupper($personal->rfc) }}</td>
 					<td>{{$personal->vendedor}}</td>
 					<td>
-							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['cliente'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-success btn-sm" href="{{ route('clientes.show',['cliente'=>$personal]) }}" ><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+
 							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 							</td>
 				</tr>
@@ -61,8 +68,10 @@
 
 
 
+
+
 </div>
-	</div>
+
 	{{ $personals->links()}}
 </div>
 @foreach ($personals as $personal)

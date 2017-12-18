@@ -19,10 +19,12 @@ Auth::routes();
 
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
+
 Route::resource('clientes','Personal\PersonalController');
 Route::resource('clientes.direccionfisica','Personal\PersonalDireccionFisicaController');
 Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
+
 Route::resource('clientes.crm','Personal\PersonalCRMController');
 Route::resource('familias','Precargas\FamiliaController', ['except'=>'show']);
 Route::resource('tipos','Precargas\TipoController', ['except'=>'show']);
@@ -32,7 +34,9 @@ Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>
 Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
+
 Route::get('buscarcliente','Personal\PersonalController@buscar');
+
 Route::resource('productos','Producto\ProductoController');
 Route::resource('cotizaciones','Cotizacion\CotizacionController');
 Route::get('buscarproducto','Producto\ProductoController@buscar');
@@ -53,6 +57,3 @@ Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 
 Route::get('busqueda','Cliente\ClienteController@busqueda');
 
-/*Route::get('/busqueda', function () {
-    return view('clientes/busqueda');
-});*/

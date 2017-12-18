@@ -68,7 +68,7 @@ class PersonalController extends Controller
      */
     public function show(Personal $cliente)
     {
-        // dd($cliente->contactos);
+        
         return view('clientes.view',['personal'=>$cliente]);
     }
 

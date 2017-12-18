@@ -1,71 +1,168 @@
 
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<script>
-	console.log(valor);
-</script>
+
 
 <?php
-//dd($_GET);
 
-$text='';
-foreach ($_GET as $key ) {
-	
-	
-	$text=$key;
-}
 
-//echo"-->".$text;
-
-foreach ($clientes as $key ) {
-
-	echo "-->".$key->id;
-}
-
-/*
+$size=0;
+echo"
 <table class='table table-striped table-bordered table-hover' style='color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px'>
 			<thead>
 				<tr class='info'>
-					<th>".@sortablelink('id', 'Identificador')."</th>
-					<th>".@sortablelink('nombre', 'Nombre/Razón Social'){{-- Nombre --}}."</th>
-					<th>".@sortablelink('tipopersona', 'Tipo de persona')."</th>
-					<th>".@sortablelink('alias', 'Alias')."</th>
-					<th>".@sortablelink('rfc', 'RFC')."</th>
-					<th>".@sortablelink('vendedor', 'Vendedor')." </th>
+				
+					
+					<th>Nombre/Razón Social</th>
+					<th>Tipo de persona</th>
+					<th>Alias</th>
+					<th>RFC</th>
+					<th>Vendedor</th>
 					<th>Operacion</th>
 				</tr>
 			</thead>
+			<tbody>
+			";
+foreach ($_GET as $get ) {
+	
+	
+	
+
+	$size=strlen($get);	
+  
+
+
+
+		
+        
+		foreach($clientes as $personal){
+        
+        $dato=$personal->tipopersona;
+
+		if ($personal->tipopersona == 'Fisica'){
+
+			$dato=$personal->nombre." ".$personal->apellidopaterno." ".$personal->apellidomaterno;
+						 
+						}else{
+							$dato=$personal->razonsocial;
+						}
+if (isset($size)) {echo"GET  NO ES NULL";}
+
+				compare($size,$personal,$get,$dato);
+		
+
+			}
+
+		echo"</tbody></div></table>";
+	    
+	
+
+
+      
+    
+      		
+      
+	
+}
+
+/************************************************************/
+
+/************************************************************/
+
+/*
+echo"
+<table class='table table-striped table-bordered table-hover' style='color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px'>
+			<thead>
+				<tr class='info'>
+				
+					<th>Nombre</th>
+					<th>('nombre', 'Nombre/Razón Social')</th>
+					<th>Tipo de persona</th>
+					<th>Alias</th>
+					<th>RFC</th>
+					<th>Vendedor</th>
+					<th>Operacion</th>
+				</tr>
+			</thead>
+			<tbody>
 			";
 
-		@foreach($personals as $personal):
-		
+		foreach($clientes as $personal){
+        $dato=$personal->tipopersona;
+		if ($personal->tipopersona == 'Fisica'){
+
+			$dato=$personal->nombre." ".$personal->apellidopaterno." ".$personal->apellidomaterno;
+						 
+						}else{
+							$dato=$personal->razonsocial;
+						}
 				echo"<tr class='active'>
-					<td>".{{$personal->id}}."</td>
-					<td>".
-						@if ($personal->tipopersona == 'Fisica')
-						{{$personal->nombre}} {{ $personal->apellidopaterno }} {{ $personal->apellidomaterno }}
-						@else
-						{{$personal->razonsocial}}
-						@endif."
-					</td>
-					<td>".{{ $personal->tipopersona }}."</td>
-					<td>".{{ $personal->alias }}."</td>
-					<td>".{{ strtoupper($personal->rfc) }}."</td>
-					<td>".{{$personal->vendedor}}."</td>
+					
+					<td>".$personal->nombre."</td>
+					<td>".$dato."</td>
+					<td>".$personal->tipopersona."</td>
+					<td>".$personal->alias."</td>
+					<td>".strtoupper($personal->rfc)."</td>
+					<td>".$personal->vendedor."</td>
 					<td>
-							<a class='btn btn-success btn-sm'".{{-- href='{{ route('clientes.show',['cliente'=>$personal]) }}' --}}."><i class='fa fa-eye' aria-hidden='true'></i> Ver</a>
-							<a class='btn btn-info btn-sm' href='".{{ route('clientes.edit',['cliente'=>$personal]) }}."'><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar</a>
-				</tr>
+			<a class='btn btn-success btn-sm' href=''>
+							<i class='fa fa-eye' aria-hidden='true'></i> 
+							Ver
+							</a>
+
+							<a class='btn btn-info btn-sm' 
+							href='giros'>
+							<i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar
+							</a>
+				
 				</td>
-			</tbody>
-		</div>";
+				</tr>";
+		
 
-			@endforeach
+			}
 
-		echo"</table>";
-*/
+		echo"</tbody></div></table>";*/
 
+
+
+
+function compare($size,$personal,$get,$dato){
+
+	
+		$name=strtolower($personal->nombre);		
+
+				if(substr($name,0,$size)==strtolower($get)){	
+
+				echo"<tr class='active'>
+					
+					
+					<td>".$dato."</td>
+					<td>".$personal->tipopersona."</td>
+					<td>".$personal->alias."</td>
+					<td>".strtoupper($personal->rfc)."</td>
+					<td>".$personal->vendedor."</td>
+					<td>
+			<a class='btn btn-success btn-sm' href=''>
+							<i class='fa fa-eye' aria-hidden='true'></i> 
+							Ver
+							</a>
+
+							<a class='btn btn-info btn-sm' 
+							href='giros'>
+							<i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar
+							</a>
+				
+				</td>
+				</tr>";}
+
+
+
+
+			
+	}
+
+
+		
 
 		?>
 
-	

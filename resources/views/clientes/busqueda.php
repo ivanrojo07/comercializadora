@@ -46,7 +46,7 @@ foreach ($_GET as $get ) {
 						}else{
 							$dato=$personal->razonsocial;
 						}
-if (isset($size)) {echo"GET  NO ES NULL";}
+
 
 				compare($size,$personal,$get,$dato);
 		

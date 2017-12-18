@@ -130,7 +130,7 @@ function compare($size,$personal,$get,$dato){
 
 	
 		$name=strtolower($personal->nombre);		
-        //$razon=strtolower($dato);
+       // $razon=strtolower($dato);
 
 				if(substr($name,0,$size)==strtolower($get)){	
 

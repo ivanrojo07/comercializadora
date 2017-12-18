@@ -27,7 +27,7 @@
 
 	<div id="datos" name="datos" class="jumbotron" name="datos">
      
-				<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
+				<!--<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 			<thead>
 				<tr class="info">
 					<th>@sortablelink('id', 'Identificador')</th>
@@ -64,7 +64,7 @@
 			</tbody>
 		</div>
 			@endforeach
-		</table>
+		</table>-->
 
 
 

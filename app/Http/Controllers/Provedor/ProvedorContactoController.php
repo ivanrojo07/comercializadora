@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Personal;
+namespace App\Http\Controllers\Provedor;
 
 use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Contacto;
@@ -15,19 +15,19 @@ class PersonalContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Provedor $cliente)
+    public function index(Provedor $provedor)
     {
         //
-        $contactos = $cliente->contactos;
+        $contactos = $provedor->contactosProvedor;
         // dd($contactos);
-        return view('contacto.index', ['personal'=>$cliente, 'contactos'=>$contactos]);
+        return view('contacto.index', ['provedor'=>$provedor, 'contactos'=>$contactos]);
 
     }
 
     public function busqueda(){
-        $contactos = $cliente->contactos;
+        $contactos = $provedor->contactosProvedor;
         // dd($contactos);
-        return view('contacto.busqueda', ['personal'=>$cliente, 'contactos'=>$contactos]);
+        return view('contacto.busqueda', ['provedor'=>$provedor, 'contactos'=>$contactos]);
     }
 
     /**
@@ -35,10 +35,10 @@ class PersonalContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Provedor $cliente)
+    public function create(Provedor $provedor)
     {
         //
-        return view('contacto.create',['personal'=>$cliente]);
+        return view('contacto.create',['provedor'=>$provedor]);
     }
 
     /**
@@ -47,13 +47,13 @@ class PersonalContactoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Provedor $cliente)
+    public function store(Request $request, Provedor $provedor)
     {
         //
         $contacto = ContactoProvedor::create($request->all());
         Alert::success('Contacto creado con éxito');
 
-        return redirect()->route('provedores.contacto.index', ['personal'=>$cliente]);
+        return redirect()->route('provedores.contacto.index', ['provedor'=>$provedor]);
     }
 
     /**
@@ -62,11 +62,11 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $cliente,$contacto)
+    public function show(Provedor $provedor,$contacto)
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
-        return view('contactoprovedores.view',['personal'=>$cliente, 'contacto'=>$contacto]);
+        return view('contactoprovedores.view',['provedor'=>$provedor, 'contacto'=>$contacto]);
     }
 
     /**
@@ -75,11 +75,11 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $cliente, $contacto)
+    public function edit(Provedor $provedor, $contacto)
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
-        return view('contactoprovedores.edit',['personal'=>$cliente, 'contacto'=>$contacto]);
+        return view('contactoprovedores.edit',['provedor'=>$provedor, 'contacto'=>$contacto]);
     }
 
     /**
@@ -89,13 +89,13 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $cliente, $contacto)
+    public function update(Request $request, Provedor $provedor, $contacto)
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
         $contacto->update($request->all());
         Alert::success('Contacto actualizado con éxito');
-        return redirect()->route('provedores.contacto.index',['personal'=>$cliente]);
+        return redirect()->route('provedores.contacto.index',['provedor'=>$provedor]);
     }
 
     /**
@@ -104,7 +104,7 @@ class PersonalContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedor $personal)
+    public function destroy(Provedor $provedor)
     {
         //
     }

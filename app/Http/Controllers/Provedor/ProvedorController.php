@@ -17,9 +17,9 @@ class ProvedorController extends Controller{
     public function index()
     {
         //
-        $personals = Provedor::sortable()->paginate(10);
+        $provedor = Provedor::sortable()->paginate(10);
         // Alert::message('Robots are working!');
-        return view('provedores.index', ['personals'=>$personals]);
+        return view('provedores.index', ['provedor'=>$provedor]);
     }
 
     /**
@@ -51,9 +51,9 @@ class ProvedorController extends Controller{
             return redirect()->back()->with('errors', 'El RFC ya existe');
         } else {
             # code...
-            $cliente = Provedor::create($request->all());
+            $provedor = Provedor::create($request->all());
             Alert::success("Proveedor creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route('provedores.direccionfisica.create',['personal'=>$cliente]);
+            return redirect()->route('provedores.direccionfisica.create',['provedor'=>$provedor]);
         }
         
     }
@@ -64,10 +64,10 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $cliente)
+    public function show(Provedor $provedor)
     {
         
-        return view('provedores.view',['personal'=>$cliente]);
+        return view('provedores.view',['provedor'=>$provedor]);
     }
 
     /**
@@ -76,10 +76,10 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $cliente)
+    public function edit(Provedor $provedor)
     {
         //
-        return view('provedores.edit',['personal'=>$cliente]);
+        return view('provedores.edit',['provedor'=>$provedor]);
     }
 
     /**
@@ -89,10 +89,10 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $cliente)
+    public function update(Request $request, Provedor $provedor)
     {
         //
-        $cliente->update($request->all());
+        $provedor->update($request->all());
         Alert::success('Proveedor actualizado')->persistent("Cerrar");
         return redirect()->route('provedores.index');
     }
@@ -103,7 +103,7 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedor $cliente)
+    public function destroy(Provedor $provedor)
     {
         //
     }
@@ -111,7 +111,7 @@ class ProvedorController extends Controller{
     // dd($request);
     $query = $request->input('busqueda');
     $wordsquery = explode(' ',$query);
-    $clientes = Provedor::where(function($q) use($wordsquery){
+    $provedor = Provedor::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
             $q->orWhere('nombre','LIKE',"%$word%")
@@ -123,7 +123,7 @@ class ProvedorController extends Controller{
                 // ->orWhere('tipopersona','LIKE',"%$word%")
             }
         })->get();
-    return view('provedores.busqueda', ['personals'=>$clientes]);
+    return view('provedores.busqueda', ['provedor'=>$provedor]);
         
 
     }

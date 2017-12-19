@@ -54,4 +54,8 @@ class Provedor extends Model
     public function datosGeneralesProvedor(){
         return $this->hasOne('App\DatosGeneralesProvedor');
     }
+
+    public function crm(){
+        return $this->hasOne('App\ProvedorCRMSS');
+    }
 }

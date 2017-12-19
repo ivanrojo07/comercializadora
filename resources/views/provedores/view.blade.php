@@ -8,35 +8,35 @@
 							<div class="col-md-12 offset-md-2 mt-3">
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="tipopersona">Tipo de Persona:</label>
-			    					<dd>{{ $personal->tipopersona }}</dd>
+			    					<dd>{{ $provedor->tipopersona }}</dd>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="alias">Alias:</label>
-			  						<dd>{{ $personal->alias }}</dd>
+			  						<dd>{{ $provedorl->alias }}</dd>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="rfc">RFC:</label>
-			  						<dd>{{ $personal->rfc }}</dd>
+			  						<dd>{{ $provedor->rfc }}</dd>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="vendedor">Vendedor:</label>
-			  						<dd>{{ $personal->vendedor }}</dd>
+			  						<dd>{{ $provedor->vendedor }}</dd>
 			  					</div>
 							</div>
-						@if ($personal->tipopersona == "Fisica")
+						@if ($provedor->tipopersona == "Fisica")
 								{{-- true expr --}}
 							<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="nombre">Nombre(s):</label>
-			  						<dd>{{ $personal->nombre }}</dd>
+			  						<dd>{{ $provedor->nombre }}</dd>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="apellidopaterno">Apellido Paterno:</label>
-			  						<dd>{{ $personal->apellidopaterno }}</dd>
+			  						<dd>{{ $provedor->apellidopaterno }}</dd>
 			  					</div>
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			  						<label class="control-label" for="apellidomaterno">Apellido Materno:</label>
-			  						<dd>{{ $personal->apellidomaterno }}</dd>
+			  						<dd>{{ $provedor->apellidomaterno }}</dd>
 			  					</div>
 							</div>
 						@else
@@ -45,7 +45,7 @@
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
 			  						<label class="control-label" for="razonsocial">Razon Social:</label>
-			  						<dd>{{ $personal->razonsocial }}</dd>
+			  						<dd>{{ $provedor->razonsocial }}</dd>
 			  					</div>
 							</div>
 						@endif
@@ -53,10 +53,10 @@
 					</div>
 					<ul role="tablist" class="nav nav-tabs">
 						<li class="active"><a href="#tab1">Dirección Fiscal:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.direccionfisica.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
-						<li class=""><a href="{{ route('provedores.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.direccionfisica.index',['cliente'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fisica:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['cliente'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index',['cliente'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+						<li class=""><a href="{{ route('provedores.crm.index',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 					</ul>
 					<div class="panel panel-default">
 						<div class="panel-heading">Dirección Fiscal:</div>
@@ -107,7 +107,7 @@
 			  						<dd>{{ $personal->referencia }}</dd>
 			  					</div>
 							</div>
-							<a class="btn btn-info" href="{{ route('provedores.edit',['cliente'=>$personal]) }}">Editar</a>
+							<a class="btn btn-info" href="{{ route('provedores.edit',['provedor'=>$provedor]) }}">Editar</a>
 						</div>
 					</div>
   				</div>

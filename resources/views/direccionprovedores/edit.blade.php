@@ -1,18 +1,18 @@
 @extends('layouts.infocliente')
 	@section('cliente')
 	<ul role="tablist" class="nav nav-tabs">
-		<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
-		<li class="active"><a href="{{ route('provedores.direccionfisica.index',['cliente'=>$personal]) }}">Dirección Fisica:</a></li>
-		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
-		<li class=""><a href="{{ route('provedores.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
+		<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedor'=>$provedor]) }}">Dirección Fiscal:</a></li>
+		<li class="active"><a href="{{ route('provedores.direccionfisica.index',['provedor'=>$provedor]) }}">Dirección Fisica:</a></li>
+		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+		<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index', ['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+		<li class=""><a href="{{ route('provedores.crm.index',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 	</ul>
 	<div class="panel panel-default">
 					<div class="panel-heading">Dirección Fiscal:</div>
-		<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.update',['cliente'=>$personal, 'direccion'=>$direccion]) }}" name="form">
+		<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.update',['provedor'=>$provedor, 'direccion'=>$direccion]) }}" name="form">
 					{{ csrf_field() }}
 					<input type="hidden" name="_method" value="PUT">
-					 <input type="hidden" name="personal_id" value="{{$personal->id}}">
+					 <input type="hidden" name="personal_id" value="{{$provedor->id}}">
 						<div class="panel-body">
 								<div class="col-lg-offset-10">
 									<button type="submit" class="btn btn-success">Guardar</button>

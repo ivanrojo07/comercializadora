@@ -1,16 +1,16 @@
 @extends('layouts.infocliente')
 	@section('cliente')
 		<ul role="tablist" class="nav nav-tabs">
-			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
-			<li class="active"><a href="{{ route('provedores.direccionfisica.index',['cliente'=>$personal]) }}">Dirección Fisica:</a></li>
-			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index', ['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
-			<li class=""><a href="{{ route('provedores.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
+			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedor'=>$provedor]) }}">Dirección Fiscal:</a></li>
+			<li class="active"><a href="{{ route('provedores.direccionfisica.index',['provedor'=>$provedor]) }}">Dirección Fisica:</a></li>
+			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index', ['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+			<li class=""><a href="{{ route('provedores.crm.index',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 		</ul>
 			<div class="panel panel-default">
-			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.store', ['cliente'=>$personal]) }}" name="form">
+			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.store', ['provedor'=>$provedor]) }}" name="form">
 			{{ csrf_field() }}
-			 <input type="hidden" name="personal_id" value="{{$personal->id}}">
+			 <input type="hidden" name="personal_id" value="{{$provedor->id}}">
 			 <div class="panel-default">
 				<div class="panel-heading">Dirección Fisica:</div>
 				<div class="panel-body">
@@ -84,16 +84,16 @@
 <script>
 	function datosFiscal(){
                 if($('#boton-toggle').prop('checked') == true){
-                	document.domicilio.calle.defaultValue = "{{$personal->calle}}";
-               		document.domicilio.numext.defaultValue = "{{$personal->numext}}";
-                	document.domicilio.numint.defaultValue = "{{$personal->numinter}}";
-                	document.domicilio.colonia.defaultValue = "{{$personal->colonia}}";
-                	document.domicilio.municipio.defaultValue = "{{$personal->municipio}}";
-                	document.domicilio.ciudad.defaultValue = "{{$personal->ciudad}}";
-                	document.domicilio.estado.defaultValue = "{{$personal->estado}}";
-                	document.domicilio.calle1.defaultValue = "{{$personal->calle1}}";
-                	document.domicilio.calle2.defaultValue = "{{$personal->calle2}}";
-                	document.domicilio.referencia.defaultValue = "{{$personal->referencia}}";
+                	document.domicilio.calle.defaultValue = "{{$provedor->calle}}";
+               		document.domicilio.numext.defaultValue = "{{$provedor->numext}}";
+                	document.domicilio.numint.defaultValue = "{{$provedor->numinter}}";
+                	document.domicilio.colonia.defaultValue = "{{$provedor->colonia}}";
+                	document.domicilio.municipio.defaultValue = "{{$provedor->municipio}}";
+                	document.domicilio.ciudad.defaultValue = "{{$provedor->ciudad}}";
+                	document.domicilio.estado.defaultValue = "{{$provedor->estado}}";
+                	document.domicilio.calle1.defaultValue = "{{$provedor->calle1}}";
+                	document.domicilio.calle2.defaultValue = "{{$provedor->calle2}}";
+                	document.domicilio.referencia.defaultValue = "{{$provedor->referencia}}";
 				}
 				else if($('#boton-toggle').prop('checked') == false){
                     document.domicilio.calle.defaultValue = "";

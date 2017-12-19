@@ -1,19 +1,19 @@
 @extends('layouts.infocliente')
 	@section('cliente')
 		<ul role="tablist" class="nav nav-tabs">
-		   <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.show',['cliente'=>$personal]) }}">Dirección Fiscal:</a></li>
-			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('clientes.direccionfisica.index',['cliente'=>$personal]) }}">Dirección Fisica:</a></li>
-			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-			<li class=""><a href="{{ route('clientes.datosgenerales.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
-		    <li class="active"><a href="{{ route('clientes.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
+		   <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedor'=>$provedor]) }}">Dirección Fiscal:</a></li>
+			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.direccionfisica.index',['provedor'=>$provedor]) }}">Dirección Fisica:</a></li>
+			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+			<li class=""><a href="{{ route('provedores.datosgenerales.index',['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+		    <li class="active"><a href="{{ route('provedores.crm.index',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 		</ul>
 		<div class="panel-default">
 			<div class="panel-heading">C.R.M.</div>
 			<div class="panel-body">
 				<div class="panel-body">
-					<form role="form" method="POST" action="{{ route('clientes.crm.store',['personal'=>$personal]) }}">
+					<form role="form" method="POST" action="{{ route('provedores.crm.store',['provedor'=>$provedor]) }}">
 						{{ csrf_field() }}
-						<input type="hidden" name="personal_id" value="{{ $personal->id }}">
+						<input type="hidden" name="personal_id" value="{{ $provedor->id }}">
 						<div class="col-xs-4 col-xs-offset-10">
 							<a class="btn btn-warning" id="limpiar" onclick="limpiar()">Limpiar</a>
 							<button id="submit" type="submit" class="btn btn-success">Guardar</button>
@@ -111,7 +111,7 @@
 									<td>{{$crm->status}}</td>
 									<td>{{substr($crm->acuerdos,0,50)}}...</td>
 									<td>{{substr($crm->observaciones,0,50)}}...</td>
-									<td><a class="btn btn-primary" onclick="crm({{$crm}})" {{-- href="{{ route('personals.crm.show',['personal'=>$personal,'crm'=>$crm]) }}" --}}>Ver</a></td>
+									<td><a class="btn btn-primary" onclick="crm({{$crm}})" {{-- href="{{ route('provedor.crm.show',['provedor'=>$provedor,'crm'=>$crm]) }}" --}}>Ver</a></td>
 								</tr>
 							@endforeach
 						</table>

@@ -67,8 +67,8 @@
                             <li>
                                 <a href="#" onclick="AgregarNuevoTab('{{ url('/clientes/create')}}','Agrega Cliente')"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
                                 <a href="#" onclick="AgregarNuevoTab('{{ url('/clientes') }}','Buscar Cliente')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
-                                <a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Giros</a>
-                                <a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas Forma de contactos</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Giros</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas Forma de contactos</a>
                             </li>                     
                         </ul>
                     </li>
@@ -100,17 +100,17 @@
                             <a href="#" onclick="AgregarNuevoTab('{{ url('/productos/create')}}','Alta Producto')"><i class="fa fa-cart-plus" aria-hidden="true"></i> Alta</a>
                         <a href="#" onclick="AgregarNuevoTab('{{ url('/productos') }}','Buscar Producto')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
                             <li class="dropdown-submenu">
-                                <a tabindex="-1" href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i> Precargas</a>
+                                <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/marcas') }}','Marca')">Marca</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/familias') }}','Familia')">Familia</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/tipos') }}','Tipo')">Tipo</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/subtipos') }}','Subtipo')">Subtipo</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/unidad') }}','Unidad')">Unidad</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/presentaciones') }}','Presentación')">Presentación</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/calidad') }}','Calidad')">Calidad</a>
-                                        <a href="#" onclick="AgregarNuevoTab('{{ url('acabados') }}','Acabado')">Acabado</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/marcas') }}','Marca')"><i class="fa fa-refresh" aria-hidden="true"></i> Marca</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/familias') }}','Familia')"><i class="fa fa-refresh" aria-hidden="true"></i> Familia</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/tipos') }}','Tipo')"><i class="fa fa-refresh" aria-hidden="true"></i> Tipo</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/subtipos') }}','Subtipo')"><i class="fa fa-refresh" aria-hidden="true"></i> Subtipo</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/unidad') }}','Unidad')"><i class="fa fa-refresh" aria-hidden="true"></i> Unidad</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/presentaciones') }}','Presentación')"><i class="fa fa-refresh" aria-hidden="true"></i> Presentación</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('/calidad') }}','Calidad')"><i class="fa fa-refresh" aria-hidden="true"></i> Calidad</a>
+                                        <a href="#" onclick="AgregarNuevoTab('{{ url('acabados') }}','Acabado')"><i class="fa fa-refresh" aria-hidden="true"></i> Acabado</a>
                                     </li>
                                 </ul>
                             </li>

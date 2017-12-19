@@ -18,13 +18,10 @@
 							<button type="submit" class="btn btn-success">Guardar</button>
 							<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 						</div>
-						<div class="col-lg-3">
+						<div class="col-lg-4">
 							
-							<label>
-
-								<input type="checkbox" checked data-toggle="toggle" onchange="datosFiscal();">
-								¿Usar datos de dirección fiscal?.
-							</label>
+							<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" onchange="datosFiscal();">
+										<label>¿Usar datos de dirección fiscal?.</label>
 						</div>
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

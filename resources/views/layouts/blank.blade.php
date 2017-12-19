@@ -14,10 +14,10 @@
         <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('bootstrap-toggle/css/bootstrap-toggle.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
         {{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
         <!-- Optional theme -->
@@ -74,15 +74,9 @@
             }
         }
     </script> --}}
-    
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#myTable').DataTable();
-        });
-    </script>
+    <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 {{-- 
     Include this after the sweet alert js file --}}

@@ -18,9 +18,9 @@ class ProvedorController extends Controller{
     public function index()
     {
         //
-        $provedore = Provedor::sortable()->paginate(10);
+        $provedores = Provedor::sortable()->paginate(10);
         // Alert::message('Robots are working!');
-        return view('provedores.index', ['provedore'=>$provedore]);
+        return view('provedores.index', ['provedores'=>$provedores]);
     }
 
     /**
@@ -52,7 +52,7 @@ class ProvedorController extends Controller{
             return redirect()->back()->with('errors', 'El RFC ya existe');
         } else {
             # code...
-            $provedor = Provedor::create($request->all());
+            $provedore = Provedor::create($request->all());
             Alert::success("Proveedor creado con exito, sigue agregando información")->persistent("Cerrar");
             return redirect()->route('provedores.direccionfisica.create',['provedore'=>$provedore]);
         }

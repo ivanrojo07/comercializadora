@@ -167,7 +167,7 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/pestanas.js') }}"></script>
-
+    <script src="{{ asset('js/forms.js') }}"></script>
     <script>
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){

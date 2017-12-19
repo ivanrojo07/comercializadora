@@ -53,6 +53,7 @@ Route::get('buscarunidad','Precargas\UnidadController@buscar');
 // Route::resource('pruebas','PruebasController', ['except'=>'show']);
 //-----------------------------------------------------
 Route::resource('provedores','Provedor\ProvedorController');
+Route::get('buscarprovedor','Provedor\ProvedorController@buscar');
 //----------------------------------------------------------
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');
 

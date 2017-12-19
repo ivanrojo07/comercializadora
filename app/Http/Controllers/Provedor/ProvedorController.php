@@ -8,8 +8,7 @@ use App\Http\Controllers\Controller;
 
 
 class ProvedorController extends Controller{
-
-    // use Alert;
+ // use Alert;
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +17,9 @@ class ProvedorController extends Controller{
     public function index()
     {
         //
-        $provedores = Provedor::sortable()->paginate(10);
-        
-        return view('provedores.index', ['provedores'=>$provedores]);
+        $personals = Provedor::sortable()->paginate(10);
+        // Alert::message('Robots are working!');
+        return view('clientes.index', ['personals'=>$personals]);
     }
 
     /**
@@ -31,7 +30,7 @@ class ProvedorController extends Controller{
     public function create()
     {
         //
-        return view('provedores.create');
+        return view('clientes.create');
     }
 
     /**
@@ -43,9 +42,9 @@ class ProvedorController extends Controller{
     public function store(Request $request)
     {
         //
-        $provedores = Provedor::where('rfc',$request->rfc)->get();
+        $personal = Provedor::where('rfc',$request->rfc)->get();
         // dd(count($personal));
-        if (count($provedores) != 0) {
+        if (count($personal) != 0) {
             # code...
             // alert()->error('Error Message', 'Optional Title');
             // return redirect()->route('clientes.create');
@@ -53,11 +52,8 @@ class ProvedorController extends Controller{
         } else {
             # code...
             $cliente = Provedor::create($request->all());
-// <<<<<<< HEAD
+            Alert::success("Cliente creado con exito, sigue agregando información")->persistent("Cerrar");
             return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
-// =======
-            // return redirect()->route('clientes.direccionfisica.create',['provedor'=>$cliente]);
-// >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
         }
         
     }
@@ -68,12 +64,9 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-// <<<<<<< HEAD
-    // public function show(Personal $cliente)
-// =======
     public function show(Provedor $cliente)
-// >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
     {
+        
         return view('clientes.view',['personal'=>$cliente]);
     }
 
@@ -83,11 +76,7 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-// <<<<<<< HEAD
-    // public function edit(Personal $cliente)
-// =======
     public function edit(Provedor $cliente)
-// >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
     {
         //
         return view('clientes.edit',['personal'=>$cliente]);
@@ -100,14 +89,11 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-// <<<<<<< HEAD
-    // public function update(Request $request, Personal $cliente)
-// =======
     public function update(Request $request, Provedor $cliente)
-// >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
     {
         //
         $cliente->update($request->all());
+        Alert::success('Cliente actualizado')->persistent("Cerrar");
         return redirect()->route('clientes.index');
     }
 
@@ -117,48 +103,30 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-// <<<<<<< HEAD
-//     public function destroy(Personal $cliente)
-// =======
-//     public function destroy(Provedor $cliente)
-// >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
-//     {
-//         //
-//     }
-//     public function buscar(Request $request){
-//         $query = $request->input('query');
-//         $wordsquery = explode(' ',$query);
+    public function destroy(Provedor $cliente)
+    {
+        //
+    }
+    public function buscar(Request $request){
+    // dd($request);
+    $query = $request->input('busqueda');
+    $wordsquery = explode(' ',$query);
+    $clientes = Provedor::where(function($q) use($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+            $q->orWhere('nombre','LIKE',"%$word%")
+                ->orWhere('apellidopaterno','LIKE',"%$word%")
+                ->orWhere('apellidomaterno','LIKE',"%$word%")
+                ->orWhere('razonsocial','LIKE',"%$word%");
+                // ->orWhere('rfc','LIKE',"%$word%");
+                // ->orWhere('alias','LIKE',"%$word%");
+                // ->orWhere('tipopersona','LIKE',"%$word%")
+            }
+        })->get();
+    return view('clientes.busqueda', ['personals'=>$clientes]);
         
-// <<<<<<< HEAD
-//         $clientes = Personal::where(function($q) use($wordsquery){
-// =======
-//         $clientes = Provedor::where(function($q) use($wordsquery){
-// >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
-//             foreach ($wordsquery as $word) {
-//                 # code...
-//             $q->orWhere('nombre','LIKE',"%$word%")
-//                 ->orWhere('apellidopaterno','LIKE',"%$word%")
-//                 ->orWhere('apellidomaterno','LIKE',"%$word%")
-//                 ->orWhere('razonsocial','LIKE','%$word%')
-//                 ->orWhere('rfc','LIKE',"%$word%")
-//                 ->orWhere('alias','LIKE',"%$word%")
-//                 ->orWhere('tipopersona','LIKE',"%$word%");
-//             }
-//         })->paginate(10);
-// <<<<<<< HEAD
-//         // $clientes = Personal::sortable()->where('nombre','LIKE',"%$query%")
-// =======
-//         // $clientes = Provedor::sortable()->where('nombre','LIKE',"%$query%")
-// // >>>>>>> 3959c603c50cefa9e10ac7950f3b15e83ae0fa03
-//         // ->orWhere('apellidopaterno','LIKE',"%$query%")
-//         // ->orWhere('apellidomaterno','LIKE',"%$query%")
-//         // ->orWhere('razonsocial','LIKE','%$query%')
-//         // ->orWhere('rfc','LIKE',"%$query%")
-//         // ->orWhere('alias','LIKE',"%$query%")
-//         // ->orWhere('tipopersona','LIKE',"%$query%")
-//         // ->paginate(10);
-//         return view('clientes.index',['personals'=>$clientes]);
-//     }
 
-	
+    }
+
+
 }

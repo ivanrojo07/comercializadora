@@ -44,14 +44,14 @@ class Provedor extends Model
     // public $sortable =['id','nombre', 'tipopersona', 'apellidomaterno','apellidopaterno', 'alias', 'rfc', 'razonsocial'];
 
      public function direccionFisicaProvedor(){
-        return $this->hasOne('App\DireccionFisica');
+        return $this->hasOne('App\DireccionFisicaProvedor');
     }
 
     public function contactosProvedor(){
-        return $this->hasMany('App\Contacto');
+        return $this->hasMany('App\ContactoProvedor');
     }
 
     public function datosGeneralesProvedor(){
-        return $this->hasOne('App\DatosGenerales');
+        return $this->hasOne('App\DatosGeneralesProvedor');
     }
 }

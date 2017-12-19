@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Provedor;
 use Illuminate\Http\Request;
 
-class PersonalContactoController extends Controller
+class ProvedorContactoController extends Controller
 {
     /**
      * Display a listing of the resource.

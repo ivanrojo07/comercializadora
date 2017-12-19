@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Provedor;
 use Illuminate\Http\Request;
 
-class ProvedorlDatosGeneralesController extends Controller
+class ProvedorDatosGeneralesController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -20,10 +20,10 @@ class ProvedorDireccionFisicaController extends Controller
         $direccion = $cliente->direccionFisica;
         if ($direccion ==null) {
             # code...
-            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+            return redirect()->route('provedores.direccionfisica.create',['personal'=>$cliente]);
         }
         else{
-            return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+            return view('direccionprovedores.view',['direccion'=>$direccion,'personal'=>$cliente]);
         }
 
 
@@ -37,7 +37,7 @@ class ProvedorDireccionFisicaController extends Controller
     public function create(Provedor $cliente)
     {
         //
-        return view('direccion.create',['personal'=>$cliente]);
+        return view('direccionprovedores.create',['personal'=>$cliente]);
     }
 
     /**
@@ -51,7 +51,7 @@ class ProvedorDireccionFisicaController extends Controller
         //
         // dd($request->all());
         $direccion = DireccionFisica::create($request->all());
-        return redirect()->route('clientes.contacto.index',['personal'=>$cliente]);
+        return redirect()->route('provedores.contacto.index',['personal'=>$cliente]);
         // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
@@ -66,7 +66,7 @@ class ProvedorDireccionFisicaController extends Controller
     {
         //
         $direccion = $cliente->direccionFisica;
-        return view('direccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        return view('direccionprovedores.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
 
@@ -80,7 +80,7 @@ class ProvedorDireccionFisicaController extends Controller
     {
         //
         $direccion = $cliente->direccionFisica;
-        return view('direccion.edit',['personal'=>$cliente, 'direccion'=>$direccion]);
+        return view('direccionprovedores.edit',['personal'=>$cliente, 'direccion'=>$direccion]);
     }
 
     /**
@@ -95,7 +95,7 @@ class ProvedorDireccionFisicaController extends Controller
         //
         // dd($DireccionFiscal);
         $cliente->direccionFisica->update($request->all());
-        return redirect()->route('clientes.direccionfisica.index',['personal'=>$cliente]);
+        return redirect()->route('provedores.direccionfisica.index',['personal'=>$cliente]);
     }
 
     /**
@@ -109,6 +109,6 @@ class ProvedorDireccionFisicaController extends Controller
         //
     }
     public function prueba(){
-        return view('direccion.view');
+        return view('direccionprovedores.view');
     }
 }

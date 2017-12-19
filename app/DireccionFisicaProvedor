@@ -14,7 +14,7 @@ class DireccionFisica extends Model
     protected $fillable=['id','provedor_id','calle','numext','numint', 'colonia','municipio','ciudad','estado', 'referencia', 'calle1', 'calle2', 'cp'];
     protected $hidden=[ 'created_at', 'updated_at'];
 
-    public function clientes(){
+    public function provedores(){
     	return $this->belongsTo(Provedor::class, 'provedor_id');
     }
 }

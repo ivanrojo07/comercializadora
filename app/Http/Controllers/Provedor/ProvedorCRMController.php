@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Personal;
 
 use App\CRM;
 use App\Http\Controllers\Controller;
-use App\Personal;
+use App\Provedor;
 use Illuminate\Http\Request;
 
-class PersonalCRMController extends Controller
+class ProvedorCRMController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Personal $cliente)
+    public function index(Provedor $cliente)
     {
         //
         
@@ -40,7 +40,7 @@ class PersonalCRMController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Personal $cliente)
+    public function store(Request $request, Provedor $cliente)
     {
         //
         // dd($request->all());
@@ -54,10 +54,10 @@ class PersonalCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Personal $cliente, $crm)
+    public function show(Provedor $cliente, $crm)
     {
         //
-        $crm = CRM::findOrFail($crm);
+        $crm = ProvedorCRM::findOrFail($crm);
         return view('crmprovedores.view',['personal'=>$cliente,'crm'=>$crm]);
     }
 
@@ -67,7 +67,7 @@ class PersonalCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personal $personal)
+    public function edit(Provedor $personal)
     {
         //
     }
@@ -79,7 +79,7 @@ class PersonalCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $personal)
+    public function update(Request $request, Provedor $personal)
     {
         //
     }
@@ -90,7 +90,7 @@ class PersonalCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personal $personal)
+    public function destroy(Provedor $personal)
     {
         //
     }

@@ -19,7 +19,7 @@ class ProvedorController extends Controller{
         //
         $personals = Provedor::sortable()->paginate(10);
         // Alert::message('Robots are working!');
-        return view('clientes.index', ['personals'=>$personals]);
+        return view('provedores.index', ['personals'=>$personals]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProvedorController extends Controller{
     public function create()
     {
         //
-        return view('clientes.create');
+        return view('provedores.create');
     }
 
     /**
@@ -52,8 +52,8 @@ class ProvedorController extends Controller{
         } else {
             # code...
             $cliente = Provedor::create($request->all());
-            Alert::success("Cliente creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+            Alert::success("Proveedor creado con exito, sigue agregando información")->persistent("Cerrar");
+            return redirect()->route('provedores.direccionfisica.create',['personal'=>$cliente]);
         }
         
     }
@@ -67,7 +67,7 @@ class ProvedorController extends Controller{
     public function show(Provedor $cliente)
     {
         
-        return view('clientes.view',['personal'=>$cliente]);
+        return view('provedores.view',['personal'=>$cliente]);
     }
 
     /**
@@ -79,7 +79,7 @@ class ProvedorController extends Controller{
     public function edit(Provedor $cliente)
     {
         //
-        return view('clientes.edit',['personal'=>$cliente]);
+        return view('provedores.edit',['personal'=>$cliente]);
     }
 
     /**
@@ -93,8 +93,8 @@ class ProvedorController extends Controller{
     {
         //
         $cliente->update($request->all());
-        Alert::success('Cliente actualizado')->persistent("Cerrar");
-        return redirect()->route('clientes.index');
+        Alert::success('Proveedor actualizado')->persistent("Cerrar");
+        return redirect()->route('provedores.index');
     }
 
     /**
@@ -123,7 +123,7 @@ class ProvedorController extends Controller{
                 // ->orWhere('tipopersona','LIKE',"%$word%")
             }
         })->get();
-    return view('clientes.busqueda', ['personals'=>$clientes]);
+    return view('provedores.busqueda', ['personals'=>$clientes]);
         
 
     }

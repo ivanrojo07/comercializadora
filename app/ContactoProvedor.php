@@ -15,7 +15,7 @@ class ContactoProvedor extends Model
     protected $hidden=[ 'created_at', 'updated_at','deleted_at'];
     public $sortable=['nombre', 'apater', 'amater','area','email1','email2'];
 
-    public function clientes(){
+    public function provedores(){
     	return $this->belongsTo(Provedor::class,'provedor_id');
     }
 }

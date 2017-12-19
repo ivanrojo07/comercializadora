@@ -39,7 +39,7 @@
 							<option id="{{$vendedor->id}}" value="{{$vendedor->id}}" @if ($cotizacion->user_id == $vendedor->id)
 								{{-- expr --}}
 								selected="selected" 
-							@endif>{{ $vendedor->name }}</option>
+							@endif>{{ $vendedor->nombre }} {{$vendedor->appaterno}} {{$vendedor->apmaterno}}</option>
 						@endforeach
 					</select>
 				</div>

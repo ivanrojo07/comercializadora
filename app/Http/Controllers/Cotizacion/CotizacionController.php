@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Cotizacion;
 
 use App\Cotizacion;
+use App\Empleado;
 use App\Http\Controllers\Controller;
 use App\Personal;
 use App\Producto;
-use App\User;
 use Illuminate\Http\Request;
 
 class CotizacionController extends Controller
@@ -32,7 +32,7 @@ class CotizacionController extends Controller
     {
         //
         $cotizacion = new Cotizacion;
-        $vendedores = User::get();
+        $vendedores = Empleado::get();
         $clientes = Personal::get();
         $productos = Producto::get();
         $edit = false;

@@ -76,6 +76,7 @@
     </script> --}}
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="{{ asset('js/pestanas.js') }}"></script>
     <script src="{{ asset('bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
     {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 {{-- 

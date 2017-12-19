@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Provedor;
 
 use App\Provedor;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -64,10 +65,10 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $cliente)
+    public function show(Provedor $provedore)
     {
         
-        return view('provedores.view',['personal'=>$cliente]);
+        return view('provedores.view',['personal'=>$provedore]);
     }
 
     /**

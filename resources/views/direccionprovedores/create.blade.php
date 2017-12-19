@@ -8,7 +8,7 @@
 			<li class=""><a href="{{ route('provedores.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 		</ul>
 			<div class="panel panel-default">
-			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.store', ['cliente'=>$personal]) }}" name="form">
+			<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.store', ['proveedore'=>$personal]) }}" name="form">
 			{{ csrf_field() }}
 			 <input type="hidden" name="personal_id" value="{{$personal->id}}">
 			 <div class="panel-default">

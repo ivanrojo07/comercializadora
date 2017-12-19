@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Personal;
+namespace App\Http\Controllers\Provedor;
 
 use App\CRM;
 use App\Http\Controllers\Controller;

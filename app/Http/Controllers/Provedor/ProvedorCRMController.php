@@ -14,12 +14,12 @@ class ProvedorCRMController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Provedor $cliente)
+    public function index(Provedor $provedor)
     {
         //
         
-        $crms = $cliente->crm;
-        return view('crmprovedores.index',['personal'=>$cliente, 'crms'=>$crms]);
+        $crms = $provedor->crm;
+        return view('crmprovedores.index',['provedor'=>$provedor, 'crms'=>$crms]);
         
 
     }
@@ -40,12 +40,12 @@ class ProvedorCRMController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Provedor $cliente)
+    public function store(Request $request, Provedor $provedor)
     {
         //
         // dd($request->all());
-        $crm = CRM::create($request->all());
-        return redirect()->route('provedores.crm.index',['personal'=>$cliente]);
+        $crm = ProvedorCRM::create($request->all());
+        return redirect()->route('provedores.crm.index',['provedor'=>$provedor]);
     }
 
     /**
@@ -54,11 +54,11 @@ class ProvedorCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $cliente, $crm)
+    public function show(Provedor $provedor, $crm)
     {
         //
         $crm = ProvedorCRM::findOrFail($crm);
-        return view('crmprovedores.view',['personal'=>$cliente,'crm'=>$crm]);
+        return view('crmprovedores.view',['provedor'=>$provedor,'crm'=>$crm]);
     }
 
     /**
@@ -67,7 +67,7 @@ class ProvedorCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $personal)
+    public function edit(Provedor $provedor)
     {
         //
     }
@@ -79,7 +79,7 @@ class ProvedorCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $personal)
+    public function update(Request $request, Provedor $provedor)
     {
         //
     }
@@ -90,7 +90,7 @@ class ProvedorCRMController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedor $personal)
+    public function destroy(Provedor $provedor)
     {
         //
     }

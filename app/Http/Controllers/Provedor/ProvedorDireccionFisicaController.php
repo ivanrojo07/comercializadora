@@ -14,16 +14,16 @@ class ProvedorDireccionFisicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Provedor $cliente)
+    public function index(Provedor $provedor)
     {
         //
-        $direccion = $cliente->direccionFisica;
+        $direccion = $provedor->direccionFisicaProvedor;
         if ($direccion ==null) {
             # code...
-            return redirect()->route('provedores.direccionfisica.create',['personal'=>$cliente]);
+            return redirect()->route('provedores.direccionfisicaProvedor.create',['provedor'=>$provedor]);
         }
         else{
-            return view('direccionprovedores.view',['direccion'=>$direccion,'personal'=>$cliente]);
+            return view('direccionprovedores.view',['direccion'=>$direccion,'provedor'=>$provedor]);
         }
 
 
@@ -34,10 +34,10 @@ class ProvedorDireccionFisicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Provedor $cliente)
+    public function create(Provedor $provedor)
     {
         //
-        return view('direccionprovedores.create',['personal'=>$cliente]);
+        return view('direccionprovedores.create',['personal'=>$provedor]);
     }
 
     /**
@@ -46,12 +46,12 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Provedor $cliente)
+    public function store(Request $request, Provedor $provedor)
     {
         //
         // dd($request->all());
         $direccion = DireccionFisica::create($request->all());
-        return redirect()->route('provedores.contacto.index',['personal'=>$cliente]);
+        return redirect()->route('provedores.contacto.index',['personal'=>$provedor]);
         // return view('d}ireccion.view',['direccion'=>$direccion,'personal'=>$cliente]);
 
     }
@@ -62,11 +62,11 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $cliente)
+    public function show(Provedor $provedor)
     {
         //
-        $direccion = $cliente->direccionFisica;
-        return view('direccionprovedores.view',['direccion'=>$direccion,'personal'=>$cliente]);
+        $direccion = $provedor->direccionFisicaProvedor;
+        return view('direccionprovedores.view',['direccion'=>$direccion,'provedor'=>$provedor]);
 
     }
 
@@ -76,11 +76,11 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $cliente)
+    public function edit(Provedor $provedor)
     {
         //
-        $direccion = $cliente->direccionFisica;
-        return view('direccionprovedores.edit',['personal'=>$cliente, 'direccion'=>$direccion]);
+        $direccion = $provedor->direccionFisicaProvedor;
+        return view('direccionprovedores.edit',['provedor'=>$provedor, 'direccion'=>$direccion]);
     }
 
     /**
@@ -90,12 +90,12 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $cliente, DireccionFisica $direccionFisica )
+    public function update(Request $request, Provedor $provedor, DireccionFisicaProvedor $direccionFisicaProvedor )
     {
         //
         // dd($DireccionFiscal);
-        $cliente->direccionFisica->update($request->all());
-        return redirect()->route('provedores.direccionfisica.index',['personal'=>$cliente]);
+        $provedor->direccionFisicaProvedor->update($request->all());
+        return redirect()->route('provedores.direccionfisica.index',['provedor'=>$provedor]);
     }
 
     /**
@@ -104,7 +104,7 @@ class ProvedorDireccionFisicaController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedor $personal)
+    public function destroy(Provedor $provedor)
     {
         //
     }

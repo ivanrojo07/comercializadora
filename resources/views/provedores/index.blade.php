@@ -28,7 +28,7 @@
 				</tr>
 			</thead>
 
-			@foreach($provedores as $personal)
+			@foreach($provedor as $personal)
 				<tr class="active">
 					<td>{{$personal->id}}</td>
 					<td>
@@ -43,8 +43,8 @@
 					<td>{{ strtoupper($personal->rfc) }}</td>
 					<td>{{$personal->vendedor}}</td>
 					<td>
-							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['cliente'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
-							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['cliente'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['provedor'=>$personal]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+							<a class="btn btn-info btn-sm" href="{{ route('clientes.edit',['provedor'=>$personal]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 				</tr>
 				</td>
 			</tbody>
@@ -54,7 +54,7 @@
 	</div>
 	{{ $provedores->links()}}
 </div>
-@foreach ($provedores as $personal)
+@foreach ($provedor as $personal)
 
 	{{-- expr --}}
 	<div class="container" id="tab">
@@ -238,7 +238,7 @@
 							<h3>Aún no tienes contactos</h3>
 						</div>
 						@endif
-						@if (count($personal->contactos) !=0)
+						@if (count($personal->contactosProvedor) !=0)
 						<div class="panel-body">
 							<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 								<thead>
@@ -249,7 +249,7 @@
 										<th>telefono:</th>
 									</tr>
 								</thead>
-								@foreach ($personal->contactos as $contacto)
+								@foreach ($personal->contactosProvedor as $contacto)
 									<tr class="active">
 										<td>{{ $contacto->nombre }} {{$contacto->apater}} {{$contacto->amater}}</td>
 										<td>{{$contacto->puesto}}</td>
@@ -267,32 +267,32 @@
 								
 					<div class="panel-default pestana" id="tab4">
 				 	<div class="panel-heading">Datos Generales:</div>
-				 	@if (count($personal->datosGenerales) == 0)
+				 	@if (count($personal->datosGeneralesProvedor) == 0)
 						<div class="panel-body">
 							<h3>Aún no tienes datos generales</h3>
 						</div>
 						@endif
-						@if (count($personal->datosGenerales) !=0)
+						@if (count($personal->datosGeneralesProvedor) !=0)
 				 	<div class="panel-body">
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 			<label class="control-label" for="nombre">Tamaño de la empresa:</label>
-								<dd>{{$personal->datosGenerales->nombre}}</dd>
+								<dd>{{$personal->datosGeneralesProvedor->nombre}}</dd>
 				 			</div>
 				 		</div>
 				 		<div class="col-md-12 offset-md-2 mt-3">
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 				<label class="control-label" for="web">Sitio web:</label>
-				 				<dd>{{$personal->datosGenerales->web}}</dd>
+				 				<dd>{{$personal->datosGeneralesProvedor->web}}</dd>
 				 			</div>
 
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 				<label class="control-label" for="comentario">Comentarios:</label>
-				 				<dd>{{$personal->datosGenerales->comentario}}</dd>
+				 				<dd>{{$personal->datosGeneralesProvedor->comentario}}</dd>
 				 			</div>
 				 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
-				 				<dd>{{$personal->datosGenerales->fechacontacto}}</dd>
+				 				<dd>{{$personal->datosGeneralesProvedor->fechacontacto}}</dd>
 				 			</div>
 				 		</div>
 				 	</div>

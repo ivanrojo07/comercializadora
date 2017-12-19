@@ -17,19 +17,19 @@ class ProvedorDatosGeneralesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Provedor $cliente)
+    public function index(Provedor $provedor)
     {
         //
-        $datos = $cliente->datosGenerales;
+        $datos = $provedor->datosGeneralesProvedor;
         if ($datos==null) {
             # code...
-            return redirect()->route('provedores.datosgenerales.create',['personal'=>$cliente]);;
+            return redirect()->route('provedores.datosgenerales.create',['provedor'=>$provedor]);;
         }
         else{
             $giro = Giro::findorFail($datos->giro_id);
             $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
             // dd($giro);
-            return view('datosgeneralesprovedores.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
+            return view('datosgeneralesprovedores.view',['datos'=>$datos, 'provedor'=>$provedor, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
             
         }
     }
@@ -45,7 +45,7 @@ class ProvedorDatosGeneralesController extends Controller
         $giros = Giro::get();
         $formaContactos = FormaContacto::get();
         // dd($giros);}
-        return view('datosgeneralesprovedores.create',['personal'=>$cliente, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
+        return view('datosgeneralesprovedores.create',['provedor'=>$provedor, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
     }
 
     /**
@@ -54,13 +54,13 @@ class ProvedorDatosGeneralesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Provedor $cliente)
+    public function store(Request $request, Provedor $provedor)
     {
         //
         // dd($request->all());
         $datos = DatosGeneralesProvedor::create($request->all());
         Alert::success('Datos generales creados con éxito');
-        return redirect()->route('provedores.datosgenerales.index',['personal'=>$cliente]);;
+        return redirect()->route('provedores.datosgenerales.index',['provedor'=>$provedor]);;
 
     }
 
@@ -70,15 +70,15 @@ class ProvedorDatosGeneralesController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $cliente)
+    public function show(Provedor $provedor)
     {
         //
-        $datos = $cliente->datosGenerales;
+        $datos = $provedor->datosGeneralesProvedor;
         // dd($datos);
         $giro = Giro::findorFail($datos->giro_id);
         $formaContacto = FormaContacto::findorFail($datos->forma_contacto_id);
         // dd($giro);
-        return view('datosgeneralesprovedores.view',['datos'=>$datos, 'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
+        return view('datosgeneralesprovedores.view',['datos'=>$datos, 'provedor'=>$provedor, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
     }
 
     /**
@@ -87,13 +87,13 @@ class ProvedorDatosGeneralesController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $cliente)
+    public function edit(Provedor $provedor)
     {
         //
-        $datos = $cliente->datosGenerales;
+        $datos = $provedor->datosGenerales;
         $giros = Giro::get();
         $formaContactos = FormaContacto::get();
-        return view('datosgeneralesprovedores.edit',['personal'=>$cliente, 'datos'=>$datos, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
+        return view('datosgeneralesprovedores.edit',['provedor'=>$provedor, 'datos'=>$datos, 'giros'=>$giros, 'formaContactos'=>$formaContactos]);
     }
 
     /**
@@ -103,7 +103,7 @@ class ProvedorDatosGeneralesController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $cliente, DatosGeneralesProvedor $datosgenerale)
+    public function update(Request $request, Provedor $provedor, DatosGeneralesProvedor $datosgenerale)
     {
         //
         // dd($datosgenerale);
@@ -111,7 +111,7 @@ class ProvedorDatosGeneralesController extends Controller
         $giro = Giro::findorFail($datosgenerale->giro_id);
         $formaContacto = FormaContacto::findorFail($datosgenerale->forma_contacto_id);
         Alert::success('Datos generales actualizados con éxito');
-        return view('datosgeneralesprovedores.view',['datos'=>$datosgenerale,'personal'=>$cliente, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
+        return view('datosgeneralesprovedores.view',['datos'=>$datosgenerale,'provedor'=>$provedor, 'giro'=>$giro, 'formaContacto'=>$formaContacto]);
 
     }
 
@@ -121,7 +121,7 @@ class ProvedorDatosGeneralesController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedor $personal)
+    public function destroy(Provedor $provedor)
     {
         //
     }

@@ -29,7 +29,7 @@ function formulario(elemento){
 // $('div#tab').remove();
 $("tr").click(function(){
   $('div.persona').hide();
-  console.log(this.getAttribute('href'));
+  // console.log(this.getAttribute('href'));
   var index = $(this.getAttribute('href'));
   // $(index).removeClass("pestana");
   // $('#tab').dialog('open');

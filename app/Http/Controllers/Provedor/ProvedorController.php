@@ -18,9 +18,9 @@ class ProvedorController extends Controller{
     public function index()
     {
         //
-        $provedor = Provedor::sortable()->paginate(10);
+        $provedore = Provedor::sortable()->paginate(10);
         // Alert::message('Robots are working!');
-        return view('provedores.index', ['provedor'=>$provedor]);
+        return view('provedores.index', ['provedore'=>$provedore]);
     }
 
     /**
@@ -43,9 +43,9 @@ class ProvedorController extends Controller{
     public function store(Request $request)
     {
         //
-        $personal = Provedor::where('rfc',$request->rfc)->get();
-        // dd(count($personal));
-        if (count($personal) != 0) {
+        $provedore = Provedor::where('rfc',$request->rfc)->get();
+        // dd(count($provedore));
+        if (count($provedore) != 0) {
             # code...
             // alert()->error('Error Message', 'Optional Title');
             // return redirect()->route('clientes.create');
@@ -54,7 +54,7 @@ class ProvedorController extends Controller{
             # code...
             $provedor = Provedor::create($request->all());
             Alert::success("Proveedor creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route('provedores.direccionfisica.create',['provedor'=>$provedor]);
+            return redirect()->route('provedores.direccionfisica.create',['provedore'=>$provedore]);
         }
         
     }
@@ -62,20 +62,13 @@ class ProvedorController extends Controller{
     /**
      * Display the specified resource.
      *
-     * @param  \App\Personal  $personal
+     * @param  \App\provedore  $provedore
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function show(Provedor $provedor)
-    {
-        
-        return view('provedores.view',['provedor'=>$provedor]);
-=======
     public function show(Provedor $provedore)
     {
         
-        return view('provedores.view',['personal'=>$provedore]);
->>>>>>> cdd3f4ad578541315573d33a7bd1093409eb2026
+        return view('provedores.view',['provedore'=>$provedore]);
     }
 
     /**
@@ -84,10 +77,10 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $provedor)
+    public function edit(Provedor $provedore)
     {
         //
-        return view('provedores.edit',['provedor'=>$provedor]);
+        return view('provedores.edit',['provedore'=>$provedore]);
     }
 
     /**
@@ -111,7 +104,7 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedor $provedor)
+    public function destroy(Provedor $provedore)
     {
         //
     }
@@ -119,7 +112,7 @@ class ProvedorController extends Controller{
     // dd($request);
     $query = $request->input('busqueda');
     $wordsquery = explode(' ',$query);
-    $provedor = Provedor::where(function($q) use($wordsquery){
+    $provedore = Provedor::where(function($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
             $q->orWhere('nombre','LIKE',"%$word%")
@@ -131,7 +124,7 @@ class ProvedorController extends Controller{
                 // ->orWhere('tipopersona','LIKE',"%$word%")
             }
         })->get();
-    return view('provedores.busqueda', ['provedor'=>$provedor]);
+    return view('provedores.busqueda', ['provedore'=>$provedore]);
         
 
     }

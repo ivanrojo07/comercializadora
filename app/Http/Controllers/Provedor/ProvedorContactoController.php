@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Provedor;
 
-use UxWeb\SweetAlert\SweetAlert as Alert;
-use App\Contacto;
+
+use App\ContactoProvedor;
 use App\Http\Controllers\Controller;
 use App\Provedor;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class ProvedorContactoController extends Controller
 {
@@ -15,19 +16,19 @@ class ProvedorContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Provedor $provedor)
+    public function index(Provedor $provedore)
     {
         //
-        $contactos = $provedor->contactosProvedor;
+        $contactos = $provedore->contactosProvedor;
         // dd($contactos);
-        return view('contacto.index', ['provedor'=>$provedor, 'contactos'=>$contactos]);
+        return view('contactoprovedores.index', ['provedore'=>$provedore, 'contactos'=>$contactos]);
 
     }
 
     public function busqueda(){
-        $contactos = $provedor->contactosProvedor;
+        $contactos = $provedore->contactosProvedor;
         // dd($contactos);
-        return view('contacto.busqueda', ['provedor'=>$provedor, 'contactos'=>$contactos]);
+        return view('contactoprovedores.busqueda', ['provedore'=>$provedore, 'contactos'=>$contactos]);
     }
 
     /**
@@ -35,10 +36,10 @@ class ProvedorContactoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Provedor $provedor)
+    public function create(Provedor $provedore)
     {
         //
-        return view('contacto.create',['provedor'=>$provedor]);
+        return view('contactoprovedores.create',['provedore'=>$provedore]);
     }
 
     /**
@@ -47,13 +48,13 @@ class ProvedorContactoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Provedor $provedor)
+    public function store(Request $request, Provedor $provedore)
     {
         //
         $contacto = ContactoProvedor::create($request->all());
         Alert::success('Contacto creado con éxito');
 
-        return redirect()->route('provedores.contacto.index', ['provedor'=>$provedor]);
+        return redirect()->route('provedores.contacto.index', ['provedore'=>$provedore]);
     }
 
     /**
@@ -62,11 +63,11 @@ class ProvedorContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Provedor $provedor,$contacto)
+    public function show(Provedor $provedore,$contacto)
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
-        return view('contactoprovedores.view',['provedor'=>$provedor, 'contacto'=>$contacto]);
+        return view('contactoprovedores.view',['provedore'=>$provedore, 'contacto'=>$contacto]);
     }
 
     /**
@@ -75,11 +76,11 @@ class ProvedorContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedor $provedor, $contacto)
+    public function edit(Provedor $provedore, $contacto)
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
-        return view('contactoprovedores.edit',['provedor'=>$provedor, 'contacto'=>$contacto]);
+        return view('contactoprovedores.edit',['provedore'=>$provedore, 'contacto'=>$contacto]);
     }
 
     /**
@@ -89,13 +90,13 @@ class ProvedorContactoController extends Controller
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $provedor, $contacto)
+    public function update(Request $request, Provedor $provedore, $contacto)
     {
         //
         $contacto = ContactoProvedor::findOrFail($contacto);
         $contacto->update($request->all());
         Alert::success('Contacto actualizado con éxito');
-        return redirect()->route('provedores.contacto.index',['provedor'=>$provedor]);
+        return redirect()->route('provedores.contacto.index',['provedore'=>$provedore]);
     }
 
     /**

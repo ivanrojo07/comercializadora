@@ -56,6 +56,6 @@ class Provedor extends Model
     }
 
     public function crm(){
-        return $this->hasOne('App\ProvedorCRMSS');
+        return $this->hasMany('App\ProvedorCRM');
     }
 }

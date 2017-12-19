@@ -1,12 +1,12 @@
-@extends('layouts.infocliente')
+@extends('layouts.infoprovedor')
 @section('personal')
 	{{-- expr --}}
 	<ul role="tablist" class="nav nav-tabs nav-pills nav-justified">
-    	<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedor.show',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">Dirección/Domicilio:</a></li>
+    	<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedore'=>$provedore]) }}" class="ui-tabs-anchor">Dirección/Domicilio:</a></li>
     	
     	
     
-    	<li class="active"><a href="{{ route('personals.crm.index',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
+    	<li class="active"><a href="{{ route('personals.crm.index',['provedore'=>$provedore]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 	</ul>
 		<div class="panel-default">
 			<div class="panel-heading">C.R.M.</div>

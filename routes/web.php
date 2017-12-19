@@ -57,7 +57,6 @@ Route::get('buscarprovedor','Provedor\ProvedorController@buscar');
 Route::resource('provedores.direccionfisica','Provedor\ProvedorDireccionFisicaController');
 Route::resource('provedores.datosgenerales','Provedor\ProvedorDatosGeneralesController', ['except'=>'show']);
 Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
-Route::resource('provedores.contacto','Provedor\ProvedorContactoController');
 Route::resource('provedores.crm','Provedor\ProvedorCRMController');
 //----------------------------------------------------------
 Route::get('prueba','Provedor\ProvedorDireccionFisicaController@prueba');

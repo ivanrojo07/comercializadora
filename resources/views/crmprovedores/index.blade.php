@@ -1,19 +1,19 @@
-@extends('layouts.infocliente')
+@extends('layouts.infoprovedor')
 	@section('cliente')
 		<ul role="tablist" class="nav nav-tabs">
-		   <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedor'=>$provedor]) }}">Dirección Fiscal:</a></li>
-			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.direccionfisica.index',['provedor'=>$provedor]) }}">Dirección Fisica:</a></li>
-			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
-			<li class=""><a href="{{ route('provedores.datosgenerales.index',['provedor'=>$provedor]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
-		    <li class="active"><a href="{{ route('provedores.crm.index',['provedor'=>$provedor]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
+		   <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedore'=>$provedore]) }}">Dirección Fiscal:</a></li>
+			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.direccionfisica.index',['provedore'=>$provedore]) }}">Dirección Fisica:</a></li>
+			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['provedore'=>$provedore]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
+			<li class=""><a href="{{ route('provedores.datosgenerales.index',['provedore'=>$provedore]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
+		    <li class="active"><a href="{{ route('provedores.crm.index',['provedore'=>$provedore]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 		</ul>
 		<div class="panel-default">
 			<div class="panel-heading">C.R.M.</div>
 			<div class="panel-body">
 				<div class="panel-body">
-					<form role="form" method="POST" action="{{ route('provedores.crm.store',['provedor'=>$provedor]) }}">
+					<form role="form" method="POST" action="{{ route('provedores.crm.store',['provedore'=>$provedore]) }}">
 						{{ csrf_field() }}
-						<input type="hidden" name="personal_id" value="{{ $provedor->id }}">
+						<input type="hidden" name="provedor_id" value="{{ $provedore->id }}">
 						<div class="col-xs-4 col-xs-offset-10">
 							<a class="btn btn-warning" id="limpiar" onclick="limpiar()">Limpiar</a>
 							<button id="submit" type="submit" class="btn btn-success">Guardar</button>
@@ -87,6 +87,7 @@
 					@if (count($crms)==0)
 						<p>Aun no tienes C.R.M.'s</p>
 					@endif
+					{{-- {{dd($crms)}} --}}
 					@if (count($crms)!=0)
 						<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse;margin-bottom: 0px">
 							<thead>
@@ -101,7 +102,8 @@
 									<th>Operación</th>
 								</tr>
 							</thead>
-							@foreach ($crms as $crm)
+
+							@foreach($crms as $crm)
 								{{-- expr --}}
 								<tr>
 									<td>{{$crm->fecha_cont}}</td>
@@ -111,7 +113,7 @@
 									<td>{{$crm->status}}</td>
 									<td>{{substr($crm->acuerdos,0,50)}}...</td>
 									<td>{{substr($crm->observaciones,0,50)}}...</td>
-									<td><a class="btn btn-primary" onclick="crm({{$crm}})" {{-- href="{{ route('provedor.crm.show',['provedor'=>$provedor,'crm'=>$crm]) }}" --}}>Ver</a></td>
+									<td><a class="btn btn-primary" onclick="crm({{$crm}})" {{-- href="{{ route('provedore.crm.show',['provedore'=>$provedore,'crm'=>$crm]) }}" --}}>Ver</a></td>
 								</tr>
 							@endforeach
 						</table>

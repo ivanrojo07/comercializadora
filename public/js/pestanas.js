@@ -93,3 +93,4 @@ function autoCerrar(obj) {
         return 0;
     });
 }
+

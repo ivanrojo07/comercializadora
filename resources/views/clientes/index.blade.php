@@ -4,14 +4,14 @@
 <div class="container">
 	<div class="panel-body">
 		<div class="col-lg-6">
-			<form id="buscarcliente" action="busqueda">
+			<form id="buscarcliente" action="busqueda"
+		onKeypress="if(event.keyCode == 13) event.returnValue = false;">
 				<!-- {{ csrf_field() }} -->
 			
 				
 				<div class="input-group" id="datos1">
 					<input list='browsers' name="query" id="query" class="form-control" placeholder="Buscar..." autofocus>
 
-					
 
 				 
 					

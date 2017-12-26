@@ -37,6 +37,7 @@
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
 	 				<dd>{{$datos->fechacontacto}}</dd>
+	 				
 	 			</div>
 	 		</div>
  		<a class="btn btn-info" href="{{ route('provedores.datosgenerales.edit',['provedores'=>$provedore,'datosgenerale'=>$datos]) }}">Editar</a>

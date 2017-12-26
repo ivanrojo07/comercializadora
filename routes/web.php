@@ -70,4 +70,25 @@ Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController')
 Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajaController');
+//---------BLUE PRINTS---------------------------------
+Route::get('sucursales',function(){
+
+	return View::make('sucursales.sucursales');
+});
+Route::get('gastos',function(){
+
+	return View::make('gastos.gastos');
+});
+Route::get('consulta',function(){
+
+	return View::make('empleadoconsulta.consulta');
+});
+Route::get('bonos',function(){
+
+	return View::make('Empleadobonos.bonos');
+});
+Route::get('comision',function(){
+
+	return View::make('Empleadobonos.comision');
+});
 

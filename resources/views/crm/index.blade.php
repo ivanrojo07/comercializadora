@@ -15,9 +15,15 @@
 						{{ csrf_field() }}
 						<input type="hidden" name="personal_id" value="{{ $personal->id }}">
 						<div class="col-xs-4 col-xs-offset-10">
-							<a class="btn btn-warning" id="limpiar" onclick="limpiar()">Limpiar</a>
-							<button id="submit" type="submit" class="btn btn-success">Guardar</button>
-							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">Modificar</a>
+							<a class="btn btn-warning" id="limpiar" onclick="limpiar()">
+							<strong>Limpiar</strong>
+						</a>
+							<button id="submit" type="submit" class="btn btn-success">
+							<strong>Guardar</strong>
+						</button>
+							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
+							<strong>Modificar</strong>
+						</a>
 							<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 
 						</div>
@@ -27,11 +33,11 @@
 							<input type="date" class="form-control" id="fecha_act" name="fecha_act" value="{{ date('Y-m-d') }}" readonly>
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="fecha_cont">* Fecha siguiente contacto:</label>
+							<label class="control-label" for="fecha_cont"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha siguiente contacto:</label>
 							<input type="date" class="form-control" id="fecha_cont" name="fecha_cont" required="required" value="">
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-							<label class="control-label" for="fecha_aviso">* Fecha Aviso:</label>
+							<label class="control-label" for="fecha_aviso"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha Aviso:</label>
 							<input type="date" class="form-control" id="fecha_aviso" name="fecha_aviso" required="required" value="">
 						</div>
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -98,12 +104,13 @@
 									<th>Forma de contacto</th>
 									<th>Acuerdos</th>
 									<th>Observaciones</th>
-									<th>Operación</th>
 								</tr>
 							</thead>
 							@foreach ($crms as $crm)
 								{{-- expr --}}
-								<tr>
+								<tr onclick="crm({{$crm}})" 
+								title="Has Click Aquì para ver o modificar"
+								style="cursor: pointer">
 									<td>{{$crm->fecha_cont}}</td>
 									<td>{{$crm->fecha_aviso}}</td>
 									<td>{{$crm->hora}}</td>
@@ -111,7 +118,6 @@
 									<td>{{$crm->status}}</td>
 									<td>{{substr($crm->acuerdos,0,50)}}...</td>
 									<td>{{substr($crm->observaciones,0,50)}}...</td>
-									<td><a class="btn btn-primary" onclick="crm({{$crm}})" {{-- href="{{ route('personals.crm.show',['personal'=>$personal,'crm'=>$crm]) }}" --}}>Ver</a></td>
 								</tr>
 							@endforeach
 						</table>

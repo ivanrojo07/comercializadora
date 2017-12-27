@@ -5,7 +5,7 @@
 		<div class="col-lg-6">
 			<form action="buscarformacontacto">
 				<div class="input-group">
-					<input type="text" name="query" class="form-control" placeholder="Buscar...">
+					<input type="text" name="query" class="form-control" placeholder="Buscar..." autofocus>
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>
 					</span>
@@ -13,7 +13,9 @@
 			</form>
 		</div>
 		<div class="col-lg-6">
-			<a class="btn btn-success" href="{{ route('formacontactos.create') }}">Nueva Forma de Contacto</a>
+			<a class="btn btn-success" href="{{ route('formacontactos.create') }}">
+			<strong>Agregar Forma de Contacto</strong>
+		</a>
 		</div>
 	</div>
 	@if (count($formaContactos) == 0)

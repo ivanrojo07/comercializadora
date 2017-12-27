@@ -74,7 +74,9 @@
 							<div class="col-xs-2 col-xs-offset-10">
 									<button type="submit" 
 									        class="btn btn-success">
-									Guardar</button>
+									        <strong>
+									Guardar</strong>
+								</button>
 									<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 							</div>	
 

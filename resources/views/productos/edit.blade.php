@@ -11,7 +11,9 @@
 						</div>
 						<div class="panel-body">
 								<div class="form-group col-xs-2 col-xs-offset-10">
-										<button type="submit" class="btn btn-success">Guardar</button>
+										<button type="submit" class="btn btn-success">
+										<strong>Guardar</strong>
+									</button>
 										<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 								</div>
 			  					<div class="form-group col-xs-3">
@@ -29,7 +31,13 @@
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  						<label class="control-label" for="clave">* Clave:</label>
-			  						<input autofocus type="text" class="form-control" id="clave" name="clave" required onkeyup="sub()" value="{{$producto->clave}}">
+			  						<input  type="text" 
+			  						        class="form-control" 
+			  						        id="clave" 
+			  						        name="clave" 
+			  						        required onkeyup="sub()" 
+			  						        value="{{$producto->clave}}"
+			  						        autofocus>
 			  					</div>
 			  					<div class="form-group col-xs-3">
 			  					<label class="control-label" for="familia">* Familia:</label>

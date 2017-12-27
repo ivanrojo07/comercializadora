@@ -14,12 +14,14 @@
 	 		<input type="hidden" name="personal_id" value="{{$personal->id}}">
 	 	<div class="panel-body">
 	 		<div class="col-xs-offset-10">
-				<button type="submit" class="btn btn-success">Guardar</button>
+				<button type="submit" class="btn btn-success">
+			<strong>	Guardar</strong>
+			</button>
 				<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
 			</div>	
 	 		<div class="col-md-12 offset-md-2 mt-3">
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="nombre">Giro:</label>
+	 			<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i>Giro:</label>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
 						@foreach ($giros as $giro)
 							<option id="'{{$giro->id}}'" value="{{$giro->id}}" selected="selected">{{$giro->nombre}}</option>
@@ -36,7 +38,7 @@
 					</select>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	 			<label class="control-label" for="forma_contacto_id">Forma de contacto:</label>
+	 			<label class="control-label" for="forma_contacto_id"><i class="fa fa-asterisk" aria-hidden="true"></i>Forma de contacto:</label>
 					<select type="select" name="forma_contacto_id" class="form-control" id="forma_contacto_id">
 						@foreach ($formaContactos as $formaContacto)
 							{{-- expr --}}
@@ -56,7 +58,7 @@
 	 				<textarea  class="form-control" rows="5" id="comentario" name="comentario"></textarea>
 	 			</div>
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	 				<label class="control-label" for="fechacontacto">Fecha de contacto:</label>
+	 				<label class="control-label" for="fechacontacto"><i class="fa fa-asterisk" aria-hidden="true"></i>Fecha de contacto:</label>
 	 				<input type="date" class="form-control" id="fechacontacto" name="fechacontacto" value="">
 	 			</div>
 	 		</div>

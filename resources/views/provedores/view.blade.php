@@ -110,7 +110,9 @@
 							<a class="btn btn-info" 
 							   href="{{ route('provedores.edit',
 							        ['provedore'=>$provedore]) }}">
-							   Editar</a>
+							        <strong>
+							   Editar</strong>
+							</a>
 							   
 						</div>
 					</div>

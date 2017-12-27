@@ -40,7 +40,8 @@
 	 				
 	 			</div>
 	 		</div>
- 		<a class="btn btn-info" href="{{ route('provedores.datosgenerales.edit',['provedores'=>$provedore,'datosgenerale'=>$datos]) }}">Editar</a>
+ 		<a class="btn btn-info" href="{{ route('provedores.datosgenerales.edit',['provedores'=>$provedore,'datosgenerale'=>$datos]) }}">
+ 	<strong>Editar</strong>	</a>
 	 	</div>
 	</div>
 	@endsection

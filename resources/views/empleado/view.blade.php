@@ -120,7 +120,9 @@
 							<dd>{{$empleado->referencia}}</dd>
 						</div>
 					</div>
-					<a class="btn btn-info btn-md" href="{{ route('empleados.edit',['empleado'=>$empleado]) }}">Editar</a>
+					<a class="btn btn-info btn-md" href="{{ route('empleados.edit',['empleado'=>$empleado]) }}">
+						<strong>Editar</strong>
+					</a>
 				</div>
 			</div>
 		</div>

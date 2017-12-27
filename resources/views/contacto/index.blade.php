@@ -13,7 +13,9 @@
 		</div>
 		<div class="panel-body">
 			<div class="form-group col-lg-offset-11">
-				<a type="button" class="btn btn-success" href="{{ route('clientes.contacto.create',['cliente'=>$personal]) }}">Agregar</a>
+				<a type="button" class="btn btn-success" href="{{ route('clientes.contacto.create',['cliente'=>$personal]) }}">
+					<strong>Agregar</strong>
+				</a>
 			</div>
 		@if (count($contactos) == 0)
 			<h3>Aún no tienes contactos</h3>
@@ -37,8 +39,12 @@
 						<td>{{$contacto->celular1}}</td>
 						<td>{{$contacto->email1}}</td>
 						<td>
-							<a class="btn btn-success btn-sm" href="{{ route('clientes.contacto.show',['cliente'=>$personal,'contacto'=>$contacto]) }}">Ver</a>
-							<a class="btn btn-info btn-sm" href="{{ route('clientes.contacto.edit',['cliente'=>$personal,'contacto'=>$contacto]) }}">Editar</a>
+							<a class="btn btn-success btn-sm" href="{{ route('clientes.contacto.show',['cliente'=>$personal,'contacto'=>$contacto]) }}">
+							<strong>Ver</strong>
+						</a>
+							<a class="btn btn-info btn-sm" href="{{ route('clientes.contacto.edit',['cliente'=>$personal,'contacto'=>$contacto]) }}">
+							<strong>Editar</strong>
+						</a>
 					</tr>
 						</td>
 					</tbody>

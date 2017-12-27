@@ -19,7 +19,7 @@ class PersonalCRMController extends Controller
         //
         
         $crms = $cliente->crm;
-        return view('crmprovedores.index',['personal'=>$cliente, 'crms'=>$crms]);
+        return view('crm.index',['personal'=>$cliente, 'crms'=>$crms]);
         
 
     }
@@ -45,7 +45,7 @@ class PersonalCRMController extends Controller
         //
         // dd($request->all());
         $crm = CRM::create($request->all());
-        return redirect()->route('provedores.crm.index',['personal'=>$cliente]);
+        return redirect()->route('clientes.crm.index',['personal'=>$cliente]);
     }
 
     /**
@@ -58,7 +58,7 @@ class PersonalCRMController extends Controller
     {
         //
         $crm = CRM::findOrFail($crm);
-        return view('crmprovedores.view',['personal'=>$cliente,'crm'=>$crm]);
+        return view('clientes.view',['personal'=>$cliente,'crm'=>$crm]);
     }
 
     /**

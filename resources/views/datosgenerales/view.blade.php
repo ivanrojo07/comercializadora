@@ -39,7 +39,8 @@
 	 				<dd>{{$datos->fechacontacto}}</dd>
 	 			</div>
 	 		</div>
- 		<a class="btn btn-info" href="{{ route('clientes.datosgenerales.edit',['cliente'=>$personal,'datosgenerale'=>$datos]) }}">Editar</a>
+ 		<a class="btn btn-info" href="{{ route('clientes.datosgenerales.edit',['cliente'=>$personal,'datosgenerale'=>$datos]) }}">
+ 			<strong>Editar</strong></a>
 	 	</div>
 	</div>
 	@endsection

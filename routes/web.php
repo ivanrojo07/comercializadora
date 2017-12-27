@@ -26,6 +26,7 @@ Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
 
 Route::resource('clientes.crm','Personal\PersonalCRMController');
+//---------------------------------------------------------------------
 Route::resource('familias','Precargas\FamiliaController', ['except'=>'show']);
 Route::resource('tipos','Precargas\TipoController', ['except'=>'show']);
 Route::resource('subtipos','Precargas\SubtipoController', ['except'=>'show']);
@@ -34,7 +35,7 @@ Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>
 Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
-
+//---------------------------------------------------------------------------
 Route::get('buscarcliente','Personal\PersonalController@buscar');
 
 Route::resource('productos','Producto\ProductoController');

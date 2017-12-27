@@ -73,7 +73,7 @@
 			  						<dd>{{$contacto->email2}}</dd>
 			  					</div>
 							</div>
-							<a class="btn btn-info" href="{{ route('clientes.contacto.edit',['cliente'=>$personal,'contacto'=>$contacto]) }}">Editar</a>
+							<a class="btn btn-info" href="{{ route('clientes.contacto.edit',['cliente'=>$personal,'contacto'=>$contacto]) }}"><strong>Editar</strong></a>
 						</div>
 					</div>
   				</div>

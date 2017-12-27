@@ -26,6 +26,7 @@ Route::resource('clientes.contacto','Personal\PersonalContactoController');
 Route::resource('clientes.datosgenerales','Personal\PersonalDatosGeneralesController', ['except'=>'show']);
 
 Route::resource('clientes.crm','Personal\PersonalCRMController');
+//---------------------------------------------------------------------
 Route::resource('familias','Precargas\FamiliaController', ['except'=>'show']);
 Route::resource('tipos','Precargas\TipoController', ['except'=>'show']);
 Route::resource('subtipos','Precargas\SubtipoController', ['except'=>'show']);
@@ -34,7 +35,7 @@ Route::resource('presentaciones','Precargas\PresentacionController', ['except'=>
 Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
-
+//---------------------------------------------------------------------------
 Route::get('buscarcliente','Personal\PersonalController@buscar');
 
 Route::resource('productos','Producto\ProductoController');
@@ -70,4 +71,25 @@ Route::resource('empleados.vacaciones','Empleado\EmpleadosVacacionesController')
 Route::resource('empleados.faltas','Empleado\EmpleadosFaltasAdministrativasController');
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajaController');
+//---------BLUE PRINTS---------------------------------
+Route::get('sucursales',function(){
+
+	return View::make('sucursales.sucursales');
+});
+Route::get('gastos',function(){
+
+	return View::make('gastos.gastos');
+});
+Route::get('consulta',function(){
+
+	return View::make('empleadoconsulta.consulta');
+});
+Route::get('bonos',function(){
+
+	return View::make('Empleadobonos.bonos');
+});
+Route::get('comision',function(){
+
+	return View::make('Empleadobonos.comision');
+});
 

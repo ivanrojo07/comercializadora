@@ -5,7 +5,7 @@
 		<div class="col-lg-6">
 			<form action="buscargiro">
 				<div class="input-group">
-					<input type="text" name="query" class="form-control" placeholder="Buscar...">
+					<input type="text" name="query" class="form-control" placeholder="Buscar..." autofocus>
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>
 					</span>
@@ -13,7 +13,9 @@
 			</form>
 		</div>
 		<div class="col-lg-6">
-			<a class="btn btn-success" href="{{ route('giros.create') }}">Nuevo Giro</a>
+			<a class="btn btn-success" href="{{ route('giros.create') }}">
+				<strong>Agregar Giro</strong>
+			</a>
 		</div>
 	</div>
 	@if (count($giros) == 0)

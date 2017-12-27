@@ -23,7 +23,12 @@
 								<dd>{{$empleado->identificador}}</dd>
 							@else
 								{{-- false expr --}}
-							<input class="form-control" id="identificador" type="text" name="identificador" required="required">
+							<input class="form-control" 
+							       id="identificador" 
+							       type="text" 
+							       name="identificador" 
+							       required="required"
+							       autofocus>
 							@endif
 						</div>
 					</div>
@@ -133,7 +138,9 @@
 								<input type="text" class="form-control" name="referencia" id="referencia" value="{{ $empleado->referencia }}">
 							</div>
 						</div>
-						<button class="btn btn-success">Guardar</button>
+						<button class="btn btn-success">
+						<strong> Guardar</strong>
+					</button>
 	  				<p><strong>*Campo requerido</strong></p>
 					</div>
 				</div>

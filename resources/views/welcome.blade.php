@@ -122,7 +122,27 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="#" onclick="AgregarNuevoTab('{{url('empleados/create')}}','Nuevo Empleado')"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
-                                <a href="#" onclick="AgregarNuevoTab('{{ url('empleados') }}','Buscar Empleado')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>    
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('empleados') }}','Buscar Empleado')"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>  
+
+
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/sucursales')}}','Sucursales')">
+                            <i class="fa fa-university" aria-hidden="true"></i> Sucursales
+                                </a>
+
+                                <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/bonos')}}','Bonos')">
+                            <i class="fa fa-gift" aria-hidden="true"></i> Bonos
+                                </a>
+
+                                 <a href="#"
+                                   onclick="AgregarNuevoTab('{{ url('/comision')}}','Comisiones')">
+                            <i class="fa fa-money" aria-hidden="true"></i> Comisiones
+                                </a>
+
+
+
+
                                 <li class="dropdown-submenu">
                                 <a tabindex="-1" href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Precargas:</a>
                                     <ul class="dropdown-menu">
@@ -130,6 +150,7 @@
                                       <li><a href="#" onclick="AgregarNuevoTab('{{ url('contratos') }}','Contratos')"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contratos</a></li>
                                     </ul>
                                   </li>
+
                             </li>                     
                         </ul>
                     </li>
@@ -142,14 +163,39 @@
                             </li>                     
                         </ul>
                     </li>
+                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="#" onclick="AgregarNuevoTab('{{ url('/provedores/create')}}','Agrega Proveedor')"><i class="fa fa-user-plus" aria-hidden="true"></i> Alta</a>
+
                                 <a href="#" 
                                 onclick="AgregarNuevoTab('{{ url('/provedores') }}','Buscar Proveedor')">
                                 <i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>
+
+
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" 
+                                   href="#">
+                                   <i class="fa fa-refresh" 
+                                      aria-hidden="true"></i> 
+                                  Precargas:</a>
+                                    <ul class="dropdown-menu">
+                                      <li>
+                                        <a href="#" 
+                                           onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')">
+                                           <i class="fa fa-ravelry" aria-hidden="true"></i> 
+                                       Giros</a></li>
+
+                                      <li><a href="#" 
+                                             onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')">
+                                             <i class="fa fa-handshake-o" aria-hidden="true"></i>Forma Contactos</a></li>
+                                    </ul>
+                                  </li>
+
+
+
                             </li>                     
                         </ul>
                     </li>

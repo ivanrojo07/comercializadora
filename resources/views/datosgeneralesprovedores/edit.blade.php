@@ -22,6 +22,7 @@
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">
 	 			<label class="control-label" for="nombre">Giro:</label>
 				<select type="select" name="giro_id" class="form-control" id="giro_id">
+					
 						@foreach ($giros as $giro)
 							<option id="'{{$giro->id}}'" value="{{$giro->id}}" @if ($datos->giro_id == $giro->id)
 								{{-- expr --}}

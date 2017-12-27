@@ -90,10 +90,10 @@ class ProvedorController extends Controller{
      * @param  \App\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedor $provedor)
+    public function update(Request $request, Provedor $provedore)
     {
-        //
-        $provedor->update($request->all());
+        
+        $provedore->update($request->all());
         Alert::success('Proveedor actualizado')->persistent("Cerrar");
         return redirect()->route('provedores.index');
     }

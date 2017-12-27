@@ -6,7 +6,11 @@
 			<form action="buscarprovedor">
 				{{ csrf_field() }}
 				<div class="input-group">
-					<input type="text" name="query" class="form-control" placeholder="Buscar...">
+					<input type="text" 
+					       name="query" 
+					       class="form-control" 
+					       placeholder="Buscar..."
+					       autofocus>
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="submit"> <i class="fa fa-search" aria-hidden="true"></i> </button>
 					</span>
@@ -43,8 +47,14 @@
 					<td>{{ strtoupper($provedore->rfc) }}</td>
 					<td>{{$provedore->vendedor}}</td>
 					<td>
-							<a class="btn btn-success btn-sm"{{-- href="{{ route('clientes.show',['provedor'=>$provedore]) }}" --}}><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
-							<a class="btn btn-info btn-sm" href="{{ route('provedores.edit',['provedor'=>$provedore]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+							<a class="btn btn-success btn-sm" href="{{ route('provedores.show',['provedor'=>$provedore]) }}"><strong>
+								<i class="fa fa-eye" aria-hidden="true"></i> Ver
+							</strong></a>
+
+							<a class="btn btn-info btn-sm" href="{{ route('provedores.edit',['provedor'=>$provedore]) }}">
+								
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <strong>Editar</strong>
+							</a>
 				</tr>
 				</td>
 			</tbody>

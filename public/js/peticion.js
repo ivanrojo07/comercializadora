@@ -4,28 +4,33 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-function obtener_registros(busqueda)
+function obtener_registros(busqueda, etiqueta)
 {
 
 
 	
-	
-	$.ajax({
-		//url : "http://localhost/clientes",
-		url : "buscarcliente",
-		type : "GET",
-		dataType : "html",
-		data :{busqueda:busqueda},
-		}).done(function(resultado){
-		$("#datos").html(resultado);
+	if (etiqueta == "#query") {
+		$.ajax({
+			//url : "http://localhost/clientes",
+			//poner if por cada etiqueta
+			url : "buscarcliente",
+			type : "GET",
+			dataType : "html",
+			data :{busqueda:busqueda},
+			}).done(function(resultado){
+			$("#datos").html(resultado);
 
-	});
+		});
+		
+	}
+
 }
 
-$(document).on('keyup', '#query', function()
+$(document).on('keyup', ':input', function()
 {
 
 	var valor=$(this).val();
+	var etiqueta = $(this)
 
 	
 
@@ -33,7 +38,7 @@ $(document).on('keyup', '#query', function()
 	
 	if (valor!="")
 	{
-		obtener_registros(valor);
+		obtener_registros(valor,etiqueta);
 	}
 	else
 		{

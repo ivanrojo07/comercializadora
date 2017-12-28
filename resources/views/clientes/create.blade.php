@@ -18,7 +18,7 @@
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    					<label class="control-label" for="tipopersona">Tipo de Persona:</label>
+			    					<label class="control-label" for="tipopersona"><i class="fa fa-asterisk" aria-hidden="true"></i>Tipo de Persona:</label>
 			    					<select type="select" name="tipopersona" class="form-control" id="tipopersona" onchange="persona(this)">
 			    						<option id="Fisica" value="Fisica">Fisica</option>
 			    						<option id="Moral" value="Moral">Moral</option>

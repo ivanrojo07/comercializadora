@@ -18,7 +18,7 @@
 				<button type="submit" class="btn btn-success">
 				<strong>Guardar</strong>
 			</button>
-				<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+				
 			</div>	
 	 		<div class="col-md-12 offset-md-2 mt-3">
 	 			<div class="form-group col-lg-4 col-md-3 col-sm-6 col-xs-12">

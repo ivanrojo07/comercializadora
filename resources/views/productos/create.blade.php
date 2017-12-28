@@ -5,22 +5,24 @@
 			{{ csrf_field() }}
 		<div role="application" class="panel panel-group">
 					<div class="panel-default">
-						<div class="panel-heading"><h4>Datos del Producto:</h4>
+						<div class="panel-heading"><h4>Datos del Producto:
+&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+						</h4>
 						</div>
 						<div class="panel-body">
 								<div class="form-group col-xs-2 col-xs-offset-10">
 										<button type="submit" class="btn btn-success">
 										<strong>Guardar</strong>
 									</button>
-										<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+										
 								</div>	
 			  					<div class="form-group col-xs-3">
-			  						<label class="control-label" for="id">* ID:</label>
+			  						<label class="control-label" for="id"> ID: (Automático)</label>
 			  						<input type="text" class="form-control" id="id_auto" name="identificador" required readonly="" value="" maxlength="20">
 			  					</div>
 								{{-- {{dd($marcas)}} --}}
 			  					<div class="form-group col-xs-3">
-			  						<label class="control-label" for="marca">* Marca:</label>
+			  						<label class="control-label" for="marca"><i class="fa fa-asterisk" aria-hidden="true"></i> Marca:</label>
 			  						<select type="select" name="marca" class="form-control" id="marca" onchange="sub()">
 			  							@foreach ($marcas as $marca)
 			  								<option id="{{$marca->id}}" value="{{$marca->abreviatura}}" selected="selected">{{$marca->nombre}}</option>
@@ -28,7 +30,7 @@
 			  						</select>
 			  					</div>
 			  					<div class="form-group col-xs-3">
-			  						<label class="control-label" for="clave">* Clave:</label>
+			  						<label class="control-label" for="clave"><i class="fa fa-asterisk" aria-hidden="true"></i> Clave:</label>
 			  						<input type="text" 
 			  						       class="form-control" 
 			  						       id="clave" 
@@ -37,7 +39,7 @@
 			  						       autofocus>
 			  					</div>
 			  					<div class="form-group col-xs-3">
-			  					<label class="control-label" for="familia">* Familia:</label>
+			  					<label class="control-label" for="familia"><i class="fa fa-asterisk" aria-hidden="true"></i> Familia:</label>
 
 			    					<select type="select" name="familia" class="form-control" id="familia_id" required onchange="f_corta()">
 
@@ -71,7 +73,7 @@
 			    				</select>
 			    				</div>
 			    				<div class="form-group col-xs-3">
-			  					<label class="control-label" for="presentacion">* Presentación(empaque):</label>
+			  					<label class="control-label" for="presentacion"><i class="fa fa-asterisk" aria-hidden="true"></i> Presentación(empaque):</label>
 			    					<select type="select" name="presentacion" class="form-control" id="presentacion" required onchange="f_corta()">
 			    					@foreach ($presentaciones as $presentacion)
 			    							{{-- expr --}}
@@ -103,7 +105,7 @@
 			    			</div>
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-3">
-			  					<label class="control-label" for="medida1">Medida 1:</label>
+			  					<label class="control-label" for="medida1"><i class="fa fa-asterisk" aria-hidden="true"></i>Medida 1:</label>
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()">
 			  					<label class="control-label" for="medida2">Unidades:</label>
 			    					<select type="select" name="unidad1" class="form-control" id="unidad1">
@@ -140,11 +142,11 @@
 			    			</div>
 			    			<div class="row mt-3">
 			    				<div class="form-group col-xs-4">
-			  						<label class="control-label" for="corta">* Descripción corta:</label>
+			  						<label class="control-label" for="corta"><i class="fa fa-asterisk" aria-hidden="true"></i> Descripción corta:</label>
 			  						<input type="text" class="form-control" id="corta_id" name="descripcion_short" required readonly="" value="">
 			  					</div>
 			    			<div class="form-group col-xs-4">
-			  						<label class="control-label" for="descripcion">* Descripción Larga:</label>
+			  						<label class="control-label" for="descripcion"><i class="fa fa-asterisk" aria-hidden="true"></i> Descripción Larga:</label>
 			  						<textarea class="form-control" id="descripcion" name="descripcion_large" required readonly="">
 			  							</textarea>
 			  					</div>
@@ -162,8 +164,10 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<button type="submit" class="btn btn-default">Guardar</button>
-				<p><strong>*Campo requerido</strong></p>
+						<button type="submit" class="btn btn-default">
+					<strong>Guardar</strong>	
+					</button>
+				
 				</div>	
 		</div>
 	</form>

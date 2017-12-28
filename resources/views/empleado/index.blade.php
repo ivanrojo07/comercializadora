@@ -12,7 +12,10 @@
 					<input type="text" list='browsers' id="empleado" name="query" class="form-control" placeholder="Buscar..." autofocus>
 
 
-				 
+				 <a class="btn btn-info" href="{{ route('empleados.create')}}">
+							        <strong>
+							   Agregar Empleado</strong>
+							</a>
 					
 				</div>
 			</form>

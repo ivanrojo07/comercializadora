@@ -13,7 +13,11 @@
 			</thead>
 			<tbody>
 			@foreach($personals as $personal)
-				<tr class="active" {{-- onclick="vistarapida({{$personal->id}})" --}} href="#{{$personal->id}}">
+				<tr class="active"  
+				    href="#{{$personal->id}}"
+					title="Has Click Aquì para Ver"
+					style="cursor: pointer">
+
 					<td rel="#{{$personal->id}}">{{$personal->id}}</td>
 					<td>
 						@if ($personal->tipopersona == "Fisica")

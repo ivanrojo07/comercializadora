@@ -154,16 +154,7 @@
                             </li>                     
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-money" aria-hidden="true"></i> Cotizaciones <span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones/create') }}','Nueva Cotización')"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización (Blueprint)</a>
-                                {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
-                            </li>                     
-                        </ul>
-                    </li>
-                    
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Proveedores<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
@@ -185,12 +176,12 @@
                                       <li>
                                         <a href="#" 
                                            onclick="AgregarNuevoTab('{{ url('/giros') }}','Giros')">
-                                           <i class="fa fa-ravelry" aria-hidden="true"></i> 
+                                           <i class="fa fa-refresh" aria-hidden="true"></i> 
                                        Giros</a></li>
 
                                       <li><a href="#" 
                                              onclick="AgregarNuevoTab('{{ url('/formacontactos') }}','Forma de Contacto')">
-                                             <i class="fa fa-handshake-o" aria-hidden="true"></i>Forma Contactos</a></li>
+                                             <i class="fa fa-refresh" aria-hidden="true"></i>Forma Contactos</a></li>
                                     </ul>
                                   </li>
 
@@ -199,6 +190,17 @@
                             </li>                     
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-money" aria-hidden="true"></i> Cotizaciones <span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones/create') }}','Nueva Cotización')"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización (Blueprint)</a>
+                                {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
+                            </li>                     
+                        </ul>
+                    </li>
+                    
+                    
                 </ul>
             </div>
             @endif

@@ -12,7 +12,10 @@
 			</thead>
 
 			@foreach($provedores as $provedore)
-				<tr class="active">
+				<tr class="active"
+				    title="Has Click Aquì para Ver"
+					style="cursor: pointer"
+					href="#{{$provedore->id}}">
 					<td>{{$provedore->id}}</td>
 					<td>
 						@if ($provedore->tipopersona == "Fisica")
@@ -26,8 +29,9 @@
 					<td>{{ strtoupper($provedore->rfc) }}</td>
 					<td>{{$provedore->vendedor}}</td>
 					<td>
-							<a class="btn btn-success btn-sm" href="{{ route('provedores.show',['provedor'=>$provedore]) }}"><strong>
-								<i class="fa fa-eye" aria-hidden="true"></i> Ver
+							<a class="btn btn-success btn-sm" href="{{ route('provedores.show',['provedor'=>$provedore]) }}">
+								<i class="fa fa-eye" aria-hidden="true"></i> 
+								<strong>Ver
 							</strong></a>
 
 							<a class="btn btn-info btn-sm" href="{{ route('provedores.edit',['provedor'=>$provedore]) }}">
@@ -40,3 +44,4 @@
 		</div>
 			@endforeach
 		</table>
+		<script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>

@@ -103,7 +103,7 @@
 			    				</div>
 			    				
 			    			</div>
-			    			<div class="row mt-3">
+			    			<div class="form-group">
 			    				<div class="form-group col-xs-3">
 			  					<label class="control-label" for="medida1"><i class="fa fa-asterisk" aria-hidden="true"></i>Medida 1:</label>
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()">

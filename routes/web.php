@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/home', function () {
+//     return view('home');
+// });
+
 Auth::routes();
 
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
@@ -39,6 +43,8 @@ Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
 Route::get('buscarcliente','Personal\PersonalController@buscar');
 
 Route::resource('productos','Producto\ProductoController');
+
+
 Route::resource('cotizaciones','Cotizacion\CotizacionController');
 Route::get('buscarproducto','Producto\ProductoController@buscar');
 Route::get('buscarempleado','Empleado\EmpleadoController@buscar');

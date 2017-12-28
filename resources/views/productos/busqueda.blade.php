@@ -12,7 +12,10 @@
 	</thead>
 	@foreach ($productos as $producto)
 		{{-- expr --}}
-		<tr>
+		<tr class="active"
+		    title="Has Click Aquì para Ver"
+			style="cursor: pointer"
+			href="#{{$producto->id}}">
 			<td>{{$producto->identificador}}</td>
 			<td>{{$producto->marca}}</td>
 			<td>{{$producto->clave}}</td>
@@ -32,3 +35,4 @@
 		</tr>
 	@endforeach
 </table>
+<script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>

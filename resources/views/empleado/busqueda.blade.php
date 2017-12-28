@@ -11,7 +11,11 @@
 			</thead>
 			@foreach ($empleados as $empleado)
 				{{-- expr --}}
-				<tr class="active">
+				<tr class="active"
+				    title="Has Click Aquì para Ver"
+					style="cursor: pointer"
+					href="#{{$empleado->id}}">
+
 					<td>{{$empleado->identificador}}</td>
 					<td>{{$empleado->nombre}}</td>
 					<td>{{$empleado->appaterno}}</td>
@@ -31,3 +35,4 @@
 				</tr>
 			@endforeach
 		</table>
+		<script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>

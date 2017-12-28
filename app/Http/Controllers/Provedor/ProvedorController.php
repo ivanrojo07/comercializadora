@@ -95,7 +95,7 @@ class ProvedorController extends Controller{
         
         $provedore->update($request->all());
         Alert::success('Proveedor actualizado')->persistent("Cerrar");
-        return redirect()->route('provedores.index');
+        return redirect()->route('provedores.show',['provedore'=>$provedore]);
     }
 
     /**

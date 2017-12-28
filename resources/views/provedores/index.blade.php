@@ -9,8 +9,15 @@
 					       name="query" 
 					       class="form-control" 
 					       placeholder="Buscar..."
-					       autofocus>
+					       autofocus
+					       onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+
+					       
 				</div>
+				<a class="btn btn-info" href="{{ route('provedores.create')}}">
+							        <strong>
+							   Agregar Proveedor</strong>
+							</a>
 			</form>
 		</div>
 	</div>

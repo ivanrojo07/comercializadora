@@ -43,14 +43,18 @@
 					<td>
 						<div class="row-8">
 							<div class="col-sm-4">
-								<a class="btn btn-info btn-sm" href="{{ route('formacontactos.edit',['formaContacto'=>$formaContacto]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+								<a class="btn btn-info btn-sm" href="{{ route('formacontactos.edit',['formaContacto'=>$formaContacto]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<strong>Editar</strong>	 </a>
 								
 							</div>
 						</div>
 						<form role="form" method="POST" action="{{ route('formacontactos.destroy',['formaContacto'=>$formaContacto]) }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">
-						<button type="submit" class="btn btn-info btn-sm" ><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button>
+						<button type="submit" 
+						        class="btn btn-info btn-sm" 
+						        onclick="deleteFunction()"><i class="fa fa-trash" aria-hidden="true"></i>
+						<strong> Borrar</strong></button>
 						</form>
 				</tr>
 					</td>

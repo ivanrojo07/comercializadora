@@ -81,7 +81,7 @@ $(function() {
 function deleteFunction() {
 event.preventDefault(); // prevent form submit
 var form = event.target.form; // storing the form
-        swal({
+swal({
   title: "¿Estas seguro?",
   text: "Si eliminas, no podras recuperar tu información.",
   type: "warning",
@@ -91,8 +91,7 @@ var form = event.target.form; // storing the form
   cancelButtonText: "¡NO!",
   closeOnConfirm: false,
   closeOnCancel: false
-},
-function(isConfirm){
+},function(isConfirm){
   if (isConfirm) {
     form.submit();          // submitting the form when user press yes
   } else {

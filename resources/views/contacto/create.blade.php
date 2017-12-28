@@ -9,7 +9,7 @@
 		<li class=""><a href="{{ route('clientes.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 	</ul>
 	<div class="panel panel-default">
-		<div class="panel-heading">Contacto:</div>
+		<div class="panel-heading">Contacto: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</a></div>
 			<div class="panel-body">
 				<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('clientes.contacto.store', ['cliente'=>$personal]) }}" name="form">
 					{{ csrf_field() }}
@@ -18,7 +18,7 @@
 						<button type="submit" class="btn btn-success">
 							<strong>
 						Guardar </strong></button>
-						<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+						
 					</div>	
 					<div class="col-md-12 offset-md-2 mt-3">
 						<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

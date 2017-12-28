@@ -45,6 +45,7 @@ function obtener_registros(busqueda, etiqueta)
 		});
 	}
 	if (etiqueta == 'provedor') {
+		
 		$.ajax({
 			url : "buscarprovedor",
 			type : "GET",

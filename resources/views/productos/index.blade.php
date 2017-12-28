@@ -10,6 +10,12 @@
 							   class="form-control" 
 							   placeholder="Buscar..." 
 							   autofocus>
+
+							   <a class="btn btn-info" 
+							   href="{{ route('productos.create')}}">
+							        <strong>
+							   Agregar Producto</strong>
+							</a>
 					</div>
 				</form>
 			</div>

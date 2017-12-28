@@ -71,7 +71,8 @@
 						<li class=""><a href="{{ route('provedores.crm.index',['provedore'=>$provedore]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 					</ul>
 					<div class="panel panel-default">
-						<div class="panel-heading">Dirección Fiscal:</div>
+						<div class="panel-heading">Dirección Fiscal:
+						&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 						<div class="panel-body">
 
 							<div class="col-xs-2 col-xs-offset-10">
@@ -80,7 +81,7 @@
 									        <strong>
 									Guardar</strong>
 								</button>
-									<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+									
 							</div>	
 
 							

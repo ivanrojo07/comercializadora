@@ -7,9 +7,9 @@ $.ajaxSetup({
 function obtener_registros(busqueda, etiqueta)
 {
 
-
-	
-	if (etiqueta == "#query") {
+	console.log(etiqueta);
+	if (etiqueta == 'query') {
+		
 		$.ajax({
 			//url : "http://localhost/clientes",
 			//poner if por cada etiqueta
@@ -21,8 +21,8 @@ function obtener_registros(busqueda, etiqueta)
 			$("#datos").html(resultado);
 
 		});
-		
 	}
+		
 
 }
 
@@ -30,9 +30,7 @@ $(document).on('keyup', ':input', function()
 {
 
 	var valor=$(this).val();
-	var etiqueta = $(this)
-
-	
+	var etiqueta = $(this).attr('id');
 
 
 	

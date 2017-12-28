@@ -10,7 +10,7 @@
 			
 				
 				<div class="input-group" id="datos1">
-					<input list='browsers' name="query" id="query" class="form-control" placeholder="Buscar..." autofocus>
+					<input type="text" list='browsers' name="query" id="query" class="form-control" placeholder="Buscar..." autofocus>
 
 
 				 

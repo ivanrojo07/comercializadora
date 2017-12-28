@@ -15,8 +15,8 @@ class ModifyingUsersIdToEmpleadoIdColumnToCotizacionTable extends Migration
     {
         Schema::table('cotizacion', function (Blueprint $table) {
             //
-            $table->dropColumn('user_id');
             $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
             $table->integer('empleado_id')->nullable()->unsigned()->after('personal_id');
             $table->foreign('empleado_id')->references('id')->on('empleados');
         });

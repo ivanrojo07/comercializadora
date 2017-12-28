@@ -188,7 +188,7 @@ class ProductoController extends Controller
     }
 
     public function buscar(Request $request){
-        $query = $request->input('query');
+        $query = $request->input('busqueda');
         $wordsquery = explode(' ',$query);
         $productos = Producto::where(function($q) use ($wordsquery){
             foreach ($wordsquery as $word) {
@@ -201,6 +201,6 @@ class ProductoController extends Controller
                     ->orWhere('tipo','LIKE',"%word%");
             }
         })->paginate(10);
-        return view('productos.index',['productos'=>$productos]);
+        return view('productos.busqueda',['productos'=>$productos]);
     }
 }

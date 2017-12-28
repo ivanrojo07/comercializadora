@@ -41,6 +41,8 @@ Route::get('buscarcliente','Personal\PersonalController@buscar');
 Route::resource('productos','Producto\ProductoController');
 Route::resource('cotizaciones','Cotizacion\CotizacionController');
 Route::get('buscarproducto','Producto\ProductoController@buscar');
+Route::get('buscarempleado','Empleado\EmpleadoController@buscar');
+Route::get('buscarprovedor','Provedor\ProvedorController@buscar');
 Route::get('buscargiro','Giro\GiroController@buscar');
 Route::get('buscarformacontacto','FormaContacto\FormaContactoController@buscar');
 Route::get('buscarmarca','Precargas\MarcaController@buscar');

@@ -7,13 +7,46 @@ $.ajaxSetup({
 function obtener_registros(busqueda, etiqueta)
 {
 
-	console.log(etiqueta);
+	// console.log(etiqueta);
 	if (etiqueta == 'query') {
 		
 		$.ajax({
 			//url : "http://localhost/clientes",
 			//poner if por cada etiqueta
 			url : "buscarcliente",
+			type : "GET",
+			dataType : "html",
+			data :{busqueda:busqueda},
+			}).done(function(resultado){
+			$("#datos").html(resultado);
+
+		});
+	}
+	if (etiqueta == 'producto') {
+		$.ajax({
+			url : "buscarproducto",
+			type : "GET",
+			dataType : "html",
+			data :{busqueda:busqueda},
+			}).done(function(resultado){
+			$("#datos").html(resultado);
+
+		});
+	}
+	if (etiqueta == 'empleado') {
+		$.ajax({
+			url : "buscarempleado",
+			type : "GET",
+			dataType : "html",
+			data :{busqueda:busqueda},
+			}).done(function(resultado){
+			$("#datos").html(resultado);
+
+		});
+	}
+	if (etiqueta == 'provedor') {
+		$.ajax({
+			url : "buscarprovedor",
 			type : "GET",
 			dataType : "html",
 			data :{busqueda:busqueda},
@@ -40,7 +73,7 @@ $(document).on('keyup', ':input', function()
 	}
 	else
 		{
-			obtener_registros();
+			obtener_registros(' ',etiqueta);
 			
 		}
 });

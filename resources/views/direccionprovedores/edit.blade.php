@@ -8,15 +8,20 @@
 		<li class=""><a href="{{ route('provedores.crm.index',['provedore'=>$provedore]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 	</ul>
 	<div class="panel panel-default">
-					<div class="panel-heading">Dirección Fiscal:</div>
+					<div class="panel-heading">Dirección Fiscal:
+						&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+
+					</div>
 		<form role="form" name="domicilio" id="form-cliente" method="POST" action="{{ route('provedores.direccionfisica.update',['provedore'=>$provedore, 'direccion'=>$direccion]) }}" name="form">
 					{{ csrf_field() }}
 					<input type="hidden" name="_method" value="PUT">
 					 <input type="hidden" name="provedor_id" value="{{$provedore->id}}">
 						<div class="panel-body">
 								<div class="col-lg-offset-10">
-									<button type="submit" class="btn btn-success">Guardar</button>
-									<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+									<button type="submit" class="btn btn-success">
+								<strong>Guardar</strong>	
+								</button>
+									
 								</div>
 								<div class="col-lg-3">
 									

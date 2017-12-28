@@ -25,11 +25,13 @@
 						<a class="btn btn-success btn-sm" href="{{ route('empleados.show',['empleado'=>$empleado]) }}">
 							<strong>
 							<i class="fa fa-eye" aria-hidden="true"></i> 
+							<strong>
 							Ver
 							</strong>
 
 						</a>
-						<a class="btn btn-info btn-sm" href="{{ route('empleados.edit',['empleado'=>$empleado]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+						<a class="btn btn-info btn-sm" href="{{ route('empleados.edit',['empleado'=>$empleado]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+							<strong>Editar</strong></a>
 					</td>
 					
 				</tr>

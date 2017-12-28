@@ -13,11 +13,14 @@
 	@endif
 		<div role="application" class="panel panel-group">
 			<div class="panel-default">
-				<div class="panel-heading"><h4>Datos del Empleado:</h4></div>
+				<div class="panel-heading"><h4>Datos del Empleado:
+					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>
+					Campos Requeridos
+				</h4></div>
 				<div class="panel-body">
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-3">
-							<label class="control-label" for="identificador">* ID de empleado:</label>
+							<label class="control-label" for="identificador"><i class="fa fa-asterisk" aria-hidden="true"></i> ID de empleado:</label>
 							@if ($edit == true)
 								{{-- true expr --}}
 								<dd>{{$empleado->identificador}}</dd>
@@ -34,19 +37,19 @@
 					</div>
 					<div class="col-xs-12 offset-md-2 mt-3">
 						<div class="form-group col-xs-3">
-							<label class="control-label" for="appaterno">* Apellido Paterno:</label>
+							<label class="control-label" for="appaterno"><i class="fa fa-asterisk" aria-hidden="true"></i> Apellido Paterno:</label>
 							<input type="text" class="form-control" id="appaterno" name="appaterno" required="required" value="{{ $empleado->appaterno }}">
 						</div>
 						<div class="form-group col-xs-3">
-							<label class="control-label" for="apmaterno">* Apellido Materno:</label>
+							<label class="control-label" for="apmaterno"><i class="fa fa-asterisk" aria-hidden="true"></i> Apellido Materno:</label>
 							<input type="text" id="apmaterno" class="form-control" name="apmaterno" required="required" value="{{ $empleado->apmaterno }}">
 						</div>
 						<div class="form-group col-xs-3">
-							<label class="control-label" for="nombre">* Nombre(s):</label>
+							<label class="control-label" for="nombre"><i class="fa fa-asterisk" aria-hidden="true"></i> Nombre(s):</label>
 							<input type="text" class="form-control" id="nombre" name="nombre" required="required" value="{{ $empleado->nombre }}">
 						</div>
 						<div class="form-group col-xs-3">
-							<label class="control-label" for="rfc">RFC:</label>
+							<label class="control-label" for="rfc"><i class="fa fa-asterisk" aria-hidden="true"></i>RFC:</label>
 							<input type="text" class="form-control" id="rfc" name="rfc" value="{{ $empleado->rfc }}">
 						</div>
 					</div>
@@ -141,7 +144,7 @@
 						<button class="btn btn-success">
 						<strong> Guardar</strong>
 					</button>
-	  				<p><strong>*Campo requerido</strong></p>
+	  				
 					</div>
 				</div>
 			</div>

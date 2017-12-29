@@ -98,7 +98,7 @@
 		  					</div>
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numext">RFC:</label>
-		    					<dd>{{ $empleado->rcf }}</dd>
+		    					<dd>{{ $empleado->rfc }}</dd>
 		  					</div>	
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		    					<label class="control-label" for="numinter">CURP:</label>
@@ -118,10 +118,7 @@
 		  						<label class="control-label" for="municipio">Delegación o Municipio:</label>
 		  						<dd>{{ $empleado->municipio }}</dd>
 		  					</div>
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="ciudad">Ciudad:</label>
-		  						<dd>{{ $empleado->ciudad }}</dd>
-		  					</div>
+		  					
 		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		  						<label class="control-label" for="estado">Estado:</label>
 		  						<dd>{{ $empleado->estado }}</dd>

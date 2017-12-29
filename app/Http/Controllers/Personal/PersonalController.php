@@ -19,7 +19,7 @@ class PersonalController extends Controller
     public function index()
     {
         //
-        $personals = Personal::sortable()->paginate(10);
+        $personals = Personal::sortable()->paginate(5);
         // Alert::message('Robots are working!');
         return view('clientes.index', ['personals'=>$personals]);
     }

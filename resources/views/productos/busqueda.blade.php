@@ -35,4 +35,5 @@
 		</tr>
 	@endforeach
 </table>
+
 <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>

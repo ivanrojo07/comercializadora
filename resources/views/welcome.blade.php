@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <ul class="nav navbar-nav navbar-right">
-                @if (Route::has('login'))
+              <!--   @if (Route::has('login'))
                     <li>
                         @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
@@ -59,8 +59,9 @@
                     </li>
                     <li>
                         <a href="{{ url('/register') }}"><i class="fa fa-clipboard" aria-hidden="true"></i> Register</a>
-                    @endif
-                    </li>
+                  
+                    </li> -->
+                      @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">

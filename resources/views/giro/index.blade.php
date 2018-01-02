@@ -47,10 +47,10 @@
 								
 							</div>
 						</div>
-						<form role="form" method="POST" action="{{ route('giros.destroy',['giro'=>$giro]) }}">
+						<form role="form" id="eliminar {{ $giro->id }}" method="POST" action="{{ route('giros.destroy',['giro'=>$giro]) }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">
-						<button type="submit" onclick="deleteFunction()" class="btn btn-info btn-sm" ><i class="fa fa-trash" aria-hidden="true"></i><strong> Borrar</strong></button>
+						<a type="submit" onclick="deleteFunction('eliminar {{ $giro->id }}')" class="btn btn-info btn-sm" ><i class="fa fa-trash" aria-hidden="true"></i><strong> Borrar</strong></a>
 						</form>
 				</tr>
 					</td>

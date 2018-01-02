@@ -89,8 +89,24 @@
 			</div>
 			@endif
 				<div class="panel-default">
-					<div class="panel-heading"><h5>Datos Generales:</h5></div>
+					<div class="panel-heading"><h5>Datos Generales:
+					&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+				</h5>
+					
+						</div>
 					<div class="panel-body">
+						<div class="col-xs-4 col-xs-offset-8">
+									<button type="submit" 
+									        class="btn btn-success">
+									 <strong>Guardar</strong>
+								</button>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a class="btn btn-info" 
+								   href="{{ route('empleados.create') }}">
+								<strong>Agregar Nuevo</strong> </a>
+									
+							</div><br><br><br>
+							
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-xs-3">
 								<label class="control-label" for="telefono">Teléfono:</label>
@@ -159,9 +175,7 @@
 								<input type="text" class="form-control" name="referencia" id="referencia" value="{{ $empleado->referencia }}">
 							</div>
 						</div>
-						<button class="btn btn-success">
-						<strong> Guardar</strong>
-					</button>
+						
 	  				
 					</div>
 				</div>

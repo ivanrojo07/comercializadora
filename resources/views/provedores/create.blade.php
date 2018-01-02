@@ -9,6 +9,17 @@
 						&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h4>
 						</div>
 						<div class="panel-body">
+							<div class="col-xs-4 col-xs-offset-8">
+									<button type="submit" 
+									        class="btn btn-success">
+									 <strong>Guardar</strong>
+								</button>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a class="btn btn-info" 
+								   href="{{ route('provedores.create') }}">
+								<strong>Agregar Nuevo</strong> </a>
+									
+							</div>	<br><br><br>
 							<div class="col-md-12 offset-md-2 mt-3">
 			  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    					<label class="control-label" for="tipopersona">Tipo de Persona:</label>
@@ -69,13 +80,12 @@
 					</ul>
 
 					<div class="panel panel-default">
-						<div class="panel-heading">Dirección Fisica:</div>
+						<div class="panel-heading">Dirección Fisica:
+							&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+						</div>
 						<div class="panel-body">
 							<div class="col-xs-2 col-xs-offset-10">
-									<button type="submit" class="btn btn-success">
-										<strong>Guardar</strong>
 									
-								</button>
 									
 							</div>	
 							<div class="col-md-12 offset-md-2 mt-3">

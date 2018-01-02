@@ -9,10 +9,14 @@
 				</h4>
 				</div>
 				<div class="panel-body">
-						<div class="form-group col-xs-2 col-xs-offset-10">
+						<div class="form-group col-xs-4 col-xs-offset-8">
 								<button type="submit" class="btn btn-success">
 								<strong>Guardar</strong>
 							</button>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+								<a class="btn btn-info" 
+								   href="{{ route('productos.create') }}">
+								<strong>Agregar Nuevo</strong> </a>
 								
 						</div>	
 	  					<div class="form-group col-xs-3">

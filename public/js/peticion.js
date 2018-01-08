@@ -79,3 +79,5 @@ $(document).on('keyup', ':input', function()
 			
 		}
 });
+
+var autoguardar = false;

@@ -1,7 +1,7 @@
 @extends('layouts.blank')
 @section('content')
 	{{-- expr --}}
-	<div class="container">
+	<div class="row-8">
 		<div class="panel panel-default">
 			<div class="panel-heading"><h5>Cotización:</h5></div>
 			<div class="panel-body">

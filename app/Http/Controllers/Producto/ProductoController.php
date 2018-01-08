@@ -25,7 +25,7 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $productos = Producto::sortable()->orderBy('created_at')->paginate(10);
+        $productos = Producto::sortable()->orderBy('created_at')->paginate(5);
 
         return view('productos.index',['productos'=>$productos]);
     }

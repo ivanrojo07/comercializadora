@@ -12,7 +12,6 @@
 								Campo Requerido
 							</h4>
 							
-								
 							
 						</div>
 						<div class="panel-body">
@@ -75,13 +74,18 @@
 					</ul>
 
 					<div class="panel panel-default">
-						<div class="panel-heading">Dirección Fiscal:</div>
+						<div class="panel-heading">Dirección Fiscal: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 						<div class="panel-body">
-							<div class="col-xs-2 col-xs-offset-10">
-									<button type="submit" class="btn btn-success">
+							<div class="col-xs-4 col-xs-offset-8">
+									<button type="submit" 
+									        class="btn btn-success">
 									 <strong>Guardar</strong>
 								</button>
-									<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a class="btn btn-info" 
+								   href="{{ route('clientes.create') }}">
+								<strong>Agregar Nuevo</strong> </a>
+									
 							</div>	
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

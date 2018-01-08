@@ -56,16 +56,16 @@
 								
 							</div>
 						</div>
-						<form role="form" method="POST" action="{{ route($borrar,['precarga'=>$precarga]) }}">
+						<form role="form" id="eliminar {{ $precarga->id }}" method="POST" action="{{ route($borrar,['precarga'=>$precarga]) }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="DELETE">
-						<button type="submit" onclick="deleteFunction()" class="btn btn-info btn-sm" >
+						<a type="submit" onclick="deleteFunction('eliminar {{ $precarga->id }}')" class="btn btn-info btn-sm" >
 							
 							<i class="fa fa-trash" aria-hidden="true"></i>
 							<strong>
 							 Borrar
 							</strong>
-						</button>
+						</a>
 						</form>
 				</tr>
 					</td>

@@ -11,23 +11,21 @@
 			</thead>
 			@foreach ($empleados as $empleado)
 				{{-- expr --}}
-				<tr class="active">
+				<tr class="active"
+				    title="Has Click Aquì para Ver"
+					style="cursor: pointer"
+					href="#{{$empleado->id}}">
+					
 					<td>{{$empleado->identificador}}</td>
 					<td>{{$empleado->nombre}}</td>
 					<td>{{$empleado->appaterno}}</td>
 					<td>{{$empleado->apmaterno}}</td>
 					<td>{{$empleado->rfc}}</td>
 					<td>
-						<a class="btn btn-success btn-sm" href="{{ route('empleados.show',['empleado'=>$empleado]) }}">
-							<strong>
-							<i class="fa fa-eye" aria-hidden="true"></i> 
-							Ver
-							</strong>
-
-						</a>
+						<a class="btn btn-success btn-sm" href="{{ route('empleados.show',['empleado'=>$empleado]) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
 						<a class="btn btn-info btn-sm" href="{{ route('empleados.edit',['empleado'=>$empleado]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 					</td>
-					
 				</tr>
 			@endforeach
 		</table>
+		<script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>

@@ -86,7 +86,7 @@
 			    				</select>
 			    				</div>
 			    				
-			    				<div class="form-group col-xs-3">
+			    				<div class="form-group col-xs-6">
 			  					<label class="control-label" for="calidad">Calidad:</label>
 
 			    					<select type="select" name="calidad" class="form-control" id="calidad" onchange="f_corta()">
@@ -96,7 +96,7 @@
 		    						@endforeach	
 			    				</select>
 			    				</div>
-			    				<div class="form-group col-xs-3">
+			    				<div class="form-group col-xs-6">
 			  					<label class="control-label" for="acabado">Acabado:</label>
 
 			    					<select type="select" name="acabado" class="form-control" id="acabado" onchange="f_corta()">
@@ -106,8 +106,7 @@
 		    						@endforeach	
 			    				</select>
 			    				</div>
-			    			<div class="row mt-3">
-			    				<div class="form-group col-xs-3">
+			    				<div class="form-group col-xs-4">
 			  					<label class="control-label" for="medida1"><i class="fa fa-asterisk" aria-hidden="true"></i>Medida 1:</label>
 			  					<input type="text" class="form-control" id="medida1" name="medida1" required onkeyup="f_corta()" value="{{$producto->medida1}}">
 			  					<label class="control-label" for="unidades">Unidades:</label>
@@ -118,7 +117,7 @@
 			    						@endforeach
 				    				</select>
 			    				</div>
-			    				<div class="form-group col-xs-3">
+			    				<div class="form-group col-xs-4">
 			  					<label class="control-label" for="medida2">Medida 2:</label>
 			  					<input type="text" class="form-control" id="medida2" name="medida2" value="{{$producto->medida2}}">
 			  					<label class="control-label" for="unidades">Unidades</label>
@@ -130,7 +129,7 @@
 				    				</select>	
 			    				</select>
 			    				</div>
-			    				<div class="form-group col-xs-3">
+			    				<div class="form-group col-xs-4">
 			  					<label class="control-label" for="medida3">Medida 3:</label>
 			  					<input type="text" class="form-control" id="medida3" name="medida3" value="{{$producto->medida3}}">
 			  					<label class="control-label" for="unidades">Unidades</label>
@@ -142,22 +141,20 @@
 				    				</select>	
 			    				</select>
 			    				</div>	  					
-			    			</div>
-			    			<div class="row mt-3">
-			    				<div class="form-group col-xs-4">
+			    				<div class="form-group col-xs-5">
 			  						<label class="control-label" for="corta"><i class="fa fa-asterisk" aria-hidden="true"></i> Descripción corta:</label>
 			  						<input type="text" class="form-control" id="corta_id" name="descripcion_short" required readonly="" value="{{$producto->descripcion_short}}">
 			  					</div>
-			    			<div class="form-group col-xs-4">
+			    				<div class="form-group col-xs-7">
 			  						<label class="control-label" for="descripcion"><i class="fa fa-asterisk" aria-hidden="true"></i> Descripción Larga:</label>
 			  						<textarea class="form-control" id="descripcion" name="descripcion_large" required readonly="">"{{$producto->descripcion_large}}"
 			  							</textarea>
 			  					</div>
-			  					<div class="form-group col-xs-3">
+			  					<div class="form-group col-xs-5">
 			  						<label class="control-label" for="sat">Clave Sat:</label>
 			  						<input type="text" class="form-control" id="sat" name="sat">
 			  					</div>
-			    			<div class="form-group col-xs-3">
+			    			<div class="form-group col-xs-7">
 			  						<label class="control-label" for="descripcion_sat">Descripción SAT:</label>
 			  						<textarea class="form-control" id="descripcion_sat" name="descripcion_sat" >
 			  							</textarea>

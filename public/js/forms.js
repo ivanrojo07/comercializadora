@@ -62,26 +62,26 @@ $(function(){
   }
 });
 
-$(function(){
-              $('.dropdown-submenu a.test').on("click", function(e){
-                $(this).next('ul').toggle();
-                e.stopPropagation();
-                e.preventDefault();
-              });
-            });
+// $(function(){
+//               $('.dropdown-submenu a.test').on("click", function(e){
+//                 $(this).next('ul').toggle();
+//                 e.stopPropagation();
+//                 e.preventDefault();
+//               });
+//             });
 
-$(function() {
-   $("div.panel div ul li").click(function() {
-      // remove classes from all
-      $("li").removeClass("active");
-      // add class to the one we clicked
-      $(this).addClass("active");
-   });
-});
-function deleteFunction() {
+// $(function() {
+//    $("div.panel div ul li").click(function() {
+//       // remove classes from all
+//       $("li").removeClass("active");
+//       // add class to the one we clicked
+//       $(this).addClass("active");
+//    });
+// });
+function deleteFunction(etiqueta) {
 event.preventDefault(); // prevent form submit
 var form = event.target.form; // storing the form
-        swal({
+swal({
   title: "¿Estas seguro?",
   text: "Si eliminas, no podras recuperar tu información.",
   type: "warning",
@@ -91,12 +91,13 @@ var form = event.target.form; // storing the form
   cancelButtonText: "¡NO!",
   closeOnConfirm: false,
   closeOnCancel: false
-},
-function(isConfirm){
-  if (isConfirm) {
-    form.submit();          // submitting the form when user press yes
-  } else {
+},function(isConfirm){
+  if (!isConfirm) {
+    
     swal("Cancelado", "", "error");
+  } else {
+    
+    document.getElementById(etiqueta).submit();          // submitting the form when user press yes
   }
 });
 }

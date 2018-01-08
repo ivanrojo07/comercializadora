@@ -8,7 +8,7 @@
 		    <li class="active"><a href="{{ route('clientes.crm.index',['personal'=>$personal]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
 		</ul>
 		<div class="panel-default">
-			<div class="panel-heading">C.R.M.</div>
+			<div class="panel-heading">C.R.M. &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 			<div class="panel-body">
 				<div class="panel-body">
 					<form role="form" method="POST" action="{{ route('clientes.crm.store',['personal'=>$personal]) }}">
@@ -24,7 +24,7 @@
 							<a id="modificar" class="btn btn-primary" onclick="modificar()" style="display: none;">
 							<strong>Modificar</strong>
 						</a>
-							<p><strong><i class="fa fa-asterisk" aria-hidden="true"></i>Campo requerido</strong></p>
+							
 
 						</div>
 					<div class="col-md-12 offset-md-2 mt-3">

@@ -19,7 +19,7 @@ class PersonalController extends Controller
     public function index()
     {
         //
-        $personals = Personal::sortable()->paginate(10);
+        $personals = Personal::sortable()->paginate(5);
         // Alert::message('Robots are working!');
         return view('clientes.index', ['personals'=>$personals]);
     }
@@ -55,7 +55,8 @@ class PersonalController extends Controller
             # code...
             $cliente = Personal::create($request->all());
             Alert::success("Cliente creado con exito, sigue agregando información")->persistent("Cerrar");
-            return redirect()->route("clientes.show",['personal'=>$cliente]);
+            return redirect()->route('clientes.direccionfisica.create',['personal'=>$cliente]);
+             
         }
         
     }

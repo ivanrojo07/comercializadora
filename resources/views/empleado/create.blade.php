@@ -55,6 +55,7 @@
 					</div>
 				</div>
 			</div>
+			@if($edit == false)
 			<div>
 				<ul class="nav nav-pills nav-justified">
 					<li class="active"><a href="#tab1"  class="ui-tabs-anchor">Generales:</a></li>
@@ -70,9 +71,42 @@
 					<li role="presentation" class="disabled" disabled="disabled"><a class="ui-tabs-anchor" disabled="disabled">Administrativo:</a></li>
 				</ul>
 			</div>
+			@else
+			<div>
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation" class="active"><a href="{{ route('empleados.show',['empleado'=>$empleado]) }}"  class="ui-tabs-anchor">Generales:</a></li>
+
+					<li role="presentation" class=""><a href="{{ route('empleados.datoslaborales.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Laborales:</a></li>
+
+					<li role="presentation" class=""><a href="{{ route('empleados.estudios.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Estudios:</a></li>
+
+					<li role="presentation" class=""><a href="{{ route('empleados.emergencias.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Emergencias:</a></li>
+
+					<li role="presentation" class=""><a href="{{ route('empleados.vacaciones.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Vacaciones:</a></li>
+
+					<li role="presentation" class=""><a href="{{ route('empleados.faltas.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Administrativo:</a></li>
+				</ul>
+			</div>
+			@endif
 				<div class="panel-default">
-					<div class="panel-heading"><h5>Datos Generales:</h5></div>
+					<div class="panel-heading"><h5>Datos Generales:
+					&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+				</h5>
+					
+						</div>
 					<div class="panel-body">
+						<div class="col-xs-4 col-xs-offset-8">
+									<button type="submit" 
+									        class="btn btn-success">
+									 <strong>Guardar</strong>
+								</button>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a class="btn btn-info" 
+								   href="{{ route('empleados.create') }}">
+								<strong>Agregar Nuevo</strong> </a>
+									
+							</div><br><br><br>
+							
 						<div class="col-md-12 offset-md-2 mt-3">
 							<div class="form-group col-xs-3">
 								<label class="control-label" for="telefono">Teléfono:</label>
@@ -141,9 +175,7 @@
 								<input type="text" class="form-control" name="referencia" id="referencia" value="{{ $empleado->referencia }}">
 							</div>
 						</div>
-						<button class="btn btn-success">
-						<strong> Guardar</strong>
-					</button>
+						
 	  				
 					</div>
 				</div>

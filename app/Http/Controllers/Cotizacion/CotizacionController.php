@@ -30,14 +30,34 @@ class CotizacionController extends Controller
      */
     public function create()
     {
-        //
+        //Crea el objeto por primera vez y se le asigna un id a cotización
         $cotizacion = new Cotizacion;
+        $cotizacion->save();
+        $cotizacion->cotiza = $cotizacion->generarCustomID();
+        $cotizacion->update();
+        // dd($cotizacion);
         $vendedores = Empleado::get();
         $clientes = Personal::get();
         $productos = Producto::get();
         $edit = false;
         return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos,'edit'=>$edit]);
 
+    }
+
+    public function autosave(Cotizacion $cotizacion, Request $request){
+        // dd($request->cotiza);
+        $cotizacion = Cotizacion::updateOrCreate(['cotiza'=>$request->cotiza],[
+            'personal_id'=>$request->personal_id,
+            'empleado_id'=>$request->empleado_id,
+            'cotiza'=>$request->cotiza,
+            'fecha'=>$request->fecha,
+            'validez_cot'=>$request->validez_cot
+            ]);
+        $vendedores = Empleado::get();
+        $clientes = Personal::get();
+        $productos = Producto::get();
+        $edit = false;
+        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos,'edit'=>$edit]);
     }
 
     /**

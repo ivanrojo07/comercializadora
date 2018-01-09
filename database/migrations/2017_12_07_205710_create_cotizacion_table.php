@@ -19,7 +19,7 @@ class CreateCotizacionTable extends Migration
             $table->foreign('personal_id')->references('id')->on('personals');
             $table->integer('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('cotizacion')->nullable();
+            $table->string('cotiza')->nullable();
             $table->date('fecha')->nullable();
             // Los campos de abajo seran borrados, van en otra tabla
             $table->integer('producto_id')->nullable()->unsigned();

@@ -11,7 +11,7 @@
 						<input type="hidden" name="_method" value="PUT">
 				@else
 					{{-- false expr --}}
-					<form role="form" method="POST" action="{{ route('cotizaciones.create') }}">
+					<form  id="cotizacion" role="form" method="POST" action="{{ route('cotizaciones.create') }}">
 				@endif
 				<div class="form-group col-lg-4 col-sm-6 col-xs-12">
 					<label class="control-label" for="personal_id">Cliente:</label>
@@ -32,11 +32,11 @@
 					</select>
 				</div>
 				<div class="form-group col-lg-4 col-sm-6 col-xs-12">
-					<label class="control-label" for="user_id">Vendedor:</label>
-					<select type="select" name="user_id" class="form-control" id="user_id">
+					<label class="control-label" for="empleado_id">Vendedor:</label>
+					<select type="select" name="empleado_id" class="form-control" id="empleado_id">
 						@foreach ($vendedores as $vendedor)
 							{{-- SELECCIONAR LA OPCION QUE TENGA LA COTIZACIÓN --}}
-							<option id="{{$vendedor->id}}" value="{{$vendedor->id}}" @if ($cotizacion->user_id == $vendedor->id)
+							<option id="{{$vendedor->id}}" value="{{$vendedor->id}}" @if ($cotizacion->empleado_id == $vendedor->id)
 								{{-- expr --}}
 								selected="selected" 
 							@endif>{{ $vendedor->nombre }} {{$vendedor->appaterno}} {{$vendedor->apmaterno}}</option>
@@ -44,16 +44,16 @@
 					</select>
 				</div>
 				<div class="form-group col-lg-4 col-sm-6 col-xs-12">
-					<label class="control-label" for="cotizacion">Cotización:</label>
-					<input class="form-control" type="text" name="cotizacion" value="{{$cotizacion->cotizacion}}">
+					<label class="control-label" for="cotiza">Cotización:</label>
+					<input class="form-control" type="text" name="cotiza" id="cotiza"  value="{{$cotizacion->cotiza}}">
 				</div>
 				<div class="form-group col-lg-6 col-sm-6 col-xs-12">
 					<label class="control-label" for="fecha">Fecha:</label>
-					<input class="form-control" type="date" name="fecha" value="{{$cotizacion->fecha}}">
+					<input class="form-control" type="date" id="fecha" name="fecha" value="{{$cotizacion->fecha}}">
 				</div>
 				<div class="form-group col-lg-6 col-sm-6 col-xs-12">
-					<label class="control-label" for="validez">Validez hasta:</label>
-					<input class="form-control" type="date" name="validez" value="{{$cotizacion->validez}}">
+					<label class="control-label" for="validez_cot">Validez hasta:</label>
+					<input class="form-control" type="date" name="validez_cot" id="validez_cot" value="{{$cotizacion->validez_cot}}">
 				</div>
 				<div class="form-group col-lg-2 col-sm-6 col-xs-12">
 					<label class="control-label" for="producto_id">Producto:</label>
@@ -118,4 +118,22 @@
 			</div>
 		</div>
 	</div>
+	{{-- <script>
+		$(document).on('change', ':input', function(){
+			
+			$.ajax({
+				url: "cotizacionautosave",
+				type: "POST",
+				data:{
+					personal_id: $("#personal_id").val(),
+					empleado_id: $("#empleado_id").val(),
+					cotizacion: $("#cotizacion").val(),
+					fecha: $("#fecha").val(),
+					validez_cot: $("#validez_cot").val()
+
+				}
+			}).done(function(resultado){
+			alert(resultado);
+		});
+	</script> --}}
 @endsection

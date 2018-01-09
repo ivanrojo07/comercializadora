@@ -13,7 +13,7 @@ class Cotizacion extends Model
 
     protected $table='cotizacion';
 
-    protected $fillable=['id', 'estado','personal_id','empleado_id','cotizacion','fecha','validez_cot','total'];
+    protected $fillable=['id', 'estado','personal_id','empleado_id','cotiza','fecha','validez_cot','total'];
 
     protected $hidden=['created_at','updated_at','deleted_at'];
     
@@ -32,7 +32,7 @@ class Cotizacion extends Model
     // ACTUALIZA EL ID Y SU ESTADO Y LO GUARDA
     public function actualizaCustomIDyEstado(){
         $this->estado = 'Completo';
-        $this->cotizacion = $this->generarCustomID();
+        $this->cotiza = $this->generarCustomID();
         $this->save();
     }
     // GUARDAR CAMBIOS

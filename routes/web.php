@@ -46,6 +46,7 @@ Route::resource('productos','Producto\ProductoController');
 
 
 Route::resource('cotizaciones','Cotizacion\CotizacionController');
+Route::post('cotizaciones/cotizacionautosave','Cotizacion\CotizacionController@autosave');
 Route::get('buscarproducto','Producto\ProductoController@buscar');
 Route::get('buscarempleado','Empleado\EmpleadoController@buscar');
 Route::get('buscarprovedor','Provedor\ProvedorController@buscar');

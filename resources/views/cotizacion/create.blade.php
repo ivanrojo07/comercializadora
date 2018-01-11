@@ -63,7 +63,9 @@
 					<label class="control-label" for="cantidad">Cantidad:</label>
 					<input class="form-control" type="text" name="cantidad" value="{{$cotizacion->cantidad}}">
 				</div>
-				<div class="form-group col-lg-10 col-sm-6 col-xs-12">
+				<div class="form-group col-lg-10 col-sm-6 col-xs-12" style="
+										height: 250px;
+										overflow: scroll;">
 					<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 						<thead>
 							<tr class="info">

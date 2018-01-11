@@ -11,7 +11,7 @@
 	
 	@foreach ($productos as $producto)
 		{{-- expr --}}
-		<tr title="Has Click para agregar el producto a la Cotización" style="cursor: pointer" onclick="agregarProducto({{$producto->id}})" class="active">
+		<tr title="Has Click para agregar el producto a la Cotización" style="cursor: pointer" class="active">
 			<td>{{$producto->marca}}</td>
 			<td>{{$producto->descripcion_short}}</td>
 			<td>{{$producto->descripcion_large}}</td>

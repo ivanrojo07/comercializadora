@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Cotizacion;
 
+use App\Cotizacion;
+use App\Http\Controllers\Controller;
 use App\InCotizacion;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class InCotizacionController extends Controller
 {
@@ -13,9 +14,13 @@ class InCotizacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Cotizacion $cotizacion)
     {
         //
+        $productosincot = $cotizacion->productos;
+
+        return view('cotizacion.productosencotizacion',['productoscotizados'=>$productosincot]);
+
     }
 
     /**
@@ -37,6 +42,12 @@ class InCotizacionController extends Controller
     public function store(Request $request)
     {
         //
+        $productoencotizacion = new InCotizacion();
+        $productoencotizacion->cotizacion_id = $request->cotizacion_id;
+        $productoencotizacion->producto_id = $request->producto_id;
+        $productoencotizacion->save();
+        return redirect(
+    "incotizacion/$productoencotizacion->cotizacion_id");
     }
 
     /**

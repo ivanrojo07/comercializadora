@@ -35,12 +35,13 @@ class CotizacionController extends Controller
         $cotizacion->save();
         $cotizacion->cotiza = $cotizacion->generarCustomID();
         $cotizacion->update();
+        $productoscotizados = $cotizacion->productos;
         // dd($cotizacion);
         $vendedores = Empleado::get();
         $clientes = Personal::get();
         $productos = Producto::get();
         $edit = false;
-        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos,'edit'=>$edit]);
+        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos, 'productoscotizados'=>$productoscotizados , 'edit'=>$edit]);
 
     }
 
@@ -53,11 +54,12 @@ class CotizacionController extends Controller
             'fecha'=>$request->fecha,
             'validez_cot'=>$request->validez_cot
             ]);
+        $productoscotizados = $cotizacion->productos;
         $vendedores = Empleado::get();
         $clientes = Personal::get();
         $productos = Producto::get();
         $edit = false;
-        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos,'edit'=>$edit]);
+        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos, 'productoscotizados'=>$productoscotizados,'edit'=>$edit]);
     }
 
     /**
@@ -115,5 +117,23 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         //
+    }
+    public function buscarproductos(Request $request){
+        // dd('hola');
+        $query = $request->input('busqueda');
+        $wordsquery = explode(' ',$query);
+        $productos = Producto::where(function($q) use ($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('identificador','LIKE',"%$word%")
+                    ->orWhere('marca','LIKE',"%$word%")
+                    ->orWhere('clave','LIKE',"%$word%")
+                    ->orWhere('descripcion_short','LIKE',"%$word%")
+                    ->orWhere('familia','LIKE',"%$word%")
+                    ->orWhere('tipo','LIKE',"%word%");
+            }
+        })->get();
+        // dd($productos);
+        return view('cotizacion.busquedaproducto',['productos'=>$productos]);
     }
 }

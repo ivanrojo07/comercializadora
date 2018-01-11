@@ -203,4 +203,5 @@ class ProductoController extends Controller
         })->paginate(10);
         return view('productos.busqueda',['productos'=>$productos]);
     }
+    
 }

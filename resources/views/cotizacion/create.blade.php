@@ -14,6 +14,7 @@
 					<form  id="cotizacion" role="form" method="POST" action="{{ route('cotizaciones.create') }}">
 				@endif
 				<div class="form-group col-lg-4 col-sm-6 col-xs-12">
+					<input type="hidden" name="cotizacion_id" id="cotizacion_id" value="{{$cotizacion->id}}">
 					<label class="control-label" for="personal_id">Cliente:</label>
 					<select type="select" name="personal_id" class="form-control" id="personal_id">
 						@foreach ($clientes as $cliente)
@@ -56,47 +57,68 @@
 					<input class="form-control" type="date" name="validez_cot" id="validez_cot" value="{{$cotizacion->validez_cot}}">
 				</div>
 				<div class="form-group col-lg-2 col-sm-6 col-xs-12">
-					<label class="control-label" for="producto_id">Producto:</label>
-					<input class="form-control" type="text" name="producto_id" value="{{$cotizacion->producto_id}}">
+					<label class="control-label" for="productos">Producto:</label>
+					<div class="input-group">	
+						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+						<input class="form-control" type="text" id="productos" name="query">
+					</div>
 					<label class="control-label" for="descuento">Descuento:</label>
 					<input class="form-control" type="text" name="descuento" value="{{$cotizacion->descuento}}">
 					<label class="control-label" for="cantidad">Cantidad:</label>
 					<input class="form-control" type="text" name="cantidad" value="{{$cotizacion->cantidad}}">
 				</div>
-				<div class="form-group col-lg-10 col-sm-6 col-xs-12" style="
+				<div class="form-group col-lg-10 col-sm-6 col-xs-12" id="datos" name="datos" style="
 										height: 250px;
 										overflow: scroll;">
 					<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 						<thead>
 							<tr class="info">
-								<th>@sortablelink('marca','Marca')</th>
-								<th>@sortablelink('descripcion_short','Descripción corta')</th>
-								<th>@sortablelink('descripcion_large','Descripción')</th>
+								<th>Marca</th>
+								<th>Descripción corta</th>
+								<th>Descripción</th>
 							</tr>
 						</thead>
+						<tbody style="
+										height: 250px;
+										overflow: scroll;">
+							
+						
 						@foreach ($productos as $producto)
 							{{-- expr --}}
-							<tr class="active">
+							<tr title="Has Click para agregar el producto a la Cotización" style="cursor: pointer" onclick="agregarProducto({{$producto->id}})" class="active">
 								<td>{{$producto->marca}}</td>
 								<td>{{$producto->descripcion_short}}</td>
 								<td>{{$producto->descripcion_large}}</td>
 							</tr>
 						@endforeach
+						</tbody>
 					</table>
 				</div>
-				<div class="form-group col-lg-12 col-sm-6 col-xs-12">
+				<div class="form-group col-lg-12 col-sm-6 col-xs-12" id="productoscotizados" name="productoscotizados">
 					<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
 						<thead>
 							<tr class="info">
-								<th>@sortablelink('identificador','ID')</th>
-								<th>@sortablelink('modelo','Modelo')</th>
-								<th>@sortablelink('marca','Marca')</th>
-								<th>@sortablelink('descripcion_large','Descripción')</th>
-								<th>@sortablelink('','Precio Neto')</th>
-								<th>@sortablelink('','I.V.A.')</th>
-								<th>@sortablelink('','Total')</th>
+								<th>ID</th>
+								<th>Modelo</th>
+								<th>Marca</th>
+								<th>Descripción</th>
+								<th>Precio Neto</th>
+								<th>I.V.A.</th>
+								<th>Total</th>
 							</tr>
 						</thead>
+						@foreach ($productoscotizados as $productocot)
+							{{-- expr --}}
+							<tr>
+								<td>{{ $productocot->identificador }}</td>
+								<td>{{$productocot->modelo}}</td>
+								<td>{{$productocot->marca}}</td>
+								<td>{{$productocot->descripcion_short}}</td>
+								<td>0.00</td>
+								<td>0.00</td>
+								<td>0.00</td>
+							</tr>
+						@endforeach
 					</table>
 				</div>
 				<div class="form-group col-lg-offset-9 col-lg-3 has-success has-feedback">
@@ -120,22 +142,24 @@
 			</div>
 		</div>
 	</div>
-	{{-- <script>
-		$(document).on('change', ':input', function(){
-			
-			$.ajax({
-				url: "cotizacionautosave",
-				type: "POST",
-				data:{
-					personal_id: $("#personal_id").val(),
-					empleado_id: $("#empleado_id").val(),
-					cotizacion: $("#cotizacion").val(),
-					fecha: $("#fecha").val(),
-					validez_cot: $("#validez_cot").val()
-
+	<script >
+		function agregarProducto(producto){
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 				}
-			}).done(function(resultado){
-			alert(resultado);
-		});
-	</script> --}}
+			});
+			$.ajax({
+				url: "{{ url('/incotizacion') }}",
+				type: "POST",
+				dataType: "html",
+				data: {
+					cotizacion_id: $("#cotizacion_id").val(),
+					producto_id: producto
+				},
+			}).done(function(result){
+				$("#productoscotizados").html(result);
+			});
+		}
+	</script>
 @endsection

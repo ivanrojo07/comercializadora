@@ -26,7 +26,7 @@ function persona(elemento){
         document.getElementById('varrfc').title="Siga el formato 3 letras seguidas por 6 digitos y 3 caracteres";
     }
 }
-var $rows = $('tbody#table tr');
+// var $rows = $('tbody#table tr');
 
 var $rows = $('#table tr');
 $('#search').keyup(function() {

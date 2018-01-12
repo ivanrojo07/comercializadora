@@ -141,22 +141,22 @@
 	</div>
 	<script>
 		function agregarProducto(producto){
-	$.ajaxSetup({
-		headers: {
-			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				url: "{{ url('/incotizacion') }}",
+				type: "POST",
+				dataType: "html",
+				data: {
+					cotizacion_id: $("#cotizacion_id").val(),
+					producto_id: producto
+				},
+			}).done(function(result){
+				$("#productoscotizados").html(result);
+			});
 		}
-	});
-	$.ajax({
-		url: "{{ url('/incotizacion') }}",
-		type: "POST",
-		dataType: "html",
-		data: {
-			cotizacion_id: $("#cotizacion_id").val(),
-			producto_id: producto
-		},
-	}).done(function(result){
-		$("#productoscotizados").html(result);
-	});
-}
 	</script>
 @endsection

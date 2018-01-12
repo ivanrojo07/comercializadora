@@ -90,8 +90,12 @@ class InCotizacionController extends Controller
      * @param  \App\InCotizacion  $inCotizacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InCotizacion $inCotizacion)
+    public function destroy(Request $request, $inCotizacion)
     {
         //
+        
+        $cotizacion = InCotizacion::where('cotizacion_id',$request->cotizacion_id)->where('producto_id',$request->producto_id)->delete();
+        return redirect("incotizacion/$request->cotizacion_id");
+
     }
 }

@@ -26,7 +26,6 @@ class CreateInCotizacionTable extends Migration
             // Descuento de cada producto
             $table->decimal('descuento_prod',4,2)->default(0.00);
             $table->integer('cantidad')->default(1);
-            $table->softDeletes();
             $table->timestamps();
         });
     }

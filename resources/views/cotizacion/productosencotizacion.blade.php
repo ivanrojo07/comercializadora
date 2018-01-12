@@ -8,6 +8,7 @@
 			<th>Precio Neto</th>
 			<th>I.V.A.</th>
 			<th>Total</th>
+			<th></th>
 		</tr>
 	</thead>
 	@foreach ($productoscotizados as $productocot)
@@ -20,6 +21,7 @@
 			<td>0.00</td>
 			<td>0.00</td>
 			<td>0.00</td>
+			<td><a onclick="quitarProducto({{$productocot->id}})">Eliminar</a></td>
 		</tr>
 	@endforeach
 </table>

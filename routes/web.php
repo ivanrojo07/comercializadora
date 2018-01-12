@@ -49,6 +49,7 @@ Route::get('cotizaciones/buscarproductos','Cotizacion\CotizacionController@busca
 // Route::resource('incotizacion','Cotizacion\InCotizacionController');
 Route::get('incotizacion/{cotizacion}','Cotizacion\InCotizacionController@index');
 Route::post('incotizacion','Cotizacion\InCotizacionController@store');
+Route::post('eliminarproductoencotizacion/{inCotizacion}','Cotizacion\InCotizacionController@destroy');
 Route::resource('cotizaciones','Cotizacion\CotizacionController');
 Route::post('cotizaciones/cotizacionautosave','Cotizacion\CotizacionController@autosave');
 Route::get('buscarproducto','Producto\ProductoController@buscar');

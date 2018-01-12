@@ -9,13 +9,13 @@ use Kyslik\ColumnSortable\Sortable;
 class InCotizacion extends Model
 {
     //
-    use Sortable, SoftDeletes;
+    use Sortable;
 
     protected $table='in_cotizacion';
 
     protected $fillable=['id','cotizacion_id','producto_id','descuento_prod','cantidad'];
 
-    protected $hidden = ['deleted_at','created_at','updated_at'];
+    protected $hidden = ['created_at','updated_at'];
 
     // RELACIÓN CON COTIZACIÓN
     public function cotizacion(){

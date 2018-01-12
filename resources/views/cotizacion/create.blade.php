@@ -46,7 +46,7 @@
 				</div>
 				<div class="form-group col-lg-4 col-sm-6 col-xs-12">
 					<label class="control-label" for="cotiza">Cotización:</label>
-					<input class="form-control" type="text" name="cotiza" id="cotiza"  value="{{$cotizacion->cotiza}}">
+					<input class="form-control" type="text" name="cotiza" id="cotiza"  value="{{$cotizacion->cotiza}}" readonly>
 				</div>
 				<div class="form-group col-lg-6 col-sm-6 col-xs-12">
 					<label class="control-label" for="fecha">Fecha:</label>
@@ -101,6 +101,7 @@
 								<th>Precio Neto</th>
 								<th>I.V.A.</th>
 								<th>Total</th>
+								<th>_</th>
 							</tr>
 						</thead>
 						@foreach ($productoscotizados as $productocot)
@@ -114,6 +115,7 @@
 								<td>0.00</td>
 								<td>0.00</td>
 								<td>0.00</td>
+								<td><a onclick="quitarProducto({{$producto->id}})">Eliminar</a></td>
 							</tr>
 						@endforeach
 					</table>
@@ -161,6 +163,24 @@
 			});
 			$.ajax({
 				url: "{{ url('/incotizacion') }}",
+				type: "POST",
+				dataType: "html",
+				data: {
+					cotizacion_id: $("#cotizacion_id").val(),
+					producto_id: producto
+				},
+			}).done(function(result){
+				$("#productoscotizados").html(result);
+			});
+		}
+		function quitarProducto(producto){
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				url: "{{ url('/eliminarproductoencotizacion') }}"+"/"+producto,
 				type: "POST",
 				dataType: "html",
 				data: {

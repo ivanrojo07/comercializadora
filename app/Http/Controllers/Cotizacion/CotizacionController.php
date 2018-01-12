@@ -118,6 +118,8 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         //
+
+        
     }
     public function buscarproductos(Request $request){
         // dd('hola');

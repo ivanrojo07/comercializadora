@@ -2,12 +2,15 @@
 @section('content')
 	{{-- expr --}}
 	<div class="container">
+		<div class="panel-body">
 		<div class="col-lg-6">
 			<div class="input-group">	
 				<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
 				<input class="form-control" type="text" id="search" name="search">
 			</div>
 		</div>
+		</div>
+
 		<div class="jumbotron" id="datos" name="datos">
 			<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
 				<thead>

@@ -34,7 +34,13 @@
 									No se asigno cliente
 								@else
 									{{-- false expr --}}
-									{{$cotizacion->cliente->nombre}}
+									@if ($cotizacion->cliente->tipopersona == "Moral")
+										{{-- true expr --}}
+										{{$cotizacion->cliente->razonsocial}}
+									@else
+										{{-- false expr --}}
+										{{$cotizacion->cliente->nombre}} {{$cotizacion->cliente->apellidopaterno}} {{$cotizacion->cliente->apellidomaterno}}
+									@endif
 								@endif
 								</td>
 							<td>
@@ -43,7 +49,7 @@
 									No se asigno un vendedor
 								@else
 									{{-- false expr --}}
-									{{$cotizacion->vendedor->nombre}}
+									{{$cotizacion->vendedor->nombre}} {{$cotizacion->vendedor->appaterno}} {{$cotizacion->vendedor->apmaterno}}
 								@endif
 								</td>
 							<td>{{$cotizacion->fecha}}</td>

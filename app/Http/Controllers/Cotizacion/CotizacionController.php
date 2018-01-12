@@ -60,7 +60,7 @@ class CotizacionController extends Controller
         $clientes = Personal::get();
         $productos = Producto::get();
         $edit = false;
-        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos, 'productoscotizados'=>$productoscotizados,'edit'=>$edit]);
+        return response()->json(['success'=>'success'],200);
     }
 
     /**

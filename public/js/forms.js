@@ -26,6 +26,22 @@ function persona(elemento){
         document.getElementById('varrfc').title="Siga el formato 3 letras seguidas por 6 digitos y 3 caracteres";
     }
 }
+var $rows = $('tbody#table tr');
+
+var $rows = $('#table tr');
+$('#search').keyup(function() {
+  var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase().split(' ');
+
+  $rows.hide().filter(function() {
+    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+    var matchesSearch = true;
+    $(val).each(function(index, value) {
+      matchesSearch = (!matchesSearch) ? false : ~text.indexOf(value);
+    });
+    return matchesSearch;
+  }).show();
+});
+
 // $('div#tab').remove();
 $("tr").click(function(){
   $('div.persona').hide();

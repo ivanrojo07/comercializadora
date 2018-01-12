@@ -60,14 +60,14 @@
 					<label class="control-label" for="productos">Producto:</label>
 					<div class="input-group">	
 						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-						<input class="form-control" type="text" id="productos" name="query">
+						<input class="form-control" type="text" id="search" name="search">
 					</div>
 					<label class="control-label" for="descuento">Descuento:</label>
 					<input class="form-control" type="text" name="descuento" value="{{$cotizacion->descuento}}">
 					<label class="control-label" for="cantidad">Cantidad:</label>
 					<input class="form-control" type="text" name="cantidad" value="{{$cotizacion->cantidad}}">
 				</div>
-				<div class="form-group col-lg-10 col-sm-6 col-xs-12" id="datos" name="datos" style="
+				<div class="form-group col-lg-10 col-sm-6 col-xs-12" style="
 										height: 250px;
 										overflow: scroll;">
 					<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px">
@@ -77,12 +77,8 @@
 								<th>Descripción corta</th>
 								<th>Descripción</th>
 							</tr>
-						</thead>
-						<tbody style="
-										height: 250px;
-										overflow: scroll;">
-							
-						
+						</thead>							
+						<tbody id="table">
 						@foreach ($productos as $producto)
 							{{-- expr --}}
 							<tr title="Has Click para agregar el producto a la Cotización" style="cursor: pointer" onclick="agregarProducto({{$producto->id}})" class="active">
@@ -109,6 +105,7 @@
 						</thead>
 						@foreach ($productoscotizados as $productocot)
 							{{-- expr --}}
+
 							<tr>
 								<td>{{ $productocot->identificador }}</td>
 								<td>{{$productocot->modelo}}</td>
@@ -142,24 +139,24 @@
 			</div>
 		</div>
 	</div>
-	<script >
+	<script>
 		function agregarProducto(producto){
-			$.ajaxSetup({
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-			});
-			$.ajax({
-				url: "{{ url('/incotizacion') }}",
-				type: "POST",
-				dataType: "html",
-				data: {
-					cotizacion_id: $("#cotizacion_id").val(),
-					producto_id: producto
-				},
-			}).done(function(result){
-				$("#productoscotizados").html(result);
-			});
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		}
+	});
+	$.ajax({
+		url: "{{ url('/incotizacion') }}",
+		type: "POST",
+		dataType: "html",
+		data: {
+			cotizacion_id: $("#cotizacion_id").val(),
+			producto_id: producto
+		},
+	}).done(function(result){
+		$("#productoscotizados").html(result);
+	});
+}
 	</script>
 @endsection

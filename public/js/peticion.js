@@ -57,17 +57,6 @@ function obtener_registros(busqueda, etiqueta)
 
 		});
 	}
-	if (etiqueta == 'productos') {
-		$.ajax({
-		url : 'buscarproductos',
-		type : "GET",
-		dataType : "html",
-		data :{busqueda:busqueda, cotizacion:cotizacion},
-		}).done(function(resultado){
-		$("#datos").html(resultado);
-
-	});
-	}
 		
 
 }
@@ -112,4 +101,23 @@ $.ajax({
 		$("#app").html(resultado);
 	});
 });
+
+function agregarProducto(producto){
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+	$.ajax({
+		url: "{{ url('/incotizacion') }}",
+		type: "POST",
+		dataType: "html",
+		data: {
+			cotizacion_id: $("#cotizacion_id").val(),
+			producto_id: producto
+		},
+	}).done(function(result){
+		$("#productoscotizados").html(result);
+	});
+}
 

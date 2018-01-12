@@ -23,7 +23,7 @@ class Cotizacion extends Model
     }
     // RELACIÓN EMPLEADO
     public function vendedor(){
-    	return $this->belongsTo('App\Empleado');
+    	return $this->belongsTo('App\Empleado', 'empleado_id');
     }
     // CREANDO UN ID ENCRIPTADO PARA LA COTIZACION
     public function generarCustomID(){

@@ -19,6 +19,7 @@ class CotizacionController extends Controller
     public function index()
     {
         //
+        
         $cotizaciones = Cotizacion::sortable()->paginate(10);
         return view('cotizacion.index',['cotizaciones'=>$cotizaciones]);
     }

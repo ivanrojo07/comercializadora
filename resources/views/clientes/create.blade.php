@@ -66,15 +66,15 @@
 					</div>
 
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="">Dirección Fiscal:</a></li>
-						<li role="presentation" class="disabled"><a>Dirección Fisica:</a></li>
+						<li class="active"><a href="">Dirección Física:</a></li>
+						<li role="presentation" class="disabled"><a>Dirección Fiscal:</a></li>
 						<li role="presentation" class="disabled"><a>Contacto:</a></li>
 						<li role="presentation" class="disabled"><a>Datos Generales:</a></li>
 						<li role="presentation" class="disabled"><a>C.R.M.:</a></li>
 					</ul>
 
 					<div class="panel panel-default">
-						<div class="panel-heading">Dirección Fiscal: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
+						<div class="panel-heading">Dirección Física: &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 						<div class="panel-body">
 							<div class="col-xs-4 col-xs-offset-8">
 									<button type="submit" 

@@ -16,6 +16,7 @@
 				<thead>
 					<tr class="info">
 						<th>#</th>
+						<th>Estado</th>
 						<th>Cliente</th>
 						<th>Vendedor</th>
 						<th>Fecha</th>
@@ -28,6 +29,7 @@
 						{{-- expr --}}
 						<tr class="active">
 							<td>{{$cotizacion->cotiza}}</td>
+							<td>{{$cotizacion->estado}}</td>
 							<td>
 								@if ($cotizacion->cliente == null)
 									{{-- true expr --}}

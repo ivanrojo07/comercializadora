@@ -30,14 +30,14 @@ class Cotizacion extends Model
         return md5("$this->id $this->updated_at");
     }
     // ACTUALIZA EL ID Y SU ESTADO Y LO GUARDA
-    public function actualizaCustomIDyEstado(){
+    public function actualizaEstado(){
         $this->estado = 'Completo';
-        $this->cotiza = $this->generarCustomID();
+        // $this->cotiza = $this->generarCustomID();
         $this->save();
     }
     // GUARDAR CAMBIOS
     public function guardar(){
-        $this->actualizaCustomIDyEstado();
+        $this->actualizaEstado();
     }
     // RELACIÓN UNO (COTIZACION) A MUCHOS (IN_COTIZACION) 
     public function inCotizacion(){

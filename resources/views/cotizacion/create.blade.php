@@ -2,17 +2,19 @@
 @section('content')
 	{{-- expr --}}
 	<div class="row-8">
-		<div class="panel panel-default">
-			<div class="panel-heading"><h5>Cotización:</h5></div>
-			<div class="panel-body">
 				@if ($edit == true)
 					{{-- true expr --}}
 					<form role="form" method="POST" action="{{ route('cotizaciones.update',['cotizacione'=>$cotizacion]) }}">
 						<input type="hidden" name="_method" value="PUT">
+						{{csrf_field()}}
 				@else
 					{{-- false expr --}}
-					<form  id="cotizacion" role="form" method="POST" action="{{ route('cotizaciones.create') }}">
+					<form  id="cotizacion" role="form" method="POST" action="{{ route('cotizaciones.store') }}">
+						{{csrf_field()}}
 				@endif
+		<div class="panel panel-default">
+			<div class="panel-heading"><h5>Cotización: <button type="submit" class="col-md-offset-10 btn btn-success">Guardar</button></h5></div>
+			<div class="panel-body">
 				<div class="form-group col-lg-4 col-sm-6 col-xs-12">
 					<input type="hidden" name="cotizacion_id" id="cotizacion_id" value="{{$cotizacion->id}}">
 					<label class="control-label" for="personal_id">Cliente:</label>

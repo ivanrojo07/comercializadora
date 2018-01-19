@@ -6,7 +6,8 @@
 				<div role="application" class="panel panel-group" >
 					<div class="panel-default">
 						<div class="panel-heading"><h4>Datos del Proveedor:
-						&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</h4>
+						&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
+					</h4>
 						</div>
 						<div class="panel-body">
 							<div class="col-xs-4 col-xs-offset-8">

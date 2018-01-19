@@ -18,7 +18,8 @@
 					<select type="select" name="personal_id" class="form-control" id="personal_id">
 						@foreach ($clientes as $cliente)
 							{{-- SELECCIONAR LA OPCION QUE TENGA LA COTIZACIÓN --}}
-							<option id="{{$cliente->id}}" value="{{$cliente->id}}" @if ($cotizacion->personal_id == $cliente->id)
+							<option id="{{$cliente->id}}" value="{{$cliente->id}}" 
+								@if ($cotizacion->personal_id == $cliente->id)
 								{{-- expr --}}
 								selected="selected" 
 							@endif>@if ($cliente->tipopersona == 'Fisica')

@@ -115,7 +115,7 @@ class EmpleadoController extends Controller
     // dd($request);
     $query = $request->input('busqueda');
     $wordsquery = explode(' ',$query);
-    $empleados = Empleado::where(function($q) use($wordsquery){
+    $empleados = Empleado::where(function($q) use($wordsquery){ 
             foreach ($wordsquery as $word) {
                 # code...
             $q->orWhere('nombre','LIKE',"%$word%")

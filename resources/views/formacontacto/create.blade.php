@@ -5,7 +5,7 @@
 			{{ csrf_field() }}
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Nueva Forma de contacto
+					Nueva Forma de contacto&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
 				</div>
 				<div class="panel-body">
 					<div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">

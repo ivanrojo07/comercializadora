@@ -3,7 +3,10 @@
 <div class="container">
 	@if ($edit == true)
 		{{-- true expr --}}
-		<form role="form" method="POST" action="{{ route('empleados.update',['empleado'=>$empleado]) }}">
+
+		<form role="form" 
+		      method="POST" 
+		      action="{{ route('empleados.update',['empleado'=>$empleado]) }}">
 			{{ csrf_field() }}
 			<input type="hidden" name="_method" value="PUT">
 	@else

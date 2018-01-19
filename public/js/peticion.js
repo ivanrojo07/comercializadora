@@ -1,3 +1,4 @@
+'use strict'
 $(obtener_registros());
 $.ajaxSetup({
   headers: {
@@ -77,4 +78,26 @@ $(document).on('keyup', ':input', function()
 			obtener_registros(' ',etiqueta);
 			
 		}
+});
+
+$(document).on('change', ':input', function(){
+$.ajaxSetup({
+		headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+});
+$.ajax({
+	url: "cotizacionautosave",
+	type: "POST",
+	dataType : "html",
+	data:{
+		personal_id: $("#personal_id").val(),
+		empleado_id: $("#empleado_id").val(),
+		cotiza: $("#cotiza").val(),
+		fecha: $("#fecha").val(),
+		validez_cot: $("#validez_cot").val()
+	}
+}).done(function(resultado){
+		console.log(resultado);
+	});
 });

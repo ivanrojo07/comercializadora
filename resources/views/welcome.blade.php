@@ -207,8 +207,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-money" aria-hidden="true"></i> Cotizaciones <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones/create') }}','Nueva Cotización')"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización (Blueprint)</a>
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones/create') }}','Nueva Cotización')"><i class="fa fa-plus" aria-hidden="true"></i> Nueva cotización</a>
                                 {{-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i> Busqueda</a>     --}}
+                                <a href="#" onclick="AgregarNuevoTab('{{ url('/cotizaciones') }}','Buscar Cotizaciones')"><i class="fa fa-search" aria-hidden="true"></i> Buscar Cotizaciones(Blueprint)</a>
                             </li>                     
                         </ul>
                     </li>

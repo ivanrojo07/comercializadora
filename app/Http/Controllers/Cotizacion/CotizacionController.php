@@ -19,6 +19,7 @@ class CotizacionController extends Controller
     public function index()
     {
         //
+        
         $cotizaciones = Cotizacion::sortable()->paginate(10);
         return view('cotizacion.index',['cotizaciones'=>$cotizaciones]);
     }
@@ -30,14 +31,36 @@ class CotizacionController extends Controller
      */
     public function create()
     {
-        //
+        //Crea el objeto por primera vez y se le asigna un id a cotización
         $cotizacion = new Cotizacion;
+        $cotizacion->save();
+        $cotizacion->cotiza = $cotizacion->generarCustomID();
+        $cotizacion->update();
+        $productoscotizados = $cotizacion->productos;
+        // dd($cotizacion);
         $vendedores = Empleado::get();
         $clientes = Personal::get();
         $productos = Producto::get();
         $edit = false;
-        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos,'edit'=>$edit]);
+        return view('cotizacion.create',['cotizacion'=>$cotizacion,'vendedores'=>$vendedores,'clientes'=>$clientes,'productos'=>$productos, 'productoscotizados'=>$productoscotizados , 'edit'=>$edit]);
 
+    }
+
+    public function autosave(Cotizacion $cotizacion, Request $request){
+        // dd($request->cotiza);
+        $cotizacion = Cotizacion::updateOrCreate(['cotiza'=>$request->cotiza],[
+            'personal_id'=>$request->personal_id,
+            'empleado_id'=>$request->empleado_id,
+            'cotiza'=>$request->cotiza,
+            'fecha'=>$request->fecha,
+            'validez_cot'=>$request->validez_cot
+            ]);
+        $productoscotizados = $cotizacion->productos;
+        $vendedores = Empleado::get();
+        $clientes = Personal::get();
+        $productos = Producto::get();
+        $edit = false;
+        return response()->json(['success'=>'success'],200);
     }
 
     /**
@@ -95,5 +118,25 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         //
+
+        
+    }
+    public function buscarproductos(Request $request){
+        // dd('hola');
+        $query = $request->input('busqueda');
+        $wordsquery = explode(' ',$query);
+        $productos = Producto::where(function($q) use ($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('identificador','LIKE',"%$word%")
+                    ->orWhere('marca','LIKE',"%$word%")
+                    ->orWhere('clave','LIKE',"%$word%")
+                    ->orWhere('descripcion_short','LIKE',"%$word%")
+                    ->orWhere('familia','LIKE',"%$word%")
+                    ->orWhere('tipo','LIKE',"%word%");
+            }
+        })->get();
+        // dd($productos);
+        return view('cotizacion.busquedaproducto',['productos'=>$productos]);
     }
 }

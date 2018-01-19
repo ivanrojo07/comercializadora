@@ -45,7 +45,13 @@ Route::get('buscarcliente','Personal\PersonalController@buscar');
 Route::resource('productos','Producto\ProductoController');
 
 
+Route::get('cotizaciones/buscarproductos','Cotizacion\CotizacionController@buscarproductos');
+// Route::resource('incotizacion','Cotizacion\InCotizacionController');
+Route::get('incotizacion/{cotizacion}','Cotizacion\InCotizacionController@index');
+Route::post('incotizacion','Cotizacion\InCotizacionController@store');
+Route::post('eliminarproductoencotizacion/{inCotizacion}','Cotizacion\InCotizacionController@destroy');
 Route::resource('cotizaciones','Cotizacion\CotizacionController');
+Route::post('cotizaciones/cotizacionautosave','Cotizacion\CotizacionController@autosave');
 Route::get('buscarproducto','Producto\ProductoController@buscar');
 Route::get('buscarempleado','Empleado\EmpleadoController@buscar');
 Route::get('buscarprovedor','Provedor\ProvedorController@buscar');

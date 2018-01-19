@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Cotizacion;
 
+use UxWeb\SweetAlert\SweetAlert as Alert;
 use App\Cotizacion;
 use App\Empleado;
 use App\Http\Controllers\Controller;
@@ -72,7 +73,16 @@ class CotizacionController extends Controller
     public function store(Request $request)
     {
         //
-        // $cotizacion 
+        $cotizacion = Cotizacion::updateOrCreate(['cotiza'=>$request->cotiza],[
+            'personal_id'=>$request->personal_id,
+            'empleado_id'=>$request->empleado_id,
+            'cotiza'=>$request->cotiza,
+            'fecha'=>$request->fecha,
+            'validez_cot'=>$request->validez_cot
+            ]);
+        $cotizacion->guardar();
+        Alert::success("Cotización guardada");
+        return redirect()->route('cotizaciones.index');
     }
 
     /**

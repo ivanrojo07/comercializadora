@@ -79,6 +79,22 @@ $(document).on('keyup', ':input', function()
 			
 		}
 });
+$('select').on('click','#area_id',function(){
+			alert("area");
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				url: "getareas",
+				type: "GET",
+				dataType: "html",
+
+			}).done(function(resultado){
+				$("#area_id").html(resultado);
+			})
+		});
 
 $(document).on('change', ':input', function(){
 $.ajaxSetup({

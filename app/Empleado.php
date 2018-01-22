@@ -24,7 +24,7 @@ class Empleado extends Model
     ];
     
     public function datosLab(){
-        return $this->hasOne('App\EmpleadosDatosLab');
+        return $this->hasOne('App\EmpleadosDatosLab','empleado_id');
     }
     public function estudios(){
         return $this->hasOne('App\EmpleadosEstudios');

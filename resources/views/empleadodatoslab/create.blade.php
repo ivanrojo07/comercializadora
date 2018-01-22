@@ -79,8 +79,9 @@
 						Área:</label>
 						<select type="select" 
 						        class="form-control" 
-						        name="area_id">
-						        <option id="area_id" value="">Sin Definir</option>
+						        name="area_id"
+						        id="area_id">
+						        <option id="area0" value="">Sin Definir</option>
  
 							@foreach ($areas as $area)
 								{{-- expr --}}
@@ -327,4 +328,23 @@
 			</form>
 		</div>
 	</div>
+	
 @endsection
+<script>
+		$('select').on('click','#area_id',function(){
+			alert("area");
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				url: "getareas",
+				type: "GET",
+				dataType: "html",
+
+			}).done(function(resultado){
+				$("#area_id").html(resultado);
+			})
+		});
+	</script>

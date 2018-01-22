@@ -22,8 +22,20 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = $empleado->datosLab;
-
+        // dd($datoslab);
         $area='';
+        /* OJO AQUI, PRIMERO IRIA ESTE CODIGO ANTES DE BUSCAR SI EXISTE UN area_id*/
+        if ($datoslab == null) {
+            # code...
+            return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
+        } else {
+            # code...
+            return view('empleadodatoslab.view',[
+                'empleado'=>$empleado,
+                'datoslab'=>$datoslab,
+                'area'=>$area,
+                'puesto'=>$puesto]); 
+        }
       if($datoslab->area_id==null){
         $area='NO DEFINIDO';
       }else{
@@ -40,17 +52,7 @@ class EmpleadosDatosLabController extends Controller
       }
 
 
-        if ($datoslab == null) {
-            # code...
-            return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
-        } else {
-            # code...
-            return view('empleadodatoslab.view',[
-                'empleado'=>$empleado,
-                'datoslab'=>$datoslab,
-                'area'=>$area,
-                'puesto'=>$puesto]); 
-        }
+        
         
     }
 

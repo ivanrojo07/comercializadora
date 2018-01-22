@@ -19,6 +19,10 @@ class AreaController extends Controller
         $areas = Area::sortable()->paginate(10);
         return view('areas.index',['areas'=>$areas]);
     }
+    public function getAreas(){
+        $areas = Area::get();
+        return view('precargas.select',['precargas'=>$areas]);
+    }
 
     /**
      * Show the form for creating a new resource.

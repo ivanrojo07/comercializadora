@@ -7,6 +7,8 @@ use App\EmpleadosDatosLab;
 use App\Http\Controllers\Controller;
 use App\TipoBaja;
 use App\TipoContrato;
+use App\Area;
+use App\Puesto;
 use Illuminate\Http\Request;
 
 class EmpleadosDatosLabController extends Controller
@@ -20,13 +22,20 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = $empleado->datosLab;
-        // dd($datoslab);
+        $areas =   Area::get();
+        $puestos = Puesto::get();
+
+
         if ($datoslab == null) {
             # code...
             return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
         } else {
             # code...
-            return view('empleadodatoslab.view',['empleado'=>$empleado,'datoslab'=>$datoslab]); 
+            return view('empleadodatoslab.view',[
+                'empleado'=>$empleado,
+                'datoslab'=>$datoslab,
+                'areas'=>$areas,
+                'puestos'=>$puestos]); 
         }
         
     }
@@ -42,8 +51,17 @@ class EmpleadosDatosLabController extends Controller
         $datoslab = new EmpleadosDatosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
+        $areas =   Area::get();
+        $puestos = Puesto::get();
         $edit = false;
-        return view('empleadodatoslab.create',['empleado'=>$empleado,'bajas'=>$bajas,'contratos'=>$contratos,'datoslab'=>$datoslab,'edit'=>$edit]);
+        return view('empleadodatoslab.create',[
+            'empleado'=>$empleado,
+            'bajas'=>$bajas,
+            'contratos'=>$contratos,
+            'datoslab'=>$datoslab, 
+            'areas'=>$areas, 
+            'puestos'=>$puestos,
+            'edit'=>$edit]);
     }
 
     /**
@@ -57,9 +75,13 @@ class EmpleadosDatosLabController extends Controller
         //
         $datoslab = new EmpleadosDatosLab;
         $datoslab->empleado_id = $request->empleado_id;
+
         $datoslab->fechacontratacion = $request->fechacontratacion;
-        $datoslab->area = $request->area;
-        $datoslab->puesto = $request->puesto;
+        $datoslab->fechaactualizacion = date("Y-m-d");
+
+       $datoslab->area_id = $request->area_id;
+        $datoslab->puesto_id = $request->puesto_id;
+
         $datoslab->salarionom = $request->salarionom;
         $datoslab->salariodia = $request->salariodia ;
         $datoslab->puesto_inicio = $request->puesto_inicio ;
@@ -97,7 +119,32 @@ class EmpleadosDatosLabController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        //
+          
+        $datos = $empleado->datosLaborales()->where('id',$datoslaborale)->first();
+     $area='';
+      if($datos->area_id==null){
+        $area='NO DEFINIDO';
+      }else{
+        $areas=Area::where('id',$datos->area_id)->first();
+      $area=$areas->nombre;
+      }
+      
+      $puesto='';
+      if($datos->puesto_id==null){
+        $puesto='NO DEFINIDO';
+      }else{
+        $puestos=Puesto::where('id',$datos->puesto_id)->first();
+      $puesto=$areas->nombre;
+      }
+      
+     
+         return view('empleadodatoslab.view',[
+                'empleado'=>$empleado,
+                'datoslab'=>$datos,
+                'area'=>$area,
+                'puesto'=>$puesto
+                
+                ]);
     }
 
     /**
@@ -112,8 +159,17 @@ class EmpleadosDatosLabController extends Controller
         $datoslab = $empleado->datosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
+        $areas =   Area::get();
+        $puestos = Puesto::get();
         $edit = true;
-        return view('empleadodatoslab.create',['datoslab'=>$datoslab,'bajas'=>$bajas,'contratos'=>$contratos,'empleado'=>$empleado,'edit'=>$edit]);
+        return view('empleadodatoslab.create',[
+            'datoslab'=>$datoslab,
+            'bajas'=>$bajas,
+            'contratos'=>$contratos,
+            'empleado'=>$empleado,
+            'areas'=>$areas, 
+            'puestos'=>$puestos,
+            'edit'=>$edit]);
 
     }
 
@@ -127,8 +183,43 @@ class EmpleadosDatosLabController extends Controller
     public function update(Request $request, Empleado $empleado, $datoslaborale)
     {
         //
-        $datoslab = EmpleadosDatosLab::findOrFail($datoslaborale);
-        $datoslab->update($request->all());
+             
+$datos= 
+$empleado->datosLaborales()->where('id',$datoslaborale)->first();
+
+         $datoslab = new EmpleadosDatosLab;
+         $datoslab->empleado_id = $datos->empleado_id;
+
+        $datoslab->fechacontratacion = $datos->fechacontratacion;
+        $datoslab->fechaactualizacion = date("Y-m-d");
+
+        $datoslab->area_id = $request->area_id;
+         //dd($request->all());
+        $datoslab->puesto_id = $request->puesto_id;
+        
+        $datoslab->salarionom = $request->salarionom;
+        $datoslab->salariodia = $request->salariodia ;
+        
+        $datoslab->periodopaga = $request->periodopaga ;
+        $datoslab->prestaciones = $request->prestaciones ;
+        $datoslab->regimen = $request->regimen ;
+        $datoslab->hentrada = $request->hentrada ;
+        $datoslab->hsalida = $request->hsalida ;
+        $datoslab->hcomida = $request->hcomida ;
+        $datoslab->lugartrabajo = $request->lugartrabajo ;
+        $datoslab->banco = $request->banco ;
+        $datoslab->cuenta = $request->cuenta ;
+        $datoslab->clabe = $request->clabe ;
+        $datoslab->fechabaja = $request->fechabaja ;
+        $datoslab->tipobaja_id = $request->tipobaja_id ;
+        $datoslab->comentariobaja = $request->comentariobaja ;
+        $datoslab->contrato_id = $request->contrato_id ;
+        ////////////////////////////////////////////////////////
+
+        //$datoslab = EmpleadosDatosLab::findOrFail($datoslaborale);
+
+        $datoslab->save($request->all());
+         Alert::success('Datos laborales actualizados');
         return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
     }
 

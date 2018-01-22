@@ -2,6 +2,9 @@
 @section('infoempleado')
 	{{-- expr --}}
 	
+	
+	
+	
 	<div>
 		<ul class="nav nav-pills nav-justified">
 			<li role="presentation" class=""><a href="{{ route('empleados.show',['empleado'=>$empleado]) }}"  class="ui-tabs-anchor">Generales:</a></li>
@@ -20,23 +23,31 @@
 	<div class="panel-default">
 		<div class="panel-heading"><h5>Laborales:</h5></div>
 		<div class="panel-body">
-			<div class="col-md-12 offset-md-2 mt-3">
+			<div class="col-md-12 offset-md-2 mt-3"> 
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="fechacontratacion">Fecha de contratación:</label>
+					
 					<dd>{{ $datoslab->fechacontratacion }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="contrato">Tipo de contrato:</label>
 					<dd>{{ $datoslab->contrato }}</dd>
 				</div>
-				<div class="form-group col-xs-3">
+
+                <div class="form-group col-xs-3">
 					<label class="control-label" for="area">Área:</label>
-					<dd>{{ $datoslab->area }}</dd>
+					
+					<dd>{{ $area }}</dd>
 				</div>
+				
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="puesto">Puesto:</label>
-					<dd>{{ $datoslab->puesto }}</dd>
+					<dd>{{ $puesto }}</dd>
 				</div>
+				
+
+
+
 			</div>
 			<div class="col-md-12 offset-md-2 mt-3">
 				<div class="form-group col-xs-3">
@@ -47,10 +58,9 @@
 					<label class="control-label" for="salariodia">Salario Diario:</label>
 					<dd>{{ $datoslab->salariodia }}</dd>
 				</div>
-				<div class="form-group col-xs-3">
-					<label class="control-label" for="puesto_inicio">Puesto Inicial:</label>
-					<dd>{{ $datoslab->puesto_inicio }}</dd>
-				</div>
+
+				
+
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="periodopaga">Periodicidad de Pago:</label>
 					<dd>{{ $datoslab->periodopaga }}</dd>

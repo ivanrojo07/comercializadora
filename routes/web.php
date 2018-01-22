@@ -107,4 +107,8 @@ Route::get('comision',function(){
 
 	return View::make('Empleadobonos.comision');
 });
+//---------------------------------------------------------------------------
+Route::resource('areas','Area\AreaController', ['except'=>'show']);
+Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
+//--------------------------------------------------------------------
 

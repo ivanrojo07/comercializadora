@@ -22,8 +22,22 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = $empleado->datosLab;
-        $areas =   Area::get();
-        $puestos = Puesto::get();
+
+        $area='';
+      if($datoslab->area_id==null){
+        $area='NO DEFINIDO';
+      }else{
+        $areas=Area::where('id',$datoslab->area_id)->first();
+      $area=$areas->nombre;
+      }
+      
+      $puesto='';
+      if($datoslab->puesto_id==null){
+        $puesto='NO DEFINIDO';
+      }else{
+        $puestos=Puesto::where('id',$datoslab->puesto_id)->first();
+      $puesto=$puestos->nombre;
+      }
 
 
         if ($datoslab == null) {
@@ -34,8 +48,8 @@ class EmpleadosDatosLabController extends Controller
             return view('empleadodatoslab.view',[
                 'empleado'=>$empleado,
                 'datoslab'=>$datoslab,
-                'areas'=>$areas,
-                'puestos'=>$puestos]); 
+                'area'=>$area,
+                'puesto'=>$puesto]); 
         }
         
     }

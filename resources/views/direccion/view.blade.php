@@ -9,7 +9,7 @@
 		</ul>
 					<div class="panel panel-default">
 
-						<div class="panel-heading">Dirección Fisica:</div>
+						<div class="panel-heading">Dirección Fiscal:</div>
 						<div class="panel-body">
 							<div class="col-md-12 offset-md-2 mt-3">
 								<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">

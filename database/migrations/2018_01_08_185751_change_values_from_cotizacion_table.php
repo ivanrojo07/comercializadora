@@ -19,10 +19,10 @@ class ChangeValuesFromCotizacionTable extends Migration
             // $table->dropColumn('producto_id');
             // $table->dropColumn('descuento');
             // $table->dropColumn('cantidad');
-            $table->string('estado')->default('Incompleto')->after('id');
-            $table->date('validez_cot')->nullable()->after('fecha');
-            $table->decimal('total',8,2)->nullable()->after('validez_cot');
-            $table->renameColumn('cotizacion','cotiza');
+            // $table->string('estado')->default('Incompleto')->after('id');
+            // $table->date('validez_cot')->nullable()->after('fecha');
+            // $table->decimal('total',8,2)->nullable()->after('validez_cot');
+            // $table->renameColumn('cotizacion','cotiza');
         });
     }
 

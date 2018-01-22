@@ -66,7 +66,7 @@
 					</div>
 					<ul role="tablist" class="nav nav-tabs">
 
-						<li class="active"><a href="#tab1">Dirección Física:</a></li>
+						<li class="active"><a href="#tab1">Dirección Física: </a></li>
 
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.direccionfisica.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Dirección Fiscal:</a></li>
 						<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('clientes.contacto.index',['cliente'=>$personal]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
@@ -75,7 +75,7 @@
 					</ul>
 					<div class="panel panel-default">
 
-						<div class="panel-heading">Dirección Fisìca:</div>
+						<div class="panel-heading">Dirección Fisíca:  &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 
 						<div class="panel-body">
 							<div class="col-xs-2 col-xs-offset-10">

@@ -1,10 +1,10 @@
 @extends('layouts.infoprovedor')
 	@section('cliente')
 		<ul role="tablist" class="nav nav-tabs">
-			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedore'=>$provedore]) }}">Dirección Fiscal:
+			<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"><a href="{{ route('provedores.show',['provedore'=>$provedore]) }}">Dirección Fisica:
 				
 			</a></li>
-			<li class="active"><a href="{{ route('provedores.direccionfisica.index',['provedore'=>$provedore]) }}">Dirección Fisica:</a></li>
+			<li class="active"><a href="{{ route('provedores.direccionfisica.index',['provedore'=>$provedore]) }}">Dirección Fiscal:</a></li>
 			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.contacto.index',['provedore'=>$provedore]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Contacto:</a></li>
 			<li role="presentation" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-3" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="{{ route('provedores.datosgenerales.index', ['provedore'=>$provedore]) }}" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Datos Generales:</a></li>
 			<li class=""><a href="{{ route('provedores.crm.index',['provedore'=>$provedore]) }}" class="ui-tabs-anchor">C.R.M.:</a></li>
@@ -14,7 +14,7 @@
 			{{ csrf_field() }}
 			 <input type="hidden" name="provedor_id" value="{{$provedore->id}}">
 			 <div class="panel-default">
-				<div class="panel-heading">Dirección Fisica:
+				<div class="panel-heading">Dirección Fiscal:
 				&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos</div>
 				<div class="panel-body">
 						<div class="col-lg-offset-10">
@@ -31,7 +31,7 @@
 								       data-toggle="toggle" 
 								       onchange="datosFiscal();"
 								       id="#boton-toggle">
-								¿Usar datos de dirección fiscal?.
+								¿Usar datos de dirección fisica?.
 							</label>
 						
 

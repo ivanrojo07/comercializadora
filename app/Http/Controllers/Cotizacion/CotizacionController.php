@@ -149,4 +149,19 @@ class CotizacionController extends Controller
         // dd($productos);
         return view('cotizacion.busquedaproducto',['productos'=>$productos]);
     }
+    public function buscarCotizacion (Request $request){
+        $query = $request->input('busqueda');
+        $wordsquery = explode(' ',$query);
+        $cotizaciones = Cotizacion::where(function($q) use ($wordsquery){
+            foreach ($wordsquery as $word) {
+                # code...
+                $q->orWhere('estado','LIKE',"%$word%")
+                    ->orWhere('cotiza','LIKE',"%$word%")
+                    ->orWhere('fecha','LIKE',"%$word%")
+                    ->orWhere('validez','LIKE',"%$word%")
+                    ->orWhere('total','LIKE',"%$word%");
+            }
+        })->get();
+        return view('cotizacion.busquedacotizacion',['cotizaciones'=>$cotizaciones]);
+    }
 }

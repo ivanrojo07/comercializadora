@@ -40,6 +40,7 @@ Route::resource('calidad','Precargas\CalidadController', ['except'=>'show']);
 Route::resource('acabados','Precargas\AcabadoController', ['except'=>'show']);
 Route::resource('marcas','Precargas\MarcaController', ['except'=>'show']);
 //---------------------------------------------------------------------------
+Route::get('buscarcotizacion','Cotizacion\CotizacionController@buscarCotizacion');
 Route::get('buscarcliente','Personal\PersonalController@buscar');
 
 Route::resource('productos','Producto\ProductoController');

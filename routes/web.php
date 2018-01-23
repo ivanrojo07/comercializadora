@@ -108,9 +108,9 @@ Route::get('comision',function(){
 	return View::make('Empleadobonos.comision');
 });
 //---------------------------------------------------------------------------
+Route::get('getareas','Area\AreaController@getAreas');
 Route::resource('areas','Area\AreaController', ['except'=>'show']);
 // ruta de funcion ajax para obtener las areas
-Route::get('getareas','Area\AreaController@getAreas');
 Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
 //--------------------------------------------------------------------
 

@@ -339,7 +339,7 @@
 			}
 		});
 		$.ajax({
-			url: "/getareas",
+			url: "{{ url('/getareas') }}",
 			type: "GET",
 			dataType: "html",
 

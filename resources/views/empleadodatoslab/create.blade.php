@@ -331,5 +331,25 @@
 			</form>
 		</div>
 	</div>
-	
+	<script>
+		function getAreas(){
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		$.ajax({
+			url: "/getareas",
+			type: "GET",
+			dataType: "html",
+
+		}).done(function(resultado){
+			$("#area_id").html(resultado);
+			e.stopPropagation();
+	    	e.preventDefault();
+		});
+		e.stopPropagation();
+	    e.preventDefault();
+		}
+	</script>
 @endsection

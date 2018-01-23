@@ -123,7 +123,7 @@
 						@endforeach
 					</table>
 				</div>
-				<div class="form-group col-lg-offset-9 col-lg-3 has-success has-feedback">
+				<div class="form-group pull-right col-xs-3 has-success has-feedback">
 					<div class="input-group">
 					    <span class="input-group-addon">Subtotal:&nbsp</span>
 					    <div class="input-group-addon">$</div>

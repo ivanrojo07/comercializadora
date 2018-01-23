@@ -28,6 +28,10 @@ class TipoBajaController extends Controller
         $bajas = TipoBaja::sortable()->paginate(10);
         return view('precargas.index',['precargas'=>$bajas, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
+    public function getBajas(){
+        $bajas = TipoBaja::get();
+        return view('precargas.select',['precargas'=>$bajas]);
+    }
 
     /**
      * Show the form for creating a new resource.

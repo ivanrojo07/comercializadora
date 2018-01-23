@@ -21,6 +21,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// ruta de funcion ajax para obtener las areas
+Route::get('getareas','Area\AreaController@getAreas');
+Route::get('getcontratos','Precargas\TipoContratoController@getContratos');
+Route::get('getpuestos','Puesto\PuestoController@getPuestos');
+Route::get('getbajas','Precargas\TipoBajaController@getBajas');
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 
@@ -108,9 +113,7 @@ Route::get('comision',function(){
 	return View::make('Empleadobonos.comision');
 });
 //---------------------------------------------------------------------------
-Route::get('getareas','Area\AreaController@getAreas');
 Route::resource('areas','Area\AreaController', ['except'=>'show']);
-// ruta de funcion ajax para obtener las areas
 Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
 //--------------------------------------------------------------------
 

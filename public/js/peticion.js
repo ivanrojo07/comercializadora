@@ -1,29 +1,13 @@
 'use strict'
+
 $(obtener_registros());
 $.ajaxSetup({
   headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-// function getAreas(){
-// 	$.ajaxSetup({
-// 		headers: {
-// 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-// 		}
-// 	});
-// 	$.ajax({
-// 		url: "/getareas",
-// 		type: "GET",
-// 		dataType: "html",
 
-// 	}).done(function(resultado){
-// 		$("#area_id").html(resultado);
-// 		e.stopPropagation();
-//     	e.preventDefault();
-// 	});
-// 	e.stopPropagation();
-//     e.preventDefault();
-// 	}
+
 function obtener_registros(busqueda, etiqueta)
 {
 

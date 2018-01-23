@@ -57,9 +57,11 @@
 
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="contrato">Tipo de contrato:</label>
-						<select type="select" class="form-control" name="contrato_id">
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3" onclick='getContratos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>	
+						<select type="select" class="form-control" name="contrato_id" id="contrato_id">
 
-							<option id="contrato_id" value="">Sin Definir</option>
+							<option id="contrato0" value="">Sin Definir</option>
 
 							@foreach ($contratos as $contrato)
 								{{-- expr --}}
@@ -69,6 +71,7 @@
 								@endif>{{$contrato->nombre}}</option>
 							@endforeach
 						</select>
+						</div>
 					</div>
 
 
@@ -78,7 +81,7 @@
 						<label class="control-label" for="area_id">
 						Área:</label>
 						<div class="input-group">
-  						<span class="input-group-addon" id="basic-addon3" onclick="getAreas()"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+  						<span class="input-group-addon" id="basic-addon3" onclick='getAreas()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" 
 						        class="form-control"  
 						        name="area_id"
@@ -102,8 +105,10 @@
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="puesto_id">
 						Puesto:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getPuestos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" name="puesto_id" id="puesto_id" class="form-control">
-							<option id="puesto_id" value="">Sin Definir</option>
+							<option id="puesto0" value="">Sin Definir</option>
 
 							@foreach ($puestos as $puesto)
 								{{-- expr --}}
@@ -116,6 +121,7 @@
 								@endif>{{$puesto->nombre}}</option>
 							@endforeach
 						</select>
+						</div>
 					</div>
 
 
@@ -156,6 +162,8 @@
 
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="sucursal">Agregar a Sucursal:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick=''><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" 
 						        class="form-control" 
 						        name="sucursal">
@@ -167,6 +175,7 @@
 						
 							?>
 						</select>
+						</div>
 					</div>
 
 
@@ -307,6 +316,8 @@
 						</div>
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="tipobaja_id">Tipo de Baja:</label>
+							<div class="input-group">
+  							<span class="input-group-addon" id="basic-addon3" onclick='getBajas()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
 							<select class="form-control" type="select" name="tipobaja_id" id="tipobaja_id">
 								<option id="0" value="">No hay baja</option>
 								@foreach ($bajas as $baja)
@@ -317,6 +328,7 @@
 									@endif>{{ $baja->nombre }}</option>
 								@endforeach
 							</select>
+							</div>
 						</div>
 						<div class="form-group col-xs-3">
 							<label class="control-label" for="comentariobaja">Comentarios:</label>
@@ -331,25 +343,63 @@
 			</form>
 		</div>
 	</div>
-	<script>
-		function getAreas(){
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
-		});
-		$.ajax({
-			url: "{{ url('/getareas') }}",
-			type: "GET",
-			dataType: "html",
-
-		}).done(function(resultado){
-			$("#area_id").html(resultado);
-			e.stopPropagation();
-	    	e.preventDefault();
-		});
-		e.stopPropagation();
-	    e.preventDefault();
+	<script type="text/javascript">
+		function getAreas()
+		{
+		  $.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+		  });
+		  $.ajax({
+		    url: "{{ url('/getareas') }}",
+		    type: "GET",
+		    dataType: "html",
+		  }).done(function(resultado){
+		    $("#area_id").html(resultado);
+		  });
+		}
+		function getContratos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getcontratos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#contrato_id").html(resultado);
+			});
+		}
+		function getPuestos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getpuestos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#puesto_id").html(resultado);
+			});
+		}
+		function getBajas(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getbajas') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#tipobaja_id").html(resultado);
+			});
 		}
 	</script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Area;
 use App\Area;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 
 class AreaController extends Controller
 {
@@ -22,6 +23,7 @@ class AreaController extends Controller
     public function getAreas(){
         $areas = Area::get();
         return view('precargas.select',['precargas'=>$areas]);
+        // return response()->json(['data'=>$areas,200]);
     }
 
     /**

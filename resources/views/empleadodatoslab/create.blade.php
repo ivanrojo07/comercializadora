@@ -74,11 +74,13 @@
 
 
 
-				<div class="form-group col-xs-3">
+					<div class="form-group col-xs-3">
 						<label class="control-label" for="area_id">
 						Área:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick="getAreas()"><i class="fa fa-refresh" aria-hidden="true"></i></span>
 						<select type="select" 
-						        class="form-control" 
+						        class="form-control"  
 						        name="area_id"
 						        id="area_id">
 						        <option id="area0" value="">Sin Definir</option>
@@ -93,6 +95,7 @@
 								@endif>{{$area->nombre}}</option>
 							@endforeach
 						</select>
+						</div>
 					</div>
 
 
@@ -330,21 +333,3 @@
 	</div>
 	
 @endsection
-<script>
-		$('select').on('click','#area_id',function(){
-			alert("area");
-			$.ajaxSetup({
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-			});
-			$.ajax({
-				url: "getareas",
-				type: "GET",
-				dataType: "html",
-
-			}).done(function(resultado){
-				$("#area_id").html(resultado);
-			})
-		});
-	</script>

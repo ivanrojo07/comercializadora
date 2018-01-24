@@ -21,7 +21,34 @@
 		</ul>
 	</div>
 	<div class="panel-default">
-		<div class="panel-heading"><h5>Laborales:</h5></div>
+
+		<div class="panel-heading"><h5>Laborales:</h5>
+
+		{{-- MODAL --}}
+		 <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info " data-toggle="modal" data-target="#formularioTutor">Open Large Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="formularioTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: 0,0 !important; right: -200px;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+		{{-- MODAL --}}
+
+		</div>
 		<div class="panel-body">
 			<div class="col-md-12 offset-md-2 mt-3"> 
 				<div class="form-group col-xs-3">
@@ -29,10 +56,16 @@
 					
 					<dd>{{ $datoslab->fechacontratacion }}</dd>
 				</div>
+
+
+
 				<div class="form-group col-xs-3">
 					<label class="control-label" for="contrato">Tipo de contrato:</label>
-					<dd>{{ $datoslab->contrato }}</dd>
+					<dd>{{ $contrato }}</dd>
 				</div>
+
+
+
 
                 <div class="form-group col-xs-3">
 					<label class="control-label" for="area">Área:</label>
@@ -102,7 +135,7 @@
 					<dd>{{ $datoslab->cuenta }}</dd>
 				</div>
 				<div class="form-group col-xs-3">
-					<label class="control-label" for="clabe">CLABE(Clave Bancaria Estandarizada):</label>
+					<label class="control-label" for="clabe">CLABE:</label>
 					<dd>{{ $datoslab->clabe }}</dd>
 				</div>
 			</div>

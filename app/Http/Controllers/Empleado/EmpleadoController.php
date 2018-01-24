@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
+use App\Area;
+use App\Puesto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +19,12 @@ class EmpleadoController extends Controller
     {
         //
         $empleados = Empleado::sortable()->paginate(5);
-        return view('empleado.index',['empleados'=>$empleados]);
+        $areas =     Area::get();
+        $puestos =   Puesto::get();
+        return view('empleado.index',[
+            'empleados'=>$empleados,
+            'areas'=>$areas,
+            'puestos'=>$puestos]);
 
     }
 

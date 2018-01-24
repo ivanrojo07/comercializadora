@@ -25,7 +25,9 @@ Auth::routes();
 Route::get('getareas','Area\AreaController@getAreas');
 Route::get('getcontratos','Precargas\TipoContratoController@getContratos');
 Route::get('getpuestos','Puesto\PuestoController@getPuestos');
-Route::get('getbajas','Precargas\TipoBajaController@getBajas');
+Route::get('getareas','Area\AreaController@getAreas');
+Route::get('getbancos','Banco\BancoController@getBancos');
+
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
 Route::resource('formacontactos','FormaContacto\FormaContactoController');
 
@@ -115,5 +117,6 @@ Route::get('comision',function(){
 //---------------------------------------------------------------------------
 Route::resource('areas','Area\AreaController', ['except'=>'show']);
 Route::resource('puestos','Puesto\PuestoController', ['except'=>'show']);
+Route::resource('bancos','Banco\BancoController', ['except'=>'show']);
 //--------------------------------------------------------------------
 

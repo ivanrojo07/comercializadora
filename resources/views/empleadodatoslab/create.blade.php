@@ -17,10 +17,21 @@
 			<li role="presentation" class=""><a href="{{ route('empleados.faltas.index',['empleado'=>$empleado]) }}" class="ui-tabs-anchor">Administrativo:</a></li>
 		</ul>
 	</div>
+
+
 	<div class="panel-default">
 		<div class="panel-heading"><h5>Laborales:
 		&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-asterisk" aria-hidden="true"></i>Campos Requeridos
-	</h5></div>
+	</h5>
+
+	{{-- MODAL --}}
+		
+		{{-- MODAL --}}
+
+
+</div>
+
+
 		<div class="panel-body">
 			@if ($edit == true)
 				{{-- true expr --}}
@@ -47,7 +58,7 @@
                          {{ csrf_field() }}
                          @else
 				{{-- false expr --}}
-				<input class="form-control" type="date" id="fechacontratacion" name="fechacontratacion" value="" >
+				<input class="form-control" type="date" id="fechacontratacion" name="fechacontratacion" value="" required="required">
 				{{ csrf_field() }}
 
 			@endif
@@ -274,38 +285,62 @@
 							@endif>Campo</option>
 						</select>
 					</div>
+
+
+
+
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="banco">Banco:</label>
-						<select class="form-control" type="select" name="banco" id="banco">
-							<option id="1" value="HSBC" @if ($datoslab->banco == "HSBC")
+						<label class="control-label" for="banco">
+						Bancos:</label>
+						<div class="input-group">
+  						<span class="input-group-addon" id="basic-addon3" onclick='getBancos()'><i class="fa fa-refresh" aria-hidden="true"></i></span>
+						<select type="select" name="banco" id="banco" class="form-control">
+
+							<option id="banco0" value="">Sin Definir</option>
+
+							@foreach($bancos as $banco)
+
+							<option 
+							id="{{$banco->nombre}}" 
+							value="{{$banco->nombre}}" 
+							@if ($datoslab->banco == $banco->nombre)
 								{{-- expr --}}
 								selected="selected" 
-							@endif>HSBC</option>
-							<option id="2" value="Banorte" @if ($datoslab->banco == "Banorte")
-								{{-- expr --}}
-								selected="selected" 
-							@endif>BANORTE</option>
-							<option id="3" value="Banamex" @if ($datoslab->banco == "Banamex")
-								{{-- expr --}}
-								selected="selected" 
-							@endif>BANAMEX</option>
+							@endif>{{$banco->nombre}}</option>
+
+							@endforeach
+
+
+
 						</select>
+						</div>
 					</div>
+
+					<!--  @foreach($bancos as $banco)
+
+							<option 
+							id="{{$banco->id}}" 
+							value="{{$banco->nombre}}" 
+							@if ($datoslab->banco == $banco->nombre)
+								{{-- expr --}}
+								selected="selected" 
+							@endif>{{$banco->nombre}}</option>
+
+							@endforeach -->
+
+
+
+
+
 					<div class="form-group col-xs-3">
 						<label class="control-label" for="cuenta">Cuenta:</label>
 						<input class="form-control" type="text" id="cuenta" name="cuenta" value="{{ $datoslab->cuenta }}">
 					</div>
 					<div class="form-group col-xs-3">
-						<label class="control-label" for="clabe">CLABE(Clave Bancaria Estandarizada):</label>
+						<label class="control-label" for="clabe">CLABE:</label>
 						<input class="form-control" type="clabe" name="clabe" id="clabe" value="{{ $datoslab->clabe }}">
 					</div>
-					<div class="form-group col-xs-3">
-						<label class="control-label" for="bonopuntualidad" id="lbl_inst2">Bono Puntualidad:</label>
-						<input id="boton-toggle" type="checkbox" data-toggle="toggle" data-on="Sí" data-off="No" data-style="ios" name="bonopuntualidad" @if ($datoslab->bonopuntualidad == 1)
-							{{-- expr --}}
-							checked="checked"
-						@endif>
-					</div>
+					
 				</div>
 				<div class="panel">
 					<div class="panel-heading">Datos de Baja:</div>
@@ -399,6 +434,20 @@
 			    dataType: "html",
 			}).done(function(resultado){
 			    $("#tipobaja_id").html(resultado);
+			});
+		}
+		function getBancos(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getbancos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#banco").html(resultado);
 			});
 		}
 	</script>

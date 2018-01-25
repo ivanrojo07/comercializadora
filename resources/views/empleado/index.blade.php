@@ -156,84 +156,97 @@
 
 
 
-
-				<div class="panel-default pestana" id="tab2{{$empleado->id}}">
-
-					<div class="panel-heading">Datos Laborales:</div>
-					<div class="panel-body">
-						@if (count($empleado->datosLab) == 0 )
+@if (count($empleado->datosLab) == 0 )
 							{{-- true expr --}}
 							<h3>Aun no tiene Datos Laborales</h3>
 						@else
 							{{-- false expr --}}
-
-						<div class="col-md-12 offset-md-2 mt-3">
-							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		    					<label class="control-label" for="calle">ID Empleado:</label>
-		    					<dd>{{$empleado->identificador}}</dd>
-		  					</div>
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		    					<label class="control-label" for="numext">Número de Seguro Social (IMSS):</label>
-		    					<dd>{{$empleado->nss}}</dd>
-		  					</div>	
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		    					<label class="control-label" for="numint">Número Infonavit:</label>
-		    					<dd>{{$empleado->infonavit}}</dd>
-		  					</div>		
-						</div>
-						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
-							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="colonia">Fecha de contratación:</label>
-		  						<dd>{{$empleado->datosLab->fechacontratacion}}</dd>
-		  					</div>
+							<?php$fecha='';?>
+		     @foreach ($empleado->datosLab as $dato)
+		     <?php $fecha=$dato->fechacontratacion ?>
+		     @endforeach
 
 
 
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="municipio">Puesto:</label>
-		  						
-		  						@foreach($puestos as $puesto)
-		  						@if($empleado->datosLab->puesto_id==$puesto->id)
-		  						<dd>{{$puesto->nombre}}</dd>
-		  						@else
-		  						<dd>No Definido</dd>
-		  						@endif
-		  						@endforeach
-		  						
-		  					</div>
+				<div class="panel-default pestana" id="tab2{{$empleado->id}}">
 
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="ciudad">Área:</label>
+					<div class="panel-heading"><strong>Historial Laboral:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha de Contratación: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$fecha}}</strong>
+						
+						
+					</div>
 
-		  						@foreach($areas as $area)
-		  						@if($empleado->datosLab->area_id==$area->id)
-		  						<dd>{{$area->nombre}}</dd>
-		  						@endif
-		  						@endforeach
+					<div class="panel-body">
 
-		  					</div>
+						
 
 
+<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
+			<thead>
+				<tr class="info">
+					<th>Fecha Actualizaciòn</th>
+					<th>Àrea</th>
+					<th>Puesto</th>
+					<th>Lugar de Trabajo</th>
+					<th>Tipo de Contrato</th>
+					<th>Detalles</th>
+				</tr>
+			</thead>
+			@foreach ($empleado->datosLab as $datos)
+				{{-- expr --}}
+				<tr class="active"
+				    title="Has Click Aquì para Ver"
+					style="cursor: pointer"
+					href="#{{$datos->id}}">
+					
+					<td>{{$datos->fechaactualizacion}}</td>
 
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="estado">Fecha de la baja:</label>
-		  						<dd>{{$empleado->datosLab->fechabaja}}</dd>
-		  					</div>
-						</div>
-						<div class="col-md-12 offset-md-2 mt-3" id="perfisica">
-							<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="calle1">Tipo de Baja:</label>
-		  						<dd>{{$empleado->datosLab->tipobaja_id}}</dd>
-		  					</div>
-		  					<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		  						<label class="control-label" for="calle2">Comentarios (Baja):</label>
-		  						<dd>{{$empleado->datosLab->comentariobaja}}</dd>
-		  					</div>
-		  					
-						</div>
+                    @foreach($areas as $area)
+                    @if($datos->area_id==$area->id)
+					<td>{{$area->nombre}}</td>
+					@endif
+					@endforeach
+
+					 @foreach($puestos as $puesto)
+                    @if($datos->puesto_id==$puesto->id)
+					<td>{{$puesto->nombre}}</td>
+					@endif
+					@endforeach
+
+					<td>{{$datos->lugartrabajo}}</td>
+
+					 @foreach($contratos as $contrato)
+                    @if($datos->contrato_id==$contrato->id)
+					<td>{{$contrato->nombre}}</td>
+					@endif
+					@endforeach
+
+
+					<td>
+						<a class="btn btn-success btn-sm" href="{{ route('empleados.show',['empleado'=>$empleado]) }}"><i class="fa fa-eye" aria-hidden="true"></i> Ver</a>
+						
+					</td>
+				</tr>
+			@endforeach
+		</table>
+		{{ $empleados->links() }}
+	
+
+
+
+
 						@endif
+						
 					</div>
 				</div>
+
+
+
+
+
+
+
+
+
 				<div class="panel-default pestana" id="tab3{{$empleado->id}}">
 					<div class="panel-heading">
 						Estudios:

@@ -316,17 +316,7 @@
 						</div>
 					</div>
 
-					<!--  @foreach($bancos as $banco)
-
-							<option 
-							id="{{$banco->id}}" 
-							value="{{$banco->nombre}}" 
-							@if ($datoslab->banco == $banco->nombre)
-								{{-- expr --}}
-								selected="selected" 
-							@endif>{{$banco->nombre}}</option>
-
-							@endforeach -->
+					
 
 
 
@@ -444,6 +434,21 @@
 			});
 			$.ajax({
 				url: "{{ url('/getbancos') }}",
+			    type: "GET",
+			    dataType: "html",
+			}).done(function(resultado){
+			    $("#banco").html(resultado);
+			});
+		}
+
+		function getSucursal(){
+			$.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+			});
+			$.ajax({
+				url: "{{ url('/getSucursal') }}",
 			    type: "GET",
 			    dataType: "html",
 			}).done(function(resultado){

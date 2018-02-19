@@ -23,10 +23,12 @@ class EmpleadosDatosLabController extends Controller
     {
         //
         $datoslab = $empleado->datosLab;
-        // dd($datoslab);
+
+         
         
         /* OJO AQUI, PRIMERO IRIA ESTE CODIGO ANTES DE BUSCAR SI EXISTE UN area_id*/
-        if ($datoslab == null) {
+        if (count($datoslab)==0 ) {
+           //dd($datoslab);
             # code...
             return redirect()->route('empleados.datoslaborales.create',['empleado'=>$empleado]);
         } else {

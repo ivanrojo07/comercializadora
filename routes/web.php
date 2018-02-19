@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('getareas','Area\AreaController@getAreas');
 Route::get('getcontratos','Precargas\TipoContratoController@getContratos');
 Route::get('getpuestos','Puesto\PuestoController@getPuestos');
-Route::get('getareas','Area\AreaController@getAreas');
+Route::get('getSucursal','Sucursal\SucursalController@getSucursal');
 Route::get('getbancos','Banco\BancoController@getBancos');
 
 Route::resource('giros','Giro\GiroController', ['except'=>'show']);
